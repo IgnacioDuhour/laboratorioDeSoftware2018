@@ -1,8 +1,34 @@
 <resources>
+    <!-- Main -->
     <string name="app_name" translatable="false">RazasyPelejesDiazDuhour</string>
     <string name="app_button" translatable="false">Reconocimiento</string>
     <string name="app_button2" translatable="false">Jugar</string>
     <string name="image_logo" translatable="false">Logo CEDICA</string>
     <string name="about_button" translatable="false">Acerca de</string>
     <string name="settings_button" translatable="false">Configuración</string>
+    <!-- Dialogo Acerca de -->
+    <string name="about_title" translatable="false">Grupo 5</string>
+    <string name="about_dialog_btn" translatable="false">Ok</string>
+    <string name="about_message" translatable="false">Maira Diaz, Ignacio Duhour</string>
+    <!-- Settings -->
+    <string name="rec_mode_title" translatable="false">Modo Reconocimiento:</string>
+    <string name="play_mode_title" translatable="false">Minijuego:</string>
+    <string name="int_mode_title" translatable="false">Modo Interacción:</string>
+    <string name="settings_mode_title" translatable="false">Ajustes:</string>
+    <string name="settings_list_radio" translatable="false">Lista</string>
+    <string name="settings_grid_radio" translatable="false">Grilla</string>
+    <string name="breed_rec_check" translatable="false">Razas</string>
+    <string name="fur_rec_check" translatable="false">Pelaje</string>
+    <string name="crossbreed_rec_check" translatable="false">Cruzas</string>
+    <string name="breed_fur_radio" translatable="false">Razas y Pelajes</string>
+    <string name="breed_and_fur_radio" translatable="false">Razas y Pelajes Juntas</string>
+    <string name="crossbreed_radio" translatable="false">Cruza</string>
+    <string name="int_a_radio" translatable="false">Interacción A</string>
+    <string name="int_b_radio" translatable="false">Interacción B</string>
+    <string name="int_c_radio" translatable="false">Interacción C</string>
+    <string name="level_1" translatable="false">Nivel 1</string>
+    <string name="level_2" translatable="false">Nivel 2</string>
+    <string name="male_audio">Masculina</string>
+    <string name="female_audio">Femenina</string>
+    <string name="settings_btn" translatable="false">Guardar</string>
 </resources>
