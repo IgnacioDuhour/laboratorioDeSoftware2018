@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MimiGameActivity"
+    tools:showIn="@layout/activity_mimi_game">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="222dp"
+        android:layout_height="289dp"
+        android:contentDescription="principal image"
+        tools:layout_editor_absoluteX="81dp"
+        tools:layout_editor_absoluteY="83dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <ImageView
+        android:id="@+id/imageViewA"
+        android:layout_width="151dp"
+        android:layout_height="306dp"
+        android:contentDescription="imagen a"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="236dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <ImageView
+        android:id="@+id/imageViewB"
+        android:layout_width="150dp"
+        android:layout_height="246dp"
+        android:contentDescription="image b "
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="265dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minigame_back"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="463dp" />
+
+    <TextView
+        android:id="@+id/titleMiniGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:text="@string/minigame_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tipeMiniGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minigame_subtitle"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="70dp" />
+
+</android.support.constraint.ConstraintLayout>

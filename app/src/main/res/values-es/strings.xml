@@ -33,12 +33,12 @@
     <string name="settings_btn" translatable="false">Guardar</string>
     <string name="title_activity_mimi_game">MimiGameActivity</string>
     <string name="title_activity_recognition">RecognitionActivity</string>
-    <string name="cruzas">Cruzas</string>
-
 
     <!-- MiniGame Activity -->
     <string name="minigame_title">Minijuego</string>
     <string name="minigame_subtitle">Cruzas</string>
-    <string name="minigame_back">Volver</string>
+    <string name="minigame_back">Cruzas</string>
+
+
 
 </resources>

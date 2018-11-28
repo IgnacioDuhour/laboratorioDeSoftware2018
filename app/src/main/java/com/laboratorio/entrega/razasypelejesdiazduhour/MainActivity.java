@@ -57,4 +57,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    /** Called when the user taps the "Jugar" button */
+    public void playMiniGameMode(View view) {
+        Intent i = new Intent(MainActivity.this, MimiGameActivity.class);
+        startActivity(i);
+    }
+
+    /**Called when the user taps the "Reconocimiento" button */
+    public void playRecognitionMode(View view) {
+        Intent i = new Intent(MainActivity.this, RecognitionActivity.class);
+        startActivity(i);
+    }
+
+    /** Called when the user taps the icon "configuration" */
+    public void setUpSettings(View view) {
+        Intent i = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(i);
+    }
+
+
 }
+
+
