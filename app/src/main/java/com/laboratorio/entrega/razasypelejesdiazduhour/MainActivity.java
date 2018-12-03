@@ -57,4 +57,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public void settings(View view){
+        Intent i = new Intent(this, SettingsActivity.class);
+        startActivity(i);
+    }
 }

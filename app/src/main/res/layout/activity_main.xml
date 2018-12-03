@@ -44,6 +44,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/settings_button"
+        android:onClick="settings"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
