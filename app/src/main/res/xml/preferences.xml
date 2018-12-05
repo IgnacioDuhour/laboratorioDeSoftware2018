@@ -3,7 +3,7 @@
     <!-- modo de visualizacion  -->
     <CheckBoxPreference
         android:defaultValue="true"
-        android:key="@string/settings_list_radio"
+        android:key="lista"
         android:summary="Mostrar en modo lista"
         android:title="@string/settings_list_radio" />
     <CheckBoxPreference
