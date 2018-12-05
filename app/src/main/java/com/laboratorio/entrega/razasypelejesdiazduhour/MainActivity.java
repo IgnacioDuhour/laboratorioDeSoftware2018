@@ -19,24 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
         final Activity act = this;
 
-        Button recButton = act.findViewById(R.id.button);
-        recButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(act, ReconocimientoActivity.class);
-                startActivity(i);
-            }
-        });
-
-        Button playButton = act.findViewById(R.id.button2);
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(act, ReconocimientoActivity.class);
-                startActivity(i);
-            }
-        });
-
         ImageButton aboutButton = act.findViewById(R.id.imageButton2);
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the "Jugar" button */
     public void playMiniGameMode(View view) {
-        Intent i = new Intent(MainActivity.this, MimiGameActivity.class);
+
+        /*TODO: Setear la actividad en funcion de la configuracion */
+        Intent i = new Intent(MainActivity.this, MimiGameRyP2BActivity.class);
         startActivity(i);
     }
 
