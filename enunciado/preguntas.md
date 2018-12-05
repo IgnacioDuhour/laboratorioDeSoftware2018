@@ -30,7 +30,7 @@
 4. cuántos tipos de juegos existen? 18 combinaciones
 
 ## ALMACENAMIENTO
-1. puedo usar un json para obtener los datos de las jugadas? 
+1. uso *preferences* para guardar los datos de las jugadas? 
 
 ## COMBINACIÓN DE JUGAS Y ACTIVITIES
 
@@ -41,22 +41,39 @@ Jugada: ITEM PPAL + ITEMS ASOCIADOS (2 a 4)
 - III 3 interacciones: A,B,C
 
 juego 1:  RyP 1 A
+
 juego 2:  RyP 1 B
+
 juego 3:  RyP 1 C
+
 juego 4:  RyP 2 A
+
 juego 5:  RyP 2 B *este elijo implementar*
+
 juego 6:  RyP 2 C
+
 juego 7:  RyPJ 1 A
+
 juego 8:  RyPJ 1 B
+
 juego 9:  RyPJ 1 C
+
 juego 10: RyPJ 2 A
+
 juego 11: RyPJ 2 B
+
 juego 12: RyPJ 2 C
+
 juego 13: C    1 A
+
 juego 14: C    1 B
+
 juego 15: C    1 C
+
 juego 16: C    2 A
+
 juego 17: C    2 B
+
 juego 18: C    2 C
 
 agrupo por I (minijuego), II (niveles) o III (interacciones)?
