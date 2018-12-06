@@ -18,14 +18,6 @@
         </activity>
         <activity android:name=".ReconocimientoActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity
-            android:name=".MimiGameActivity"
-            android:label="@string/title_activity_mimi_game"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".RecognitionActivity"
-            android:label="@string/title_activity_recognition"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".BreedFurActivity"></activity>
     </application>
 
