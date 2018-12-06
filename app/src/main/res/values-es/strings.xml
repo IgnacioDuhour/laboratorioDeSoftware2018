@@ -34,11 +34,7 @@
     <string name="title_activity_mimi_game">MimiGameActivity</string>
     <string name="title_activity_recognition">RecognitionActivity</string>
 
-    <!-- MiniGame Activity -->
-    <string name="minigame_title">Minijuego</string>
-    <string name="minigame_subtitle">Cruzas</string>
-    <string name="minigame_back">Cruzas</string>
-
-
+    <!-- BreedFur Activity -->
+    <string name="breedfur_back_button">Volver</string>
 
 </resources>

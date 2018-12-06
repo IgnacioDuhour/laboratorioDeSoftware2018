@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -42,9 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the "Jugar" button */
     public void playMiniGameMode(View view) {
-
-        /*TODO: Setear la actividad en funcion de la configuracion */
-        Intent i = new Intent(MainActivity.this, MimiGameRyP2BActivity.class);
+        Intent i = new Intent(MainActivity.this, BreedFurActivity.class);
         startActivity(i);
     }
 
@@ -59,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, SettingsActivity.class);
         startActivity(i);
     }
-
 
 }
 

@@ -2,10 +2,12 @@
     <!-- Main -->
     <string name="app_name" translatable="false">RazasyPelejesDiazDuhour</string>
     <string name="app_button" translatable="false">Reconocimiento</string>
-    <string name="app_button2" translatable="false">Jugar</string>
+    <string name="main_minigame_button" translatable="false">Jugar</string>
     <string name="image_logo" translatable="false">Logo CEDICA</string>
     <string name="about_button" translatable="false">Acerca de</string>
     <string name="settings_button" translatable="false">Configuración</string>
+
+
     <!-- Dialogo Acerca de -->
     <string name="about_title" translatable="false">Grupo 5</string>
     <string name="about_dialog_btn" translatable="false">Ok</string>
@@ -31,14 +33,8 @@
     <string name="male_audio">Masculina</string>
     <string name="female_audio">Femenina</string>
     <string name="settings_btn" translatable="false">Guardar</string>
-    <string name="title_activity_mimi_game">MimiGameActivity</string>
-    <string name="title_activity_recognition">RecognitionActivity</string>
-    <string name="cruzas">Cruzas</string>
 
-
-    <!-- MiniGame Activity -->
-    <string name="minigame_title">Minijuego</string>
-    <string name="minigame_subtitle">Cruzas</string>
-    <string name="minigame_back">Volver</string>
+    <!-- Activity  BreedFurActivity -->
+    <string name="breedfur_back_button" translatable="false">Volver</string>
 
 </resources>
