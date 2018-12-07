@@ -16,3 +16,20 @@
    android:textColor="#FFF"
 
 ```
+
+
+
+R.drawable.imgage ?
+getResources()
+
+
+imageView.setImageResource(R.drawable.beerbottle);
+relativeLayout.addView(imageView, layoutParams);
+
+
+imageView.setImageDrawable(getDrawable(R.drawable.animal));
+
+
+1. get layout: RelativeLayout rl = (RelativeLayout) findViewById(R.id.rl);
+2. set src to image: imageView.setImageResource(R.drawable.beerbottle); o imageView.setImageDrawable(getDrawable(R.drawable.animal));
+3. add image to layout: relativeLayout.addView(imageView, layoutParams); o relativeLayout.addView(imageView);

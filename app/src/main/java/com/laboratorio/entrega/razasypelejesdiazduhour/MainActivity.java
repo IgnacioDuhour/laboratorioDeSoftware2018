@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**Called when the user taps the "Reconocimiento" button */
     public void playRecognitionMode(View view) {
-        Intent i = new Intent(MainActivity.this, RecognitionActivity.class);
+        Intent i = new Intent(MainActivity.this, ReconocimientoActivity.class);
         startActivity(i);
     }
 
