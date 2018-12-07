@@ -28,10 +28,14 @@
             android:layout_marginLeft="10dp">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/breedfurTitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Juego" />
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="@string/breedfur_title_textView" />
         </TableRow>
 
         <TableRow
@@ -40,14 +44,14 @@
             android:layout_margin="25dp">
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/breedOrFurItemTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:text="Lorem Ipsum"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:text="RAZA O PELAJE" />
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
         </TableRow>
 
@@ -58,7 +62,7 @@
             android:weightSum="4">
 
             <ImageView
-                android:id="@+id/imageView1"
+                android:id="@+id/breedfurImageView1"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="5dp"
@@ -66,7 +70,7 @@
                 app:srcCompat="@drawable/caballo1" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/breedfurImageView2"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="5dp"
@@ -74,7 +78,7 @@
                 app:srcCompat="@drawable/caballo1" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/breedfurImageView3"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="5dp"
@@ -82,7 +86,7 @@
                 app:srcCompat="@drawable/caballo1" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/breedfurImageView4"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="5dp"
@@ -98,11 +102,15 @@
             android:layout_margin="20dp">
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/breedfurBackButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="@string/breedfur_back_button" />
+                android:layout_gravity="end"
+                android:onClick="backButton"
+                android:background="@color/colorPrimaryDark"
+                android:text="@string/breedfur_back_button"
+                android:textColor="#FFF"
+                android:textAlignment="center"/>
 
         </TableRow>
     </TableLayout>
