@@ -25,21 +25,41 @@ public class BreedFurActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_breed_fur);
         loadFirstPlay();
-
-
-        ImageView imageButton = (ImageView) findViewById(R.id.breedfurImageView1);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                imageView1OnClick();
-            }
-        });
+        loadOnClickListenerToHorseImages();
     }
 
     private void loadFirstPlay() {
         this.lastPlayWon = 0;
         generateSequenceOfRandomGame();
         loadActivityWithBInteraction();
+    }
+
+    private void loadOnClickListenerToHorseImages() {
+        final ImageView horseImg1 = (ImageView) findViewById(R.id.breedfurImageView1);
+        horseImg1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageViewOnClick(horseImg1);
+            }
+        });
+        final ImageView horseImg2 = (ImageView) findViewById(R.id.breedfurImageView1);
+        horseImg2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageViewOnClick(horseImg2);            }
+        });
+        final ImageView horseImg3 = (ImageView) findViewById(R.id.breedfurImageView1);
+        horseImg3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageViewOnClick(horseImg3);            }
+        });
+        final ImageView horseImg4 = (ImageView) findViewById(R.id.breedfurImageView1);
+        horseImg4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageViewOnClick(horseImg4);            }
+        });
     }
 
     private void generateSequenceOfRandomGame(){
@@ -109,17 +129,17 @@ public class BreedFurActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void imageView1OnClick() {
-        //breedfurImageView1
-        ImageView img1 = (ImageView)findViewById(R.id.breedfurImageView1);
-        if (img1.getTag()==typeHorseTextView()) {
+    //verifica si la jugada es correcta:
+    //juagda ganada: imagen coincide con el texto
+    //jugada perdida: cc
+    public void imageViewOnClick(ImageView imageView) {
+        if (imageView.getTag()==typeHorseTextView()) {
             dialogWithTheOptionToNextPlay();
         } else {
-            //emitir sonodio y volver a la misma actividad con las misma jugada
+            //emitir sonodio relinche y volver a la misma actividad con las misma jugada
             Intent i = new Intent(BreedFurActivity.this, SettingsActivity.class);
             startActivity(i);
         }
-
     }
 
     //mensaje con dos opciones: volver a jugar|siguiente jugada
@@ -128,30 +148,18 @@ public class BreedFurActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Jugada Ganada");
         //builder.setMessage("This is my message.");
-
         // add a button
         builder.setPositiveButton("Siguiente jugada", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 loadNextPlay();
             }
         });
-        builder.setNeutralButton("Volver a jugar", null);
+        builder.setNeutralButton("Volver a jugar", null); //cambiar null por método que reordene la jugada
         // create and show the alert dialog
         AlertDialog dialog = builder.create();
         dialog.show();
     }
 
-    public void imageView2OnClick(View view) {
-
-    }
-
-    public void imageView3OnClick(View view) {
-
-    }
-
-    public void imageView4OnClick(View view) {
-
-    }
 
     //pensar en un nombre que no sea textview
     //devuelve el typo (pelaje o raza) del caballo que aparece en el texto (textView)

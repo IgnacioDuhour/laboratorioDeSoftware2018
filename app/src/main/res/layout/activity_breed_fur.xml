@@ -76,7 +76,6 @@
                     android:layout_height="100dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:onClick="imageView1OnClick"
                     app:srcCompat="@drawable/defaultfur" />
 
             </LinearLayout>
@@ -96,7 +95,6 @@
                     android:layout_height="100dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:onClick="imageView2OnClick"
                     app:srcCompat="@drawable/defaultfur" />
             </LinearLayout>
             <!-- col 2 end -->
@@ -115,7 +113,6 @@
                     android:layout_height="100dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:onClick="imageView3OnClick"
                     app:srcCompat="@drawable/defaultfur" />
             </LinearLayout>
             <!-- col 3 end -->
@@ -133,7 +130,6 @@
                     android:layout_height="100dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:onClick="imageView4OnClick"
                     app:srcCompat="@drawable/defaultfur" />
             </LinearLayout>
             <!-- col 4 end -->
