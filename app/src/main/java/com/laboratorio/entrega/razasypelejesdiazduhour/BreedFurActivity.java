@@ -3,6 +3,7 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class BreedFurActivity extends AppCompatActivity {
 
@@ -19,10 +21,17 @@ public class BreedFurActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_breed_fur);
-
         loadFirstPlay();
+
+
+        ImageView imageButton = (ImageView) findViewById(R.id.breedfurImageView1);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageView1OnClick();
+            }
+        });
     }
 
     private void loadFirstPlay() {
@@ -60,18 +69,22 @@ public class BreedFurActivity extends AppCompatActivity {
     private void loadTheCorrectImage() {
         ImageView img1 = (ImageView) findViewById(R.id.breedfurImageView1);
         img1.setImageResource(getDrawableValueByImage(playSequences[lastPlayWon]));
+        img1.setTag(typeHorseTextView());
     }
 
     @SuppressLint("ResourceType")
     private void loadTheOtherThreeImages() {
-        ImageView img2 = (ImageView) findViewById(R.id.breedfurImageView2);
-        img2.setImageResource(getDrawableValueByImage(playSequences[lastPlayWon+1]));
+        ImageView img2 = (ImageView) findViewById(R.id.breedfurImageView2); //get imageView
+        img2.setImageResource(getDrawableValueByImage(playSequences[lastPlayWon+1]));//set resource to imageView
+        img2.setTag(playSequences[lastPlayWon+1]); // set name to imageView to distinguish
 
         ImageView img3 = (ImageView) findViewById(R.id.breedfurImageView3);
         img3.setImageResource(getDrawableValueByImage(playSequences[lastPlayWon+2]));
+        img3.setTag(playSequences[lastPlayWon+2]);
 
         ImageView img4 = (ImageView) findViewById(R.id.breedfurImageView4);
         img4.setImageResource(getDrawableValueByImage(playSequences[lastPlayWon+3]));
+        img4.setTag(playSequences[lastPlayWon+3]);
 
     }
 
@@ -92,5 +105,45 @@ public class BreedFurActivity extends AppCompatActivity {
     public void backButton(View view) {
         Intent i = new Intent(BreedFurActivity.this, MainActivity.class);
         startActivity(i);
+    }
+
+    public void imageView1OnClick() {
+        //breedfurImageView1
+        ImageView img1 = (ImageView)findViewById(R.id.breedfurImageView1);
+        Intent i;
+        if (img1.getTag()==typeHorseTextView()) {
+            i = new Intent(BreedFurActivity.this, MainActivity.class);
+        } else {
+            i = new Intent(BreedFurActivity.this, SettingsActivity.class);
+        }
+        startActivity(i);
+    }
+
+    public void imageView2OnClick(View view) {
+
+    }
+
+    public void imageView3OnClick(View view) {
+
+    }
+
+    public void imageView4OnClick(View view) {
+
+    }
+
+    //pensar en un nombre que no sea textview
+    //devuelve el typo (pelaje o raza) del caballo que aparece en el texto (textView)
+    private String typeHorseTextView() {
+        return playSequences[lastPlayWon];
+    }
+
+    //devuelve el nombre del caballo para la primera imagen
+    private String typeHorseImage1() {
+        return playSequences[lastPlayWon];
+    }
+
+    //devuelve el nombre del caballo para la primera imagen
+    private String typeHorseImage2() {
+        return playSequences[lastPlayWon+1];
     }
 }

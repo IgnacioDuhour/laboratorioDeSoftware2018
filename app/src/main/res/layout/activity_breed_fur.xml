@@ -6,154 +6,161 @@
     android:layout_height="fill_parent"
     android:fillViewport="true">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" >
-
-    <!-- row 1 -->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="30dp">
-        <TextView
-            android:id="@+id/breedfurTitleTextView"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:text="@string/breedfur_title_textView" />
-    </LinearLayout>
-    <!-- row 1 end -->
-
-    <!-- row 2 -->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginBottom="30dp">
-
-        <TextView
-            android:id="@+id/breedOrFurItemTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:text="Lorem Ipsum"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:textAlignment="center"/>
-
-    </LinearLayout>
-    <!-- row 2 end-->
-
-    <!-- row 3 -->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="4" >
-
-        <!-- col 1 -->
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/breedfurImageView1"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/defaultfur" />
-
-        </LinearLayout>
-        <!-- col 1 end -->
-        <!-- col 2 -->
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/breedfurImageView2"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/defaultfur" />
-        </LinearLayout>
-        <!-- col 2 end -->
-        <!-- col 3 -->
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/breedfurImageView3"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/defaultfur" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:orientation="vertical" >
-            <ImageView
-                android:id="@+id/breedfurImageView4"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/defaultfur" />
-        </LinearLayout>
-    </LinearLayout>
-    <!-- row 3 end -->
-
-    <!-- row 4 -->
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="20dp">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/breedfurBackButton"
-            android:layout_width="wrap_content"
+        <!-- row 1 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:background="@color/colorPrimaryDark"
-            android:onClick="backButton"
-            android:text="@string/breedfur_back_button"
-            android:textAlignment="center"
-            android:textColor="#FFF" />
-    </LinearLayout>
-    <!-- row 3 end -->
+            android:orientation="horizontal"
+            android:layout_margin="30dp">
+            <TextView
+                android:id="@+id/breedfurTitleTextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="@string/breedfur_title_textView" />
+        </LinearLayout>
+        <!-- row 1 end -->
 
-</LinearLayout>
+        <!-- row 2 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="30dp">
+
+            <TextView
+                android:id="@+id/breedOrFurItemTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="Lorem Ipsum"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+        <!-- row 2 end-->
+
+        <!-- row 3 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4" >
+
+            <!-- col 1 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/breedfurImageView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:onClick="imageView1OnClick"
+                    app:srcCompat="@drawable/defaultfur" />
+
+            </LinearLayout>
+            <!-- col 1 end -->
+
+            <!-- col 2 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/breedfurImageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:onClick="imageView2OnClick"
+                    app:srcCompat="@drawable/defaultfur" />
+            </LinearLayout>
+            <!-- col 2 end -->
+
+            <!-- col 3 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/breedfurImageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:onClick="imageView3OnClick"
+                    app:srcCompat="@drawable/defaultfur" />
+            </LinearLayout>
+            <!-- col 3 end -->
+
+            <!-- col 4 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:orientation="vertical" >
+                <ImageView
+                    android:id="@+id/breedfurImageView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:onClick="imageView4OnClick"
+                    app:srcCompat="@drawable/defaultfur" />
+            </LinearLayout>
+            <!-- col 4 end -->
+
+        </LinearLayout>
+        <!-- row 3 end -->
+
+        <!-- row 4 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="20dp">
+
+            <Button
+                android:id="@+id/breedfurBackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@color/colorPrimaryDark"
+                android:onClick="backButton"
+                android:text="@string/breedfur_back_button"
+                android:textAlignment="center"
+                android:textColor="#FFF" />
+        </LinearLayout>
+        <!-- row 3 end -->
+
+    </LinearLayout>
 </ScrollView>
 
