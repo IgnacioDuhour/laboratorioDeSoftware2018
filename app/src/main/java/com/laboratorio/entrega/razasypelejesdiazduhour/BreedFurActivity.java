@@ -1,10 +1,12 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -110,13 +112,33 @@ public class BreedFurActivity extends AppCompatActivity {
     public void imageView1OnClick() {
         //breedfurImageView1
         ImageView img1 = (ImageView)findViewById(R.id.breedfurImageView1);
-        Intent i;
         if (img1.getTag()==typeHorseTextView()) {
-            i = new Intent(BreedFurActivity.this, MainActivity.class);
+            dialogWithTheOptionToNextPlay();
         } else {
-            i = new Intent(BreedFurActivity.this, SettingsActivity.class);
+            //emitir sonodio y volver a la misma actividad con las misma jugada
+            Intent i = new Intent(BreedFurActivity.this, SettingsActivity.class);
+            startActivity(i);
         }
-        startActivity(i);
+
+    }
+
+    //mensaje con dos opciones: volver a jugar|siguiente jugada
+    private void dialogWithTheOptionToNextPlay() {
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Jugada Ganada");
+        //builder.setMessage("This is my message.");
+
+        // add a button
+        builder.setPositiveButton("Siguiente jugada", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                loadNextPlay();
+            }
+        });
+        builder.setNeutralButton("Volver a jugar", null);
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     public void imageView2OnClick(View view) {
@@ -145,5 +167,11 @@ public class BreedFurActivity extends AppCompatActivity {
     //devuelve el nombre del caballo para la primera imagen
     private String typeHorseImage2() {
         return playSequences[lastPlayWon+1];
+    }
+
+    private void loadNextPlay() {
+        this.lastPlayWon ++;
+        loadTextView();
+        loadFourImagesView();
     }
 }
