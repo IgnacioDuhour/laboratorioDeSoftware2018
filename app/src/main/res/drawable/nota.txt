@@ -1,0 +1,1 @@
+En la carpeta drawable se encuentran las imágenes tanto de las razas como de los pelajes de los caballes.

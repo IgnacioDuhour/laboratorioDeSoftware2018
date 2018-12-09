@@ -5,62 +5,50 @@ import java.util.Random;
 public class MiniJuego {
 
     private Jugada[] secuenciaDeJugadas;
-    private int ultimaJugadaGanada;
-    private int CANTIDAD_JUGADAS=10; //este número depende de la cantidad de razas y pelejaes que haya
+    private Jugada jugadaActual;
+    private int indiceJugadaActual;
+    private int CANTIDAD_JUGADAS; //describe un número según de la cantidad de razas y pelejaes que haya
 
     public MiniJuego(){
         this.secuenciaDeJugadas = new Jugada[CANTIDAD_JUGADAS];
-        ultimaJugadaGanada = 0;
+        indiceJugadaActual = 0;
     }
-
-    /*
-        Propósito: Genera una secuencia aleatórea de jugadas para una partida
-     */
-    private void generarSecuenciaDeJugadasAleatoreas(){
-
-    }
-
-
-    /*
-        Propósito: Retorna una nueva jugada según la última jugada ganada
-     */
-    private Jugada  nuevaJugada() {
-        return new Jugada(secuenciaDeJugadas,ultimaJugadaGanada);
-    }
-
-    /*
-        Propósito: Avanza a la siguiente jugada
-     */
-    private void siguienteJugada(){
-        this.ultimaJugadaGanada++;
-    }
-
 
     /*
         Propósito: Inicia el minijuego y genera la secuencia aleatórea de jugadas para una partida
      */
     public void iniciarJuego() {
+        this.indiceJugadaActual = 0;
         generarSecuenciaDeJugadasAleatoreas();
+        this.jugadaActual = this.secuenciaDeJugadas[indiceJugadaActual];
+        this.CANTIDAD_JUGADAS = Raza.cantidadDeRazas()+Pelaje.cantidadDePelajes();
     }
-
 
     /*
-        Propósito: Retorna la próxima jugada
+        Propósito: Retorna la próxima jugada según la última jugada ganada
+        Precondición: Existe una próxima jugada, es decir, esUltimaJugada es falso
      */
-    public Jugada jugadaProxima()  {
-        siguienteJugada();
-        return nuevaJugada();
+    public Jugada jugadaSiguiente()  {
+        this.indiceJugadaActual++;
+        this.jugadaActual = secuenciaDeJugadas[indiceJugadaActual];
+        return this.jugadaActual;
     }
 
-    public Jugada jugadaActual() {
-        return this.secuenciaDeJugadas[ultimaJugadaGanada];
-    }
+    /*
+        Propósito: Retorna la jugada actual
+     */
+    public Jugada jugadaActual() { return jugadaActual; }
+
+    /*
+        Propósito: Describe la cantidad de jugadas para una partida
+     */
+    public int cantidadDeJugadas() { return CANTIDAD_JUGADAS; }
 
     /*
         Propósito: Describe verdadero cuando es la última jugada del minijuego Razas y Pelajes
      */
     public boolean esUltimaJugada() {
-        return this.ultimaJugadaGanada == CANTIDAD_JUGADAS;
+        return this.indiceJugadaActual == CANTIDAD_JUGADAS;
     }
 
 
@@ -68,7 +56,7 @@ public class MiniJuego {
         Propósito: Reanuda la jugada actual
      */
     public Jugada reanudarJugada() {
-        return this.secuenciaDeJugadas[ultimaJugadaGanada]; // NO ME GUSTA COMO ESTÁ QUEDANDO ESTA PARTE
+        return null;//this.secuenciaDeJugadas[indiceJugadaActual]; // NO ME GUSTA COMO ESTÁ QUEDANDO ESTA PARTE
     }
 
 
@@ -79,13 +67,43 @@ public class MiniJuego {
     public void suspenderJugada(){};
 
 
-    public int nroAleatorioEntreMinyMax(int min, int max) {
-        Random r = new Random();
-		return r.nextInt((max - min) + 1) + min;
+
+    /*
+        Propósito: Genera una secuencia aleatórea de jugadas para una partida
+    */
+    private void generarSecuenciaDeJugadasAleatoreas(){
+        Jugada[] jugadasOrdenadas = jugadasTotales();
+        Jugada[] jugadasAleatorias = new Jugada[CANTIDAD_JUGADAS];
+        for (int i=0; i<CANTIDAD_JUGADAS;i++) {
+            jugadasAleatorias[i] = jugadasOrdenadas[i];
+        }
+        for (int i=1; i<CANTIDAD_JUGADAS;i++) {
+            swapJugadas(i, nroAleatorioEntreMinyMax(0,i-1));
+        }
     }
 
+    //Propósito: Retorna todas las jugadas que existan para las razas y pelajes existentes en el mini juego
+    private Jugada[] jugadasTotales() {
+        Jugada[] jugadasTotales = new Jugada[CANTIDAD_JUGADAS];
+        Raza[] razas = Raza.values();
+        Pelaje[] pelajes = Pelaje.values();
+        for (int i=0; i<Raza.cantidadDeRazas();i++) jugadasTotales[i] = new JugadaRaza(razas[i]);
+        for (int i=Raza.cantidadDeRazas(); i<CANTIDAD_JUGADAS;i++) jugadasTotales[i] = new JugadaPelaje(pelajes[i]);
+        return jugadasTotales;
+    }
 
-    
+    //Propósito: Intercambia dos jugadas de la secuencia de jugadas
+    private void swapJugadas(int i, int j) {
+        Jugada aux;
+        aux = this.secuenciaDeJugadas[i];
+        this.secuenciaDeJugadas[i] = this.secuenciaDeJugadas[j];
+        this.secuenciaDeJugadas[j] = aux;
+    }
 
+    //Propósito: Retorna un número aleatóreo entre "min" y "max"
+    private int nroAleatorioEntreMinyMax(int min, int max) {
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
+    }
 
 }
