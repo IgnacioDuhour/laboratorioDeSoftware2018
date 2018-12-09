@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class MiniJuego {
 
-    private Jugada[] secuenciaDeJugadas;
-    private Jugada jugadaActual;
-    private int indiceJugadaActual;
+    private Jugada[] secuenciaDeJugadas; //describe una secuencia de jugadas aleatoreas definidas al inicio del juego
+    private Jugada jugadaActual; //Describe la jugada actual, sea de Raza o Pelaje
+    private int indiceJugadaActual; // describe la posición de la jugada actual en "secuenciaDeJugadas"
     private int CANTIDAD_JUGADAS; //describe un número según de la cantidad de razas y pelejaes que haya
 
     public MiniJuego(){
@@ -25,13 +25,20 @@ public class MiniJuego {
     }
 
     /*
-        Propósito: Retorna la próxima jugada según la última jugada ganada
-        Precondición: Existe una próxima jugada, es decir, esUltimaJugada es falso
+        Propósito: Retorna la jugada siguiente según la última jugada ganada
+        Precondición: Existe una jugada siguiente, es decir, esUltimaJugada es falso
      */
     public Jugada jugadaSiguiente()  {
         this.indiceJugadaActual++;
         this.jugadaActual = secuenciaDeJugadas[indiceJugadaActual];
         return this.jugadaActual;
+    }
+
+    /*
+        Propósito: Reanuda la jugada actual
+     */
+    public Jugada reanudarJugada() {
+        return this.jugadaActual.reanudadJugada();
     }
 
     /*
@@ -49,13 +56,6 @@ public class MiniJuego {
      */
     public boolean esUltimaJugada() {
         return this.indiceJugadaActual == CANTIDAD_JUGADAS;
-    }
-
-    /*
-        Propósito: Reanuda la jugada actual
-     */
-    public Jugada reanudarJugada() {
-        return this.jugadaActual.reanudadJugada();//this.secuenciaDeJugadas[indiceJugadaActual]; // NO ME GUSTA COMO ESTÁ QUEDANDO ESTA PARTE
     }
 
     /*

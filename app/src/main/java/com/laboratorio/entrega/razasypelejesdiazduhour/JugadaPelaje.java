@@ -27,7 +27,7 @@ public class JugadaPelaje extends Jugada {
     }
 
     /*
-        Propósito: Retorna los nombres (4) de las Razas para la jugada
+        Propósito: Retorna los cuatro (4) nombres aleatoreos de las Razas para la jugada
      */
     @Override
     public String[] nombreDeLasJugadas() {
@@ -36,6 +36,11 @@ public class JugadaPelaje extends Jugada {
             nombresDeLaJugada[i] = cuatroPelajesDistintos[i].toString().toLowerCase();
         }
         return nombresDeLaJugada;
+    }
+
+    @Override
+    public int posicionDeLaJugadaGanadora() {
+        return 0;
     }
 
 }

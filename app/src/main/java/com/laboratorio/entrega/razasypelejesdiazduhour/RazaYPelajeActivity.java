@@ -1,6 +1,9 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,54 +21,154 @@ public class RazaYPelajeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_raza_ypelaje);
 
         nuevoMiniJuego();
-        cargarTextoAReconocer();
-        cargarImagenesDeCaballos();
+        cargarJugadaActual();
     }
 
+    /*
+        Propósito: inicia el minijuego definido en Settings (inicialmente por defecto en "Razas y Pelajes").
+     */
     public void nuevoMiniJuego(){
         this.miniJuego = new MiniJuego();
-        //this.jugadaActual = this.miniJuego.jugadaActual();
         this.miniJuego.iniciarJuego();
     }
 
-    public void reanudadJugadaActual() {
-
+    /*
+        Propósito: Carga la jugada actual compuesta por
+        * 1. nombre de una Raza o de un Pelaje
+        * 2. cuatro (4) imágenes con las que se interaccionará
+     */
+    public void cargarJugadaActual() {
+        cargarNombreDeLaJugadaActual();
+        cargarImagenesDeLaJugadaActual();
     }
 
-    public void pasarAPróximaJugada() {
-
-    }
-
-    public void volverAPantallaPrincipal(View view) {
-        Intent i = new Intent(RazaYPelajeActivity.this, MainActivity.class);
-        startActivity(i);
-    }
-
-    public void cargarTextoAReconocer() {
+    /*
+        Propósito: Carga el nombre de una Raza o Pelaje de la jugada actual de una partida de tipo Interacción B. El nombre representa el texto que se reconocerá en las imágenes.
+     */
+    public void cargarNombreDeLaJugadaActual() {
         TextView itemTextView = (TextView) findViewById(R.id.razaypelajeAReconocer);
         String str = this.miniJuego.tipoDeLaJugadaActual() +": "+ this.miniJuego.nombreAReconocerDeLaJugadaActual();
         itemTextView.setText(str);
     }
 
-    public void cargarImagenesDeCaballos(){
-        //this.miniJuego.imagenesDeCaballos();
-        //obtener de minijuego las 4 imagenes de caballos
-        // encontrar en el layout por id
-        // setear el recurso img con los valores obtenidos
-        String[] nombresDeLaJugadaActual = this.miniJuego.nombresDeLaJugadaActual();
-        final ImageView imgCaballo1 = (ImageView) findViewById(R.id.razaypelajeImageView1);
-        imgCaballo1.setImageResource(getDrawableValueByImage(nombresDeLaJugadaActual[0]));
-        final ImageView imgCaballo2 = (ImageView) findViewById(R.id.razaypelajeImageView2);
-        imgCaballo2.setImageResource(getDrawableValueByImage(nombresDeLaJugadaActual[1]));
-        final ImageView imgCaballo3 = (ImageView) findViewById(R.id.razaypelajeImageView3);
-        imgCaballo3.setImageResource(getDrawableValueByImage(nombresDeLaJugadaActual[2]));
-        final ImageView imgCaballo4 = (ImageView) findViewById(R.id.razaypelajeImageView4);
-        imgCaballo4.setImageResource(getDrawableValueByImage(nombresDeLaJugadaActual[3]));
+    /*
+        Propósito: Carga las imágenes de los caballos con las que interaccionará el jugador. Por defecto toma el nivel de dificuld 2 (4 imágenes)
+     */
+    public void cargarImagenesDeLaJugadaActual(){
+        cargarImagenGanadora();
+        cargarImagenesNoGanadoras();
     }
 
-    private int getDrawableValueByImage(String nameImg) {
-        //pasar los cases a minuscula
-        switch (nameImg.toUpperCase()) {
+    /*
+        Propósito: Carga la imágen del caballo ganadora en la posición correspondiente, pudiendo ser alguna de las posiciones 1,2,3 ó 4.
+        Precondición: Existe la imagen ganadora
+     */
+    public void cargarImagenGanadora() {
+        ImageView imagenGanadora = imageViewParaImagenGanadora();
+        cargarEventoOnClickParaImagenGanadora(imagenGanadora);
+    }
+
+    /*
+        Propósito: Carga las imágenes de los caballos NO ganadoras y cada una carga su evento correspondiente.
+                    * Por defecto se toma el nivel de dificultad 2, es decir, son 3 imágenes no ganadora.
+                    * Cualquiera de las 3 imágenes toma alguna de las posiciones 1, 2, 3 ó 4
+     */
+    public void cargarImagenesNoGanadoras(){
+        ImageView imagenNoGanadora1 = imageViewParaImagenNoGanadora();
+        cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora1);
+        ImageView imagenNoGanadora2 = imageViewParaImagenNoGanadora();
+        cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora2);
+        ImageView imagenNoGanadora3 = imageViewParaImagenNoGanadora();
+        cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora3);
+    }
+
+
+    /*
+        Propósito: Carga el evento OnClick para la imágen ganadora
+        * se define "imagen ganadora" como aquella que coincide con el "nombre a reconoce" VER DE BUSCAR UN NOMBRE PARA IDENTIFICAR "NOMBRE A RECONOCER"
+     */
+    public void cargarEventoOnClickParaImagenGanadora(final ImageView imageView) {
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mensajeDeJuagaGanada();
+            }
+        });
+    }
+
+    /*
+      Propósito: Carga el evento OnClick para una imágen no ganadora
+      * se define imagen NO ganadora como aquella que no coincide con el "NOMBRE A RECONOCER"S
+   */
+    public void cargarEventoOnClickParaImagenNoGanadora(final ImageView imageView) {
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //hacer sonar relinche de caballo
+            }
+        });
+    }
+
+    //int posicionGanadora = this.miniJuego.posicionItemGanadorDeLaJugadaActual();
+    //ImageView imagenGanadora  = imagenEnPosicion(posicionGanadora);
+    //imagenGanadora.setImageResource(ubicacionPorNombreDeImagenDeCaballo(nombresDeLaJugadaActual[0]));
+
+    public ImageView imageViewParaImagenGanadora() {
+        ImageView imageViewGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(this.miniJuego.posicionJugadaGanadora()));
+        imageViewGanadora.setImageResource(ubicacionDeImagenDeCaballoPorNombre(this.miniJuego.nombreAReconocerDeLaJugadaActual()));
+        return imageViewGanadora;
+    }
+
+    public ImageView imageViewParaImagenNoGanadora() {
+
+    }
+
+    public void mensajeDeJuagaGanada() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Jugada Ganada");
+        //builder.setMessage("This is my message.");
+        builder.setPositiveButton("Siguiente jugada", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                cargarJugadaSiguiente();
+            }
+        });
+        builder.setNeutralButton("Volver a jugar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                reanudadJugadaActual();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    /*
+        Propósito: Reanuda la jugada actual
+     */
+    public void reanudadJugadaActual() {
+        this.miniJuego.reanudarJugada();
+        cargarJugadaActual();
+    }
+
+    /*
+        Propósito: Carga la próxima jugada para la jugada actual
+        Precondición: Existe una próxima jugada en el minijuego
+     */
+    public void cargarJugadaSiguiente() {
+        this.miniJuego.jugadaSiguiente();
+        cargarJugadaActual();
+    }
+
+    /*
+        Propósito: emite el sonido de un caballo relinchando que representa una interacción NO acertada para la jugada actual
+     */
+    public void mensajeDeJugadaNoGanada(){
+
+    }
+
+
+
+    private int ubicacionDeImagenDeCaballoPorNombre(String nombre) {
+        switch (nombre.toUpperCase()) {
             case "ALBO": return R.drawable.albo;
             case "ATIGRADO": return R.drawable.atigrado;
             case "BAYO": return R.drawable.bayo;
@@ -98,9 +201,21 @@ public class RazaYPelajeActivity extends AppCompatActivity {
         }
     }
 
+    private int idImageViewParaPosicionDeJugada(int posicion) {
+        switch (posicion) {
+            case 0: return R.id.razaypelajeImageView0;
+            case 1: return R.id.razaypelajeImageView1;
+            case 2: return R.id.razaypelajeImageView2;
+            case 3: return R.id.razaypelajeImageView3;
+        }
+    }
+
     /*
-    public String[] idsImageViewCaballos() {
-        return new String[]{"razaypelajeImageView1", "razaypelajeImageView2", "razaypelajeImageView3", "razaypelajeImageView4"};
-    }*/
+        Propósito: Regresa a la pantalla de Inicio (MainActivity) cuando se dispara el evento onClick del boton "Volver"
+    */
+    public void volverAPantallaPrincipal(View view) {
+        Intent i = new Intent(RazaYPelajeActivity.this, MainActivity.class);
+        startActivity(i);
+    }
 
 }

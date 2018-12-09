@@ -40,8 +40,10 @@ public class JugadaRaza extends Jugada {
         }
         return nombresDeLaJugada;    }
 
-
-
+    @Override
+    public int posicionJugadaGanadora() {
+        return 0;
+    }
 
 
 }
