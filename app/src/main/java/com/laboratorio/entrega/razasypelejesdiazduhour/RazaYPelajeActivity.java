@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 public class RazaYPelajeActivity extends AppCompatActivity {
 
     private MiniJuego miniJuego;
-    private Jugada jugadaActual; //contiene la jugada actual de minijuego
+    //private Jugada jugadaActual; //contiene la jugada actual de minijuego
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class RazaYPelajeActivity extends AppCompatActivity {
 
     public void nuevoMiniJuego(){
         this.miniJuego = new MiniJuego();
-        this.jugadaActual = this.miniJuego.jugadaActual();
+        //this.jugadaActual = this.miniJuego.jugadaActual();
         this.miniJuego.iniciarJuego();
     }
 
@@ -36,4 +37,62 @@ public class RazaYPelajeActivity extends AppCompatActivity {
         Intent i = new Intent(RazaYPelajeActivity.this, MainActivity.class);
         startActivity(i);
     }
+
+    public void cargarImagenesDeCaballos(){
+        //this.miniJuego.imagenesDeCaballos();
+        //obtener de minijuego las 4 imagenes de caballos
+        // encontrar en el layout por id
+        // setear el recurso img con los valores obtenidos
+        String[] nombresDeLaJugadaActual = this.miniJuego.nombresDeLaJugadaActual();
+        final ImageView imgCaballo1 = (ImageView) findViewById(R.id.razaypelajeImageView1);
+        imgCaballo1.setImageResource(getDrawableValueByImage(nombresDeLaJugadaActual[0]));
+        final ImageView imgCaballo2 = (ImageView) findViewById(R.id.razaypelajeImageView2);
+        imgCaballo2.setImageResource(getDrawableValueByImage(nombresDeLaJugadaActual[1]));
+        final ImageView imgCaballo3 = (ImageView) findViewById(R.id.razaypelajeImageView3);
+        imgCaballo3.setImageResource(getDrawableValueByImage(nombresDeLaJugadaActual[2]));
+        final ImageView imgCaballo4 = (ImageView) findViewById(R.id.razaypelajeImageView4);
+        imgCaballo4.setImageResource(getDrawableValueByImage(nombresDeLaJugadaActual[3]));
+    }
+
+    private int getDrawableValueByImage(String nameImg) {
+        switch (nameImg) {
+            case "ALBO": return R.drawable.albo;
+            case "ATIGRADO": return R.drawable.atigrado;
+            case "BAYO": return R.drawable.bayo;
+            case "BRAGADO": return R.drawable.bragado;
+            case "COLORADO": return R.drawable.colorado;
+            case "MELADO": return R.drawable.melado;
+            case "PANGARE": return R.drawable.pangare;
+            case "ZAINO": return R.drawable.zaino;
+            case "ANDALUS": return R.drawable.defaultfur;
+            case "APPALOSA": return R.drawable.defaultfur;
+            default: return R.drawable.defaultfur;
+
+                    /*,
+                    ARABE,
+                    AZTECA,
+                    CLYDESDALE,
+                    CRIOLLOAMERICANO,
+                    CUARTODEMILA,
+                    FALABELLA,
+                    FRISON,
+                    HAFLINGER,
+                    HANNOVERIANO,
+                    LUSITANO,
+                    MUSTANG,
+                    PALOMINO,
+                    PASOFINO,
+                    PERCHERON,
+                    PONIFELL,
+                    PONIPOLO,
+                    PURASANGRE,
+                    SHIRE;*/
+        }
+    }
+
+    /*
+    public String[] idsImageViewCaballos() {
+        return new String[]{"razaypelajeImageView1", "razaypelajeImageView2", "razaypelajeImageView3", "razaypelajeImageView4"};
+    }*/
+
 }

@@ -51,14 +51,19 @@ public class MiniJuego {
         return this.indiceJugadaActual == CANTIDAD_JUGADAS;
     }
 
-
     /*
         Propósito: Reanuda la jugada actual
      */
     public Jugada reanudarJugada() {
-        return null;//this.secuenciaDeJugadas[indiceJugadaActual]; // NO ME GUSTA COMO ESTÁ QUEDANDO ESTA PARTE
+        return this.jugadaActual.reanudadJugada();//this.secuenciaDeJugadas[indiceJugadaActual]; // NO ME GUSTA COMO ESTÁ QUEDANDO ESTA PARTE
     }
 
+    /*
+        Propósito: Retorna los nombre de la jugada actual
+     */
+    public String[] nombresDeLaJugadaActual() {
+        return this.jugadaActual.nombreDeLasJugadas();
+    }
 
     /*
         Propósito: suspende la jugada y la guarda para interactuar con otras partes del juego
@@ -78,7 +83,7 @@ public class MiniJuego {
             jugadasAleatorias[i] = jugadasOrdenadas[i];
         }
         for (int i=1; i<CANTIDAD_JUGADAS;i++) {
-            swapJugadas(i, nroAleatorioEntreMinyMax(0,i-1));
+            swapJugadas(i, Aleatorio.entreMinyMax(0,i-1));
         }
     }
 
@@ -100,10 +105,5 @@ public class MiniJuego {
         this.secuenciaDeJugadas[j] = aux;
     }
 
-    //Propósito: Retorna un número aleatóreo entre "min" y "max"
-    private int nroAleatorioEntreMinyMax(int min, int max) {
-        Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
-    }
 
 }

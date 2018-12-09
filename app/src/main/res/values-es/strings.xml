@@ -2,7 +2,7 @@
     <!-- Main -->
     <string name="app_name" translatable="false">RazasyPelejesDiazDuhour</string>
     <string name="app_button" translatable="false">Reconocimiento</string>
-    <string name="app_button2" translatable="false">Jugar</string>
+
     <string name="image_logo" translatable="false">Logo CEDICA</string>
     <string name="about_button" translatable="false">Acerca de</string>
     <string name="settings_button" translatable="false">Configuración</string>
@@ -31,10 +31,13 @@
     <string name="male_audio">Masculina</string>
     <string name="female_audio">Femenina</string>
     <string name="settings_btn" translatable="false">Guardar</string>
-    <string name="title_activity_mimi_game">MimiGameActivity</string>
-    <string name="title_activity_recognition">RecognitionActivity</string>
 
-    <!-- BreedFur Activity -->
-    <string name="breedfur_back_button">Volver</string>
+
+    <!-- RazaYPelajeActivity -->
+    <!--
+    <string name="razaypelaje_volver_boton">Volver</string>
+    <string name="razaypelaje_title_textview">Juego de Razas y Pelajes</string>
+   -->
+
 
 </resources>
