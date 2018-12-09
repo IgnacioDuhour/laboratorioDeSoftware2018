@@ -64,7 +64,11 @@ public class RazaYPelajeActivity extends AppCompatActivity {
         Precondición: Existe la imagen ganadora
      */
     public void cargarImagenGanadora() {
-        ImageView imagenGanadora = imageViewParaImagenGanadora();
+        //se encuentra el imageview
+        ImageView imagenGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicionItemGanadorDeJugadaActual()));
+        //se setea el source del imageview
+        imagenGanadora.setImageResource(ubicacionDeImagenDeCaballoPorNombre(this.miniJuego.nombreAReconocerDeLaJugadaActual()));
+        //se define el evento para el imageview
         cargarEventoOnClickParaImagenGanadora(imagenGanadora);
     }
 
@@ -73,13 +77,27 @@ public class RazaYPelajeActivity extends AppCompatActivity {
                     * Por defecto se toma el nivel de dificultad 2, es decir, son 3 imágenes no ganadora.
                     * Cualquiera de las 3 imágenes toma alguna de las posiciones 1, 2, 3 ó 4
      */
-    public void cargarImagenesNoGanadoras(){
-        ImageView imagenNoGanadora1 = imageViewParaImagenNoGanadora();
-        cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora1);
-        ImageView imagenNoGanadora2 = imageViewParaImagenNoGanadora();
-        cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora2);
-        ImageView imagenNoGanadora3 = imageViewParaImagenNoGanadora();
-        cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora3);
+    public void cargarImagenesNoGanadoras() {
+        int[] posiciones = posicionesSinImagenGanadora();
+        String[] nombres = this.miniJuego.nombresDeLaJugadaActual();
+        String nombreAReconocer = this.miniJuego.nombreAReconocerDeLaJugadaActual();
+        for (int i = 0; i < posiciones.length; i++) {
+            if (nombres[i].compareTo(nombreAReconocer)!=0) {
+                cargarImagenNoGanadoraPorPosicion(posiciones[i], nombres[posiciones[i]]);
+            }
+        }
+    }
+        /*
+           Propósito: Carga la imágen del caballo NO ganadora en la posición correspondiente, pudiendo ser alguna de las posiciones 1,2,3 ó 4.
+           Precondición: "posicion" es alguna de las posiciones 1, 2, 3 o 4.
+        */
+    public void cargarImagenNoGanadoraPorPosicion(int posicion, String nombreImagen) {
+        //se encuentra el imageview
+        ImageView imagenNoGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicion));
+        //se setea el source del imageview
+        imagenNoGanadora.setImageResource(ubicacionDeImagenDeCaballoPorNombre(nombreImagen));
+        //se define el evento para el imageview
+        cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora);
     }
 
 
@@ -107,20 +125,6 @@ public class RazaYPelajeActivity extends AppCompatActivity {
                 //hacer sonar relinche de caballo
             }
         });
-    }
-
-    //int posicionGanadora = this.miniJuego.posicionItemGanadorDeLaJugadaActual();
-    //ImageView imagenGanadora  = imagenEnPosicion(posicionGanadora);
-    //imagenGanadora.setImageResource(ubicacionPorNombreDeImagenDeCaballo(nombresDeLaJugadaActual[0]));
-
-    public ImageView imageViewParaImagenGanadora() {
-        ImageView imageViewGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(this.miniJuego.posicionJugadaGanadora()));
-        imageViewGanadora.setImageResource(ubicacionDeImagenDeCaballoPorNombre(this.miniJuego.nombreAReconocerDeLaJugadaActual()));
-        return imageViewGanadora;
-    }
-
-    public ImageView imageViewParaImagenNoGanadora() {
-
     }
 
     public void mensajeDeJuagaGanada() {
@@ -207,7 +211,32 @@ public class RazaYPelajeActivity extends AppCompatActivity {
             case 1: return R.id.razaypelajeImageView1;
             case 2: return R.id.razaypelajeImageView2;
             case 3: return R.id.razaypelajeImageView3;
+            default: return R.id.razaypelajeImageView0; //ver que decisión tomo cuando no se encuentra la posicion buscada
         }
+    }
+
+    private int posicionItemGanadorDeJugadaActual() {
+        String[] nombres = this.miniJuego.nombresDeLaJugadaActual();
+        String nombre    = this.miniJuego.nombreAReconocerDeLaJugadaActual();
+        int posicion = -1;
+        for (int i=0; i<nombres.length;i++) {
+            if (nombres[i].compareTo(nombre)==0) { posicion = i; break; }
+        }
+        return posicion;
+    }
+
+    private int[] posicionesSinImagenGanadora() {
+        String[] nombres = this.miniJuego.nombresDeLaJugadaActual();
+        int[] posiciones = new int[nombres.length-1];
+        int j=0;
+        String nombreAReconocer = this.miniJuego.nombreAReconocerDeLaJugadaActual();
+        for (int i=0; i<nombres.length;i++) {
+            if (nombres[i].compareTo(nombreAReconocer)!=0) {
+                posiciones[j] = i;
+                j++;
+            }
+        }
+        return posiciones;
     }
 
     /*

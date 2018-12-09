@@ -65,6 +65,7 @@ public class MiniJuego {
         return this.jugadaActual.nombreDeLasJugadas();
     }
 
+
     /*
         Propósito: Retorna el nombre a reconocer de la jugada actual
     */
@@ -72,6 +73,9 @@ public class MiniJuego {
         return this.jugadaActual.nombreAReconocer;
     }
 
+    /*
+        Propósito: Describe el tipo de jugada de la jugada actual, pudiendo ser Raza o Pelaje
+     */
     public String tipoDeLaJugadaActual() {
         return this.jugadaActual.tipoDeJugada();
     }
@@ -81,7 +85,6 @@ public class MiniJuego {
         Observación: próxima entrega
      */
     public void suspenderJugada(){};
-
 
 
     /*

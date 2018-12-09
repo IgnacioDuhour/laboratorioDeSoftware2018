@@ -38,9 +38,5 @@ public class JugadaPelaje extends Jugada {
         return nombresDeLaJugada;
     }
 
-    @Override
-    public int posicionDeLaJugadaGanadora() {
-        return 0;
-    }
 
 }

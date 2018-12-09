@@ -23,9 +23,4 @@ abstract class Jugada {
 
     public abstract String[] nombreDeLasJugadas();
 
-    /*
-        Propósito: describe el número que representa la posición en de la jugada ganadora
-     */
-    public abstract int posicionJugadaGanadora();
-
 }
