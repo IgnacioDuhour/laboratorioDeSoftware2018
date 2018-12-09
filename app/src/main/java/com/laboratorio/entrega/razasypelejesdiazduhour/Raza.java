@@ -27,25 +27,26 @@ public enum Raza {
     public static String[] todasLasRazas() {
         String[] todasLasRazas = new String[Raza.values().length];
         Raza[] razas = Raza.values();
-        for (int i=0; i<Raza.values().length;i++){
+        for (int i = 0; i < Raza.values().length; i++) {
             todasLasRazas[i] = razas[i].toString().toLowerCase();
         }
         return todasLasRazas;
     }
 
-    public static int cantidadDeRazas(){
+    public static int cantidadDeRazas() {
         return Raza.values().length;
     }
 
     /*
         Propósito: Retorna las razas, pero sin la raza "razaAEliminar"
     */
-    private static Raza[] razasSinRaza(Raza razaAEliminar){
-        Raza[] razasSinRaza = new Raza[Raza.cantidadDeRazas()-1];
-        int i=0;
+    private static Raza[] razasSinRaza(Raza razaAEliminar) {
+        Raza[] razasSinRaza = new Raza[Raza.cantidadDeRazas() - 1];
+        int i = 0;
         for (Raza raza : Raza.values()) {
-            if (raza!=razaAEliminar)  {
+            if (raza != razaAEliminar) {
                 razasSinRaza[i] = raza;
+                i++;
             }
         }
         return razasSinRaza;
@@ -56,13 +57,13 @@ public enum Raza {
     */
     private static Raza[] razasAleatoreas(Raza[] razas) {
         Raza[] razasAleatoreas = new Raza[razas.length];
-        for(int i=0; i<razas.length;i++) {
+        for (int i = 0; i < razas.length; i++) {
             razasAleatoreas[i] = razas[i];
         }
         int j;
         Raza aux;
-        for(int i=0; i<razas.length;i++) {
-            j = Aleatorio.entreMinyMax(0,i-1);
+        for (int i = 1; i < razas.length; i++) {
+            j = Aleatorio.entreMinyMax(0, i - 1);
             aux = razasAleatoreas[i];
             razasAleatoreas[i] = razasAleatoreas[j];
             razasAleatoreas[j] = aux;
@@ -74,7 +75,7 @@ public enum Raza {
         Propósito: describe 3 Razas elegidas de forma aleatoreas, pero sin la Raza "raza"
         Precondición: Hay al menos 3 Razas
     */
-    private static Raza[] tresRazasAleatoreasSinLaRaza(Raza raza){
+    private static Raza[] tresRazasAleatoreasSinLaRaza(Raza raza) {
         //razasSinRazaAReconocer = obtener los valores de Razas sin la raza "sinLaRaza"
         Raza[] razasSinLaRaza = Raza.razasSinRaza(raza);
         //generar las razas aleatoreas a partir de  razasSinRazaAReconocer
@@ -91,9 +92,9 @@ public enum Raza {
         Propósito: describe 4 Razas elegidas de forma aleatoreas, incluyendo la Raza del parámetro "raza"
         Precondición: Hay al menos 3 Razas
     */
-    public static Raza[] cuatroRazasAleatoreasConLaRaza(Raza raza){
+    public static Raza[] cuatroRazasAleatoreasConLaRaza(Raza raza) {
         Raza[] cuatroRazasAleatoreas = new Raza[4];
-        Raza [] tresRazasAleatoreas = tresRazasAleatoreasSinLaRaza(raza);
+        Raza[] tresRazasAleatoreas = tresRazasAleatoreasSinLaRaza(raza);
         cuatroRazasAleatoreas[0] = tresRazasAleatoreas[0];
         cuatroRazasAleatoreas[1] = tresRazasAleatoreas[1];
         cuatroRazasAleatoreas[2] = tresRazasAleatoreas[2];
@@ -101,4 +102,18 @@ public enum Raza {
         return Raza.razasAleatoreas(cuatroRazasAleatoreas);
     }
 
+    public static void main(String[] args) {
+        //imprimirValores(Raza.razasSinRaza(Raza.FRISON));
+        //imprimirValores(Raza.razasAleatoreas(Raza.values()));
+        //System.out.println(Raza.razasAleatoreas(Raza.values()).length); //20
+        //imprimirValores(Raza.tresRazasAleatoreasSinLaRaza(Raza.HAFLINGER));
+        //imprimirValores(Raza.cuatroRazasAleatoreasConLaRaza(Raza.ARABE));
+
+    }
+
+    private static void imprimirValores(Raza[] r) {
+        for (int i = 0; i < r.length; i++) {
+            System.out.println(r[i]);
+        }
+    }
 }

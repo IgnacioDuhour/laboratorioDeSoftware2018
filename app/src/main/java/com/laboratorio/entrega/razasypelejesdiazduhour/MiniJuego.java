@@ -12,6 +12,7 @@ public class MiniJuego {
     public MiniJuego(){
         this.secuenciaDeJugadas = new Jugada[CANTIDAD_JUGADAS];
         indiceJugadaActual = 0;
+        this.CANTIDAD_JUGADAS = Raza.cantidadDeRazas()+Pelaje.cantidadDePelajes();
     }
 
     /*
@@ -21,7 +22,6 @@ public class MiniJuego {
         this.indiceJugadaActual = 0;
         generarSecuenciaDeJugadasAleatoreas();
         this.jugadaActual = this.secuenciaDeJugadas[indiceJugadaActual];
-        this.CANTIDAD_JUGADAS = Raza.cantidadDeRazas()+Pelaje.cantidadDePelajes();
     }
 
     /*
@@ -66,6 +66,17 @@ public class MiniJuego {
     }
 
     /*
+        Propósito: Retorna el nombre a reconocer de la jugada actual
+    */
+    public String nombreAReconocerDeLaJugadaActual() {
+        return this.jugadaActual.nombreAReconocer;
+    }
+
+    public String tipoDeLaJugadaActual() {
+        return this.jugadaActual.tipoDeJugada();
+    }
+
+    /*
         Propósito: suspende la jugada y la guarda para interactuar con otras partes del juego
         Observación: próxima entrega
      */
@@ -76,11 +87,11 @@ public class MiniJuego {
     /*
         Propósito: Genera una secuencia aleatórea de jugadas para una partida
     */
-    private void generarSecuenciaDeJugadasAleatoreas(){
-        Jugada[] jugadasOrdenadas = jugadasTotales();
-        Jugada[] jugadasAleatorias = new Jugada[CANTIDAD_JUGADAS];
+    public void generarSecuenciaDeJugadasAleatoreas(){
+        Jugada[] jugadas = jugadasTotales();
+        this.secuenciaDeJugadas = new Jugada[CANTIDAD_JUGADAS];
         for (int i=0; i<CANTIDAD_JUGADAS;i++) {
-            jugadasAleatorias[i] = jugadasOrdenadas[i];
+            this.secuenciaDeJugadas[i] = jugadas[i];
         }
         for (int i=1; i<CANTIDAD_JUGADAS;i++) {
             swapJugadas(i, Aleatorio.entreMinyMax(0,i-1));
@@ -92,8 +103,12 @@ public class MiniJuego {
         Jugada[] jugadasTotales = new Jugada[CANTIDAD_JUGADAS];
         Raza[] razas = Raza.values();
         Pelaje[] pelajes = Pelaje.values();
-        for (int i=0; i<Raza.cantidadDeRazas();i++) jugadasTotales[i] = new JugadaRaza(razas[i]);
-        for (int i=Raza.cantidadDeRazas(); i<CANTIDAD_JUGADAS;i++) jugadasTotales[i] = new JugadaPelaje(pelajes[i]);
+        for (int i=0; i<Raza.cantidadDeRazas();i++) { jugadasTotales[i] = new JugadaRaza(razas[i]); }
+        int j=0;
+        for (int i = Raza.cantidadDeRazas(); i<CANTIDAD_JUGADAS;i++) {
+            jugadasTotales[i] = new JugadaPelaje(pelajes[j]);
+            j++;
+        }
         return jugadasTotales;
     }
 
@@ -103,6 +118,23 @@ public class MiniJuego {
         aux = this.secuenciaDeJugadas[i];
         this.secuenciaDeJugadas[i] = this.secuenciaDeJugadas[j];
         this.secuenciaDeJugadas[j] = aux;
+    }
+
+    public static void main(String[] args) {
+        /*MiniJuego m = new MiniJuego();
+        m.iniciarJuego();
+        imprimirValores(m.secuenciaDeJugadas);
+        System.out.println("------------------------------------------");
+        System.out.println(m.jugadaActual.nombreAReconocer);
+        System.out.println(m.jugadaSiguiente().nombreAReconocer);
+        System.out.println(m.jugadaSiguiente().nombreAReconocer);
+        System.out.println(m.jugadaSiguiente().nombreAReconocer);*/
+    }
+
+    private static void imprimirValores(Jugada[] r) {
+        for (int i = 0; i < r.length; i++) {
+            System.out.println(r[i].nombreAReconocer);
+        }
     }
 
 

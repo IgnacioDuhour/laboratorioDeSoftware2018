@@ -4,7 +4,6 @@ import java.util.Random;
 
 abstract class Jugada {
 
-    //private TipoJugada tipoJugada; //describe si  la jugada es de tipo "RAZA" o "PELAJE"
     protected String nombreAReconocer; //nombre que reconocerá el jugador: corresponde a una RAZA o PELAJE
 
     public boolean esJugadaGanada(String nombreJugadaActual){

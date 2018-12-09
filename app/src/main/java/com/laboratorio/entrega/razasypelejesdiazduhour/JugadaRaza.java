@@ -10,6 +10,7 @@ public class JugadaRaza extends Jugada {
 
     public JugadaRaza(Raza razaAReconocer) {
         this.razaAReconocer = razaAReconocer;
+        this.nombreAReconocer = razaAReconocer.toString().toLowerCase();
         this.cuatroRazasDistintas = Raza.cuatroRazasAleatoreasConLaRaza(razaAReconocer);
     }
 
@@ -35,7 +36,7 @@ public class JugadaRaza extends Jugada {
     public String[] nombreDeLasJugadas() {
         String[] nombresDeLaJugada = new String[4];
         for (int i=0; i<4;i++) {
-            nombresDeLaJugada[i] = cuatroRazasDistintas[i].toString();
+            nombresDeLaJugada[i] = cuatroRazasDistintas[i].toString().toLowerCase();
         }
         return nombresDeLaJugada;    }
 

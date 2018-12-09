@@ -7,6 +7,7 @@ public class JugadaPelaje extends Jugada {
 
     public JugadaPelaje(Pelaje pelajeAReconocer) {
         this.pelajeAReconocer = pelajeAReconocer;
+        this.nombreAReconocer = pelajeAReconocer.toString().toLowerCase();
         this.cuatroPelajesDistintos = Pelaje.cuatroPelajesAleatoreosConElPelaje(pelajeAReconocer);
     }
 
@@ -32,7 +33,7 @@ public class JugadaPelaje extends Jugada {
     public String[] nombreDeLasJugadas() {
         String[] nombresDeLaJugada = new String[4];
         for (int i=0; i<4;i++) {
-            nombresDeLaJugada[i] = cuatroPelajesDistintos[i].toString();
+            nombresDeLaJugada[i] = cuatroPelajesDistintos[i].toString().toLowerCase();
         }
         return nombresDeLaJugada;
     }

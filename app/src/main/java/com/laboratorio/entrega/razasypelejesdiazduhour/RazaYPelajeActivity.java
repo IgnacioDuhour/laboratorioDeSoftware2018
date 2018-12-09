@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class RazaYPelajeActivity extends AppCompatActivity {
 
@@ -17,6 +18,8 @@ public class RazaYPelajeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_raza_ypelaje);
 
         nuevoMiniJuego();
+        cargarTextoAReconocer();
+        cargarImagenesDeCaballos();
     }
 
     public void nuevoMiniJuego(){
@@ -38,6 +41,12 @@ public class RazaYPelajeActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void cargarTextoAReconocer() {
+        TextView itemTextView = (TextView) findViewById(R.id.razaypelajeAReconocer);
+        String str = this.miniJuego.tipoDeLaJugadaActual() +": "+ this.miniJuego.nombreAReconocerDeLaJugadaActual();
+        itemTextView.setText(str);
+    }
+
     public void cargarImagenesDeCaballos(){
         //this.miniJuego.imagenesDeCaballos();
         //obtener de minijuego las 4 imagenes de caballos
@@ -55,7 +64,8 @@ public class RazaYPelajeActivity extends AppCompatActivity {
     }
 
     private int getDrawableValueByImage(String nameImg) {
-        switch (nameImg) {
+        //pasar los cases a minuscula
+        switch (nameImg.toUpperCase()) {
             case "ALBO": return R.drawable.albo;
             case "ATIGRADO": return R.drawable.atigrado;
             case "BAYO": return R.drawable.bayo;
@@ -64,29 +74,27 @@ public class RazaYPelajeActivity extends AppCompatActivity {
             case "MELADO": return R.drawable.melado;
             case "PANGARE": return R.drawable.pangare;
             case "ZAINO": return R.drawable.zaino;
-            case "ANDALUS": return R.drawable.defaultfur;
-            case "APPALOSA": return R.drawable.defaultfur;
+            case "ANDALUS": return R.drawable.andaluz;
+            case "APPALOSA": return R.drawable.appalosa;
+            case "ARABE": return R.drawable.arabe;
+            case "AZTECA": return R.drawable.azteca;
+            case "CLYDESDALE": return R.drawable.clydesdale;
+            case "CRIOLLOAMERICANO": return R.drawable.criolloamericano;
+            case "CUARTODEMILA": return R.drawable.cuartodemila;
+            case "FALABELLA": return R.drawable.falabella;
+            case "FRISON": return R.drawable.frison;
+            case "HAFLINGER": return R.drawable.haflinger;
+            case "HANNOVERIANO": return R.drawable.hannoveriano;
+            case "LUSITANO": return R.drawable.lusitano;
+            case "MUSTANG": return R.drawable.mustang;
+            case "PALOMINO": return R.drawable.palomino;
+            case "PASOFINO": return R.drawable.pasofino;
+            case "PERCHERON": return R.drawable.percheron;
+            case "PONIFELL": return R.drawable.ponifell;
+            case "PONIPOLO": return R.drawable.ponipolo;
+            case "PURASANGRE": return R.drawable.purasangre;
+            case "SHIRE": return R.drawable.shire;
             default: return R.drawable.defaultfur;
-
-                    /*,
-                    ARABE,
-                    AZTECA,
-                    CLYDESDALE,
-                    CRIOLLOAMERICANO,
-                    CUARTODEMILA,
-                    FALABELLA,
-                    FRISON,
-                    HAFLINGER,
-                    HANNOVERIANO,
-                    LUSITANO,
-                    MUSTANG,
-                    PALOMINO,
-                    PASOFINO,
-                    PERCHERON,
-                    PONIFELL,
-                    PONIPOLO,
-                    PURASANGRE,
-                    SHIRE;*/
         }
     }
 

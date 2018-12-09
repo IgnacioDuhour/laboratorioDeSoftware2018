@@ -32,6 +32,7 @@ public enum Pelaje {
         for (Pelaje pelaje : Pelaje.values()) {
             if (pelaje!=pelajeAEliminar)  {
                 pelajesSinPelaje[i] = pelaje;
+                i++;
             }
         }
         return pelajesSinPelaje;
@@ -47,7 +48,7 @@ public enum Pelaje {
         }
         int j;
         Pelaje aux;
-        for(int i=0; i<pelajes.length;i++) {
+        for(int i=1; i<pelajes.length;i++) {
             j = Aleatorio.entreMinyMax(0,i-1);
             aux = pelajesAleatoreos[i];
             pelajesAleatoreos[i] = pelajesAleatoreos[j];
@@ -82,6 +83,19 @@ public enum Pelaje {
         cuatroPelajesConElPelaje[2] = tresPelajesAleatoreos[2];
         cuatroPelajesConElPelaje[3] = pelaje;
         return Pelaje.pelajesAleatoreos(cuatroPelajesConElPelaje);
+    }
+
+    public static void main(String[] args) {
+        Pelaje[] r = Pelaje.pelajesSinPelaje(Pelaje.ZAINO);
+        //imprimirValores(Pelaje.pelajesAleatoreos(Pelaje.values()));
+        //imprimirValores(Pelaje.tresPelajesAleatoreosSinElPelaje(Pelaje.PANGARE));
+        //imprimirValores(Pelaje.cuatroPelajesAleatoreosConElPelaje(Pelaje.MELADO));
+    }
+
+    private static void imprimirValores(Pelaje[] r) {
+        for (int i = 0; i < r.length; i++) {
+            System.out.println(r[i]);
+        }
     }
 
 }
