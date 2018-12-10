@@ -8,7 +8,7 @@ public class JugadaPelaje extends Jugada {
     public JugadaPelaje(Pelaje pelajeAReconocer) {
         this.pelajeAReconocer = pelajeAReconocer;
         this.nombreAReconocer = pelajeAReconocer.toString().toLowerCase();
-        this.cuatroPelajesDistintos = Pelaje.cuatroPelajesAleatoreosConElPelaje(pelajeAReconocer);
+        this.cuatroPelajesDistintos = Pelaje.pelajesAleatoreosConElPelaje(pelajeAReconocer,4);
     }
 
     /*
@@ -22,7 +22,7 @@ public class JugadaPelaje extends Jugada {
         Propósito: Reanuda la jugada de la partida
      */
     public Jugada reanudadJugada() {
-        this.cuatroPelajesDistintos = Pelaje.cuatroPelajesAleatoreosConElPelaje(this.pelajeAReconocer);
+        this.cuatroPelajesDistintos = Pelaje.pelajesAleatoreosConElPelaje(this.pelajeAReconocer, 4);
         return this;
     }
 

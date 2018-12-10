@@ -1,0 +1,8 @@
+ERRORES:
+
+1. A VECES APARECE IMAGEN DE CABALLO "defaultfur.jpg"
+
+2. A VECES APARECE IMAGEN GANADORA REPETIDA
+	a. repite imagen ganadora
+	b. o repite imagen no ganadora
+

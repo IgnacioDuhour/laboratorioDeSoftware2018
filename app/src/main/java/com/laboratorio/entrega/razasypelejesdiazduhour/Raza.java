@@ -8,7 +8,10 @@ public enum Raza {
     ARABE,
     AZTECA,
     CLYDESDALE,
+    COMTIOS,
+    CRIOLLO,
     CRIOLLOAMERICANO,
+    CRIOLLOARGENTINO,
     CUARTODEMILA,
     FALABELLA,
     FRISON,
@@ -22,7 +25,8 @@ public enum Raza {
     PONIFELL,
     PONIPOLO,
     PURASANGRE,
-    SHIRE;
+    SHIRE,
+    SORAIA;
 
     public static String[] todasLasRazas() {
         String[] todasLasRazas = new String[Raza.values().length];
@@ -89,12 +93,12 @@ public enum Raza {
     }
 
     /*
-        Propósito: describe 4 Razas elegidas de forma aleatoreas, incluyendo la Raza del parámetro "raza"
-        Precondición: Hay al menos 3 Razas
+        Propósito: describe una cantidad de Razas elegidas de forma aleatoreas, incluyendo la raza del parámetro "raza"
+        Precondición: Hay al menos "cantidadDeRazas" definidas en Razas
     */
-    public static Raza[] cuatroRazasAleatoreasConLaRaza(Raza raza) {
-        Raza[] cuatroRazasAleatoreas = new Raza[4];
-        Raza[] tresRazasAleatoreas = tresRazasAleatoreasSinLaRaza(raza);
+    public static Raza[] razasAleatoreasConLaRaza(Raza raza, int cantidadDeRazas) {
+        Raza[] cuatroRazasAleatoreas = new Raza[cantidadDeRazas];
+        Raza[] tresRazasAleatoreas = tresRazasAleatoreasSinLaRaza(raza); //generalizar a cantidadDeRazas-1, no a tres (3)
         cuatroRazasAleatoreas[0] = tresRazasAleatoreas[0];
         cuatroRazasAleatoreas[1] = tresRazasAleatoreas[1];
         cuatroRazasAleatoreas[2] = tresRazasAleatoreas[2];

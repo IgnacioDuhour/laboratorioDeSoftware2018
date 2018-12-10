@@ -72,12 +72,12 @@ public enum Pelaje {
     }
 
     /*
-        Propósito: describe 4 Pelajes elegidos de forma aleatoreas, incluyendo el Pelaje del parámetro "pelaje"
-        Precondición: Hay al menos 3 Pelajes
+        Propósito: describe una cantidad de Pelajes elegidos de forma aleatoreas, incluyendo el Pelaje del parámetro "pelaje"
+        Precondición: Hay al menos "cantidadDePelajes" definidos en Pelajes
     */
-    public static Pelaje[] cuatroPelajesAleatoreosConElPelaje(Pelaje pelaje) {
-        Pelaje[] cuatroPelajesConElPelaje = new Pelaje[4];
-        Pelaje [] tresPelajesAleatoreos = tresPelajesAleatoreosSinElPelaje(pelaje);
+    public static Pelaje[] pelajesAleatoreosConElPelaje(Pelaje pelaje, int cantidadDePelajes) {
+        Pelaje[] cuatroPelajesConElPelaje = new Pelaje[cantidadDePelajes];
+        Pelaje [] tresPelajesAleatoreos = tresPelajesAleatoreosSinElPelaje(pelaje); //generalizar a cantidadDePelajes-1, no a tres pelajes
         cuatroPelajesConElPelaje[0] = tresPelajesAleatoreos[0];
         cuatroPelajesConElPelaje[1] = tresPelajesAleatoreos[1];
         cuatroPelajesConElPelaje[2] = tresPelajesAleatoreos[2];

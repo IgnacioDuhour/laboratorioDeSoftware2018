@@ -5,13 +5,12 @@ import java.util.Random;
 public class JugadaRaza extends Jugada {
 
     private Raza razaAReconocer;
-    private Raza[] cuatroRazasDistintas;
-
+    private Raza[] razasAInteraccionar;
 
     public JugadaRaza(Raza razaAReconocer) {
         this.razaAReconocer = razaAReconocer;
         this.nombreAReconocer = razaAReconocer.toString().toLowerCase();
-        this.cuatroRazasDistintas = Raza.cuatroRazasAleatoreasConLaRaza(razaAReconocer);
+        this.razasAInteraccionar = Raza.razasAleatoreasConLaRaza(razaAReconocer, 4);
     }
 
     /*
@@ -25,7 +24,7 @@ public class JugadaRaza extends Jugada {
         Propósito: Reanuda la jugada de la partida
      */
     public Jugada reanudadJugada(){
-        this.cuatroRazasDistintas = Raza.cuatroRazasAleatoreasConLaRaza(this.razaAReconocer);
+        this.razasAInteraccionar = Raza.razasAleatoreasConLaRaza(this.razaAReconocer, 4); //generalizar 4 a nivel_dificultad obtenido de settings
         return this;
     }
 
@@ -36,7 +35,7 @@ public class JugadaRaza extends Jugada {
     public String[] nombreDeLasJugadas() {
         String[] nombresDeLaJugada = new String[4];
         for (int i=0; i<4;i++) {
-            nombresDeLaJugada[i] = cuatroRazasDistintas[i].toString().toLowerCase();
+            nombresDeLaJugada[i] = razasAInteraccionar[i].toString().toLowerCase();
         }
         return nombresDeLaJugada;    }
 

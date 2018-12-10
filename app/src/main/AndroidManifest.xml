@@ -19,7 +19,8 @@
         <activity android:name=".ReconocimientoActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".BreedFurActivity" />
-        <activity android:name=".RazaYPelajeActivity"></activity>
+        <activity android:name=".RazaYPelajeActivity" />
+        <activity android:name=".CruzaActivity"></activity>
     </application>
 
 </manifest>

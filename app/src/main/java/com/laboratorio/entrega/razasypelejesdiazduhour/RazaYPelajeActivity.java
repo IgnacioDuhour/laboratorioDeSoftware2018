@@ -3,6 +3,7 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 public class RazaYPelajeActivity extends AppCompatActivity {
 
     private MiniJuego miniJuego;
-    //private Jugada jugadaActual; //contiene la jugada actual de minijuego
+    private MediaPlayer sonidoRelincheCaballo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,8 @@ public class RazaYPelajeActivity extends AppCompatActivity {
 
         nuevoMiniJuego();
         cargarJugadaActual();
+
+        cargarSonidoRelincheCaballo();
     }
 
     /*
@@ -30,6 +33,10 @@ public class RazaYPelajeActivity extends AppCompatActivity {
     public void nuevoMiniJuego(){
         this.miniJuego = new MiniJuego();
         this.miniJuego.iniciarJuego();
+    }
+
+    public void cargarSonidoRelincheCaballo() {
+        //sonidoRelincheCaballo = MediaPlayer.create(this, R.sound.sonidoCaballoRelinchando);
     }
 
     /*
@@ -122,9 +129,13 @@ public class RazaYPelajeActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //hacer sonar relinche de caballo
+                mensajeJugadaNoAcertada();
             }
         });
+    }
+
+    public void mensajeJugadaNoAcertada() {
+        sonidoRelincheCaballo.start();
     }
 
     public void mensajeDeJuagaGanada() {
@@ -158,8 +169,13 @@ public class RazaYPelajeActivity extends AppCompatActivity {
         Precondición: Existe una próxima jugada en el minijuego
      */
     public void cargarJugadaSiguiente() {
-        this.miniJuego.jugadaSiguiente();
-        cargarJugadaActual();
+        if (!this.miniJuego.esUltimaJugada()) {
+            this.miniJuego.jugadaSiguiente(); //ver si puedo eliminar el if, viendo si peudo conocer cual es la ultima jugada
+            cargarJugadaActual();
+        } else {
+            irASiguienteMinijuego();
+        }
+
     }
 
     /*
@@ -186,6 +202,9 @@ public class RazaYPelajeActivity extends AppCompatActivity {
             case "ARABE": return R.drawable.arabe;
             case "AZTECA": return R.drawable.azteca;
             case "CLYDESDALE": return R.drawable.clydesdale;
+            case "COMTIOS": return R.drawable.comtios;
+            case "CRIOLLO": return R.drawable.criollo;
+            case "CRIOLLOARGENTINO": return R.drawable.criolloargentino;
             case "CRIOLLOAMERICANO": return R.drawable.criolloamericano;
             case "CUARTODEMILA": return R.drawable.cuartodemila;
             case "FALABELLA": return R.drawable.falabella;
@@ -201,6 +220,7 @@ public class RazaYPelajeActivity extends AppCompatActivity {
             case "PONIPOLO": return R.drawable.ponipolo;
             case "PURASANGRE": return R.drawable.purasangre;
             case "SHIRE": return R.drawable.shire;
+            case "SORAIA": return R.drawable.soraia;
             default: return R.drawable.defaultfur;
         }
     }
@@ -244,6 +264,11 @@ public class RazaYPelajeActivity extends AppCompatActivity {
     */
     public void volverAPantallaPrincipal(View view) {
         Intent i = new Intent(RazaYPelajeActivity.this, MainActivity.class);
+        startActivity(i);
+    }
+
+    public void irASiguienteMinijuego() {
+        Intent i = new Intent(RazaYPelajeActivity.this, CruzaActivity.class);
         startActivity(i);
     }
 
