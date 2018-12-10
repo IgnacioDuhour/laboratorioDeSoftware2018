@@ -28,15 +28,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button playButton = act.findViewById(R.id.button2);
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(act, ReconocimientoActivity.class);
-                startActivity(i);
-            }
-        });
-
         ImageButton aboutButton = act.findViewById(R.id.imageButton2);
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public void settings(View view){
         Intent i = new Intent(this, SettingsActivity.class);
+        startActivity(i);
+    }
+
+    public void minigame(View view) {
+        Intent i = new Intent(this, ReconocimientoActivity.class);
         startActivity(i);
     }
 }

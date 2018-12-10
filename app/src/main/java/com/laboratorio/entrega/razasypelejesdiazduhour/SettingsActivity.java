@@ -2,6 +2,7 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
@@ -34,7 +35,7 @@ public class SettingsActivity extends AppCompatActivity {
         configs(preferences);
     }
 
-    private void recognitionSettings(SharedPreferences preferences) {
+    private void recognitionSettings(@NonNull SharedPreferences preferences) {
         Boolean b = preferences.getBoolean("lista", true);
         RadioButton rb;
         if (b) {
@@ -53,7 +54,7 @@ public class SettingsActivity extends AppCompatActivity {
         cb3.setChecked(preferences.getBoolean("cruzas", false));
     }
 
-    private void radioGroup(SharedPreferences preferences, RadioButton r1, RadioButton r2, RadioButton r3, String key, String key2, String key3) {
+    private void radioGroup(@NonNull SharedPreferences preferences, RadioButton r1, RadioButton r2, RadioButton r3, String key, String key2, String key3) {
         if (preferences.getBoolean(key, true)) {
             r1.setChecked(true);
         } else if (preferences.getBoolean(key2, false)) {
@@ -63,7 +64,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
-    private void configs(SharedPreferences preferences) {
+    private void configs(@NonNull SharedPreferences preferences) {
         Switch sw = SettingsActivity.this.findViewById(R.id.switch1);
         String text = preferences.getString("level", "Nivel 1");
         if (text.equals("Nivel 1")) {
@@ -83,26 +84,12 @@ public class SettingsActivity extends AppCompatActivity {
     public void saveSettings(View view) {
         SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        RadioGroup rg = SettingsActivity.this.findViewById(R.id.radioGroup7);
+
+        saveRecognition(editor);
+
+        RadioGroup rg = SettingsActivity.this.findViewById(R.id.radioGroup8);
         int radioId = rg.getCheckedRadioButtonId();
         RadioButton rb = SettingsActivity.this.findViewById(radioId);
-        if ((rb.getText()).toString().compareTo("Lista") == 0) {
-            editor.putBoolean("lista", true);
-            editor.putBoolean("grilla", false);
-        } else {
-            editor.putBoolean("grilla", true);
-            editor.putBoolean("lista", false);
-        }
-        CheckBox cb1 = SettingsActivity.this.findViewById(R.id.checkBox);
-        CheckBox cb2 = SettingsActivity.this.findViewById(R.id.checkBox2);
-        CheckBox cb3 = SettingsActivity.this.findViewById(R.id.checkBox3);
-        editor.putBoolean("razas", cb1.isChecked());
-        editor.putBoolean("pelajes", cb2.isChecked());
-        editor.putBoolean("cruzas", cb3.isChecked());
-
-        rg = SettingsActivity.this.findViewById(R.id.radioGroup8);
-        radioId = rg.getCheckedRadioButtonId();
-        rb = SettingsActivity.this.findViewById(radioId);
         String text = (String) rb.getText();
         switch (text) {
             case "Razas y Pelajes":
@@ -123,7 +110,6 @@ public class SettingsActivity extends AppCompatActivity {
             default:
                 break;
         }
-
 
         rg = SettingsActivity.this.findViewById(R.id.radioGroup9);
         radioId = rg.getCheckedRadioButtonId();
@@ -149,6 +135,32 @@ public class SettingsActivity extends AppCompatActivity {
                 break;
         }
 
+        saveSwitch(editor);
+
+        editor.apply();
+        finish();
+    }
+
+    private void saveRecognition(@NonNull SharedPreferences.Editor editor){
+        RadioGroup rg = SettingsActivity.this.findViewById(R.id.radioGroup7);
+        int radioId = rg.getCheckedRadioButtonId();
+        RadioButton rb = SettingsActivity.this.findViewById(radioId);
+        if ((rb.getText()).toString().compareTo("Lista") == 0) {
+            editor.putBoolean("lista", true);
+            editor.putBoolean("grilla", false);
+        } else {
+            editor.putBoolean("grilla", true);
+            editor.putBoolean("lista", false);
+        }
+        CheckBox cb1 = SettingsActivity.this.findViewById(R.id.checkBox);
+        CheckBox cb2 = SettingsActivity.this.findViewById(R.id.checkBox2);
+        CheckBox cb3 = SettingsActivity.this.findViewById(R.id.checkBox3);
+        editor.putBoolean("razas", cb1.isChecked());
+        editor.putBoolean("pelajes", cb2.isChecked());
+        editor.putBoolean("cruzas", cb3.isChecked());
+    }
+
+    private void saveSwitch(@NonNull SharedPreferences.Editor editor) {
         Switch sw = SettingsActivity.this.findViewById(R.id.switch1);
         if (sw.isChecked()) {
             editor.putString("level", (String) sw.getTextOn());
@@ -161,8 +173,7 @@ public class SettingsActivity extends AppCompatActivity {
         } else {
             editor.putString("audio", (String) sw.getTextOff());
         }
-
-        editor.apply();
-        finish();
     }
+
+
 }
