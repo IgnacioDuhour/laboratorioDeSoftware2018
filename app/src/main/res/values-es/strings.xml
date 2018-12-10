@@ -34,10 +34,9 @@
 
 
     <!-- RazaYPelajeActivity -->
-    <!--
     <string name="razaypelaje_volver_boton">Volver</string>
     <string name="razaypelaje_title_textview">Juego de Razas y Pelajes</string>
-   -->
+
 
 
 </resources>

@@ -34,9 +34,9 @@
     <string name="female_audio">Femenina</string>
     <string name="settings_btn" translatable="false">Guardar</string>
 
-    <!-- Activity  BreedFurActivity -->
-    <string name="breedfur_back_button" translatable="false">Volver</string>
-    <string name="breedfur_title_textView" translatable="false">Juego de Razas y Pelajes</string>
+    <!-- RazaYPelajeActivity -->
+    <string name="razaypelaje_volver_boton">Volver</string>
+    <string name="razaypelaje_title_textview">Juego de Razas y Pelajes</string>
 
 
 </resources>
