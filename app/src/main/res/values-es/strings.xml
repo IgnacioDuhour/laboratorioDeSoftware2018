@@ -2,7 +2,7 @@
     <!-- Main -->
     <string name="app_name" translatable="false">RazasyPelejesDiazDuhour</string>
     <string name="app_reconocimiento" translatable="false">Reconocimiento</string>
-    <string name="app_minijuego" translatable="false">Reconocimiento</string>
+    <string name="app_minijuego" translatable="false">Jugar</string>
 
     <string name="image_logo" translatable="false">Logo CEDICA</string>
     <string name="about_button" translatable="false">Acerca de</string>
