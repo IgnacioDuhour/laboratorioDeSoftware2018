@@ -15,6 +15,13 @@ import android.widget.TextView;
 
 public class RazaYPelajeActivity extends MiniJuegoActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_raza_ypelaje);
+        comenzarAJugar();
+    }
+
     /*
      * Propósito: Carga el item principal de la jugada actual de una partida
      * Observación:
@@ -23,10 +30,11 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
      */
     @Override
     public void cargarItemPrincipalDeLaJugadaActual() {
-        TextView itemTextView = (TextView) findViewById(R.id.razaypelajePrincipal);
+        TextView itemTextView = (TextView) findViewById(R.id.minijuegoPrincipal);
         String str = this.miniJuego.tipoDeLaJugadaActual() +": "+ this.miniJuego.nombreAReconocerDeLaJugadaActual();
         itemTextView.setText(str);
     }
+
     /*
         Propósito: Carga el mensaje de la jugada ganada.
     */

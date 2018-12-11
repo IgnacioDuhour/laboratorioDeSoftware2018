@@ -21,10 +21,8 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_raza_ypelaje);
-
-        comenzarAJugar();
     }
+
     /*
      * Propósito: Inicia un nuevo minijuego y carga los elementos necesarios en la actividad correspondiente (RazayPelaje o Cruza)
      * Observación: "cargar" hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
@@ -56,7 +54,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      * Precondición: Existe una judaga cargada
      */
     public void cargarSonidoCaballoRelinchando() {
-        sonidoRelincheCaballo = MediaPlayer.create(this, R.raw.sonidocaballorelinchando);
+        sonidoRelincheCaballo = MediaPlayer.create(this, R.raw.caballorelinchando);
     }
 
     /*
@@ -273,7 +271,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             case "PERCHERON": return R.drawable.percheron;
             case "PONIFELL": return R.drawable.ponifell;
             case "PONIPOLO": return R.drawable.ponipolo;
-            case "PURASANGRE": return R.drawable.purasangre;
+            case "PURASANGRE": return R.drawable.purasangreingles;
             case "SHIRE": return R.drawable.shire;
             case "SORAIA": return R.drawable.soraia;
             default: return R.drawable.defaultfur;
@@ -282,11 +280,11 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
     protected int idImageViewParaPosicionDeJugada(int posicion) {
         switch (posicion) {
-            case 0: return R.id.cruzaImageView0;
-            case 1: return R.id.cruzaImageView1;
-            case 2: return R.id.cruzaImageView2;
-            case 3: return R.id.cruzaImageView3;
-            default: return R.id.cruzaImageView0; //ver que decisión tomo cuando no se encuentra la posicion buscada
+            case 0: return R.id.minijuegoImageView0;
+            case 1: return R.id.minijuegoImageView1;
+            case 2: return R.id.minijuegoImageView2;
+            case 3: return R.id.minijuegoImageView3;
+            default: return R.id.minijuegoImageView0; //ver que decisión tomo cuando no se encuentra la posicion buscada
         }
     }
 

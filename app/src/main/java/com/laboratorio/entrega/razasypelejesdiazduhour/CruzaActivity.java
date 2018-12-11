@@ -14,6 +14,13 @@ import android.widget.TextView;
 
 public class CruzaActivity extends MiniJuegoActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cruza);
+        comenzarAJugar();
+    }
+
     /*
      * Propósito: Carga el item principal de la jugada actual de una partida
      * Observación:

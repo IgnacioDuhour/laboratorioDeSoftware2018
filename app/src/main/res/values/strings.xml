@@ -1,13 +1,12 @@
 <resources>
     <!-- Main -->
     <string name="app_name" translatable="false">RazasyPelejesDiazDuhour</string>
-    <string name="app_button" translatable="false">Reconocimiento</string>
-    <string name="main_minigame_button" translatable="false">Jugar</string>
+    <string name="app_reconocimiento" translatable="false">Reconocimiento</string>
+    <string name="app_minijuego" translatable="false">Jugar</string>
+
     <string name="image_logo" translatable="false">Logo CEDICA</string>
     <string name="about_button" translatable="false">Acerca de</string>
     <string name="settings_button" translatable="false">Configuración</string>
-
-
     <!-- Dialogo Acerca de -->
     <string name="about_title" translatable="false">Grupo 5</string>
     <string name="about_dialog_btn" translatable="false">Ok</string>
@@ -24,7 +23,7 @@
     <string name="crossbreed_rec_check" translatable="false">Cruzas</string>
     <string name="breed_fur_radio" translatable="false">Razas y Pelajes</string>
     <string name="breed_and_fur_radio" translatable="false">Razas y Pelajes Juntas</string>
-    <string name="crossbreed_radio" translatable="false">Cruzas</string>
+    <string name="crossbreed_radio" translatable="false">Cruza</string>
     <string name="int_a_radio" translatable="false">Interacción A</string>
     <string name="int_b_radio" translatable="false">Interacción B</string>
     <string name="int_c_radio" translatable="false">Interacción C</string>
@@ -34,9 +33,15 @@
     <string name="female_audio">Femenina</string>
     <string name="settings_btn" translatable="false">Guardar</string>
 
+
+    <!-- MinijuegoActivity -->
+    <string name="loren_ipsum">Loren Ipsum</string>
+
+
     <!-- RazaYPelajeActivity -->
     <string name="razaypelaje_volver_boton">Volver</string>
     <string name="razaypelaje_title_textview">Juego de Razas y Pelajes</string>
+
 
 
 </resources>
