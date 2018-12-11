@@ -42,7 +42,7 @@ android:fillViewport="true">
             android:layout_marginBottom="30dp">
 
             <TextView
-                android:id="@+id/razaypelajeAReconocer"
+                android:id="@+id/razaypelajePrincipal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"

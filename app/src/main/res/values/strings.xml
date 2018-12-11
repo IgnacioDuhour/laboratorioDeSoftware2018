@@ -24,7 +24,7 @@
     <string name="crossbreed_rec_check" translatable="false">Cruzas</string>
     <string name="breed_fur_radio" translatable="false">Razas y Pelajes</string>
     <string name="breed_and_fur_radio" translatable="false">Razas y Pelajes Juntas</string>
-    <string name="crossbreed_radio" translatable="false">Cruza</string>
+    <string name="crossbreed_radio" translatable="false">Cruzas</string>
     <string name="int_a_radio" translatable="false">Interacción A</string>
     <string name="int_b_radio" translatable="false">Interacción B</string>
     <string name="int_c_radio" translatable="false">Interacción C</string>

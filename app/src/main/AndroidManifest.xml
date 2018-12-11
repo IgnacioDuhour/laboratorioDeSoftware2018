@@ -19,7 +19,8 @@
         <activity android:name=".ReconocimientoActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".RazaYPelajeActivity" />
-        <activity android:name=".CruzaActivity"></activity>
+        <activity android:name=".CruzaActivity" />
+        <activity android:name=".MiniJuegoActivity"></activity>
     </application>
 
 </manifest>

@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     /** Called when the user taps the "Jugar" button */
-    public void playMiniGameMode(View view) {
+    public void jugarMiniGame(View view) {
         Intent i = new Intent(MainActivity.this, RazaYPelajeActivity.class);
         startActivity(i);
     }
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /** Called when the user taps the icon "configuration" */
-    public void setUpSettings(View view) {
+    public void settings(View view) {
         Intent i = new Intent(MainActivity.this, SettingsActivity.class);
         startActivity(i);
     }
