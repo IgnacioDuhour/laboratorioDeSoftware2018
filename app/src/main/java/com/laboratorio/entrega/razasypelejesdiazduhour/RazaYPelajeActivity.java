@@ -70,4 +70,5 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
             cargarSiguienteMiniJuego();
         }
     }
+
 }

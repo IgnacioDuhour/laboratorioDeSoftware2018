@@ -240,6 +240,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+
     protected int ubicacionDeImagenDeCaballoPorNombre(String nombre) {
         switch (nombre.toUpperCase()) {
             case "ALBO": return R.drawable.albo;
@@ -313,6 +314,14 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             }
         }
         return posiciones;
+    }
+
+    /*
+        Propósito: Evento del boton volver que regresa a la pantalla de Principal (MainActivity)
+    */
+    public void volverAPantallaPrincipal(View view) {
+        Intent i = new Intent(MiniJuegoActivity.this, MainActivity.class);
+        startActivity(i);
     }
 
 }

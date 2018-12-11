@@ -150,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:background="@color/colorPrimaryDark"
-                android:onClick="volverAPantallaPrincipal"
+                android:onClick="irAPantallaPrincipal"
                 android:text="@string/razaypelaje_volver_boton"
                 android:textAlignment="center"
                 android:textColor="#FFF" />
