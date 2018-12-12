@@ -31,7 +31,7 @@ abstract class Jugada {
         Propósito: Retorna los nombres de los tipos de la Jugada (por defecto, 4 nombres)
     */
 
-    public String[] nombresDeLosTiposDeLaJugada() {
+    public String[] nombresDeLosTipos() {
         String[] nombresDeLaJugada = new String[this.cantidadTipos()];
         for (int i=0; i<this.cantidadTipos();i++) {
             nombresDeLaJugada[i] = this.tiposAInteraccionar[i].getNombre();
@@ -67,9 +67,27 @@ abstract class Jugada {
     }
 
     /*
+        Propósito: Describe los nombres de los tipos NO ganadores
+     */
+    public String[] nombresDeLosTiposNoGanadores() {
+        //TODO: es un filter por nombre de jugada ganadora. Si cambio a List, usar algo de tipo filter!
+        String[] nombresDeLosTiposNoGanadores = new String[this.cantidadTipos()-1];
+        int j = 0;
+        for (int i=0; i<this.cantidadTipos();i++) {
+            if (this.tiposAInteraccionar[i].getNombre().compareTo(this.nombreDelTipoGanador())!=0) {
+                nombresDeLosTiposNoGanadores[j] = this.tiposAInteraccionar[i].getNombre();
+                j++;
+            }
+        }
+        return nombresDeLosTiposNoGanadores;
+    }
+
+    /*
         Propósito: describe la posición del tipo ganador. La posición se obtiene de tiposAInteraccionar, que están ubicados aleatoreamente.
      */
     public int posicionTipoGanador() {
+
+        // this.tiposAInteraccionar.indexOf(this.getTipoGanador()); si lo hacía con arraylist :(
         int posicion = -1;
         String nombreGanador = this.nombreDelTipoGanador();
         for (int i=0; i<this.cantidadTipos();i++) {
@@ -88,7 +106,11 @@ abstract class Jugada {
         return this.tiposAInteraccionar.length;
     }
 
+    /*
+        Propósito: Describe las posiciones de la jugada sin la posición de la jugada ganadora
+     */
     public int[] posicionesSinTipoGanador() {
+        //TODO: es un filter por la posicion ganadora. Si cambio a List, usar algo de tipo filter!
         int[] posicionesSinTipoGanador  = new int[this.cantidadTipos()-1];
         int posicionTipoGanador         = this.posicionTipoGanador();
         int j = 0;

@@ -60,7 +60,7 @@ public abstract class MiniJuego {
     /*
         Propósito: Retorna los nombre de la jugada actual
      */
-    public String[] nombresDeLaJugadaActual() { return this.jugadaActual.nombresDeLosTiposDeLaJugada(); }
+    public String[] nombresDeLaJugadaActual() { return this.jugadaActual.nombresDeLosTipos(); }
 
 
     /*
@@ -94,9 +94,17 @@ public abstract class MiniJuego {
         Propósito: describe las posiciones de las imágenes no ganadoras de la jugada actual
         Observación: "posición" es un valor entre 1,2,3 o 4 que corresponder a un imageView específico
      */
-    protected int[] posicionesSinImagenGanadora() {
+    public int[] posicionesSinImagenGanadoraDeJugadaActual() {
         return this.jugadaActual.posicionesSinTipoGanador();
     }
+
+    /*
+        Propósito: Describe los nombres de los tipos NO ganadores de la jugada actual
+     */
+    public String[] nombresDeTiposNoGanadoresDeJugadaActual() {
+        return this.jugadaActual.nombresDeLosTiposNoGanadores();
+    }
+
 
     /*
         Propósito: Genera una secuencia aleatórea de jugadas para una partida

@@ -42,6 +42,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      * Observación: "cargar" hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
      */
     public void cargarElementosEnActividad() {
+        cargarNombreDelJuego();
         cargarJugadaActual();
         cargarSonidoCaballoRelinchando();
     }
@@ -65,7 +66,6 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
      */
     public void cargarJugadaActual() {
-        cargarNombreDelJuego();
         cargarItemPrincipalDeLaJugadaActual();
         cargarImagenesAInteraccionarDeLaJugadaActual();
     }
@@ -120,13 +120,10 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      * "posición":  los 3 items pueden tomar alguna de las posiciones 1, 2, 3 o 4
     */
     public void cargarImagenesNoGanadoras() {
-        int[] posiciones = this.miniJuego.posicionesSinImagenGanadora();
-        String[] nombres = this.miniJuego.nombresDeLaJugadaActual();
-        String nombreAReconocer = this.miniJuego.nombreAReconocerDeLaJugadaActual();
+        int[] posiciones = this.miniJuego.posicionesSinImagenGanadoraDeJugadaActual();
+        String[] nombres = this.miniJuego.nombresDeTiposNoGanadoresDeJugadaActual();
         for (int i = 0; i < posiciones.length; i++) {
-            if (nombres[i].compareTo(nombreAReconocer)!=0) {
-                cargarImagenesNoGanadoraPorPosicion(posiciones[i], nombres[posiciones[i]]);
-            }
+            cargarImagenesNoGanadoraPorPosicion(posiciones[i], nombres[i]);
         }
     }
 
@@ -236,7 +233,17 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    /*
+        Propósito: describe la posición del item ganador (texto o imagen) de la jugada actual. Los items son con los que interaccionará el jugador.
+    */
+    protected int posicionItemGanadorDeJugadaActual() {
+        return this.miniJuego.posicionItemGanadorDeJugadaActual();
+    }
 
+    /*
+        * Propósito: describe el número que representa la ubicación de una imagen a partir del nombre de la imagen
+        * Parámetro: "nombre" representa el nombre de una imágen ubicada en "res/drawable"
+     */
     protected int ubicacionDeImagenDeCaballoPorNombre(String nombre) {
         switch (nombre.toUpperCase()) {
             case "ALBO": return R.drawable.albo;
@@ -284,11 +291,6 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             default: throw new IllegalArgumentException("Posicion de jugada inválida");
         }
     }
-
-    /*
-        Propósito: describe la posición del item ganador (texto o imagen) de la jugada actual. Los items son con los que interaccionará el jugador.
-     */
-    protected abstract  int posicionItemGanadorDeJugadaActual();
 
     /*
         Propósito: Evento del boton volver que regresa a la pantalla de Principal (MainActivity)

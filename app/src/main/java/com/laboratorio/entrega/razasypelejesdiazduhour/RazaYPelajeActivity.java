@@ -78,13 +78,4 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
             cargarSiguienteMiniJuego();
         }
     }
-
-    /*
-        Propósito: describe la posición del item ganador (texto o imagen) de la jugada actual. Los items son con los que interaccionará el jugador.
-    */
-    @Override
-    protected int posicionItemGanadorDeJugadaActual() {
-        return this.miniJuego.posicionItemGanadorDeJugadaActual();
-    }
-
 }

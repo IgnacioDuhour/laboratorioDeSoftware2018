@@ -65,8 +65,8 @@ public class CruzaActivity extends MiniJuegoActivity {
     }
 
     /*
-        Propósito: Carga la próxima jugada para la jugada actual
-        Precondición: Existe una próxima jugada en el minijuego
+        * Propósito: Carga la próxima jugada para la jugada actual
+        * Precondición: Existe una próxima jugada en el minijuego
      */
     @Override
     public void cargarJugadaSiguiente() {
@@ -76,11 +76,6 @@ public class CruzaActivity extends MiniJuegoActivity {
         } else {
             cargarMensajejeDeMiniJuegoFinalizado();
         }
-    }
-
-    @Override
-    protected int posicionItemGanadorDeJugadaActual() {
-        return 0;
     }
 
 }

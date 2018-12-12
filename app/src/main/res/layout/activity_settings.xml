@@ -189,6 +189,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:onClick="saveSettings"
-            android:text="@string/settings_btn" />
+            android:text="@string/settings_btn"
+            android:background="@color/colorPrimaryDark"
+            android:textAlignment="center"
+            android:textColor="#FFF"
+            />
     </LinearLayout>
 </ScrollView>
