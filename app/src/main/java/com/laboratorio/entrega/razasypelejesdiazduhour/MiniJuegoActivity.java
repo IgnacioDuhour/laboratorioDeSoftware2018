@@ -222,7 +222,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         });
         builder.setNeutralButton("Comenzar nuevo juego", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                comenzarAJugar();
+                reanudarJuego();
             }
         });
         AlertDialog dialog = builder.create();
@@ -242,6 +242,14 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public void cargarSiguienteMiniJuego() {
         Intent i = new Intent(MiniJuegoActivity.this, CruzaActivity.class);
+        startActivity(i);
+    }
+
+    /*
+        Propósito: Reanuda el Juego, comenzando por defecto por el juego de "Razas y Pelajes"
+    */
+    public void reanudarJuego() {
+        Intent i = new Intent(MiniJuegoActivity.this, RazaYPelajeActivity.class);
         startActivity(i);
     }
 
