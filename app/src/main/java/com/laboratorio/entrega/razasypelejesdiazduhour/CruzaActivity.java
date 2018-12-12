@@ -22,6 +22,14 @@ public class CruzaActivity extends MiniJuegoActivity {
     }
 
     /*
+        Propósito: crea un nuevo miniJuego y lo inicia inicia (por defecto es "Razas y Pelajes")
+    */
+    public void iniciarMiniJuego(){
+        this.miniJuego = new MiniJuegoCruza();
+        this.miniJuego.iniciarJuego();
+    }
+
+    /*
      * Propósito: Carga el item principal de la jugada actual de una partida
      * Observación:
      * "item":  puede ser texto o imagen.
@@ -68,6 +76,11 @@ public class CruzaActivity extends MiniJuegoActivity {
         } else {
             cargarMensajejeDeMiniJuegoFinalizado();
         }
+    }
+
+    @Override
+    protected int posicionItemGanadorDeJugadaActual() {
+        return 0;
     }
 
 }

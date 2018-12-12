@@ -23,6 +23,14 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
     }
 
     /*
+        Propósito: crea un nuevo miniJuego y lo inicia inicia (por defecto es "Razas y Pelajes")
+    */
+    public void iniciarMiniJuego(){
+        this.miniJuego = new MiniJuegoRazayPelaje();
+        this.miniJuego.iniciarJuego();
+    }
+
+    /*
      * Propósito: Carga el item principal de la jugada actual de una partida
      * Observación:
         * "item":  puede ser texto o imagen.
@@ -69,6 +77,14 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
         } else {
             cargarSiguienteMiniJuego();
         }
+    }
+
+    /*
+        Propósito: describe la posición del item ganador (texto o imagen) de la jugada actual. Los items son con los que interaccionará el jugador.
+    */
+    @Override
+    protected int posicionItemGanadorDeJugadaActual() {
+        return this.miniJuego.posicionItemGanadorDeJugadaActual();
     }
 
 }

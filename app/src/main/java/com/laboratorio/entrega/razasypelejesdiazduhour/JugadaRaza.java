@@ -4,18 +4,19 @@ import java.util.Random;
 
 public class JugadaRaza extends Jugada {
 
-    private Raza razaAReconocer;
-    private Raza[] razasAInteraccionar;
 
-    public JugadaRaza(Raza razaAReconocer) {
-        this.razaAReconocer = razaAReconocer;
-        this.nombreAReconocer = razaAReconocer.toString().toLowerCase();
-        this.razasAInteraccionar = Raza.razasAleatoreasConLaRaza(razaAReconocer, 4);
+    /*
+        Constructor de la clase
+     */
+    public JugadaRaza(TipoRaza tipoDeRazaAReconecor) {
+        this.tipoAReconocer = tipoDeRazaAReconecor;
+        this.tipoGanador = new TipoRaza(tipoDeRazaAReconecor.getRaza());
+        this.tiposAInteraccionar = TipoRaza.tiposDeRazasAleatoreasConLaRaza((TipoRaza)tipoAReconocer, 4);
     }
 
     /*
         Propósito: describe el tipo de jugada que corresponde a "Raza"
-     */
+    */
     public String tipoDeJugada(){
         return "Raza";
     }
@@ -24,21 +25,8 @@ public class JugadaRaza extends Jugada {
         Propósito: Reanuda la jugada de la partida
      */
     public Jugada reanudadJugada(){
-        this.razasAInteraccionar = Raza.razasAleatoreasConLaRaza(this.razaAReconocer, 4); //generalizar 4 a nivel_dificultad obtenido de settings
+        this.tiposAInteraccionar = TipoRaza.tiposDeRazasAleatoreasConLaRaza((TipoRaza) this.getTipoAReconocer(),4);//generalizar 4 a nivel_dificultad obtenido de settings
         return this;
     }
-
-    /*
-        Propósito: Retorna los nombres (4) de los Pelajes para la jugada
-     */
-    @Override
-    public String[] nombreDeLasJugadas() {
-        String[] nombresDeLaJugada = new String[4];
-        for (int i=0; i<4;i++) {
-            nombresDeLaJugada[i] = razasAInteraccionar[i].toString().toLowerCase();
-        }
-        return nombresDeLaJugada;    }
-
-
 
 }

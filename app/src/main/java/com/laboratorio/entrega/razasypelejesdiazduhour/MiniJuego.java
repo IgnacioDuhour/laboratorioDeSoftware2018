@@ -2,18 +2,12 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 
 import java.util.Random;
 
-public class MiniJuego {
+public abstract class MiniJuego {
 
-    private Jugada[] secuenciaDeJugadas; //describe una secuencia de jugadas aleatoreas definidas al inicio del juego
-    private Jugada jugadaActual; //Describe la jugada actual, sea de Raza o Pelaje
-    private int indiceJugadaActual; // describe la posición de la jugada actual en "secuenciaDeJugadas"
-    private int CANTIDAD_JUGADAS; //describe un número según de la cantidad de razas y pelejaes que haya
-
-    public MiniJuego(){
-        this.secuenciaDeJugadas = new Jugada[CANTIDAD_JUGADAS];
-        indiceJugadaActual = 0;
-        this.CANTIDAD_JUGADAS = Raza.cantidadDeRazas()+Pelaje.cantidadDePelajes();
-    }
+    protected Jugada[] secuenciaDeJugadas; //describe una secuencia de jugadas aleatoreas definidas al inicio del juego
+    protected Jugada jugadaActual; //Describe la jugada actual, sea de "Raza", "Pelaje" o "Cruza"
+    protected int indiceJugadaActual; // describe la posición de la jugada actual en "secuenciaDeJugadas"
+    protected int CANTIDAD_JUGADAS; //describe un número según de la cantidad de jugadas que haya
 
     /*
         Propósito: Inicia el minijuego y genera la secuencia aleatórea de jugadas para una partida
@@ -52,7 +46,12 @@ public class MiniJuego {
     public int cantidadDeJugadas() { return CANTIDAD_JUGADAS; }
 
     /*
-        Propósito: Describe verdadero cuando es la última jugada del minijuego Razas y Pelajes
+        Propósito: Describe el tipo del juego pudiendo ser "Raza y Pelaje", "Raza y Pelaje juntas" o "Cruza"
+     */
+    public abstract String tipoDeJuego();
+
+    /*
+        Propósito: Describe verdadero cuando es la última jugada del minijuego
      */
     public boolean esUltimaJugada() {
         return this.indiceJugadaActual == CANTIDAD_JUGADAS;
@@ -61,17 +60,13 @@ public class MiniJuego {
     /*
         Propósito: Retorna los nombre de la jugada actual
      */
-    public String[] nombresDeLaJugadaActual() {
-        return this.jugadaActual.nombreDeLasJugadas();
-    }
+    public String[] nombresDeLaJugadaActual() { return this.jugadaActual.nombresDeLosTiposDeLaJugada(); }
 
 
     /*
         Propósito: Retorna el nombre a reconocer de la jugada actual
     */
-    public String nombreAReconocerDeLaJugadaActual() {
-        return this.jugadaActual.nombreAReconocer;
-    }
+    public String nombreAReconocerDeLaJugadaActual() { return this.jugadaActual.nombreDelTipoAReconocer(); }
 
     /*
         Propósito: Describe el tipo de jugada de la jugada actual, pudiendo ser Raza o Pelaje
@@ -88,6 +83,22 @@ public class MiniJuego {
 
 
     /*
+        Propósito: describe la posición del item ganador (texto o imagen) de la jugada actual.
+     */
+    public int posicionItemGanadorDeJugadaActual() {
+        return this.jugadaActual.posicionTipoGanador();
+    }
+
+
+    /*
+        Propósito: describe las posiciones de las imágenes no ganadoras de la jugada actual
+        Observación: "posición" es un valor entre 1,2,3 o 4 que corresponder a un imageView específico
+     */
+    protected int[] posicionesSinImagenGanadora() {
+        return this.jugadaActual.posicionesSinTipoGanador();
+    }
+
+    /*
         Propósito: Genera una secuencia aleatórea de jugadas para una partida
     */
     public void generarSecuenciaDeJugadasAleatoreas(){
@@ -101,43 +112,19 @@ public class MiniJuego {
         }
     }
 
-    //Propósito: Retorna todas las jugadas que existan para las razas y pelajes existentes en el mini juego
-    private Jugada[] jugadasTotales() {
-        Jugada[] jugadasTotales = new Jugada[CANTIDAD_JUGADAS];
-        Raza[] razas = Raza.values();
-        Pelaje[] pelajes = Pelaje.values();
-        for (int i=0; i<Raza.cantidadDeRazas();i++) { jugadasTotales[i] = new JugadaRaza(razas[i]); }
-        int j=0;
-        for (int i = Raza.cantidadDeRazas(); i<CANTIDAD_JUGADAS;i++) {
-            jugadasTotales[i] = new JugadaPelaje(pelajes[j]);
-            j++;
-        }
-        return jugadasTotales;
-    }
+    /*
+        Propósito: Retorna todas las jugadas (no aleatoreas) para el tipo de juego deifnido ("Cruza" o "Raza y Pelaje")
+     */
+    protected abstract Jugada[] jugadasTotales();
 
-    //Propósito: Intercambia dos jugadas de la secuencia de jugadas
-    private void swapJugadas(int i, int j) {
+    /*
+        Propósito: Intercambia dos jugadas de la secuencia de jugadas
+     */
+    protected void swapJugadas(int i, int j) {
         Jugada aux;
         aux = this.secuenciaDeJugadas[i];
         this.secuenciaDeJugadas[i] = this.secuenciaDeJugadas[j];
         this.secuenciaDeJugadas[j] = aux;
-    }
-
-    public static void main(String[] args) {
-        /*MiniJuego m = new MiniJuego();
-        m.iniciarJuego();
-        imprimirValores(m.secuenciaDeJugadas);
-        System.out.println("------------------------------------------");
-        System.out.println(m.jugadaActual.nombreAReconocer);
-        System.out.println(m.jugadaSiguiente().nombreAReconocer);
-        System.out.println(m.jugadaSiguiente().nombreAReconocer);
-        System.out.println(m.jugadaSiguiente().nombreAReconocer);*/
-    }
-
-    private static void imprimirValores(Jugada[] r) {
-        for (int i = 0; i < r.length; i++) {
-            System.out.println(r[i].nombreAReconocer);
-        }
     }
 
 

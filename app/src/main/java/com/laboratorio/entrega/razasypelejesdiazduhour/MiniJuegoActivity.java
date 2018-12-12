@@ -35,10 +35,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     /*
         Propósito: crea un nuevo miniJuego y lo inicia inicia (por defecto es "Razas y Pelajes")
      */
-    public void iniciarMiniJuego(){
-        this.miniJuego = new MiniJuego();
-        this.miniJuego.iniciarJuego();
-    }
+    public abstract void iniciarMiniJuego();
 
     /*
      * Propósito: Carga la jugada actual y el sonido del caballo relinchando en la actividad correspondiente (RazayPelaje o Cruza)
@@ -74,13 +71,12 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     }
 
     /*
-     * Propósito: carga el nombre del juego ("Raza y Pelaje" o  "Cruza)
+     * Propósito: carga el nombre del juego ("Raza y Pelaje" , "Razas y Pelajes juntas", "Cruza)
      * Observación: "cargar" hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
      */
     public void cargarNombreDelJuego() {
         TextView nombreDelJuego = (TextView) findViewById(R.id.nombreDelJuego);
-        String str = "Juego de " + this.miniJuego.tipoDeLaJugadaActual();
-        nombreDelJuego.setText(str);
+        nombreDelJuego.setText(this.miniJuego.tipoDeJuego());
     }
 
     /*
@@ -109,7 +105,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public void cargarImagenGanadora() {
         //se encuentra el imageview
-        ImageView imagenGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicionItemGanadorDeJugadaActual()));
+            ImageView imagenGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicionItemGanadorDeJugadaActual()));
         //se setea el source del imageview
         imagenGanadora.setImageResource(ubicacionDeImagenDeCaballoPorNombre(this.miniJuego.nombreAReconocerDeLaJugadaActual()));
         //se define el evento para el imageview
@@ -124,7 +120,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      * "posición":  los 3 items pueden tomar alguna de las posiciones 1, 2, 3 o 4
     */
     public void cargarImagenesNoGanadoras() {
-        int[] posiciones = posicionesSinImagenGanadora();
+        int[] posiciones = this.miniJuego.posicionesSinImagenGanadora();
         String[] nombres = this.miniJuego.nombresDeLaJugadaActual();
         String nombreAReconocer = this.miniJuego.nombreAReconocerDeLaJugadaActual();
         for (int i = 0; i < posiciones.length; i++) {
@@ -285,36 +281,14 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             case 1: return R.id.minijuegoImageView1;
             case 2: return R.id.minijuegoImageView2;
             case 3: return R.id.minijuegoImageView3;
-            default: return R.id.minijuegoImageView0; //ver que decisión tomo cuando no se encuentra la posicion buscada
+            default: throw new IllegalArgumentException("Posicion de jugada inválida");
         }
     }
 
     /*
         Propósito: describe la posición del item ganador (texto o imagen) de la jugada actual. Los items son con los que interaccionará el jugador.
      */
-    protected int posicionItemGanadorDeJugadaActual() {
-        String[] nombres = this.miniJuego.nombresDeLaJugadaActual();
-        String nombre    = this.miniJuego.nombreAReconocerDeLaJugadaActual();
-        int posicion = -1;
-        for (int i=0; i<nombres.length;i++) {
-            if (nombres[i].compareTo(nombre)==0) { posicion = i; break; }
-        }
-        return posicion;
-    }
-
-    protected int[] posicionesSinImagenGanadora() {
-        String[] nombres = this.miniJuego.nombresDeLaJugadaActual();
-        int[] posiciones = new int[nombres.length-1];
-        int j=0;
-        String nombreAReconocer = this.miniJuego.nombreAReconocerDeLaJugadaActual();
-        for (int i=0; i<nombres.length;i++) {
-            if (nombres[i].compareTo(nombreAReconocer)!=0) {
-                posiciones[j] = i;
-                j++;
-            }
-        }
-        return posiciones;
-    }
+    protected abstract  int posicionItemGanadorDeJugadaActual();
 
     /*
         Propósito: Evento del boton volver que regresa a la pantalla de Principal (MainActivity)
