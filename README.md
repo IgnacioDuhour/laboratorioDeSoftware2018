@@ -19,9 +19,9 @@ Hemos optado, según los requerimientos de la cátedra, por desarrollar los sigu
 - Minijuego de `Cruzas` con nivel  de *dificultad 2* e *interacción C*.
 
 
-![Pantalla Inicio Aplicacion](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/pantalla-inicio.png)
+![Pantalla Inicio Aplicacion](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/pantalla-inicio.png =70x)  
 
-![Integrantes Grupo 5](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/integrantes-grupo5.png)
+![Integrantes Grupo 5](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/integrantes-grupo5.png =100x)
 
 ![Pantalla Configuración](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/pantalla-configuracion.png)
 
