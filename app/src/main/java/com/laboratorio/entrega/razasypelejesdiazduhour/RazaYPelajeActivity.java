@@ -44,28 +44,6 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
     }
 
     /*
-        Propósito: Carga el mensaje de la jugada ganada.
-    */
-    @Override
-    public void cargarMensajeDeJugaGanada() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Jugada Ganada");
-        //builder.setMessage("This is my message.");
-        builder.setPositiveButton("Siguiente jugada", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                cargarJugadaSiguiente();
-            }
-        });
-        builder.setNeutralButton("Volver a jugar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                reanudadJugadaActual();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    /*
         * Propósito: Carga la próxima jugada para la jugada actual
         * Precondición: Existe una próxima jugada en el minijuego
     */

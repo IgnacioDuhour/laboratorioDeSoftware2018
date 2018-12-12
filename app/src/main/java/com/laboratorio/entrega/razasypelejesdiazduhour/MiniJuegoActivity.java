@@ -177,8 +177,20 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
     /*
         Propósito: Carga el mensaje de la jugada ganada.
-     */
-    public abstract void cargarMensajeDeJugaGanada();
+    */
+    public void cargarMensajeDeJugaGanada() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Jugada Ganada");
+        //builder.setMessage("This is my message.");
+        builder.setPositiveButton("Siguiente jugada", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) { cargarJugadaSiguiente(); }
+        });
+        builder.setNeutralButton("Volver a jugar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) { reanudadJugadaActual(); }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 
     /*
         Propósito: Reanuda la jugada actual

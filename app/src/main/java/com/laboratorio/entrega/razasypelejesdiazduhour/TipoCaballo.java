@@ -1,11 +1,12 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
+import java.util.function.ToIntBiFunction;
+
 class TipoCaballo {
 
     protected String nombre;
 
     protected String getNombre() {
-        //debería devolver el nombre del enum en minúscula tal vez haya que hacer: this.nombre.toString.toLowercase;
         return this.nombre;
     }
 
@@ -29,14 +30,17 @@ class TipoCaballo {
     }
 
     /*
-        Propósito: Retorna los tipos pasado por parámetro, pero sin el tipo "tipoAEliminar"
+        * Propósito: Retorna los tipos pasado por parámetro, pero sin el tipo "tipoAEliminar"
+        * Precondición: Hay al menos 1 elemento en "tipos"
     */
     public static TipoCaballo[] tiposSinElTipo(TipoCaballo[] tipos, TipoCaballo tipoAEliminar) {
         //TODO: es un filter por el tipo de nombre .
-        TipoCaballo[] tiposSinElTipo = new TipoCaballo[tipos.length];
+        TipoCaballo[] tiposSinElTipo = new TipoCaballo[tipos.length-1];
         int i = 0;
+        String nombreAEliminar = tipoAEliminar.getNombre();
         for (TipoCaballo tipo : tipos) {
-            if (tipo.getNombre() != tipoAEliminar.getNombre()) {
+            String nombreActual = tipo.getNombre();
+            if (tipo.getNombre().compareTo(tipoAEliminar.getNombre())!=0) {
                 tiposSinElTipo[i] = tipo;
                 i++;
             }
@@ -45,23 +49,24 @@ class TipoCaballo {
     }
 
     /*
-        Propósito: describe los tipos elegidos de forma aleatoreas, incluyendo el tipo por parámetro "tipo"
-        Precondición: Hay al menos "cantidadDeTipos" definidas en TipoCaballo
+        * Propósito: describe los tipos elegidos de forma aleatoreas a partir de "tipos", la cantidad definida por "cantidadDeTipos", incluyendo el tipo por parámetro "tipo"
+        * Precondición: Hay al menos "cantidadDeTipos" definidas en "tipos"
     */
     public static TipoCaballo[] tiposAleatoreasConElTipo(TipoCaballo[] tipos, TipoCaballo tipo, int cantidadDeTipos) {
-        TipoCaballo[] cuatroTiposAleatoreos = new TipoCaballo[cantidadDeTipos];
-        TipoCaballo[] tresTiposAleatoreos = TipoCaballo.tresTiposAleatoreasSinElTipo(tipos, tipo);//generalizar a cantidadDeRazas-1, no a tres (3)
-        cuatroTiposAleatoreos[0] = tresTiposAleatoreos[0];
-        cuatroTiposAleatoreos[1] = tresTiposAleatoreos[1];
-        cuatroTiposAleatoreos[2] = tresTiposAleatoreos[2];
-        cuatroTiposAleatoreos[3] = tipo;
-        return TipoCaballo.tiposAleatoreos(cuatroTiposAleatoreos);
+        TipoCaballo[] resultado = new TipoCaballo[cantidadDeTipos];
+        TipoCaballo[] tiposSinElTipo = TipoCaballo.tiposSinElTipo(tipos, tipo);
+        TipoCaballo[] tiposAleatoreosSinElTipo = TipoCaballo.tiposAleatoreos(tiposSinElTipo);
+        resultado[0] = tipo;
+        for (int i = 1; i < cantidadDeTipos; i++) {
+            resultado[i] = tiposAleatoreosSinElTipo[i];
+        }
+        return TipoCaballo.tiposAleatoreos(resultado);
     }
 
 
     /*
-        Propósito: describe 3 Tipos elegidos de forma aleatoreas, pero sin el  "tipo"
-        Precondición: Hay al menos 3 Tipos
+        * Propósito: describe 3 Tipos elegidos de forma aleatoreas, pero sin el tipo "sinEltipo"
+        * Precondición: Hay al menos 3 Tipos
     */
     public static TipoCaballo[] tresTiposAleatoreasSinElTipo(TipoCaballo[] tipos,TipoCaballo sinElTipo) {
         //obtengo todos los tipos sin el tipo "sinElTipo"
@@ -74,6 +79,20 @@ class TipoCaballo {
         tresTiposAleatoreasSinElTipo[1] = tiposAleatoreosSinElTipo[1];
         tresTiposAleatoreasSinElTipo[2] = tiposAleatoreosSinElTipo[2];
         return tresTiposAleatoreasSinElTipo;
+    }
+
+    /*
+        * Propósito: describe un tipo cualquiera de "tipos" , pero sin el tipo "sinElTipo"
+        * Precondición: "sinElTipo" existe en "tipos" y hay al menos dos elementos distintos en "tipos"
+     */
+    public static TipoCaballo tipoSinElTipo(TipoCaballo[] tipos, TipoCaballo sinElTipo) {
+        TipoCaballo tipoSinElTipo = tipos[0];
+        for (int i = 0; i < tipos.length; i++) {
+            if (tipos[i].getNombre().compareTo(sinElTipo.getNombre())!=0) {
+                tipoSinElTipo = tipos[i]; break;
+            }
+        }
+        return  tipoSinElTipo;
     }
 
 }

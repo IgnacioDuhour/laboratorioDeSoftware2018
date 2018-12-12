@@ -42,29 +42,6 @@ public class CruzaActivity extends MiniJuegoActivity {
     }
 
     /*
-        Propósito: Muestra en pantalla el mensaje de la jugada ganada.
-     */
-   @Override
-    public void cargarMensajeDeJugaGanada() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Jugada Ganada");
-        //builder.setMessage("This is my message.");
-        builder.setPositiveButton("Siguiente jugada", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                cargarJugadaSiguiente();
-            }
-        });
-        builder.setNeutralButton("Volver a jugar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                reanudadJugadaActual();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
-
-    }
-
-    /*
         * Propósito: Carga la próxima jugada para la jugada actual
         * Precondición: Existe una próxima jugada en el minijuego
      */
@@ -75,6 +52,16 @@ public class CruzaActivity extends MiniJuegoActivity {
             cargarJugadaActual();
         } else {
             cargarMensajejeDeMiniJuegoFinalizado();
+        }
+    }
+
+    protected int idImageViewParaPosicionDeJugada(int posicion) {
+        switch (posicion) {
+            case 0: return R.id.cruzaImageView0;
+            case 1: return R.id.cruzaImageView1;
+            case 2: return R.id.cruzaImageView2;
+            case 3: return R.id.cruzaImageView3;
+            default: throw new IllegalArgumentException("Posicion de jugada inválida");
         }
     }
 

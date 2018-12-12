@@ -7,7 +7,8 @@
     <string name="image_logo" translatable="false">Logo CEDICA</string>
     <string name="about_button" translatable="false">Acerca de</string>
     <string name="settings_button" translatable="false">Configuración</string>
-    <!-- Dialogo Acerca de -->
+
+
     <string name="about_title" translatable="false">Grupo 5</string>
     <string name="about_dialog_btn" translatable="false">Ok</string>
     <string name="about_message" translatable="false">Maira Diaz, Ignacio Duhour</string>

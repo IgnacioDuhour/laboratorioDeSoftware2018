@@ -1,6 +1,11 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
+import java.util.Arrays;
 import java.util.Random;
+import java.util.stream.Stream;
 
 abstract class Jugada {
 
@@ -70,9 +75,11 @@ abstract class Jugada {
     /*
         Propósito: Describe los nombres de los tipos NO ganadores
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public String[] nombresDeLosTiposNoGanadores() {
         //TODO: es un filter por nombre de jugada ganadora. Si cambio a List, usar algo de tipo filter!
-        String[] nombresDeLosTiposNoGanadores = new String[this.cantidadTipos()-1];
+        //String[] tipos = Arrays.stream(this.tiposAInteraccionar).filter(t -> this.esTipoGanador(t.getNombre())).toArray(String[]::new));
+         String[] nombresDeLosTiposNoGanadores = new String[this.cantidadTipos()-1];
         int j = 0;
         for (int i=0; i<this.cantidadTipos();i++) {
             if (this.tiposAInteraccionar[i].getNombre().compareTo(this.nombreDelTipoGanador())!=0) {
@@ -82,6 +89,11 @@ abstract class Jugada {
         }
         return nombresDeLosTiposNoGanadores;
     }
+
+    public boolean esTipoGanador(String nombreTipo) {
+        return (this.nombreDelTipoGanador().compareTo(nombreTipo)==0);
+    }
+
 
     /*
         Propósito: describe la posición del tipo ganador. La posición se obtiene de tiposAInteraccionar, que están ubicados aleatoreamente.
@@ -110,6 +122,7 @@ abstract class Jugada {
     /*
         Propósito: Describe las posiciones de la jugada sin la posición de la jugada ganadora
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public int[] posicionesSinTipoGanador() {
         //TODO: es un filter por la posicion ganadora. Si cambio a List, usar algo de tipo filter!
         int[] posicionesSinTipoGanador  = new int[this.cantidadTipos()-1];

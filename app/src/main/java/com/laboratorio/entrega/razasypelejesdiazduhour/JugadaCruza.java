@@ -7,7 +7,7 @@ public class JugadaCruza extends Jugada {
     */
     public JugadaCruza(TipoCruza tipoDeCruzaAReconocer) {
         this.tipoAReconocer = tipoDeCruzaAReconocer;
-        this.tipoGanador = TipoCruza.cruzaAleatoriaSinLaRaza(tipoDeCruzaAReconocer.getRazaOriginal()); //aca debería setearlo con la raza correspondiente de la cruza
+        this.tipoGanador = tipoDeCruzaAReconocer;
         this.tiposAInteraccionar = TipoCaballo.tiposAleatoreasConElTipo(TipoCruza.todosLosTiposDeCruza(),tipoDeCruzaAReconocer,4);
     }
 

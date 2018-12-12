@@ -153,7 +153,7 @@
                 android:onClick="volverAPantallaPrincipal"
                 android:text="@string/razaypelaje_volver_boton"
                 android:textAlignment="center"
-                android:textColor="#FFF" />
+                android:textColor="@color/white" />
         </LinearLayout>
         <!-- row 3 end -->
 
