@@ -17,3 +17,10 @@ Hemos optado, según los requerimientos de la cátedra, por desarrollar los sigu
 
 - Minijuego de `Razas y Pelajes` con nivel de *dificultad 2* e *interacción B*.
 - Minijuego de `Cruzas` con nivel  de *dificultad 2* e *interacción C*.
+
+
+![Pantalla Inicio Aplicacion](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/pantalla-inicio.png)
+![Integrantes Grupo 5](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/integrantes-grupo5.png)
+![Pantalla Configuración](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/pantalla-configuracion.png)
+![Minijuego Razas y Pelajes](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/minijuego-razasypelajes.png)
+![Minijuego Cruzas](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/minijuego-cruzas.png)
