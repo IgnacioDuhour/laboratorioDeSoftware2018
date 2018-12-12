@@ -6,8 +6,8 @@ public class MiniJuegoRazayPelaje extends MiniJuego {
         Constructor de la clase
      */
     public MiniJuegoRazayPelaje(){
-        this.indiceJugadaActual = 0;
-        this.CANTIDAD_JUGADAS = Raza.cantidadDeRazas()+Pelaje.cantidadDePelajes();
+        super();
+        this.CANTIDAD_JUGADAS = TipoRaza.cantidadDeRazas() + TipoPelaje.cantidadDePelajes();
         this.secuenciaDeJugadas = new Jugada[CANTIDAD_JUGADAS];
     }
 

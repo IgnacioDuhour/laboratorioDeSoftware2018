@@ -105,7 +105,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public void cargarImagenGanadora() {
         //se encuentra el imageview
-            ImageView imagenGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicionItemGanadorDeJugadaActual()));
+        ImageView imagenGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicionItemGanadorDeJugadaActual()));
         //se setea el source del imageview
         imagenGanadora.setImageResource(ubicacionDeImagenDeCaballoPorNombre(this.miniJuego.nombreAReconocerDeLaJugadaActual()));
         //se define el evento para el imageview
@@ -275,7 +275,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             case "PERCHERON": return R.drawable.percheron;
             case "PONIFELL": return R.drawable.ponifell;
             case "PONIPOLO": return R.drawable.ponipolo;
-            case "PURASANGRE": return R.drawable.purasangreingles;
+            case "PURASANGREINGLES": return R.drawable.purasangreingles;
             case "SHIRE": return R.drawable.shire;
             case "SORAIA": return R.drawable.soraia;
             default: return R.drawable.defaultfur;

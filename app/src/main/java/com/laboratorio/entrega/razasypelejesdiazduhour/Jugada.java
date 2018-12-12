@@ -8,6 +8,7 @@ abstract class Jugada {
     protected TipoCaballo tipoGanador; //describe el tipo ganador, que se ubica en la parte inferior del juego, con la que interaccionará el jugador
     protected TipoCaballo[] tiposAInteraccionar; // describe los tipos con los que interaccionará el jugador. Uno de los tipos es la jugada ganadora
 
+
     /*
         Propósito: Describe verdadero cuando es una jugada ganadora, es decir, el nombre tipo a reconocer coincide con el nombre del tipo ganador
      */

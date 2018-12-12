@@ -6,9 +6,9 @@ public class MiniJuegoCruza extends MiniJuego {
         Constructor de la clase
      */
     public MiniJuegoCruza(){
-        this.indiceJugadaActual = 0;
-        //this.CANTIDAD_JUGADAS = Cruza.cantidadDeCruzas();
-        this.CANTIDAD_JUGADAS = Raza.cantidadDeRazas();
+
+        super();
+        this.CANTIDAD_JUGADAS = TipoCruza.cantidadDeCruzas();
         this.secuenciaDeJugadas = new Jugada[CANTIDAD_JUGADAS];
     }
 
@@ -25,9 +25,10 @@ public class MiniJuegoCruza extends MiniJuego {
     @Override
     protected Jugada[] jugadasTotales() {
         Jugada[] jugadasTotales = new Jugada[CANTIDAD_JUGADAS];
+        TipoCruza[] tipos = TipoCruza.todosLosTiposDeCruza();
         Raza[] cruzas = Raza.values();
         for (int i = 0; i<CANTIDAD_JUGADAS;i++) {
-            //jugadasTotales[i] = new JugadaCruza(cruzas[i]);
+            jugadasTotales[i] = new JugadaCruza(tipos[i]);
         }
         return jugadasTotales;
     }

@@ -24,7 +24,7 @@ public enum Raza {
     PERCHERON,
     PONIFELL,
     PONIPOLO,
-    PURASANGRE,
+    PURASANGREINGLES,
     SHIRE,
     SORAIA;
 

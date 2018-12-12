@@ -2,15 +2,13 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 
 public class JugadaCruza extends Jugada {
 
-    private Raza cruza;
-
     /*
         Constructor de la clase
     */
-    public JugadaCruza(TipoCruza tipoDeCruzaAReconecor) {
-        //this.tipoAReconocer = tipoDeCruzaAReconecor;
-        //this.tipoGanador = new TipoCruza(tipoDeCruzaAReconecor.getCruza());
-        //this.tiposAInteraccionar = TipoRaza.tiposDeRazasAleatoreasConLaRaza((TipoRaza)tipoAReconocer, 4);
+    public JugadaCruza(TipoCruza tipoDeCruzaAReconocer) {
+        this.tipoAReconocer = tipoDeCruzaAReconocer;
+        this.tipoGanador = TipoCruza.cruzaAleatoriaSinLaRaza(tipoDeCruzaAReconocer.getRazaOriginal()); //aca debería setearlo con la raza correspondiente de la cruza
+        this.tiposAInteraccionar = TipoCaballo.tiposAleatoreasConElTipo(TipoCruza.todosLosTiposDeCruza(),tipoDeCruzaAReconocer,4);
     }
 
     @Override
@@ -18,13 +16,13 @@ public class JugadaCruza extends Jugada {
         return "Cruza";
     }
 
+    /*
+       Propósito: Reanuda la jugada de la partida
+     */
     @Override
     public Jugada reanudadJugada() {
-        return null;
-    }
-
-    public Raza getCruza() {
-        return this.cruza;
+        this.tiposAInteraccionar = TipoCaballo.tiposAleatoreasConElTipo(TipoCruza.todosLosTiposDeCruza(),this.tipoAReconocer,4);
+        return this;
     }
 
 }

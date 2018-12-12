@@ -8,7 +8,7 @@ public class JugadaPelaje extends Jugada {
     public JugadaPelaje(TipoPelaje tipoDePelajeAReconecor) {
         this.tipoAReconocer = tipoDePelajeAReconecor;
         this.tipoGanador = new TipoPelaje(tipoDePelajeAReconecor.getPelaje());
-        this.tiposAInteraccionar = TipoPelaje.tiposDePelajesAleatoreasConElPelaje((TipoPelaje) tipoAReconocer, 4);
+        this.tiposAInteraccionar = TipoCaballo.tiposAleatoreasConElTipo(TipoPelaje.todosLosTiposDePelajes(),tipoDePelajeAReconecor,4);
     }
 
     /*
@@ -22,7 +22,7 @@ public class JugadaPelaje extends Jugada {
         Propósito: Reanuda la jugada de la partida
      */
     public Jugada reanudadJugada() {
-        this.tiposAInteraccionar = TipoPelaje.tiposDePelajesAleatoreasConElPelaje((TipoPelaje) this.getTipoAReconocer(),4);
+        this.tiposAInteraccionar = TipoCaballo.tiposAleatoreasConElTipo(TipoRaza.todosLosTiposDeRazas(),this.tipoAReconocer,4);
         return this;
     }
 

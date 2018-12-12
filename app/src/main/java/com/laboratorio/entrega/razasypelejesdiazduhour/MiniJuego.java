@@ -9,6 +9,14 @@ public abstract class MiniJuego {
     protected int indiceJugadaActual; // describe la posición de la jugada actual en "secuenciaDeJugadas"
     protected int CANTIDAD_JUGADAS; //describe un número según de la cantidad de jugadas que haya
 
+
+    /*
+        Constructor de la clase
+    */
+    public MiniJuego() {
+        this.indiceJugadaActual = 0;
+    }
+
     /*
         Propósito: Inicia el minijuego y genera la secuencia aleatórea de jugadas para una partida
      */
