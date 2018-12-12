@@ -20,7 +20,11 @@ Hemos optado, según los requerimientos de la cátedra, por desarrollar los sigu
 
 
 ![Pantalla Inicio Aplicacion](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/pantalla-inicio.png)
+
 ![Integrantes Grupo 5](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/integrantes-grupo5.png)
+
 ![Pantalla Configuración](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/pantalla-configuracion.png)
+
 ![Minijuego Razas y Pelajes](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/minijuego-razasypelajes.png)
+
 ![Minijuego Cruzas](https://github.com/IgnacioDuhour/laboratorioDeSoftware2018/blob/master/imagenesreadme/minijuego-cruzas.png)
