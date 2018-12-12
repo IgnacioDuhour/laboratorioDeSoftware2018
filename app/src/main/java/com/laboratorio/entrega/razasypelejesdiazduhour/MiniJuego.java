@@ -62,7 +62,7 @@ public abstract class MiniJuego {
         Propósito: Describe verdadero cuando es la última jugada del minijuego
      */
     public boolean esUltimaJugada() {
-        return this.indiceJugadaActual == CANTIDAD_JUGADAS;
+        return this.indiceJugadaActual == CANTIDAD_JUGADAS-1;
     }
 
     /*
