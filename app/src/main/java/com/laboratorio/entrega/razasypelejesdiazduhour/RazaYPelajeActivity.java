@@ -25,7 +25,7 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
     /*
         Propósito: crea un nuevo miniJuego y lo inicia inicia (por defecto es "Razas y Pelajes")
     */
-    public void iniciarMiniJuego(){
+    public void iniciarMiniJuego() {
         this.miniJuego = new MiniJuegoRazayPelaje();
         this.miniJuego.iniciarJuego();
     }
@@ -39,21 +39,7 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
     @Override
     public void cargarItemPrincipalDeLaJugadaActual() {
         TextView itemTextView = (TextView) findViewById(R.id.minijuegoPrincipal);
-        String str = this.miniJuego.tipoDeLaJugadaActual() +": "+ this.miniJuego.nombreAReconocerDeLaJugadaActual();
+        String str = this.miniJuego.tipoDeLaJugadaActual() + ": " + this.miniJuego.nombreAReconocerDeLaJugadaActual();
         itemTextView.setText(str);
-    }
-
-    /*
-        * Propósito: Carga la próxima jugada para la jugada actual
-        * Precondición: Existe una próxima jugada en el minijuego
-    */
-    @Override
-    public void cargarJugadaSiguiente() {
-        if (!this.miniJuego.esUltimaJugada()) {
-            this.miniJuego.jugadaSiguiente(); //ver si puedo eliminar el if, viendo si puedo conocer cual es la ultima jugada
-            cargarJugadaActual();
-        } else {
-            cargarSiguienteMiniJuego();
-        }
     }
 }

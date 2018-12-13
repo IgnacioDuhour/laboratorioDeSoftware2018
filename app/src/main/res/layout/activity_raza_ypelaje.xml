@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="15dp"
+                android:textSize="30dp"
                 android:textStyle="bold"
                 android:text="@string/loren_ipsum" />
         </LinearLayout>
@@ -48,7 +48,7 @@
                 android:layout_gravity="center"
                 android:text="Lorem Ipsum"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="30dp"
+                android:textSize="25dp"
                 android:textStyle="bold"
                 android:textAlignment="center"/>
 
@@ -73,7 +73,7 @@
                 <ImageView
                     android:id="@+id/minijuegoImageView0"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="200dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/defaultfur" />
@@ -92,7 +92,7 @@
                 <ImageView
                     android:id="@+id/minijuegoImageView1"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="200dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/defaultfur" />
@@ -110,7 +110,7 @@
                 <ImageView
                     android:id="@+id/minijuegoImageView2"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="200dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/defaultfur" />
@@ -127,7 +127,7 @@
                 <ImageView
                     android:id="@+id/minijuegoImageView3"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="200dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/defaultfur" />

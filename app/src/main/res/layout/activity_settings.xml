@@ -8,65 +8,120 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="64dp"
         android:orientation="vertical"
         android:padding="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_margin="32dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="2"
             android:padding="8dp">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="151dp"
-                android:layout_height="20dp"
-                android:text="@string/rec_mode_title" />
-
-            <RadioGroup
-                android:id="@+id/radioGroup7"
-                android:layout_width="215dp"
-                android:layout_height="58dp"
-                android:layout_gravity="center">
-
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/settings_list_radio" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/settings_grid_radio" />
-            </RadioGroup>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="8dp">
 
-                <CheckBox
-                    android:id="@+id/checkBox"
-                    android:layout_width="78dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/breed_rec_check" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="151dp"
+                    android:layout_height="20dp"
+                    android:text="@string/rec_mode_title" />
 
-                <CheckBox
-                    android:id="@+id/checkBox2"
-                    android:layout_width="86dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fur_rec_check" />
+                <RadioGroup
+                    android:id="@+id/radioGroup7"
+                    android:layout_width="215dp"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center">
 
-                <CheckBox
-                    android:id="@+id/checkBox3"
-                    android:layout_width="96dp"
+                    <RadioButton
+                        android:id="@+id/radioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_list_radio" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_grid_radio" />
+                </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/crossbreed_rec_check" />
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkBox"
+                        android:layout_width="78dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/breed_rec_check" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox2"
+                        android:layout_width="86dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fur_rec_check" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox3"
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/crossbreed_rec_check" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="71dp"
+                    android:layout_height="25dp"
+                    android:text="@string/play_mode_title" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup8"
+                    android:layout_width="203dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center">
+
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/breed_fur_radio" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/breed_and_fur_radio" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/crossbreed_radio" />
+                </RadioGroup>
             </LinearLayout>
 
         </LinearLayout>
@@ -74,113 +129,84 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_margin="32dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="2"
             android:padding="8dp">
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="71dp"
-                android:layout_height="25dp"
-                android:text="@string/play_mode_title" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="8dp">
 
-            <RadioGroup
-                android:id="@+id/radioGroup8"
-                android:layout_width="203dp"
-                android:layout_height="110dp"
-                android:layout_gravity="center">
-
-                <RadioButton
-                    android:id="@+id/radioButton3"
+                <TextView
+                    android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/breed_fur_radio" />
+                    android:text="@string/int_mode_title" />
 
-                <RadioButton
-                    android:id="@+id/radioButton4"
+                <RadioGroup
+                    android:id="@+id/radioGroup9"
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <RadioButton
+                        android:id="@+id/radioButton6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/int_a_radio"
+                        tools:layout_editor_absoluteX="33dp"
+                        tools:layout_editor_absoluteY="228dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/int_b_radio" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/int_c_radio" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="57dp"
+                    android:layout_height="21dp"
+                    android:text="@string/settings_mode_title" />
+
+                <Switch
+                    android:id="@+id/switch1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/breed_and_fur_radio" />
+                    android:layout_gravity="center"
+                    android:textOff="@string/level_1"
+                    android:textOn="@string/level_2" />
 
-                <RadioButton
-                    android:id="@+id/radioButton5"
+                <Switch
+                    android:id="@+id/switch2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/crossbreed_radio" />
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/int_mode_title" />
-
-            <RadioGroup
-                android:id="@+id/radioGroup9"
-                android:layout_width="152dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center">
-
-                <RadioButton
-                    android:id="@+id/radioButton6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/int_a_radio"
-                    tools:layout_editor_absoluteX="33dp"
-                    tools:layout_editor_absoluteY="228dp" />
-
-                <RadioButton
-                    android:id="@+id/radioButton7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/int_b_radio" />
-
-                <RadioButton
-                    android:id="@+id/radioButton8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/int_c_radio" />
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="57dp"
-                android:layout_height="21dp"
-                android:text="@string/settings_mode_title" />
-
-            <Switch
-                android:id="@+id/switch1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textOff="@string/level_1"
-                android:textOn="@string/level_2" />
-
-            <Switch
-                android:id="@+id/switch2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textOff="@string/male_audio"
-                android:textOn="@string/female_audio" />
+                    android:layout_gravity="center"
+                    android:textOff="@string/male_audio"
+                    android:textOn="@string/female_audio" />
+            </LinearLayout>
         </LinearLayout>
 
         <Button
@@ -188,11 +214,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:background="@color/colorPrimaryDark"
             android:onClick="saveSettings"
             android:text="@string/settings_btn"
-            android:background="@color/colorPrimaryDark"
             android:textAlignment="center"
-            android:textColor="#FFF"
-            />
+            android:textColor="#FFF" />
     </LinearLayout>
 </ScrollView>

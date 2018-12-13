@@ -16,7 +16,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
 
     protected MiniJuego miniJuego;
-    protected MediaPlayer sonidoRelincheCaballo;
+    protected MediaPlayer sonidoRelincheCaballo,sonidoResoplidoCaballo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,8 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      * Precondición: Existe una judaga cargada
      */
     public void cargarSonidoCaballoRelinchando() {
-        sonidoRelincheCaballo = MediaPlayer.create(this, R.raw.caballorelinchando);
+        sonidoRelincheCaballo = MediaPlayer.create(this, R.raw.relincho);
+        sonidoResoplidoCaballo = MediaPlayer.create(this, R.raw.resoplido);
     }
 
     /*
@@ -171,7 +172,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         Propósito: Emite el sonido de un caballo relinchando que representa una interacción NO acertada para la jugada actual.
     */
     public void mensajeJugadaNoAcertada() {
-        sonidoRelincheCaballo.start();
+        sonidoResoplidoCaballo.start();
     }
 
 
@@ -179,9 +180,9 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         Propósito: Carga el mensaje de la jugada ganada.
     */
     public void cargarMensajeDeJugaGanada() {
+        sonidoRelincheCaballo.start();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Jugada Ganada");
-        //builder.setMessage("This is my message.");
+        builder.setTitle("Jugada Ganada").setCancelable(false);
         builder.setPositiveButton("Siguiente jugada", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) { cargarJugadaSiguiente(); }
         });
@@ -204,7 +205,14 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         Propósito: Carga la próxima jugada para la jugada actual
         Precondición: Existe una próxima jugada en el minijuego
      */
-    public abstract void cargarJugadaSiguiente();
+    public void cargarJugadaSiguiente() {
+        if (!this.miniJuego.esUltimaJugada()) {
+            this.miniJuego.jugadaSiguiente(); //ver si puedo eliminar el if, viendo si puedo conocer cual es la ultima jugada
+            cargarJugadaActual();
+        } else {
+            cargarMensajejeDeMiniJuegoFinalizado();
+        }
+    }
 
     /*
         Propósito: Carga el mensaje cuandoe el jugador no acertó la jugada, dandole las opciones:
@@ -213,8 +221,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     */
     public void cargarMensajejeDeMiniJuegoFinalizado() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("MiniJuego Finalizado");
-        //builder.setMessage("This is my message.");
+        builder.setTitle("MiniJuego Finalizado").setCancelable(false);
         builder.setPositiveButton("Ir al inicio", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 irAPantallaPrincipal();

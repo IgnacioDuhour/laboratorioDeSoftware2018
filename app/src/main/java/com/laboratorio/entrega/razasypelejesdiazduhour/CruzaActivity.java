@@ -41,20 +41,6 @@ public class CruzaActivity extends MiniJuegoActivity {
         imagenPrincipal.setImageResource(ubicacionDeImagenDeCaballoPorNombre(this.miniJuego.nombreAReconocerDeLaJugadaActual()));
     }
 
-    /*
-        * Propósito: Carga la próxima jugada para la jugada actual
-        * Precondición: Existe una próxima jugada en el minijuego
-     */
-    @Override
-    public void cargarJugadaSiguiente() {
-        if (!this.miniJuego.esUltimaJugada()) {
-            this.miniJuego.jugadaSiguiente(); //ver si puedo eliminar el if, viendo si puedo conocer cual es la ultima jugada, y a la última jugada definirle el evento "mensajeDeMiniJuegoFinalizado"
-            cargarJugadaActual();
-        } else {
-            cargarMensajejeDeMiniJuegoFinalizado();
-        }
-    }
-
     protected int idImageViewParaPosicionDeJugada(int posicion) {
         switch (posicion) {
             case 0: return R.id.cruzaImageView0;

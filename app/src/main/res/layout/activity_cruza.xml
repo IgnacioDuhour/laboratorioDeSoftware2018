@@ -26,34 +26,13 @@ android:fillViewport="true">
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="15dp"
+            android:textSize="35dp"
             android:textStyle="bold"
             android:text="@string/razaypelaje_title_textview" />
     </LinearLayout>
     <!-- row 1 end -->
 
     <!-- row 2 -->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginBottom="30dp">
-
-        <TextView
-            android:id="@+id/razaypelajeAReconocer"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:text="Cruzas"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:textAlignment="center"/>
-
-    </LinearLayout>
     <!-- row 2 end-->
 
     <!-- row 3 -->
@@ -69,7 +48,7 @@ android:fillViewport="true">
         <ImageView
             android:id="@+id/cruzaImagenPrincipal"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/defaultfur" />
@@ -95,7 +74,7 @@ android:fillViewport="true">
             <ImageView
                 android:id="@+id/cruzaImageView0"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="200dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/defaultfur" />
@@ -114,7 +93,7 @@ android:fillViewport="true">
             <ImageView
                 android:id="@+id/cruzaImageView1"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="200dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/defaultfur" />
@@ -132,7 +111,7 @@ android:fillViewport="true">
             <ImageView
                 android:id="@+id/cruzaImageView2"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="200dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/defaultfur" />
@@ -149,7 +128,7 @@ android:fillViewport="true">
             <ImageView
                 android:id="@+id/cruzaImageView3"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="200dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/defaultfur" />
