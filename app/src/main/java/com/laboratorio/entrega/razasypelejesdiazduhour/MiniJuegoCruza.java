@@ -13,14 +13,14 @@ public class MiniJuegoCruza extends MiniJuego {
     }
 
     /*
-        Propósito: Describe "Cruza", el tipo del juego
+        Propósito: Describe el tipo del juego. En este caso describe "Juego de Cruzas de caballos"
     */
     public String tipoDeJuego(){
         return "Juego de Cruzas de caballos";
     }
 
     /*
-        Propósito: Retorna todas las jugadas (no aleatoreas) para el tipo de juego deifnido ("Cruza" o "Raza y Pelaje")
+        Propósito: Retorna todas las jugadas (no aleatoreas) para el tipo de juego 
      */
     @Override
     protected Jugada[] jugadasTotales() {
