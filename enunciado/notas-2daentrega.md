@@ -1,4 +1,4 @@
-#Assets:
+# Assets
 
 ## Naranja/Amarillo
 . #f8c400
@@ -9,13 +9,13 @@
 ## Gris
 . #a4a6aa
 
-#Modo reconocimiento
+# Modo reconocimiento
 
 ## 2 partes
 1. Configuración: vista (lista o grilla) y filtro (raza-pelaje y/o cruza)
 2. Juego: 
 
-#Modo minijuego
+# Modo minijuego
 
 
 ## minijuego 1: Razas y pelajes
