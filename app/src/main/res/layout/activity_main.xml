@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/background"
+    android:fillViewport="true"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -22,26 +23,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/imageButton2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="100dp"
+                android:layout_height="89dp"
+                android:background="@drawable/background_transparent"
                 android:contentDescription="@string/about_button"
-                app:srcCompat="@android:drawable/ic_menu_help" />
+                app:srcCompat="@drawable/info_regular" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name_logo"
+                app:srcCompat="@drawable/logo_app" />
 
             <ImageButton
                 android:id="@+id/imageButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
+                android:layout_height="89dp"
+                android:background="@drawable/background_transparent"
                 android:contentDescription="@string/settings_button"
                 android:onClick="settings"
-                app:srcCompat="@android:drawable/ic_menu_preferences" />
+                app:srcCompat="@drawable/config_regular" />
         </LinearLayout>
 
         <LinearLayout
@@ -57,6 +68,7 @@
                 android:layout_height="272dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/image_logo"
+                android:padding="8dp"
                 app:srcCompat="@drawable/logo" />
         </LinearLayout>
 
@@ -64,21 +76,22 @@
             style="@style/Widget.AppCompat.ButtonBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
+            android:gravity="bottom|center"
             android:orientation="horizontal"
             android:weightSum="3">
-
+            <!--
             <Button
                 android:id="@+id/button"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
+                android:onClick="playRecognitionMode"
                 android:padding="5dp"
                 android:text="@string/app_reconocimiento"
                 android:textColor="@color/white" />
@@ -88,8 +101,8 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
                 android:onClick="jugarMinijuego"
@@ -102,14 +115,62 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
                 android:onClick="jugarMinijuegoCruzas"
                 android:text="@string/app_minijuego_cruzas"
                 android:textColor="@color/white" />
+            -->
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="240dp"
+                android:layout_height="190dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/logo_unlp"
+                materialdesign:srcCompat="@drawable/logo_unlp" />
 
+            <LinearLayout
+                android:layout_width="356dp"
+                android:layout_height="231dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:weightSum="1">
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="76dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/background_transparent"
+                    android:contentDescription="@string/app_minijuego"
+                    android:onClick="jugarMinijuego"
+                    materialdesign:srcCompat="@drawable/jugar_regular" />
+
+                <ImageButton
+                    android:id="@+id/imageButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="54dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/background_transparent"
+                    android:contentDescription="@string/app_reconocimiento"
+                    android:onClick="playRecognitionMode"
+                    materialdesign:srcCompat="@drawable/reconocimiento_regular" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="240dp"
+                android:layout_height="190dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/logo_info"
+                materialdesign:srcCompat="@drawable/logo_facultad_informatica" />
         </LinearLayout>
+
+
     </LinearLayout>
 </ScrollView>

@@ -3,12 +3,13 @@
     <string name="app_name" translatable="false">RazasyPelejesDiazDuhour</string>
     <string name="app_reconocimiento" translatable="false">Reconocimiento</string>
     <string name="app_minijuego" translatable="false">Jugar Razas y Pelajes</string>
-
+    <string name="app_name_logo" translatable="false">Razas y Pelajes</string>
     <string name="image_logo" translatable="false">Logo CEDICA</string>
+    <string name="logo_unlp" translatable="false">Logo UNLP</string>
+    <string name="logo_info" translatable="false">Logo Facultad Informatica</string>
     <string name="about_button" translatable="false">Acerca de</string>
     <string name="settings_button" translatable="false">Configuración</string>
-
-
+    <!-- Dialogo Acerca de -->
     <string name="about_title" translatable="false">Grupo 5</string>
     <string name="about_dialog_btn" translatable="false">Ok</string>
     <string name="about_message" translatable="false">Maira Diaz, Ignacio Duhour</string>
@@ -34,6 +35,10 @@
     <string name="female_audio">Femenina</string>
     <string name="settings_btn" translatable="false">Guardar</string>
 
+    <!-- Reconocimiento -->
+    <string name="home_btn">Boton de retorno a main</string>
+    <string name="audio_btn">Boton de audio</string>
+
     <!-- MinijuegoActivity -->
     <string name="loren_ipsum">Loren Ipsum</string>
 
@@ -41,6 +46,5 @@
     <string name="razaypelaje_volver_boton">Volver</string>
     <string name="razaypelaje_title_textview">Juego de Razas y Pelajes</string>
 
-
-
+    <string name="lorem">Lorem ipsum dolor sit amet consectetur adipiscing elit quis conubia non pulvinar eros aptent porttitor euismod senectus, molestie nec libero turpis sapien vitae imperdiet curae massa torquent ac et parturient ullamcorper cras.</string>
 </resources>
