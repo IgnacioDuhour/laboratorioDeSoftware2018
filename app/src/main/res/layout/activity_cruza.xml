@@ -1,163 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-android:fillViewport="true">
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    tools:context=".CruzaActivity">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_amarillo"
+    android:fillViewport="true">
 
-    <!-- row 1 -->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="30dp">
-        <TextView
-            android:id="@+id/nombreDelJuego"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="35dp"
-            android:textStyle="bold"
-            android:text="@string/razaypelaje_title_textview" />
-    </LinearLayout>
-    <!-- row 1 end -->
-
-    <!-- row 2 -->
-    <!-- row 2 end-->
-
-    <!-- row 3 -->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginBottom="30dp">
-
-        <ImageView
-            android:id="@+id/cruzaImagenPrincipal"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/defaultfur" />
-
-    </LinearLayout>
-    <!-- row 3 end-->
-
-    <!-- row 3 -->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="4" >
-
-        <!-- col 1 -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/cruzaImageView0"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/defaultfur" />
-
-        </LinearLayout>
-        <!-- col 1 end -->
-
-        <!-- col 2 -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/cruzaImageView1"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/defaultfur" />
-        </LinearLayout>
-        <!-- col 2 end -->
-
-        <!-- col 3 -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/cruzaImageView2"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/defaultfur" />
-        </LinearLayout>
-        <!-- col 3 end -->
-
-        <!-- col 4 -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:orientation="vertical" >
-            <ImageView
-                android:id="@+id/cruzaImageView3"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/defaultfur" />
-        </LinearLayout>
-        <!-- col 4 end -->
-
-    </LinearLayout>
-    <!-- row 3 end -->
-
-    <!-- row 4 -->
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="20dp">
+        android:orientation="vertical"
+        tools:context=".CruzaActivity">
 
-        <Button
-            android:id="@+id/razaypelaje_volver_boton"
+        <!-- row 1 -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:background="@color/colorPrimaryDark"
-            android:onClick="volverAPantallaPrincipal"
-            android:text="@string/razaypelaje_volver_boton"
-            android:textAlignment="center"
-            android:textColor="#FFF" />
-    </LinearLayout>
-    <!-- row 3 end -->
+            android:layout_margin="30dp"
+            android:orientation="horizontal">
 
-</LinearLayout>
+            <ImageButton
+                android:id="@+id/imageButton7"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_transparent"
+                android:contentDescription="@string/home_btn"
+                android:onClick="volverAPantallaPrincipal"
+                app:srcCompat="@drawable/home_regular" />
+
+        </LinearLayout>
+        <!-- row 1 end -->
+
+        <!-- row 2 -->
+        <!-- row 2 end-->
+
+        <!-- row 3 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/cruzaImagenPrincipal"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/defaultfur" />
+
+        </LinearLayout>
+        <!-- row 3 end-->
+
+        <!-- row 3 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <!-- col 1 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/cruzaImageView0"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/defaultfur" />
+
+            </LinearLayout>
+            <!-- col 1 end -->
+
+            <!-- col 2 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/cruzaImageView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/defaultfur" />
+            </LinearLayout>
+            <!-- col 2 end -->
+
+            <!-- col 3 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/cruzaImageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/defaultfur" />
+            </LinearLayout>
+            <!-- col 3 end -->
+
+            <!-- col 4 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/cruzaImageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/defaultfur" />
+            </LinearLayout>
+            <!-- col 4 end -->
+
+        </LinearLayout>
+        <!-- row 3 end -->
+
+        <!-- row 4 -->
+        <!--
+        LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/razaypelaje_volver_boton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@color/colorPrimaryDark"
+                android:onClick="volverAPantallaPrincipal"
+                android:text="@string/razaypelaje_volver_boton"
+                android:textAlignment="center"
+                android:textColor="#FFF" />
+        </LinearLayout
+        -->
+        <!-- row 3 end -->
+
+    </LinearLayout>
 </ScrollView>
 

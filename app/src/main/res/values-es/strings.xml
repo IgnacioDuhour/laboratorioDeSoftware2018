@@ -16,16 +16,16 @@
     <!-- Settings -->
     <string name="rec_mode_title" translatable="false">Modo Reconocimiento:</string>
     <string name="play_mode_title" translatable="false">Minijuego:</string>
-    <string name="int_mode_title" translatable="false">Modo Interacción:</string>
-    <string name="settings_mode_title" translatable="false">Ajustes:</string>
+    <string name="int_mode_title" translatable="false">Nivel de dificultad:</string>
+    <string name="settings_mode_title" translatable="false">Audio:</string>
     <string name="settings_list_radio" translatable="false">Lista</string>
     <string name="settings_grid_radio" translatable="false">Grilla</string>
-    <string name="breed_rec_check" translatable="false">Razas</string>
+    <string name="breed_fur_rec_check" translatable="false">Razas y Pelajes</string>
     <string name="fur_rec_check" translatable="false">Pelaje</string>
     <string name="crossbreed_rec_check" translatable="false">Cruzas</string>
-    <string name="breed_fur_radio" translatable="false">Razas y Pelajes</string>
-    <string name="breed_and_fur_radio" translatable="false">Razas y Pelajes Juntas</string>
-    <string name="crossbreed_radio" translatable="false">Cruza</string>
+    <string name="breed_fur_radio" translatable="false">Razas y Pelajes: Imagen-Palabra</string>
+    <string name="breed_and_fur_radio" translatable="false">Razas y Pelajes: Palabra-Imagen</string>
+    <string name="crossbreed_radio" translatable="false">Cruza:Imagen-Imagen</string>
     <string name="int_a_radio" translatable="false">Interacción A</string>
     <string name="int_b_radio" translatable="false">Interacción B</string>
     <string name="int_c_radio" translatable="false">Interacción C</string>

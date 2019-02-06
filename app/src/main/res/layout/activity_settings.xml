@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_amarillo"
     tools:context=".SettingsActivity">
 
     <LinearLayout
@@ -63,15 +64,9 @@
 
                     <CheckBox
                         android:id="@+id/checkBox"
-                        android:layout_width="78dp"
+                        android:layout_width="142dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/breed_rec_check" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox2"
-                        android:layout_width="86dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fur_rec_check" />
+                        android:text="@string/breed_fur_rec_check" />
 
                     <CheckBox
                         android:id="@+id/checkBox3"
@@ -97,7 +92,7 @@
 
                 <RadioGroup
                     android:id="@+id/radioGroup8"
-                    android:layout_width="203dp"
+                    android:layout_width="260dp"
                     android:layout_height="110dp"
                     android:layout_gravity="center">
 
