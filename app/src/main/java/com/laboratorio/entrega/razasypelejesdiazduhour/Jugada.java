@@ -3,10 +3,6 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.stream.Stream;
-
 abstract class Jugada {
 
     protected TipoCaballo tipoAReconocer; //describe el tipo a reconocer ("Raza", "Pelaje" o "Cruza"), que se ubica en la parte superior del juego

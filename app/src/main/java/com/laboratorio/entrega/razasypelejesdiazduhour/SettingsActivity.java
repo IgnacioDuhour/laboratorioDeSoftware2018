@@ -26,12 +26,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         radioGroup(preferences, rb2, rb3, rb4, "razaypelaje", "razaspelajejuntas", "juego_cruzas");
 
-        RadioButton rb5 = SettingsActivity.this.findViewById(R.id.radioButton6);
-        RadioButton rb6 = SettingsActivity.this.findViewById(R.id.radioButton7);
-        RadioButton rb7 = SettingsActivity.this.findViewById(R.id.radioButton8);
-
-        radioGroup(preferences, rb5, rb6, rb7, "interact_a", "interact_b", "interact_c");
-
         configs(preferences);
     }
 
@@ -48,10 +42,8 @@ public class SettingsActivity extends AppCompatActivity {
 
         CheckBox cb1 = SettingsActivity.this.findViewById(R.id.checkBox);
         CheckBox cb2 = SettingsActivity.this.findViewById(R.id.checkBox2);
-        CheckBox cb3 = SettingsActivity.this.findViewById(R.id.checkBox3);
         cb1.setChecked(preferences.getBoolean("razas", true));
-        cb2.setChecked(preferences.getBoolean("pelajes", false));
-        cb3.setChecked(preferences.getBoolean("cruzas", false));
+        cb2.setChecked(preferences.getBoolean("cruzas", false));
     }
 
     private void radioGroup(@NonNull SharedPreferences preferences, RadioButton r1, RadioButton r2, RadioButton r3, String key, String key2, String key3) {
@@ -111,37 +103,13 @@ public class SettingsActivity extends AppCompatActivity {
                 break;
         }
 
-        rg = SettingsActivity.this.findViewById(R.id.radioGroup9);
-        radioId = rg.getCheckedRadioButtonId();
-        rb = SettingsActivity.this.findViewById(radioId);
-        text = (String) rb.getText();
-        switch (text) {
-            case "Interacción A":
-                editor.putBoolean("interact_a", true);
-                editor.putBoolean("interact_b", false);
-                editor.putBoolean("interact_c", false);
-                break;
-            case "Interacción B":
-                editor.putBoolean("interact_a", false);
-                editor.putBoolean("interact_b", true);
-                editor.putBoolean("interact_c", false);
-                break;
-            case "Interacción C":
-                editor.putBoolean("interact_a", false);
-                editor.putBoolean("interact_b", false);
-                editor.putBoolean("interact_c", true);
-                break;
-            default:
-                break;
-        }
-
         saveSwitch(editor);
 
         editor.apply();
         finish();
     }
 
-    private void saveRecognition(@NonNull SharedPreferences.Editor editor){
+    private void saveRecognition(@NonNull SharedPreferences.Editor editor) {
         RadioGroup rg = SettingsActivity.this.findViewById(R.id.radioGroup7);
         int radioId = rg.getCheckedRadioButtonId();
         RadioButton rb = SettingsActivity.this.findViewById(radioId);
@@ -154,10 +122,8 @@ public class SettingsActivity extends AppCompatActivity {
         }
         CheckBox cb1 = SettingsActivity.this.findViewById(R.id.checkBox);
         CheckBox cb2 = SettingsActivity.this.findViewById(R.id.checkBox2);
-        CheckBox cb3 = SettingsActivity.this.findViewById(R.id.checkBox3);
         editor.putBoolean("razas", cb1.isChecked());
-        editor.putBoolean("pelajes", cb2.isChecked());
-        editor.putBoolean("cruzas", cb3.isChecked());
+        editor.putBoolean("cruzas", cb2.isChecked());
     }
 
     private void saveSwitch(@NonNull SharedPreferences.Editor editor) {
@@ -174,6 +140,4 @@ public class SettingsActivity extends AppCompatActivity {
             editor.putString("audio", (String) sw.getTextOff());
         }
     }
-
-
 }

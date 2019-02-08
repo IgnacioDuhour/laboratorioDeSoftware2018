@@ -69,7 +69,7 @@
                         android:text="@string/breed_fur_rec_check" />
 
                     <CheckBox
-                        android:id="@+id/checkBox3"
+                        android:id="@+id/checkBox2"
                         android:layout_width="96dp"
                         android:layout_height="wrap_content"
                         android:text="@string/crossbreed_rec_check" />
@@ -143,34 +143,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/int_mode_title" />
 
-                <RadioGroup
-                    android:id="@+id/radioGroup9"
-                    android:layout_width="152dp"
+                <Switch
+                    android:id="@+id/switch1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:textOff="@string/level_1"
+                    android:textOn="@string/level_2" />
 
-                    <RadioButton
-                        android:id="@+id/radioButton6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/int_a_radio"
-                        tools:layout_editor_absoluteX="33dp"
-                        tools:layout_editor_absoluteY="228dp" />
-
-                    <RadioButton
-                        android:id="@+id/radioButton7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/int_b_radio" />
-
-                    <RadioButton
-                        android:id="@+id/radioButton8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/int_c_radio" />
-                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -185,14 +165,6 @@
                     android:layout_width="57dp"
                     android:layout_height="21dp"
                     android:text="@string/settings_mode_title" />
-
-                <Switch
-                    android:id="@+id/switch1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textOff="@string/level_1"
-                    android:textOn="@string/level_2" />
 
                 <Switch
                     android:id="@+id/switch2"
@@ -213,6 +185,7 @@
             android:onClick="saveSettings"
             android:text="@string/settings_btn"
             android:textAlignment="center"
-            android:textColor="#FFF" />
+            android:textColor="#FFF"
+            tools:ignore="OnClick" />
     </LinearLayout>
 </ScrollView>

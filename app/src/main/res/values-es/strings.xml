@@ -20,6 +20,7 @@
     <string name="settings_mode_title" translatable="false">Audio:</string>
     <string name="settings_list_radio" translatable="false">Lista</string>
     <string name="settings_grid_radio" translatable="false">Grilla</string>
+    <string name="breed_rec_check" translatable="false">Raza</string>
     <string name="breed_fur_rec_check" translatable="false">Razas y Pelajes</string>
     <string name="fur_rec_check" translatable="false">Pelaje</string>
     <string name="crossbreed_rec_check" translatable="false">Cruzas</string>
@@ -31,20 +32,20 @@
     <string name="int_c_radio" translatable="false">Interacción C</string>
     <string name="level_1" translatable="false">Nivel 1</string>
     <string name="level_2" translatable="false">Nivel 2</string>
-    <string name="male_audio">Masculina</string>
-    <string name="female_audio">Femenina</string>
+    <string name="male_audio" translatable="false">Masculina</string>
+    <string name="female_audio" translatable="false">Femenina</string>
     <string name="settings_btn" translatable="false">Guardar</string>
 
     <!-- Reconocimiento -->
-    <string name="home_btn">Boton de retorno a main</string>
-    <string name="audio_btn">Boton de audio</string>
+    <string name="home_btn" translatable="false">Boton de retorno a main</string>
+    <string name="audio_btn" translatable="false">Boton de audio</string>
 
     <!-- MinijuegoActivity -->
-    <string name="loren_ipsum">Loren Ipsum</string>
+    <string name="loren_ipsum" translatable="false">Loren Ipsum</string>
 
     <!-- RazaYPelajeActivity -->
-    <string name="razaypelaje_volver_boton">Volver</string>
-    <string name="razaypelaje_title_textview">Juego de Razas y Pelajes</string>
+    <string name="razaypelaje_volver_boton" translatable="false">Volver</string>
+    <string name="razaypelaje_title_textview" translatable="false">Juego de Razas y Pelajes</string>
 
-    <string name="lorem">Lorem ipsum dolor sit amet consectetur adipiscing elit quis conubia non pulvinar eros aptent porttitor euismod senectus, molestie nec libero turpis sapien vitae imperdiet curae massa torquent ac et parturient ullamcorper cras.</string>
+    <string name="lorem" translatable="false">Lorem ipsum dolor sit amet consectetur adipiscing elit quis conubia non pulvinar eros aptent porttitor euismod senectus, molestie nec libero turpis sapien vitae imperdiet curae massa torquent ac et parturient ullamcorper cras.</string>
 </resources>
