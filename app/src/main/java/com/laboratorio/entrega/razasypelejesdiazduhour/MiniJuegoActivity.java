@@ -54,7 +54,6 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public void setearConfiguracion() {
         SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
-        Boolean dificultadConfig = preferences.
 
     }
 
