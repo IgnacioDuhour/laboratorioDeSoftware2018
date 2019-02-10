@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_amarillo"
     tools:context=".SettingsActivity">
 
     <LinearLayout
@@ -63,18 +64,12 @@
 
                     <CheckBox
                         android:id="@+id/checkBox"
-                        android:layout_width="78dp"
+                        android:layout_width="142dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/breed_rec_check" />
+                        android:text="@string/breed_fur_rec_check" />
 
                     <CheckBox
                         android:id="@+id/checkBox2"
-                        android:layout_width="86dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fur_rec_check" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox3"
                         android:layout_width="96dp"
                         android:layout_height="wrap_content"
                         android:text="@string/crossbreed_rec_check" />
@@ -97,7 +92,7 @@
 
                 <RadioGroup
                     android:id="@+id/radioGroup8"
-                    android:layout_width="203dp"
+                    android:layout_width="260dp"
                     android:layout_height="110dp"
                     android:layout_gravity="center">
 
@@ -148,34 +143,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/int_mode_title" />
 
-                <RadioGroup
-                    android:id="@+id/interaccion"
-                    android:layout_width="152dp"
+                <Switch
+                    android:id="@+id/switch1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:textOff="@string/level_1"
+                    android:textOn="@string/level_2" />
 
-                    <RadioButton
-                        android:id="@+id/interaccion_razaypelaje_imagenpalabra"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Raza y Pelaje Imagen-Palabra"
-                        tools:layout_editor_absoluteX="33dp"
-                        tools:layout_editor_absoluteY="228dp" />
-
-                    <RadioButton
-                        android:id="@+id/interaccion_razaypelaje_palabraimagen"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Raza y Pelaje Palabra-Imagen" />
-
-                    <RadioButton
-                        android:id="@+id/interaccion_cruza_imagenimagen"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Cruzas Imagen-Imagen" />
-                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -192,20 +167,10 @@
                     android:text="@string/settings_mode_title" />
 
                 <Switch
-                    android:id="@+id/dificultad"
+                    android:id="@+id/switch2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/dificultad"
-                    android:textOff="@string/dificultad_dificil"
-                    android:textOn="@string/dificultad_facil" />
-
-                <Switch
-                    android:id="@+id/audio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/audio"
                     android:textOff="@string/male_audio"
                     android:textOn="@string/female_audio" />
             </LinearLayout>
@@ -220,6 +185,7 @@
             android:onClick="saveSettings"
             android:text="@string/settings_btn"
             android:textAlignment="center"
-            android:textColor="#FFF" />
+            android:textColor="#FFF"
+            tools:ignore="OnClick" />
     </LinearLayout>
 </ScrollView>

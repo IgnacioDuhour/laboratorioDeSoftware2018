@@ -70,4 +70,6 @@
 
 1. Minijuego Cruzas: de donde sacamos la imagen que contiene a los dos caballos? 
 2. Que sucede si de los 5 desafíos, el/la juegador/a va perdiendo 3 de 5. Cómo continua?
-3. Se supone que falta que nos entreguen más imágenes de caballos?
+3. Se supone que falta que nos entreguen más imágenes de caballos? Porque hay mas sonidos de razas que imágenes de caballos 
+4. Cuantos niveles existen? 1ro: Raza y pelaje con imagen-palabra, 2do: Raza y pelaje juntas con palabra imagen, 3ro: Cruzas con imagen-imagen
+

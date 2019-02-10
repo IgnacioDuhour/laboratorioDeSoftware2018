@@ -1,7 +1,5 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
-import java.util.Random;
-
 public abstract class MiniJuego {
 
     protected Jugada[] secuenciaDeJugadas; //describe una secuencia de jugadas aleatoreas definidas al inicio del juego

@@ -4,8 +4,10 @@
     <string name="app_reconocimiento" translatable="false">Reconocimiento</string>
     <string name="app_minijuego" translatable="false">Jugar Razas y Pelajes</string>
     <string name="app_minijuego_cruzas" translatable="false">Jugar Cruzas</string>
-
+    <string name="app_name_logo" translatable="false">Razas y Pelajes</string>
     <string name="image_logo" translatable="false">Logo CEDICA</string>
+    <string name="logo_unlp" translatable="false">Logo UNLP</string>
+    <string name="logo_info" translatable="false">Logo Facultad Informatica</string>
     <string name="about_button" translatable="false">Acerca de</string>
     <string name="settings_button" translatable="false">Configuración</string>
     <!-- Dialogo Acerca de -->
@@ -15,16 +17,27 @@
     <!-- Settings -->
     <string name="rec_mode_title" translatable="false">Modo Reconocimiento:</string>
     <string name="play_mode_title" translatable="false">Minijuego:</string>
-    <string name="int_mode_title" translatable="false">Modo Interacción:</string>
-    <string name="settings_mode_title" translatable="false">Ajustes:</string>
+    <string name="int_mode_title" translatable="false">Nivel dedificultad:</string>
+    <string name="settings_mode_title" translatable="false">Audio:</string>
     <string name="settings_list_radio" translatable="false">Lista</string>
     <string name="settings_grid_radio" translatable="false">Grilla</string>
-    <string name="breed_rec_check" translatable="false">Razas</string>
+    <string name="breed_rec_check" translatable="false">Raza</string>
+    <string name="breed_fur_rec_check" translatable="false">Razas y Pelajes</string>
     <string name="fur_rec_check" translatable="false">Pelaje</string>
     <string name="crossbreed_rec_check" translatable="false">Cruzas</string>
-    <string name="breed_fur_radio" translatable="false">Razas y Pelajes</string>
-    <string name="breed_and_fur_radio" translatable="false">Razas y Pelajes Juntas</string>
-    <string name="crossbreed_radio" translatable="false">Cruza</string>
+
+    <string name="breed_fur_radio" translatable="false">Razas y Pelajes: Imagen-Palabra</string>
+    <string name="breed_and_fur_radio" translatable="false">Razas y Pelajes: Palabra-Imagen</string>
+    <string name="crossbreed_radio" translatable="false">Cruza:Imagen-Imagen</string>
+    <string name="int_a_radio" translatable="false">Interacción A</string>
+    <string name="int_b_radio" translatable="false">Interacción B</string>
+    <string name="int_c_radio" translatable="false">Interacción C</string>
+    <string name="level_1" translatable="false">Nivel 1</string>
+    <string name="level_2" translatable="false">Nivel 2</string>
+    <string name="male_audio" translatable="false">Masculina</string>
+    <string name="female_audio" translatable="false">Femenina</string>
+
+    <!-- de Mai, nuevas definiciones. ver si lo uso-->
     <string name="interaccion_razaypelaje_imagenpalabra" translatable="false">Razas y Pelajes Imagen-Palabra</string>
     <string name="interaccion_razaypelaje_palabraimagen" translatable="false">Razas y Pelajes Palabra-Imagen</string>
     <string name="interaccion_cruza_imagenimagen" translatable="false">Cruzas Imagen-Imagen</string>
@@ -32,19 +45,21 @@
     <string name="dificultad_facil" translatable="false">Facil</string>
     <string name="dificultad_dificil" translatable="false">Dificil</string>
     <string name="audio">Audio</string>
-    <string name="male_audio">Masculina</string>
-    <string name="female_audio">Femenina</string>
+    <!-- FIN de Mai, nuevas definiciones. ver si lo uso-->
+
     <string name="settings_btn" translatable="false">Guardar</string>
 
+    <!-- Reconocimiento -->
+    <string name="home_btn" translatable="false">Boton de retorno a main</string>
+    <string name="audio_btn" translatable="false">Boton de audio</string>
 
     <!-- MinijuegoActivity -->
-    <string name="loren_ipsum">Loren Ipsum</string>
+    <string name="loren_ipsum" translatable="false">Loren Ipsum</string>
 
 
     <!-- RazaYPelajeActivity -->
-    <string name="razaypelaje_volver_boton">Volver</string>
-    <string name="razaypelaje_title_textview">Juego de Razas y Pelajes</string>
+    <string name="razaypelaje_volver_boton" translatable="false">Volver</string>
+    <string name="razaypelaje_title_textview" translatable="false">Juego de Razas y Pelajes</string>
 
-
-
+    <string name="lorem" translatable="false">Lorem ipsum dolor sit amet consectetur adipiscing elit quis conubia non pulvinar eros aptent porttitor euismod senectus, molestie nec libero turpis sapien vitae imperdiet curae massa torquent ac et parturient ullamcorper cras.</string>
 </resources>

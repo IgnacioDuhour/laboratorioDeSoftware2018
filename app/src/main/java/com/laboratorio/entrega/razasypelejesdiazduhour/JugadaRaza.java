@@ -1,7 +1,5 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
-import java.util.Random;
-
 public class JugadaRaza extends Jugada {
 
 
