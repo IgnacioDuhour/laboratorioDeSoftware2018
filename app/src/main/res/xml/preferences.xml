@@ -59,16 +59,6 @@
         android:key="interaccion_cruza_imagenimagen"
         android:summary="Curza Imagen-Imagen"
         android:title="@string/interaccion_cruza_imagenimagen" />
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="interact_b"
-        android:summary="Modo interaccion B"
-        android:title="@string/int_b_radio" />
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="interact_c"
-        android:summary="Modo interaccion C"
-        android:title="@string/int_c_radio" />
     <!-- Ajustes -->
     <SwitchPreference
         android:defaultValue="@string/dificultad_facil"

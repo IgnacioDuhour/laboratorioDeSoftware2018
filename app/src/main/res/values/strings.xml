@@ -28,6 +28,7 @@
     <string name="interaccion_razaypelaje_imagenpalabra" translatable="false">Razas y Pelajes Imagen-Palabra</string>
     <string name="interaccion_razaypelaje_palabraimagen" translatable="false">Razas y Pelajes Palabra-Imagen</string>
     <string name="interaccion_cruza_imagenimagen" translatable="false">Cruzas Imagen-Imagen</string>
+    <string name="dificultad_facil" translatable="false">Facil</string>
     <string name="dificultad_dificil" translatable="false">Dificil</string>
     <string name="male_audio">Masculina</string>
     <string name="female_audio">Femenina</string>
