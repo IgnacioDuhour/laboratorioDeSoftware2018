@@ -46,9 +46,19 @@
     <!-- Modo Interaccion -->
     <CheckBoxPreference
         android:defaultValue="true"
-        android:key="interact_a"
-        android:summary="Modo interaccion A"
-        android:title="@string/int_a_radio" />
+        android:key="interaccion_razaypelaje_imagenpalabra"
+        android:summary="Raza y Pelaje Imagen-Palabra"
+        android:title="@string/interaccion_razaypelaje_imagenpalabra" />
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="interaccion_razaypelaje_palabraimagen"
+        android:summary="Raza y Pelaje Palabra-Imagen"
+        android:title="@string/interaccion_razaypelaje_palabraimagen" />
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="interaccion_cruza_imagenimagen"
+        android:summary="Curza Imagen-Imagen"
+        android:title="@string/interaccion_cruza_imagenimagen" />
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="interact_b"
@@ -61,10 +71,10 @@
         android:title="@string/int_c_radio" />
     <!-- Ajustes -->
     <SwitchPreference
-        android:defaultValue="@string/level_1"
-        android:key="level"
-        android:switchTextOff="@string/level_1"
-        android:switchTextOn="@string/level_2"
+        android:defaultValue="@string/dificultad_facil"
+        android:key="dificultad"
+        android:switchTextOff="@string/dificultad_dificil"
+        android:switchTextOn="@string/dificultad_facil"
         android:title="Nivel" />
     <SwitchPreference
         android:defaultValue="@string/female_audio"

@@ -25,11 +25,10 @@
     <string name="breed_fur_radio" translatable="false">Razas y Pelajes</string>
     <string name="breed_and_fur_radio" translatable="false">Razas y Pelajes Juntas</string>
     <string name="crossbreed_radio" translatable="false">Cruza</string>
-    <string name="int_a_radio" translatable="false">Interacción A</string>
-    <string name="int_b_radio" translatable="false">Interacción B</string>
-    <string name="int_c_radio" translatable="false">Interacción C</string>
-    <string name="level_1" translatable="false">Nivel 1</string>
-    <string name="level_2" translatable="false">Nivel 2</string>
+    <string name="interaccion_razaypelaje_imagenpalabra" translatable="false">Razas y Pelajes Imagen-Palabra</string>
+    <string name="interaccion_razaypelaje_palabraimagen" translatable="false">Razas y Pelajes Palabra-Imagen</string>
+    <string name="interaccion_cruza_imagenimagen" translatable="false">Cruzas Imagen-Imagen</string>
+    <string name="dificultad_dificil" translatable="false">Dificil</string>
     <string name="male_audio">Masculina</string>
     <string name="female_audio">Femenina</string>
     <string name="settings_btn" translatable="false">Guardar</string>
