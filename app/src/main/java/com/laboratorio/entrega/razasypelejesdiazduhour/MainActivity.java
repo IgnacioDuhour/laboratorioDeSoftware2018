@@ -48,11 +48,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    /** Called when the user taps the "Jugar cruzas" button */
-    public void jugarMinijuegoCruzas(View view) {
-        Intent i = new Intent(MainActivity.this, CruzaActivity.class);
-        startActivity(i);
-    }
     /**Called when the user taps the "Reconocimiento" button */
     public void playRecognitionMode(View view) {
         Intent i = new Intent(MainActivity.this, ReconocimientoActivity.class);
