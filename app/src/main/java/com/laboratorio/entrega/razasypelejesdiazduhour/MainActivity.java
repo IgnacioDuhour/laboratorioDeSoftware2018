@@ -13,11 +13,30 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
+    private  MiniJuegoActivity minijuegActual;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        inicializarMinijuegoActual();
+        cargarMensajeIntegrantes();
+    }
+
+    /*
+        Propósito: se inicializa con el primer minijuego.
+        Observación: El primer minijuego corresponde a RazaYPelaje
+     */
+    public void inicializarMinijuegoActual() {
+        this.minijuegActual = new RazaYPelajeActivity();
+    }
+
+
+    /*
+        Propósito: crea y carga en la pantalla de inicio un boton que despliega un mensaje (pop up) con los integrantes del grupo 5
+     */
+    public void cargarMensajeIntegrantes() {
         final Activity act = this;
 
         ImageButton aboutButton = act.findViewById(R.id.imageButton2);
@@ -41,11 +60,20 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    /** Called when the user taps the "Jugar" button */
+    /*
+        Propósito: Carga la actividad correspondiente a minijuegoActual pudiendo ser "RazaYPelaje", "RazaYPelajeJuntas" o "Cruzas"
+     */
     public void jugarMinijuego(View view) {
-        Intent i = new Intent(MainActivity.this, RazaYPelajeActivity.class);
+        Intent i = new Intent(MainActivity.this, getMiniJuegoActual().getClass());
         startActivity(i);
+    }
+
+    /*
+        Propósito: obtiene la actividad correspondiente al minijuego según la configuración "Minijuego"
+     */
+    private MiniJuegoActivity getMiniJuegoActual() {
+        //TODO: el minijuego lo debe levantar de la configuracion, pudiente ser RyP, RyPJuntas o Cruzas
+        return this.minijuegActual;
     }
 
     /**Called when the user taps the "Reconocimiento" button */

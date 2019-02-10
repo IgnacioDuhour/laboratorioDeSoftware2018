@@ -3,6 +3,7 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
@@ -18,6 +19,9 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     protected MiniJuego miniJuego;
     protected MediaPlayer sonidoRelincheCaballo,sonidoResoplidoCaballo;
 
+    protected Dificultad dificultad; //la dificultad puede ser Facil o Dificil. El primero corresponde a la subclase DificultadFacil y el segundo corresponde a la subclase DificultadDificil
+    protected Interaccion interaccion; //la interacción puede ser Imagen-Palabra, PalabraImagen o Imagen-Imagen y cada una corresponde con una subclase.
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,14 +32,32 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      * Observación: "cargar" hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
      */
     public void comenzarAJugar() {
+        // a. crear el minijuego
+        // b .setear la configuracion
+        // c. cargar los wigdets segun a y b
         iniciarMiniJuego();
+        setearConfiguracion();
         cargarElementosEnActividad();
     }
 
     /*
-        Propósito: crea un nuevo miniJuego y lo inicia inicia (por defecto es "Razas y Pelajes")
+        Propósito: crea un nuevo miniJuego (por defecto es "Razas y Pelajes") e inicia el juego con el primer desafío
+        Precondición: ninguna
+        Observación:
+            * tipos minijuegos pueden ser: RazaYPelaje, RazaYPelajeJuntas o Cruzas
+            * desafios totales: 5
      */
     public abstract void iniciarMiniJuego();
+
+    /*
+        Propósito: define la configuración para el tipo de interacción y el tipo de dificultad
+        Precondición: Hay un minijuego inicializado
+     */
+    public void setearConfiguracion() {
+        SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
+        Boolean dificultadConfig = preferences.
+
+    }
 
     /*
      * Propósito: Carga la jugada actual y el sonido del caballo relinchando en la actividad correspondiente (RazayPelaje o Cruza)

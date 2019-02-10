@@ -65,14 +65,14 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void configs(@NonNull SharedPreferences preferences) {
-        Switch sw = SettingsActivity.this.findViewById(R.id.switch1);
+        Switch sw = SettingsActivity.this.findViewById(R.id.dificultad);
         String text = preferences.getString("level", "Nivel 1");
         if (text.equals("Nivel 1")) {
             sw.setChecked(false);
         } else {
             sw.setChecked(true);
         }
-        sw = SettingsActivity.this.findViewById(R.id.switch2);
+        sw = SettingsActivity.this.findViewById(R.id.audio);
         text = preferences.getString("audio", "Femenina");
         if (text.equals("Femenina")) {
             sw.setChecked(true);
@@ -161,13 +161,13 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void saveSwitch(@NonNull SharedPreferences.Editor editor) {
-        Switch sw = SettingsActivity.this.findViewById(R.id.switch1);
+        Switch sw = SettingsActivity.this.findViewById(R.id.dificultad);
         if (sw.isChecked()) {
             editor.putString("level", (String) sw.getTextOn());
         } else {
             editor.putString("level", (String) sw.getTextOff());
         }
-        sw = SettingsActivity.this.findViewById(R.id.switch2);
+        sw = SettingsActivity.this.findViewById(R.id.audio);
         if (sw.isChecked()) {
             editor.putString("audio", (String) sw.getTextOn());
         } else {
