@@ -30,35 +30,19 @@
     <!-- modo minijuego-->
     <CheckBoxPreference
         android:defaultValue="true"
-        android:key="razaypelaje"
+        android:key="interaccion_razaypelaje_imagenpalabra"
         android:summary="@string/breed_fur_radio"
         android:title="@string/breed_fur_radio" />
     <CheckBoxPreference
         android:defaultValue="false"
-        android:key="razaspelajejuntas"
+        android:key="interaccion_razaypelaje_palabraimagen"
         android:summary="@string/breed_and_fur_radio"
         android:title="@string/breed_and_fur_radio" />
     <CheckBoxPreference
         android:defaultValue="false"
-        android:key="juego_cruzas"
+        android:key="interaccion_cruza_imagenimagen"
         android:summary="Minijuego cruzas"
         android:title="@string/crossbreed_radio" />
-    <!-- Modo Interaccion -->
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="interaccion_razaypelaje_imagenpalabra"
-        android:summary="Raza y Pelaje Imagen-Palabra"
-        android:title="@string/interaccion_razaypelaje_imagenpalabra" />
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="interaccion_razaypelaje_palabraimagen"
-        android:summary="Raza y Pelaje Palabra-Imagen"
-        android:title="@string/interaccion_razaypelaje_palabraimagen" />
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="interaccion_cruza_imagenimagen"
-        android:summary="Curza Imagen-Imagen"
-        android:title="@string/interaccion_cruza_imagenimagen" />
     <!-- Ajustes -->
     <SwitchPreference
         android:defaultValue="@string/dificultad_facil"

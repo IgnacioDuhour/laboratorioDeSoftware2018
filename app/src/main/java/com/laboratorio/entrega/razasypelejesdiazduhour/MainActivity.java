@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         Propósito: obtiene la actividad correspondiente al minijuego según la configuración "Minijuego"
      */
     private MiniJuegoActivity getMiniJuegoActual() {
-        //TODO: el minijuego lo debe levantar de la configuracion, pudiente ser RyP, RyPJuntas o Cruzas
+        //TODO: el minijuego lo debe levantar de la configuracion, pudiendo ser RyP, RyPJuntas o Cruzas
         return this.minijuegActual;
     }
 

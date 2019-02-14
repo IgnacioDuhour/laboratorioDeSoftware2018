@@ -24,7 +24,7 @@ public class SettingsActivity extends AppCompatActivity {
         RadioButton rb3 = SettingsActivity.this.findViewById(R.id.radioButton4);
         RadioButton rb4 = SettingsActivity.this.findViewById(R.id.radioButton5);
 
-        radioGroup(preferences, rb2, rb3, rb4, "razaypelaje", "razaspelajejuntas", "juego_cruzas");
+        radioGroup(preferences, rb2, rb3, rb4, "interaccion_razaypelaje_imagenpalabra", "interaccion_razaypelaje_palabraimagen", "interaccion_cruza_imagenimagen");
 
         configs(preferences);
     }
@@ -57,14 +57,14 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void configs(@NonNull SharedPreferences preferences) {
-        Switch sw = SettingsActivity.this.findViewById(R.id.dificultad);
+        Switch sw = SettingsActivity.this.findViewById(R.id.switch1);
         String text = preferences.getString("level", "Nivel 1");
         if (text.equals("Nivel 1")) {
             sw.setChecked(false);
         } else {
             sw.setChecked(true);
         }
-        sw = SettingsActivity.this.findViewById(R.id.audio);
+        sw = SettingsActivity.this.findViewById(R.id.switch2);
         text = preferences.getString("audio", "Femenina");
         if (text.equals("Femenina")) {
             sw.setChecked(true);
@@ -127,13 +127,13 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void saveSwitch(@NonNull SharedPreferences.Editor editor) {
-        Switch sw = SettingsActivity.this.findViewById(R.id.dificultad);
+        Switch sw = SettingsActivity.this.findViewById(R.id.switch1);
         if (sw.isChecked()) {
             editor.putString("level", (String) sw.getTextOn());
         } else {
             editor.putString("level", (String) sw.getTextOff());
         }
-        sw = SettingsActivity.this.findViewById(R.id.audio);
+        sw = SettingsActivity.this.findViewById(R.id.switch2);
         if (sw.isChecked()) {
             editor.putString("audio", (String) sw.getTextOn());
         } else {

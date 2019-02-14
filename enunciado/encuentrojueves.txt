@@ -1,0 +1,8 @@
+1. diseño:
+a. volver a pantalla anterior con la flecha, no con boton volver. EN TODAS LAS PANTALLAS
+B. insertar framgentos xml en un template y poder setearlos programaticamente
+
+
+2. preferences
+a. MiniJuegoActivity.java // setearConfiguracion() : como utilizar los valores de PREFERENCES para setear el template DIFICULTAD/INTERACCION
+b. 

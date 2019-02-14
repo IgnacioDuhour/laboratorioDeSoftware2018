@@ -54,6 +54,18 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public void setearConfiguracion() {
         SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
+        //Seteo la dificultad
+        Boolean esDificultadFacil =  preferences.getBoolean("dificultad", false);
+        this.dificultad = esDificultadFacil ? new DificultadFacil() : new DificultadDificil(); //TODO: ver como elimino el if
+
+        //Seteo el tipo de interaccion
+        //TODO: esto  quedó muy feo. ver si se puede manipular al radiogroup todo junto e instanciarlo diferente
+        Boolean esInteraccionRazaYPelajeImagenPalabra   = preferences.getBoolean("interaccion_razaypelaje_imagenpalabra", false);
+        Boolean esInteraccionRazaYPelajePalabraImagen   = preferences.getBoolean("interaccion_razaypelaje_palabraimagen", false);
+        Boolean esInteraccionCruzaImagenImagen          = preferences.getBoolean("interaccion_cruza_imagenimagen", false);
+        if (esInteraccionCruzaImagenImagen)         this.interaccion = new InteraccionImagenImagen();
+        if (esInteraccionRazaYPelajeImagenPalabra)  this.interaccion = new InteraccionImagenPalabra();
+        if (esInteraccionRazaYPelajePalabraImagen)  this.interaccion = new InteraccionPalabraImagen();
 
     }
 
@@ -63,8 +75,25 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public void cargarElementosEnActividad() {
         cargarNombreDelJuego();
-        cargarJugadaActual();
-        cargarSonidoCaballoRelinchando();
+        cargarFragmentoXML();
+        //cargarJugadaActual();
+        //cargarSonidoCaballoRelinchando();
+    }
+
+    /*
+     * Propósito: carga el nombre del juego ("Raza y Pelaje" , "Razas y Pelajes juntas", "Cruza)
+     * Observación: "cargar" hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
+     */
+    public void cargarNombreDelJuego() {
+        TextView nombreDelJuego = (TextView) findViewById(R.id.nombreDelJuego);
+        nombreDelJuego.setText(this.miniJuego.tipoDeJuego());
+    }
+
+    /*
+        Propósito: Carga el fragmento de XML que corresponde a la configuración definida por el tipo de interaccion y el tipo de dificultad
+     */
+    public void cargarFragmentoXML() {
+
     }
 
     /*
@@ -89,15 +118,6 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     public void cargarJugadaActual() {
         cargarItemPrincipalDeLaJugadaActual();
         cargarImagenesAInteraccionarDeLaJugadaActual();
-    }
-
-    /*
-     * Propósito: carga el nombre del juego ("Raza y Pelaje" , "Razas y Pelajes juntas", "Cruza)
-     * Observación: "cargar" hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
-     */
-    public void cargarNombreDelJuego() {
-        TextView nombreDelJuego = (TextView) findViewById(R.id.nombreDelJuego);
-        nombreDelJuego.setText(this.miniJuego.tipoDeJuego());
     }
 
     /*
@@ -333,8 +353,8 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         switch (posicion) {
             case 0: return R.id.minijuegoImageView0;
             case 1: return R.id.minijuegoImageView1;
-            case 2: return R.id.minijuegoImageView2;
-            case 3: return R.id.minijuegoImageView3;
+            //case 2: return R.id.minijuegoImageView2;
+            //case 3: return R.id.minijuegoImageView3;
             default: throw new IllegalArgumentException("Posicion de jugada inválida");
         }
     }

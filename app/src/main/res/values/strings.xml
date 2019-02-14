@@ -62,4 +62,7 @@
     <string name="razaypelaje_title_textview" translatable="false">Juego de Razas y Pelajes</string>
 
     <string name="lorem" translatable="false">Lorem ipsum dolor sit amet consectetur adipiscing elit quis conubia non pulvinar eros aptent porttitor euismod senectus, molestie nec libero turpis sapien vitae imperdiet curae massa torquent ac et parturient ullamcorper cras.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
