@@ -58,8 +58,8 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void configs(@NonNull SharedPreferences preferences) {
         Switch sw = SettingsActivity.this.findViewById(R.id.switch1);
-        String text = preferences.getString("level", "Nivel 1");
-        if (text.equals("Nivel 1")) {
+        String text = preferences.getString("dificultad", "Facil");
+        if (text.equals("Facil")) {
             sw.setChecked(false);
         } else {
             sw.setChecked(true);
@@ -129,9 +129,9 @@ public class SettingsActivity extends AppCompatActivity {
     private void saveSwitch(@NonNull SharedPreferences.Editor editor) {
         Switch sw = SettingsActivity.this.findViewById(R.id.switch1);
         if (sw.isChecked()) {
-            editor.putString("level", (String) sw.getTextOn());
+            editor.putString("dificultad", (String) sw.getTextOn());
         } else {
-            editor.putString("level", (String) sw.getTextOff());
+            editor.putString("dificultad", (String) sw.getTextOff());
         }
         sw = SettingsActivity.this.findViewById(R.id.switch2);
         if (sw.isChecked()) {

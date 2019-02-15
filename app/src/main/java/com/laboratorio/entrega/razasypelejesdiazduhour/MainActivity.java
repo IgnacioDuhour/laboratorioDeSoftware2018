@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -53,7 +54,14 @@ public class MainActivity extends AppCompatActivity {
      * Called when the user taps the "Reconocimiento" button
      */
     public void playRecognitionMode(View view) {
-        Intent i = new Intent(MainActivity.this, ReconocimientoActivity.class);
+        Intent i;
+        SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
+        boolean b = preferences.getBoolean("lista", true);
+        if (b) {
+            i = new Intent(MainActivity.this, ListActivity.class);
+        } else {
+            i = new Intent(MainActivity.this, GridActivity.class);
+        }
         startActivity(i);
     }
 

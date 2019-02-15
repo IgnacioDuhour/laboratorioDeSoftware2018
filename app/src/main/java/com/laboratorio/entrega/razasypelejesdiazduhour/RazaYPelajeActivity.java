@@ -1,16 +1,6 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.media.AudioManager;
-import android.media.Image;
-import android.media.MediaPlayer;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RazaYPelajeActivity extends MiniJuegoActivity {
@@ -18,7 +8,7 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_raza_ypelaje);
+        setContentView(R.layout.palabra_imagen_dificil);
         comenzarAJugar();
     }
 

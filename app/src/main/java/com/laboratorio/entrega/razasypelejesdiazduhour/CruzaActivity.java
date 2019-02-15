@@ -8,7 +8,7 @@ public class CruzaActivity extends MiniJuegoActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cruza);
+        setContentView(R.layout.imagen_imagen_dificil);
         comenzarAJugar();
     }
 

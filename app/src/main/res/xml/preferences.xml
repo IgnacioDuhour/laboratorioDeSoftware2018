@@ -44,27 +44,13 @@
         android:summary="Minijuego cruzas"
         android:title="@string/crossbreed_radio" />
     <!-- Modo Interaccion -->
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="interact_a"
-        android:summary="Modo interaccion A"
-        android:title="@string/int_a_radio" />
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="interact_b"
-        android:summary="Modo interaccion B"
-        android:title="@string/int_b_radio" />
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="interact_c"
-        android:summary="Modo interaccion C"
-        android:title="@string/int_c_radio" />
+
     <!-- Ajustes -->
     <SwitchPreference
-        android:defaultValue="@string/level_1"
-        android:key="level"
-        android:switchTextOff="@string/level_1"
-        android:switchTextOn="@string/level_2"
+        android:defaultValue="@string/facil"
+        android:key="dificultad"
+        android:switchTextOff="@string/facil"
+        android:switchTextOn="@string/dificil"
         android:title="Nivel" />
     <SwitchPreference
         android:defaultValue="@string/female_audio"

@@ -15,12 +15,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="190dp"
             android:layout_margin="32dp"
             android:baselineAligned="false"
             android:orientation="horizontal"
-            android:weightSum="2"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:weightSum="2">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -33,13 +33,16 @@
                     android:id="@+id/textView"
                     android:layout_width="151dp"
                     android:layout_height="20dp"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/rec_mode_title" />
 
                 <RadioGroup
                     android:id="@+id/radioGroup7"
-                    android:layout_width="215dp"
-                    android:layout_height="58dp"
-                    android:layout_gravity="center">
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:id="@+id/radioButton"
@@ -57,20 +60,20 @@
                 </RadioGroup>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:orientation="horizontal">
 
                     <CheckBox
                         android:id="@+id/checkBox"
-                        android:layout_width="142dp"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:text="@string/breed_fur_rec_check" />
 
                     <CheckBox
                         android:id="@+id/checkBox2"
-                        android:layout_width="96dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="@string/crossbreed_rec_check" />
                 </LinearLayout>
@@ -88,31 +91,32 @@
                     android:id="@+id/textView2"
                     android:layout_width="71dp"
                     android:layout_height="25dp"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/play_mode_title" />
 
                 <RadioGroup
                     android:id="@+id/radioGroup8"
-                    android:layout_width="260dp"
+                    android:layout_width="280dp"
                     android:layout_height="110dp"
                     android:layout_gravity="center">
 
                     <RadioButton
                         android:id="@+id/radioButton3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/breed_fur_radio" />
 
                     <RadioButton
                         android:id="@+id/radioButton4"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/breed_and_fur_radio" />
 
                     <RadioButton
                         android:id="@+id/radioButton5"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/crossbreed_radio" />
@@ -123,12 +127,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="190dp"
             android:layout_margin="32dp"
             android:baselineAligned="false"
             android:orientation="horizontal"
-            android:weightSum="2"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:weightSum="2">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -141,15 +145,16 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/int_mode_title" />
 
                 <Switch
                     android:id="@+id/switch1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:textOff="@string/level_1"
-                    android:textOn="@string/level_2" />
+                    android:textOff="@string/facil"
+                    android:textOn="@string/dificil" />
 
             </LinearLayout>
 
@@ -164,12 +169,13 @@
                     android:id="@+id/textView4"
                     android:layout_width="57dp"
                     android:layout_height="21dp"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/settings_mode_title" />
 
                 <Switch
                     android:id="@+id/switch2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:textOff="@string/male_audio"
                     android:textOn="@string/female_audio" />
