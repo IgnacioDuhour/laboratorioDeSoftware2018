@@ -2,6 +2,7 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -14,7 +15,9 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
 
     protected MiniJuego miniJuego;
-    protected MediaPlayer sonidoRelincheCaballo,sonidoResoplidoCaballo;
+    protected MediaPlayer sonidoRelincheCaballo, sonidoResoplidoCaballo;
+    protected Dificultad dificultad; //la dificultad puede ser Facil o Dificil. El primero corresponde a la subclase DificultadFacil y el segundo corresponde a la subclase DificultadDificil
+    protected Interaccion interaccion; //la interacción puede ser Imagen-Palabra, PalabraImagen o Imagen-Imagen y cada una corresponde con una subclase.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,30 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     public void comenzarAJugar() {
         iniciarMiniJuego();
         cargarElementosEnActividad();
+    }
+
+    /**
+     * Propósito: define la configuración para el tipo de interacción y el tipo de dificultad
+     * Precondición: Hay un minijuego inicializado
+     */
+    public void setearConfiguracion() {
+        SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
+
+        // obtener dificultad de las preferencias y setear la dificultad para el minijuego
+        boolean esDificultadFacil = preferences.getString("dificulad", "Facil") == "Facil";
+        this.dificultad = esDificultadFacil ? new Facil() : new Dificil();
+
+        // obtener interaccion
+        boolean esImagenPalabra = preferences.getBoolean("imagen-palabra", true);
+        boolean esPalabraImagen = preferences.getBoolean("palabra-imagen", false);
+        boolean esImagenImagen = preferences.getBoolean("imagen-imagen", false);
+        if (esImagenPalabra) {
+            this.interaccion = new ImagenPalabra();
+        } else if (esPalabraImagen) {
+            this.interaccion = new PalabraImagen();
+        } else if (esImagenImagen) {
+            this.interaccion = new ImagenImagen();
+        }
     }
 
     /*
@@ -56,12 +83,12 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
     /*
      * Propósito: Carga la jugada actual compuesta por
-          * 1. Nombre de la Juagda (RazayPelaje o Cruza)
-          * 2. Item principal
-          * 3. cuatro (4) Items con los que interaccionará el jugador
+     * 1. Nombre de la Juagda (RazayPelaje o Cruza)
+     * 2. Item principal
+     * 3. cuatro (4) Items con los que interaccionará el jugador
      * Observación:
-          * "item":  puede ser texto o imagen.
-          * "cargar": hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
+     * "item":  puede ser texto o imagen.
+     * "cargar": hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
 
      */
     public void cargarJugadaActual() {
@@ -81,8 +108,8 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     /*
      * Propósito: Carga el item principal de la jugada actual de una partida
      * Observación:
-        * "item":  puede ser texto o imagen.
-        * "cargar": hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla.
+     * "item":  puede ser texto o imagen.
+     * "cargar": hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla.
      */
     public abstract void cargarItemPrincipalDeLaJugadaActual();
 
@@ -90,7 +117,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      * Propósito: Carga las imágenes de los caballos con las que interaccionará el jugador. (por defecto, nivel de dificuld 2 (4 items))
      * Observación: "cargar" hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
      */
-    public void cargarImagenesAInteraccionarDeLaJugadaActual(){
+    public void cargarImagenesAInteraccionarDeLaJugadaActual() {
         cargarImagenGanadora();
         cargarImagenesNoGanadoras();
     }
@@ -117,7 +144,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      * Observación:
      * "cargar": hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
      * "posición":  los 3 items pueden tomar alguna de las posiciones 1, 2, 3 o 4
-    */
+     */
     public void cargarImagenesNoGanadoras() {
         int[] posiciones = this.miniJuego.posicionesSinImagenGanadoraDeJugadaActual();
         String[] nombres = this.miniJuego.nombresDeTiposNoGanadoresDeJugadaActual();
@@ -182,10 +209,14 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Jugada Ganada").setCancelable(false);
         builder.setPositiveButton("Siguiente jugada", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) { cargarJugadaSiguiente(); }
+            public void onClick(DialogInterface dialog, int id) {
+                cargarJugadaSiguiente();
+            }
         });
         builder.setNeutralButton("Volver a jugar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) { reanudadJugadaActual(); }
+            public void onClick(DialogInterface dialog, int id) {
+                reanudadJugadaActual();
+            }
         });
         AlertDialog dialog = builder.create();
         dialog.show();
@@ -266,54 +297,92 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     }
 
     /*
-        * Propósito: describe el número que representa la ubicación de una imagen a partir del nombre de la imagen
-        * Parámetro: "nombre" representa el nombre de una imágen ubicada en "res/drawable"
+     * Propósito: describe el número que representa la ubicación de una imagen a partir del nombre de la imagen
+     * Parámetro: "nombre" representa el nombre de una imágen ubicada en "res/drawable"
      */
     protected int ubicacionDeImagenDeCaballoPorNombre(String nombre) {
         switch (nombre.toUpperCase()) {
-            case "ALBO": return R.drawable.albo;
-            case "ATIGRADO": return R.drawable.atigrado;
-            case "BAYO": return R.drawable.bayo;
-            case "BRAGADO": return R.drawable.bragado;
-            case "COLORADO": return R.drawable.colorado;
-            case "MELADO": return R.drawable.melado;
-            case "PANGARE": return R.drawable.pangare;
-            case "ZAINO": return R.drawable.zaino;
-            case "ANDALUS": return R.drawable.andaluz;
-            case "APPALOSA": return R.drawable.appalosa;
-            case "ARABE": return R.drawable.arabe;
-            case "AZTECA": return R.drawable.azteca;
-            case "CLYDESDALE": return R.drawable.clydesdale;
-            case "COMTIOS": return R.drawable.comtios;
-            case "CRIOLLO": return R.drawable.criollo;
-            case "CRIOLLOARGENTINO": return R.drawable.criolloargentino;
-            case "CRIOLLOAMERICANO": return R.drawable.criolloamericano;
-            case "CUARTODEMILA": return R.drawable.cuartodemila;
-            case "FALABELLA": return R.drawable.falabella;
-            case "FRISON": return R.drawable.frison;
-            case "HAFLINGER": return R.drawable.haflinger;
-            case "HANNOVERIANO": return R.drawable.hannoveriano;
-            case "LUSITANO": return R.drawable.lusitano;
-            case "MUSTANG": return R.drawable.mustang;
-            case "PALOMINO": return R.drawable.palomino;
-            case "PASOFINO": return R.drawable.pasofino;
-            case "PERCHERON": return R.drawable.percheron;
-            case "PONIFELL": return R.drawable.ponifell;
-            case "PONIPOLO": return R.drawable.ponipolo;
-            case "PURASANGREINGLES": return R.drawable.purasangreingles;
-            case "SHIRE": return R.drawable.shire;
-            case "SORAIA": return R.drawable.soraia;
-            default: return R.drawable.defaultfur;
+            case "ALBO":
+                return R.drawable.albo;
+            case "ATIGRADO":
+                return R.drawable.atigrado;
+            case "BAYO":
+                return R.drawable.bayo;
+            case "BRAGADO":
+                return R.drawable.bragado;
+            case "COLORADO":
+                return R.drawable.colorado;
+            case "MELADO":
+                return R.drawable.melado;
+            case "PANGARE":
+                return R.drawable.pangare;
+            case "ZAINO":
+                return R.drawable.zaino;
+            case "ANDALUS":
+                return R.drawable.andaluz;
+            case "APPALOSA":
+                return R.drawable.appalosa;
+            case "ARABE":
+                return R.drawable.arabe;
+            case "AZTECA":
+                return R.drawable.azteca;
+            case "CLYDESDALE":
+                return R.drawable.clydesdale;
+            case "COMTIOS":
+                return R.drawable.comtios;
+            case "CRIOLLO":
+                return R.drawable.criollo;
+            case "CRIOLLOARGENTINO":
+                return R.drawable.criolloargentino;
+            case "CRIOLLOAMERICANO":
+                return R.drawable.criolloamericano;
+            case "CUARTODEMILA":
+                return R.drawable.cuartodemila;
+            case "FALABELLA":
+                return R.drawable.falabella;
+            case "FRISON":
+                return R.drawable.frison;
+            case "HAFLINGER":
+                return R.drawable.haflinger;
+            case "HANNOVERIANO":
+                return R.drawable.hannoveriano;
+            case "LUSITANO":
+                return R.drawable.lusitano;
+            case "MUSTANG":
+                return R.drawable.mustang;
+            case "PALOMINO":
+                return R.drawable.palomino;
+            case "PASOFINO":
+                return R.drawable.pasofino;
+            case "PERCHERON":
+                return R.drawable.percheron;
+            case "PONIFELL":
+                return R.drawable.ponifell;
+            case "PONIPOLO":
+                return R.drawable.ponipolo;
+            case "PURASANGREINGLES":
+                return R.drawable.purasangreingles;
+            case "SHIRE":
+                return R.drawable.shire;
+            case "SORAIA":
+                return R.drawable.soraia;
+            default:
+                return R.drawable.defaultfur;
         }
     }
 
     protected int idImageViewParaPosicionDeJugada(int posicion) {
         switch (posicion) {
-            case 0: return R.id.minijuegoImageView0;
-            case 1: return R.id.minijuegoImageView1;
-            case 2: return R.id.minijuegoImageView2;
-            case 3: return R.id.minijuegoImageView3;
-            default: throw new IllegalArgumentException("Posicion de jugada inválida");
+            case 0:
+                return R.id.minijuegoImageView0;
+            case 1:
+                return R.id.minijuegoImageView1;
+            case 2:
+                return R.id.minijuegoImageView2;
+            case 3:
+                return R.id.minijuegoImageView3;
+            default:
+                throw new IllegalArgumentException("Posicion de jugada inválida");
         }
     }
 

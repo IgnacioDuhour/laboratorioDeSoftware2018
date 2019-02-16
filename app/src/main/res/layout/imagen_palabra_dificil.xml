@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/bg_amarillo"
     android:fillViewport="true">
 
@@ -47,6 +47,7 @@
         </LinearLayout>
         <!-- row 1 end -->
 
+
         <!-- row 2 -->
         <LinearLayout
             android:layout_width="fill_parent"
@@ -57,16 +58,14 @@
             android:layout_marginBottom="30dp"
             android:orientation="horizontal">
 
-            <TextView
+            <ImageView
                 android:id="@+id/minijuegoPrincipal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
                 android:layout_gravity="center"
-                android:text="@string/loren_ipsum"
+                android:contentDescription="@string/minigame_main_image"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                app:srcCompat="@drawable/defaultfur" />
 
         </LinearLayout>
         <!-- row 2 end-->
@@ -87,13 +86,14 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/minijuegoImageView0"
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/minijuegoTextView0"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:contentDescription="@string/minigame_first_image"
-                    app:srcCompat="@drawable/defaultfur" />
+                    android:textSize="35sp"
+                    android:text="@string/loren_ipsum" />
 
             </LinearLayout>
             <!-- col 1 end -->
@@ -106,13 +106,14 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/minijuegoImageView1"
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/minijuegoTextView1"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:contentDescription="@string/minigame_second_image"
-                    app:srcCompat="@drawable/defaultfur" />
+                    android:textSize="35sp"
+                    android:text="@string/loren_ipsum" />
             </LinearLayout>
             <!-- col 2 end -->
 
@@ -124,13 +125,14 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/minijuegoImageView2"
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/minijuegoTextView2"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:contentDescription="@string/minigame_third_image"
-                    app:srcCompat="@drawable/defaultfur" />
+                    android:textSize="35sp"
+                    android:text="@string/loren_ipsum" />
             </LinearLayout>
             <!-- col 3 end -->
 
@@ -142,13 +144,14 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/minijuegoImageView3"
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/minijuegoTextView3"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:contentDescription="@string/minigame_fourth_image"
-                    app:srcCompat="@drawable/defaultfur" />
+                    android:textSize="35sp"
+                    android:text="@string/loren_ipsum" />
             </LinearLayout>
             <!-- col 4 end -->
 
@@ -157,4 +160,3 @@
 
     </LinearLayout>
 </ScrollView>
-

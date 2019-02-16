@@ -24,7 +24,7 @@ public class SettingsActivity extends AppCompatActivity {
         RadioButton rb3 = SettingsActivity.this.findViewById(R.id.radioButton4);
         RadioButton rb4 = SettingsActivity.this.findViewById(R.id.radioButton5);
 
-        radioGroup(preferences, rb2, rb3, rb4, "razaypelaje", "razaspelajejuntas", "juego_cruzas");
+        radioGroup(preferences, rb2, rb3, rb4, "imagen-palabra", "palabra-imagen", "imagen-imagen");
 
         configs(preferences);
     }
@@ -84,20 +84,20 @@ public class SettingsActivity extends AppCompatActivity {
         RadioButton rb = SettingsActivity.this.findViewById(radioId);
         String text = (String) rb.getText();
         switch (text) {
-            case "Razas y Pelajes":
-                editor.putBoolean("razaypelaje", true);
-                editor.putBoolean("razaspelajejuntas", false);
-                editor.putBoolean("juego_cruzas", false);
+            case "Razas y Pelajes: Imagen-Palabra":
+                editor.putBoolean("imagen-palabra", true);
+                editor.putBoolean("palabra-imagen", false);
+                editor.putBoolean("imagen-imagen", false);
                 break;
-            case "Razas y Pelajes Juntas":
-                editor.putBoolean("razaspelajejuntas", true);
-                editor.putBoolean("razaypelaje", false);
-                editor.putBoolean("juego_cruzas", false);
+            case "Razas y Pelajes: Palabra-Imagen":
+                editor.putBoolean("palabra-imagen", true);
+                editor.putBoolean("imagen-palabra", false);
+                editor.putBoolean("imagen-imagen", false);
                 break;
-            case "Cruzas":
-                editor.putBoolean("juego_cruzas", true);
-                editor.putBoolean("razaspelajejuntas", false);
-                editor.putBoolean("razaypelaje", false);
+            case "Cruza: Imagen-Imagen":
+                editor.putBoolean("imagen-imagen", true);
+                editor.putBoolean("palabra-imagen", false);
+                editor.putBoolean("imagen-palabra", false);
                 break;
             default:
                 break;

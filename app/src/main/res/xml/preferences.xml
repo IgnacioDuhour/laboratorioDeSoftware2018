@@ -30,17 +30,17 @@
     <!-- modo minijuego-->
     <CheckBoxPreference
         android:defaultValue="true"
-        android:key="razaypelaje"
+        android:key="imagen-palabra"
         android:summary="@string/breed_fur_radio"
         android:title="@string/breed_fur_radio" />
     <CheckBoxPreference
         android:defaultValue="false"
-        android:key="razaspelajejuntas"
+        android:key="palabra-imagen"
         android:summary="@string/breed_and_fur_radio"
         android:title="@string/breed_and_fur_radio" />
     <CheckBoxPreference
         android:defaultValue="false"
-        android:key="juego_cruzas"
+        android:key="imagen-imagen"
         android:summary="Minijuego cruzas"
         android:title="@string/crossbreed_radio" />
     <!-- Modo Interaccion -->

@@ -2,6 +2,7 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -32,11 +33,7 @@ public class ListActivity extends ReconocimientoActivity {
             l.setPadding(5, 5, 5, 5);
 
             //image
-            ImageView iv = new ImageView(getApplicationContext());
-            iv.setImageResource(ubicacionDeImagenDeCaballoPorNombre(p.name()));
-            iv.setLayoutParams(new LinearLayout.LayoutParams(200,200,1.0f));
-            iv.setMaxHeight(200);
-            iv.setMaxWidth(200);
+            ImageView iv = createImageView(p);
 
             l.addView(iv);
 
@@ -44,10 +41,8 @@ public class ListActivity extends ReconocimientoActivity {
             LinearLayout l2 = new LinearLayout(getApplicationContext());
             l2.setOrientation(LinearLayout.VERTICAL);
             l2.setLayoutParams(new LinearLayout.LayoutParams(20,LinearLayout.LayoutParams.WRAP_CONTENT,1.0f));
-            TextView tv = new TextView(getApplicationContext());
-            tv.setText(p.name());
-            tv.setGravity(Gravity.CENTER);
-            tv.setTextColor(Color.BLACK);
+            l2.setGravity(Gravity.CENTER);
+            TextView tv = createTextViewName(p);
             l2.addView(tv);
 
             ImageButton iB = new ImageButton(getApplicationContext());
@@ -71,5 +66,25 @@ public class ListActivity extends ReconocimientoActivity {
             //agrego a la lista
             lista.addView(l);
         }
+    }
+
+    @NonNull
+    private ImageView createImageView(Enum p) {
+        ImageView iv = new ImageView(getApplicationContext());
+        iv.setImageResource(ubicacionDeImagenDeCaballoPorNombre(p.name()));
+        iv.setLayoutParams(new LinearLayout.LayoutParams(200,200,1.0f));
+        iv.setMaxHeight(200);
+        iv.setMaxWidth(200);
+        iv.setContentDescription(p.name());
+        return iv;
+    }
+
+    @NonNull
+    private TextView createTextViewName(Enum p) {
+        TextView tv = new TextView(getApplicationContext());
+        tv.setText(p.name());
+        tv.setGravity(Gravity.CENTER);
+        tv.setTextColor(Color.BLACK);
+        return tv;
     }
 }

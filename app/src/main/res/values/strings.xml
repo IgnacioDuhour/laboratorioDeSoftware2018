@@ -27,7 +27,7 @@
     <string name="crossbreed_rec_check" translatable="false">Cruzas</string>
     <string name="breed_fur_radio" translatable="false">Razas y Pelajes: Imagen-Palabra</string>
     <string name="breed_and_fur_radio" translatable="false">Razas y Pelajes: Palabra-Imagen</string>
-    <string name="crossbreed_radio" translatable="false">Cruza:Imagen-Imagen</string>
+    <string name="crossbreed_radio" translatable="false">Cruza: Imagen-Imagen</string>
     <string name="facil" translatable="false">Facil</string>
     <string name="dificil" translatable="false">Dificil</string>
     <string name="male_audio" translatable="false">Masculina</string>
@@ -40,7 +40,11 @@
 
     <!-- MinijuegoActivity -->
     <string name="loren_ipsum" translatable="false">Loren Ipsum</string>
-
+    <string name="minigame_main_image" translatable="false">Imagen Principal</string>
+    <string name="minigame_first_image" translatable="false">Primera Imagen</string>
+    <string name="minigame_second_image" translatable="false">SegundaImagen</string>
+    <string name="minigame_third_image" translatable="false">Tercera Imagen</string>
+    <string name="minigame_fourth_image" translatable="false">Cuarta Imagen</string>
 
     <!-- RazaYPelajeActivity -->
     <string name="razaypelaje_volver_boton" translatable="false">Volver</string>
