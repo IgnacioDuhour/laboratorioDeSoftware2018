@@ -1,7 +1,6 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,14 +10,6 @@ public abstract class ReconocimientoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
-        Boolean b = preferences.getBoolean("lista", true);
-        if (b) {
-            setContentView(R.layout.activity_reconocimiento);
-        } else {
-            setContentView(R.layout.activity_reconocimiento_grid);
-        }
     }
     public abstract void cargarReconocimiento();
     /*
@@ -67,4 +58,44 @@ public abstract class ReconocimientoActivity extends AppCompatActivity {
             default: return R.drawable.defaultfur;
         }
     }
+
+
+    protected int ubicacionDeAudioDeCaballoPorNombre(String nombre) {
+        switch (nombre.toUpperCase()) {
+            case "ALBO": return R.raw.relincho;
+            case "ATIGRADO": return R.raw.relincho;
+            case "BAYO": return R.raw.relincho;
+            case "BRAGADO": return R.raw.relincho;
+            case "COLORADO": return R.raw.relincho;
+            case "MELADO": return R.raw.relincho;
+            case "PANGARE": return R.raw.relincho;
+            case "ZAINO": return R.raw.relincho;
+            case "ANDALUS": return R.raw.relincho;
+            case "APPALOSA": return R.raw.relincho;
+            case "ARABE": return R.raw.relincho;
+            case "AZTECA": return R.raw.relincho;
+            case "CLYDESDALE": return R.raw.relincho;
+            case "COMTIOS": return R.raw.relincho;
+            case "CRIOLLO": return R.raw.relincho;
+            case "CRIOLLOARGENTINO": return R.raw.relincho;
+            case "CRIOLLOAMERICANO": return R.raw.relincho;
+            case "CUARTODEMILA": return R.raw.relincho;
+            case "FALABELLA": return R.raw.relincho;
+            case "FRISON": return R.raw.relincho;
+            case "HAFLINGER": return R.raw.relincho;
+            case "HANNOVERIANO": return R.raw.relincho;
+            case "LUSITANO": return R.raw.relincho;
+            case "MUSTANG": return R.raw.relincho;
+            case "PALOMINO": return R.raw.relincho;
+            case "PASOFINO": return R.raw.relincho;
+            case "PERCHERON": return R.raw.relincho;
+            case "PONIFELL": return R.raw.relincho;
+            case "PONIPOLO": return R.raw.relincho;
+            case "PURASANGREINGLES": return R.raw.relincho;
+            case "SHIRE": return R.raw.relincho;
+            case "SORAIA": return R.raw.relincho;
+            default: return R.raw.relincho;
+        }
+    }
+
 }

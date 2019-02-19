@@ -1,9 +1,11 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,6 +26,7 @@ public class ListActivity extends ReconocimientoActivity {
     @Override
     public void cargarReconocimiento() {
         LinearLayout lista = findViewById(R.id.listaRec);
+        //Enum e = aplicarFiltros();
         for (Pelaje p : Pelaje.values()) {
             LinearLayout l = new LinearLayout(getApplicationContext());
             l.setOrientation(LinearLayout.HORIZONTAL);
@@ -40,27 +43,21 @@ public class ListActivity extends ReconocimientoActivity {
             //nombre y boton audio
             LinearLayout l2 = new LinearLayout(getApplicationContext());
             l2.setOrientation(LinearLayout.VERTICAL);
-            l2.setLayoutParams(new LinearLayout.LayoutParams(20,LinearLayout.LayoutParams.WRAP_CONTENT,1.0f));
+            l2.setLayoutParams(new LinearLayout.LayoutParams(20, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
             l2.setGravity(Gravity.CENTER);
+
+            //textView nombre
             TextView tv = createTextViewName(p);
             l2.addView(tv);
 
-            ImageButton iB = new ImageButton(getApplicationContext());
-            iB.setImageResource(R.drawable.audio_regular);
-            iB.setBackgroundColor(Color.TRANSPARENT);
-            iB.setMaxWidth(101);
-            iB.setMaxHeight(79);
+            //boton audio
+            ImageButton iB = createImageButton(p);
+
             l2.addView(iB);
             l.addView(l2);
 
             //descripcion
-            TextView tv2 = new TextView(getApplicationContext());
-            tv2.setText(R.string.lorem);
-            tv2.setLayoutParams(new LinearLayout.LayoutParams(57,94,1.0f));
-            tv2.setGravity(Gravity.CENTER);
-            tv2.setTextColor(Color.BLACK);
-            tv2.setMaxWidth(57);
-            tv2.setMaxHeight(94);
+            TextView tv2 = createTextViewDescription(p);
             l.addView(tv2);
 
             //agrego a la lista
@@ -72,7 +69,7 @@ public class ListActivity extends ReconocimientoActivity {
     private ImageView createImageView(Enum p) {
         ImageView iv = new ImageView(getApplicationContext());
         iv.setImageResource(ubicacionDeImagenDeCaballoPorNombre(p.name()));
-        iv.setLayoutParams(new LinearLayout.LayoutParams(200,200,1.0f));
+        iv.setLayoutParams(new LinearLayout.LayoutParams(200, 200, 1.0f));
         iv.setMaxHeight(200);
         iv.setMaxWidth(200);
         iv.setContentDescription(p.name());
@@ -87,4 +84,39 @@ public class ListActivity extends ReconocimientoActivity {
         tv.setTextColor(Color.BLACK);
         return tv;
     }
+
+    @NonNull
+    private ImageButton createImageButton(Enum p) {
+        ImageButton iB = new ImageButton(getApplicationContext());
+        iB.setImageResource(R.drawable.audio_regular);
+        iB.setBackgroundColor(Color.TRANSPARENT);
+        iB.setMaxWidth(101);
+        iB.setMaxHeight(79);
+        iB.setOnClickListener((View v) -> {
+            int audio = ubicacionDeAudioDeCaballoPorNombre(p.name());
+            MediaPlayer mediaPlayer = MediaPlayer.create(ListActivity.this, audio);
+            mediaPlayer.start();
+        });
+        return iB;
+    }
+
+    @NonNull
+    private TextView createTextViewDescription(Enum p) {
+        TextView tv2 = new TextView(getApplicationContext());
+        tv2.setText(R.string.lorem);
+        tv2.setLayoutParams(new LinearLayout.LayoutParams(57, 94, 1.0f));
+        tv2.setGravity(Gravity.CENTER);
+        tv2.setTextColor(Color.BLACK);
+        tv2.setMaxWidth(57);
+        tv2.setMaxHeight(94);
+        return tv2;
+    }
+
+    /*
+    private Enum aplicarFiltros() {
+        SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
+        boolean razasypelajes = preferences.getBoolean("razas", true);
+        boolean cruzas preferences.getBoolean("cruzas", false);
+    }
+    */
 }

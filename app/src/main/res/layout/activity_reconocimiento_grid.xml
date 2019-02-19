@@ -39,16 +39,18 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/gridRec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+<!--
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="3"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -71,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="FRISON"
-                        android:textSize="25dp" />
+                        android:textSize="25sp" />
 
                     <ImageButton
                         android:id="@+id/imageButton10"
@@ -95,7 +97,6 @@
                         android:layout_width="250dp"
                         android:layout_height="250dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         app:srcCompat="@drawable/albo" />
 
                     <TextView
@@ -104,14 +105,13 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="ALBO"
-                        android:textSize="25dp" />
+                        android:textSize="25sp" />
 
                     <ImageButton
                         android:id="@+id/imageButton11"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/background_transparent"
                         android:contentDescription="@string/audio_btn"
                         app:srcCompat="@drawable/audio_regular" />
@@ -129,24 +129,21 @@
                         android:layout_width="250dp"
                         android:layout_height="250dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         app:srcCompat="@drawable/arabe" />
 
                     <TextView
                         android:id="@+id/textView13"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="center"
                         android:text="ARABE"
-                        android:textSize="25dp" />
+                        android:textSize="25sp" />
 
                     <ImageButton
                         android:id="@+id/imageButton12"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/background_transparent"
                         android:contentDescription="@string/audio_btn"
                         app:srcCompat="@drawable/audio_regular" />
@@ -158,7 +155,8 @@
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="3"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -171,24 +169,21 @@
                         android:layout_width="250dp"
                         android:layout_height="250dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         app:srcCompat="@drawable/andaluz" />
 
                     <TextView
                         android:id="@+id/textView14"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="center"
                         android:text="ANDALUZ"
-                        android:textSize="25dp" />
+                        android:textSize="25sp" />
 
                     <ImageButton
                         android:id="@+id/imageButton13"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/background_transparent"
                         android:contentDescription="@string/audio_btn"
                         app:srcCompat="@drawable/audio_regular" />
@@ -206,24 +201,21 @@
                         android:layout_width="250dp"
                         android:layout_height="250dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         app:srcCompat="@drawable/appalosa" />
 
                     <TextView
                         android:id="@+id/textView15"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="center"
                         android:text="APPALOSA"
-                        android:textSize="25dp" />
+                        android:textSize="25sp" />
 
                     <ImageButton
                         android:id="@+id/imageButton14"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/background_transparent"
                         android:contentDescription="@string/audio_btn"
                         app:srcCompat="@drawable/audio_regular" />
@@ -241,24 +233,21 @@
                         android:layout_width="250dp"
                         android:layout_height="250dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         app:srcCompat="@drawable/azteca" />
 
                     <TextView
                         android:id="@+id/textView16"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="center"
                         android:text="AZTECA"
-                        android:textSize="25dp" />
+                        android:textSize="25sp" />
 
                     <ImageButton
                         android:id="@+id/imageButton15"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/background_transparent"
                         android:contentDescription="@string/audio_btn"
                         app:srcCompat="@drawable/audio_regular" />
@@ -270,7 +259,8 @@
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="3"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -283,7 +273,6 @@
                         android:layout_width="250dp"
                         android:layout_height="250dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         app:srcCompat="@drawable/bayo" />
 
                     <TextView
@@ -292,14 +281,13 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="BAYO"
-                        android:textSize="25dp" />
+                        android:textSize="25sp" />
 
                     <ImageButton
                         android:id="@+id/imageButton16"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/background_transparent"
                         android:contentDescription="@string/audio_btn"
                         app:srcCompat="@drawable/audio_regular" />
@@ -317,7 +305,6 @@
                         android:layout_width="250dp"
                         android:layout_height="250dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         app:srcCompat="@drawable/bragado" />
 
                     <TextView
@@ -326,13 +313,12 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="BRAGADO"
-                        android:textSize="25dp" />
+                        android:textSize="25sp" />
 
                     <ImageButton
                         android:id="@+id/imageButton17"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_weight="1"
                         android:background="@drawable/background_transparent"
                         android:contentDescription="@string/audio_btn"
                         app:srcCompat="@drawable/audio_regular" />
@@ -350,7 +336,6 @@
                         android:layout_width="250dp"
                         android:layout_height="250dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         app:srcCompat="@drawable/colorado" />
 
                     <TextView
@@ -359,19 +344,19 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="COLORADO"
-                        android:textSize="25dp" />
+                        android:textSize="25sp" />
 
                     <ImageButton
                         android:id="@+id/imageButton18"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/background_transparent"
                         android:contentDescription="@string/audio_btn"
                         app:srcCompat="@drawable/audio_regular" />
                 </LinearLayout>
             </LinearLayout>
+            -->
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
