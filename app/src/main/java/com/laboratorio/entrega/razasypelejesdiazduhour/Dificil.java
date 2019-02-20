@@ -5,4 +5,10 @@ public class Dificil extends Dificultad {
     public int obtenerLayout(Interaccion interaccion) {
         return interaccion.obtenerLayoutDificil();
     }
+
+    public int cantidadElementos() { return 4; }
+
+    public Jugada nuevaJugada(JugadaTipo jugadaTipo) {
+        return new JugadaDificultadDificil(jugadaTipo);
+    }
 }

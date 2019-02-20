@@ -2,43 +2,49 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 
 public abstract class MiniJuego {
 
-    protected Jugada[] secuenciaDeJugadas; //describe una secuencia de jugadas aleatoreas definidas al inicio del juego
+    protected Jugada[] jugadasSecuencia; //describe una secuencia de jugadas aleatoreas definidas al inicio del juego
     protected Jugada jugadaActual; //Describe la jugada actual, sea de "Raza", "Pelaje" o "Cruza"
     protected int indiceJugadaActual; // describe la posición de la jugada actual en "secuenciaDeJugadas"
-    protected int CANTIDAD_JUGADAS; //describe un número según de la cantidad de jugadas que haya
+    protected int cantidadDeJugadasGanadas; //describe la cantidad de jugadas ganadas hasta el momento
+    protected int CANT_MIN_JUGADAS_A_GANAR = 3; // Describe la cantidad minima de jugadas necesarias para ganar el minijuego
+    protected int TOTAL_JUGADAS = 5; //Describe la cantidad de jugadas totales por minijuego
 
+    public Dificultad dificultad;
 
     /*
         Constructor de la clase
     */
-    public MiniJuego() {
-        this.indiceJugadaActual = 0;
+    public MiniJuego(Dificultad dificultad) {
+        this.dificultad = dificultad;
     }
 
     /*
         Propósito: Inicia el minijuego y genera la secuencia aleatórea de jugadas para una partida
      */
-    public void iniciarJuego() {
+    public void iniciar() {
         this.indiceJugadaActual = 0;
-        generarSecuenciaDeJugadasAleatoreas();
-        this.jugadaActual = this.secuenciaDeJugadas[indiceJugadaActual];
+        this.cantidadDeJugadasGanadas = 0;
+        this.jugadasSecuencia = this.randomDeJugadas();
+        this.jugadaActual = this.jugadasSecuencia[indiceJugadaActual];
     }
 
     /*
-        Propósito: Retorna la jugada siguiente según la última jugada ganada
-        Precondición: Existe una jugada siguiente, es decir, esUltimaJugada es falso
+        Propósito: Se ubica en la jugada siguiente
+        Precondición: Existe una jugada siguiente
      */
-    public Jugada jugadaSiguiente()  {
+    public void irAProximaJugada()  {
         this.indiceJugadaActual++;
-        this.jugadaActual = secuenciaDeJugadas[indiceJugadaActual];
-        return this.jugadaActual;
+        this.cantidadDeJugadasGanadas ++;
+        this.jugadaActual = jugadasSecuencia[indiceJugadaActual];
     }
 
     /*
-        Propósito: Reanuda la jugada actual
+        Propósito:      Reanuda el minijuego actual
+        Precondición:   El minijuego actual no se ha ganado, es decir,
+                        la cantidad de jugadas ganadas es menor a la cantidad de jugadas minimas necesarias para ganar
      */
-    public Jugada reanudarJugada() {
-        return this.jugadaActual.reanudadJugada();
+    public void reIniciar() {
+        this.iniciar();
     }
 
     /*
@@ -49,7 +55,7 @@ public abstract class MiniJuego {
     /*
         Propósito: Describe la cantidad de jugadas para una partida
      */
-    public int cantidadDeJugadas() { return CANTIDAD_JUGADAS; }
+    public int cantidadDeJugadas() { return TOTAL_JUGADAS; }
 
     /*
         Propósito: Describe el tipo del juego pudiendo ser "Raza y Pelaje", "Raza y Pelaje juntas" o "Cruza"
@@ -57,10 +63,10 @@ public abstract class MiniJuego {
     public abstract String tipoDeJuego();
 
     /*
-        Propósito: Describe verdadero cuando es la última jugada del minijuego
-     */
-    public boolean esUltimaJugada() {
-        return this.indiceJugadaActual == CANTIDAD_JUGADAS-1;
+    Propósito: describe verdadero cuando se ganó la jugada
+    */
+    public boolean esJugadaGanada() {
+        return this.cantidadDeJugadasGanadas >= CANT_MIN_JUGADAS_A_GANAR;
     }
 
     /*
@@ -82,19 +88,11 @@ public abstract class MiniJuego {
     }
 
     /*
-        Propósito: suspende la jugada y la guarda para interactuar con otras partes del juego
-        Observación: próxima entrega
-     */
-    public void suspenderJugada(){};
-
-
-    /*
         Propósito: describe la posición del item ganador (texto o imagen) de la jugada actual.
      */
     public int posicionItemGanadorDeJugadaActual() {
         return this.jugadaActual.posicionTipoGanador();
     }
-
 
     /*
         Propósito: describe las posiciones de las imágenes no ganadoras de la jugada actual
@@ -111,34 +109,37 @@ public abstract class MiniJuego {
         return this.jugadaActual.nombresDeLosTiposNoGanadores();
     }
 
+    /*
+        Propósito: describe los nombres de los caballos de la jugada actual
+        Precondición: Hay una jugada actual asignada
+     */
+    public Map jugarJugadaActual() {
+        return this.jugadaActual.jugar();
+    }
 
     /*
         Propósito: Genera una secuencia aleatórea de jugadas para una partida
     */
-    public void generarSecuenciaDeJugadasAleatoreas(){
-        Jugada[] jugadas = jugadasTotales();
-        this.secuenciaDeJugadas = new Jugada[CANTIDAD_JUGADAS];
-        for (int i=0; i<CANTIDAD_JUGADAS;i++) {
-            this.secuenciaDeJugadas[i] = jugadas[i];
+    public Jugada[]randomDeJugadas() {
+        Jugada[] jugadasAleatoreas = jugadasTotales;
+        for (int i=0; i<TOTAL_JUGADAS;i++) {
+            this.jugadasSecuencia[i] = jugadasAleatoreas[i];
         }
-        for (int i=1; i<CANTIDAD_JUGADAS;i++) {
+        for (int i=1; i<TOTAL_JUGADAS;i++) {
             swapJugadas(i, Aleatorio.entreMinyMax(0,i-1));
         }
+        return jugadasAleatoreas;
     }
 
-    /*
-        Propósito: Retorna todas las jugadas (no aleatoreas) para el tipo de juego deifnido ("Cruza" o "Raza y Pelaje")
-     */
-    protected abstract Jugada[] jugadasTotales();
 
     /*
         Propósito: Intercambia dos jugadas de la secuencia de jugadas
      */
     protected void swapJugadas(int i, int j) {
         Jugada aux;
-        aux = this.secuenciaDeJugadas[i];
-        this.secuenciaDeJugadas[i] = this.secuenciaDeJugadas[j];
-        this.secuenciaDeJugadas[j] = aux;
+        aux = this.jugadasSecuencia[i];
+        this.jugadasSecuencia[i] = this.jugadasSecuencia[j];
+        this.jugadasSecuencia[j] = aux;
     }
 
 

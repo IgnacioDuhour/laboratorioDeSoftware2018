@@ -9,25 +9,12 @@ abstract class Jugada {
     protected TipoCaballo tipoGanador; //describe el tipo ganador, que se ubica en la parte inferior del juego, con la que interaccionará el jugador
     protected TipoCaballo[] tiposAInteraccionar; // describe los tipos con los que interaccionará el jugador. Uno de los tipos es la jugada ganadora
 
-
     /*
         Propósito: Describe verdadero cuando es una jugada ganadora, es decir, el nombre tipo a reconocer coincide con el nombre del tipo ganador
      */
     public boolean esJugadaGanada(String nombreJugadaActual){
         return this.nombreDelTipoAReconocer().compareTo(this.nombreDelTipoGanador())==0;
     }
-
-    /*
-        Propósito: describe el tipo de jugada que corresponde a la subclase
-     */
-    public abstract String tipoDeJugada();
-
-
-    /*
-        Propósito: Reanuda la jugada de la partida
-     */
-    public abstract Jugada reanudadJugada();
-
 
     /*
         Propósito: Retorna los nombres de los tipos de la Jugada (por defecto, 4 nombres)
@@ -133,4 +120,5 @@ abstract class Jugada {
         return posicionesSinTipoGanador;
     }
 
+    public abstract String tipoDeJugada();
 }

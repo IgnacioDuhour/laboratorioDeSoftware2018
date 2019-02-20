@@ -1,5 +1,6 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -26,43 +27,63 @@ public class ListActivity extends ReconocimientoActivity {
     @Override
     public void cargarReconocimiento() {
         LinearLayout lista = findViewById(R.id.listaRec);
-        //Enum e = aplicarFiltros();
-        for (Pelaje p : Pelaje.values()) {
-            LinearLayout l = new LinearLayout(getApplicationContext());
-            l.setOrientation(LinearLayout.HORIZONTAL);
-            l.setGravity(Gravity.CENTER);
-            l.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
-            l.setWeightSum(3);
-            l.setPadding(5, 5, 5, 5);
+        SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
+        boolean razasypelajes = preferences.getBoolean("razas", true);
+        boolean cruzas = preferences.getBoolean("cruzas", false);
 
-            //image
-            ImageView iv = createImageView(p);
-
-            l.addView(iv);
-
-            //nombre y boton audio
-            LinearLayout l2 = new LinearLayout(getApplicationContext());
-            l2.setOrientation(LinearLayout.VERTICAL);
-            l2.setLayoutParams(new LinearLayout.LayoutParams(20, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
-            l2.setGravity(Gravity.CENTER);
-
-            //textView nombre
-            TextView tv = createTextViewName(p);
-            l2.addView(tv);
-
-            //boton audio
-            ImageButton iB = createImageButton(p);
-
-            l2.addView(iB);
-            l.addView(l2);
-
-            //descripcion
-            TextView tv2 = createTextViewDescription(p);
-            l.addView(tv2);
-
-            //agrego a la lista
-            lista.addView(l);
+        if (razasypelajes && cruzas) {
+            for (ReconocimientoRazasyPelajes rP : ReconocimientoRazasyPelajes.values()) {
+                armarLista(lista, rP);
+            }
+            for (ReconocimientoCruzas c : ReconocimientoCruzas.values()) {
+                armarLista(lista, c);
+            }
+        } else if (razasypelajes && !cruzas) {
+            for (ReconocimientoRazasyPelajes rP : ReconocimientoRazasyPelajes.values()) {
+                armarLista(lista, rP);
+            }
+        } else if (!razasypelajes && cruzas) {
+            for (ReconocimientoCruzas c : ReconocimientoCruzas.values()) {
+                armarLista(lista, c);
+            }
         }
+    }
+
+    private void armarLista(LinearLayout lista, Enum e) {
+        LinearLayout l = new LinearLayout(getApplicationContext());
+        l.setOrientation(LinearLayout.HORIZONTAL);
+        l.setGravity(Gravity.CENTER);
+        l.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
+        l.setWeightSum(3);
+        l.setPadding(5, 5, 5, 5);
+
+        //image
+        ImageView iv = createImageView(e);
+
+        l.addView(iv);
+
+        //nombre y boton audio
+        LinearLayout l2 = new LinearLayout(getApplicationContext());
+        l2.setOrientation(LinearLayout.VERTICAL);
+        l2.setLayoutParams(new LinearLayout.LayoutParams(20, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
+        l2.setGravity(Gravity.CENTER);
+
+        //textView nombre
+        TextView tv = createTextViewName(e);
+        l2.addView(tv);
+
+        //boton audio
+        ImageButton iB = createImageButton(e);
+
+        l2.addView(iB);
+        l.addView(l2);
+
+        //descripcion
+        TextView tv2 = createTextViewDescription(e);
+        l.addView(tv2);
+
+        //agrego a la lista
+        lista.addView(l);
     }
 
     @NonNull
@@ -103,7 +124,7 @@ public class ListActivity extends ReconocimientoActivity {
     @NonNull
     private TextView createTextViewDescription(Enum p) {
         TextView tv2 = new TextView(getApplicationContext());
-        tv2.setText(R.string.lorem);
+        tv2.setText(descripcionDeCaballoPorNombre(p.name()));
         tv2.setLayoutParams(new LinearLayout.LayoutParams(57, 94, 1.0f));
         tv2.setGravity(Gravity.CENTER);
         tv2.setTextColor(Color.BLACK);
@@ -111,12 +132,4 @@ public class ListActivity extends ReconocimientoActivity {
         tv2.setMaxHeight(94);
         return tv2;
     }
-
-    /*
-    private Enum aplicarFiltros() {
-        SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
-        boolean razasypelajes = preferences.getBoolean("razas", true);
-        boolean cruzas preferences.getBoolean("cruzas", false);
-    }
-    */
 }

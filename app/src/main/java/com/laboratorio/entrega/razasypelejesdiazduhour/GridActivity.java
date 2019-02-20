@@ -1,5 +1,6 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -23,10 +24,25 @@ public class GridActivity extends ReconocimientoActivity {
     @Override
     public void cargarReconocimiento() {
         LinearLayout ly = findViewById(R.id.gridRec);
+
+        SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
+        boolean razasypelajes = preferences.getBoolean("razas", true);
+        boolean cruzas = preferences.getBoolean("cruzas", false);
+        if (razasypelajes && cruzas) {
+            armarGrid(ly, ReconocimientoRazasyPelajes.values());
+            armarGrid(ly, ReconocimientoCruzas.values());
+        } else if (razasypelajes && !cruzas) {
+            armarGrid(ly, ReconocimientoRazasyPelajes.values());
+        } else if (!razasypelajes && cruzas) {
+            armarGrid(ly, ReconocimientoCruzas.values());
+        }
+    }
+
+    private void armarGrid(LinearLayout ly, Enum[] e) {
         int n = 1;
         LinearLayout l = createLinearLayout();
-        for (Pelaje p : Pelaje.values()) {
-            int cant = Pelaje.cantidadDePelajes() - 1;
+        for (Enum p : e) {
+            int cant = e.length - 1;
             //while (n < 3) {
             LinearLayout l2 = new LinearLayout(getApplicationContext());
             l2.setOrientation(LinearLayout.VERTICAL);

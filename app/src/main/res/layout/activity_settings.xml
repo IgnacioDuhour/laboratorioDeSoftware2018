@@ -181,17 +181,5 @@
                     android:textOn="@string/female_audio" />
             </LinearLayout>
         </LinearLayout>
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:background="@color/colorPrimaryDark"
-            android:onClick="saveSettings"
-            android:text="@string/settings_btn"
-            android:textAlignment="center"
-            android:textColor="#FFF"
-            tools:ignore="OnClick" />
     </LinearLayout>
 </ScrollView>

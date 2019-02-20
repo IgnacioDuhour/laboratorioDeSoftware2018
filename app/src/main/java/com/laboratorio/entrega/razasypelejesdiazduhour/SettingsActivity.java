@@ -29,6 +29,12 @@ public class SettingsActivity extends AppCompatActivity {
         configs(preferences);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        saveSettings();
+    }
+
     private void recognitionSettings(@NonNull SharedPreferences preferences) {
         Boolean b = preferences.getBoolean("lista", true);
         RadioButton rb;
@@ -73,7 +79,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
-    public void saveSettings(View view) {
+    public void saveSettings() {
         SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
 

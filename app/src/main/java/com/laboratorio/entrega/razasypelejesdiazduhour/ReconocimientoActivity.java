@@ -23,79 +23,105 @@ public abstract class ReconocimientoActivity extends AppCompatActivity {
 
     protected int ubicacionDeImagenDeCaballoPorNombre(String nombre) {
         switch (nombre.toUpperCase()) {
-            case "ALBO": return R.drawable.albo;
-            case "ATIGRADO": return R.drawable.atigrado;
-            case "BAYO": return R.drawable.bayo;
-            case "BRAGADO": return R.drawable.bragado;
-            case "COLORADO": return R.drawable.colorado;
-            case "MELADO": return R.drawable.melado;
-            case "PANGARE": return R.drawable.pangare;
-            case "ZAINO": return R.drawable.zaino;
-            case "ANDALUS": return R.drawable.andaluz;
-            case "APPALOSA": return R.drawable.appalosa;
-            case "ARABE": return R.drawable.arabe;
-            case "AZTECA": return R.drawable.azteca;
-            case "CLYDESDALE": return R.drawable.clydesdale;
-            case "COMTIOS": return R.drawable.comtios;
-            case "CRIOLLO": return R.drawable.criollo;
-            case "CRIOLLOARGENTINO": return R.drawable.criolloargentino;
-            case "CRIOLLOAMERICANO": return R.drawable.criolloamericano;
-            case "CUARTODEMILA": return R.drawable.cuartodemila;
-            case "FALABELLA": return R.drawable.falabella;
-            case "FRISON": return R.drawable.frison;
-            case "HAFLINGER": return R.drawable.haflinger;
-            case "HANNOVERIANO": return R.drawable.hannoveriano;
-            case "LUSITANO": return R.drawable.lusitano;
-            case "MUSTANG": return R.drawable.mustang;
-            case "PALOMINO": return R.drawable.palomino;
-            case "PASOFINO": return R.drawable.pasofino;
-            case "PERCHERON": return R.drawable.percheron;
-            case "PONIFELL": return R.drawable.ponifell;
-            case "PONIPOLO": return R.drawable.ponipolo;
-            case "PURASANGREINGLES": return R.drawable.purasangreingles;
-            case "SHIRE": return R.drawable.shire;
-            case "SORAIA": return R.drawable.soraia;
+            case "AMAPOLA": return R.drawable.amapola_petiso_argentino_rosillo;
+            case "AMBAR": return R.drawable.ambar_mestizo_cruza_arabe_alazan_tostado;
+            case "ANGOLA": return  R.drawable.angola_sangrepuracarrera_zaino_colorado;
+            case "ANTU": return R.drawable.antu_mestizo_overo_zaino;
+            case "BELLA": return R.drawable.bella;
+            case "BIONDA": return R.drawable.bionda_mestizo_alazan_ruano;
+            case "BLANCO": return R.drawable.blanco_mestizo_blanco;
+            case "BONITA": return R.drawable.bonita_mestizo_qh_con_criollo_overo_azulejo;
+            case "CACIQUE": return R.drawable.cacique_mestizo_alazan;
+            case "CANDELARIA": return R.drawable.candelaria_mestizo_tobiano;
+            case "CIRO": return R.drawable.ciro_mestizo_tordillo_canela;
+            case "FELIPE": return R.drawable.felipe_mestizo_zaino;
+            case "HUALFIN": return R.drawable.hualfin_criollo_picaso;
+            case "HUAYRA": return R.drawable.huayra;
+            case "JUANA": return R.drawable.juana_cuarto_de_milla_bayo;
+            case "MANCHA": return R.drawable.mancha;
+            case "MORA": return R.drawable.mora_petiso_argentino_tordillo_moro;
+            case "MUÑECO": return R.drawable.muneco_mestizo_overo_rosado;
+            case "NALA": return R.drawable.nala_mestizo_moro;
+            case "NALITO": return R.drawable.nalito;
+            case "ORITA": return R.drawable.orita;
+            case "PAMPERITO": return R.drawable.pamperito_petiso_argentino_zaino;
+            case "PINTADA": return R.drawable.pintada_mestizo_alazan_pintado;
+            case "PIRATA": return R.drawable.pirata;
+            case "POCHITO": return R.drawable.pochito_mestizo_zaino;
+            case "PRIMAVERA": return R.drawable.primavera_silla_argentino_alazan;
+            case "TIGRE": return R.drawable.tigre_criollo_bayo_gateado;
+            case "TUPAC": return R.drawable.tupac_mestizo_zaino_oscuro;
+            case "ZORZAL": return R.drawable.zorzal_mestizo_tordillo;
             default: return R.drawable.defaultfur;
         }
     }
 
-
     protected int ubicacionDeAudioDeCaballoPorNombre(String nombre) {
         switch (nombre.toUpperCase()) {
-            case "ALBO": return R.raw.relincho;
-            case "ATIGRADO": return R.raw.relincho;
-            case "BAYO": return R.raw.relincho;
-            case "BRAGADO": return R.raw.relincho;
-            case "COLORADO": return R.raw.relincho;
-            case "MELADO": return R.raw.relincho;
-            case "PANGARE": return R.raw.relincho;
-            case "ZAINO": return R.raw.relincho;
-            case "ANDALUS": return R.raw.relincho;
-            case "APPALOSA": return R.raw.relincho;
-            case "ARABE": return R.raw.relincho;
-            case "AZTECA": return R.raw.relincho;
-            case "CLYDESDALE": return R.raw.relincho;
-            case "COMTIOS": return R.raw.relincho;
-            case "CRIOLLO": return R.raw.relincho;
-            case "CRIOLLOARGENTINO": return R.raw.relincho;
-            case "CRIOLLOAMERICANO": return R.raw.relincho;
-            case "CUARTODEMILA": return R.raw.relincho;
-            case "FALABELLA": return R.raw.relincho;
-            case "FRISON": return R.raw.relincho;
-            case "HAFLINGER": return R.raw.relincho;
-            case "HANNOVERIANO": return R.raw.relincho;
-            case "LUSITANO": return R.raw.relincho;
-            case "MUSTANG": return R.raw.relincho;
-            case "PALOMINO": return R.raw.relincho;
-            case "PASOFINO": return R.raw.relincho;
-            case "PERCHERON": return R.raw.relincho;
-            case "PONIFELL": return R.raw.relincho;
-            case "PONIPOLO": return R.raw.relincho;
-            case "PURASANGREINGLES": return R.raw.relincho;
-            case "SHIRE": return R.raw.relincho;
-            case "SORAIA": return R.raw.relincho;
+            case "AMAPOLA": return R.raw.relincho;
+            case "AMBAR": return R.raw.relincho;
+            case "ANGOLA": return  R.raw.relincho;
+            case "ANTU": return R.raw.relincho;
+            case "BELLA": return R.raw.relincho;
+            case "BIONDA": return R.raw.relincho;
+            case "BLANCO": return R.raw.relincho;
+            case "BONITA": return R.raw.relincho;
+            case "CACIQUE": return R.raw.relincho;
+            case "CANDELARIA": return R.raw.relincho;
+            case "CIRO": return R.raw.relincho;
+            case "FELIPE": return R.raw.relincho;
+            case "HUALFIN": return R.raw.relincho;
+            case "HUAYRA": return R.raw.relincho;
+            case "JUANA": return R.raw.relincho;
+            case "MANCHA": return R.raw.relincho;
+            case "MORA": return R.raw.relincho;
+            case "MUÑECO": return R.raw.relincho;
+            case "NALA": return R.raw.relincho;
+            case "NALITO": return R.raw.relincho;
+            case "ORITA": return R.raw.relincho;
+            case "PAMPERITO": return R.raw.relincho;
+            case "PINTADA": return R.raw.relincho;
+            case "PIRATA": return R.raw.relincho;
+            case "POCHITO": return R.raw.relincho;
+            case "PRIMAVERA": return R.raw.relincho;
+            case "TIGRE": return R.raw.relincho;
+            case "TUPAC": return R.raw.relincho;
+            case "ZORZAL": return R.raw.relincho;
             default: return R.raw.relincho;
         }
     }
-
+    protected int descripcionDeCaballoPorNombre(String nombre) {
+        switch (nombre.toUpperCase()) {
+            case "AMAPOLA": return R.string.amapola;
+            case "AMBAR": return R.string.ambar;
+            case "ANGOLA": return  R.string.angola;
+            case "ANTU": return R.string.antu;
+            case "BELLA": return R.string.bella;
+            case "BIONDA": return R.string.bionda;
+            case "BLANCO": return R.string.blanco_2;
+            case "BONITA": return R.string.bonita;
+            case "CACIQUE": return R.string.cacique;
+            case "CANDELARIA": return R.string.candelaria;
+            case "CIRO": return R.string.ciro;
+            case "FELIPE": return R.string.felipe;
+            case "HUALFIN": return R.string.hualfin;
+            case "HUAYRA": return R.string.huayra;
+            case "JUANA": return R.string.juana;
+            case "MANCHA": return R.string.mancha;
+            case "MORA": return R.string.mora;
+            case "MUÑECO": return R.string.muneco;
+            case "NALA": return R.string.nala;
+            case "NALITO": return R.string.nalito;
+            case "ORITA": return R.string.orita;
+            case "PAMPERITO": return R.string.pamperito;
+            case "PINTADA": return R.string.pintada;
+            case "PIRATA": return R.string.pirata;
+            case "POCHITO": return R.string.pochito;
+            case "PRIMAVERA": return R.string.primavera;
+            case "TIGRE": return R.string.tigre;
+            case "TUPAC": return R.string.tupac;
+            case "ZORZAL": return R.string.zorzal;
+            default: return R.string.lorem;
+        }
+    }
 }

@@ -11,7 +11,19 @@ class TipoCaballo {
     }
 
     /*
-        Propósito: Genera una secuencia aleatórea de TiposCaballo a partir del parámetro "tipos"
+        Propósito: Describe "n" tipos aleatoreos a partir de "tipos"
+     */
+    public static TipoCaballo[] nTiposAleatoreos(TipoCaballo[] tipos, int n) {
+        TipoCaballo[] nTipos = new TipoCaballo[n];
+        TipoCaballo[] todosLostiposAleatoreos = tiposAleatoreos(tipos);
+        for (int i = 0; i < n; i++) {
+            nTipos[i] = todosLostiposAleatoreos[i];
+        }
+        return nTipos;
+    }
+
+    /*
+        Propósito: Describe una secuencia aleatórea de TiposCaballo a partir del parámetro "tipos"
     */
     public static TipoCaballo[] tiposAleatoreos(TipoCaballo[] tipos) {
         TipoCaballo[] tiposAleatoreos = tipos;
@@ -28,6 +40,7 @@ class TipoCaballo {
         }
         return tiposAleatoreos;
     }
+
 
     /*
         * Propósito: Retorna los tipos pasado por parámetro, pero sin el tipo "tipoAEliminar"
@@ -94,5 +107,4 @@ class TipoCaballo {
         }
         return  tipoSinElTipo;
     }
-
 }

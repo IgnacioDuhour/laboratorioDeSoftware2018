@@ -3,30 +3,13 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 import java.util.Random;
 
 public enum Raza {
-    ANDALUS,
-    APPALOSA,
-    ARABE,
-    AZTECA,
-    CLYDESDALE,
-    COMTIOS,
+    CUARTO_DE_MILLA,
     CRIOLLO,
-    CRIOLLOAMERICANO,
-    CRIOLLOARGENTINO,
-    CUARTODEMILLA,
-    FALABELLA,
-    FRISON,
-    HAFLINGER,
-    HANNOVERIANO,
-    LUSITANO,
-    MUSTANG,
-    PALOMINO,
-    PASOFINO,
-    PERCHERON,
-    PONIFELL,
-    PONIPOLO,
-    PURASANGREINGLES,
-    SHIRE,
-    SORAIA;
+    PETIZO_ARGENTINO,
+    MESTIZO_CRUZA_ARABE,
+    MESTIZO,
+    SILLA_ARGENTINO,
+    SANGREPUROCARRERA;
 
     public static int cantidadDeRazas() {
         return Raza.values().length;
