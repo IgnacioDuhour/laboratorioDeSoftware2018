@@ -303,69 +303,69 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     protected int ubicacionDeImagenDeCaballoPorNombre(String nombre) {
         switch (nombre.toUpperCase()) {
             case "ALBO":
-                return R.drawable.albo;
+                return R.drawable.defaultfur;
             case "ATIGRADO":
-                return R.drawable.atigrado;
+                return R.drawable.defaultfur;
             case "BAYO":
-                return R.drawable.bayo;
+                return R.drawable.defaultfur;
             case "BRAGADO":
-                return R.drawable.bragado;
+                return R.drawable.defaultfur;
             case "COLORADO":
-                return R.drawable.colorado;
+                return R.drawable.defaultfur;
             case "MELADO":
-                return R.drawable.melado;
+                return R.drawable.defaultfur;
             case "PANGARE":
-                return R.drawable.pangare;
+                return R.drawable.defaultfur;
             case "ZAINO":
-                return R.drawable.zaino;
+                return R.drawable.defaultfur;
             case "ANDALUS":
-                return R.drawable.andaluz;
+                return R.drawable.defaultfur;
             case "APPALOSA":
-                return R.drawable.appalosa;
+                return R.drawable.defaultfur;
             case "ARABE":
-                return R.drawable.arabe;
+                return R.drawable.defaultfur;
             case "AZTECA":
-                return R.drawable.azteca;
+                return R.drawable.defaultfur;
             case "CLYDESDALE":
-                return R.drawable.clydesdale;
+                return R.drawable.defaultfur;
             case "COMTIOS":
-                return R.drawable.comtios;
+                return R.drawable.defaultfur;
             case "CRIOLLO":
-                return R.drawable.criollo;
+                return R.drawable.defaultfur;
             case "CRIOLLOARGENTINO":
-                return R.drawable.criolloargentino;
+                return R.drawable.defaultfur;
             case "CRIOLLOAMERICANO":
-                return R.drawable.criolloamericano;
+                return R.drawable.defaultfur;
             case "CUARTODEMILA":
-                return R.drawable.cuartodemila;
+                return R.drawable.defaultfur;
             case "FALABELLA":
-                return R.drawable.falabella;
+                return R.drawable.defaultfur;
             case "FRISON":
-                return R.drawable.frison;
+                return R.drawable.defaultfur;
             case "HAFLINGER":
-                return R.drawable.haflinger;
+                return R.drawable.defaultfur;
             case "HANNOVERIANO":
-                return R.drawable.hannoveriano;
+                return R.drawable.defaultfur;
             case "LUSITANO":
-                return R.drawable.lusitano;
+                return R.drawable.defaultfur;
             case "MUSTANG":
-                return R.drawable.mustang;
+                return R.drawable.defaultfur;
             case "PALOMINO":
-                return R.drawable.palomino;
+                return R.drawable.defaultfur;
             case "PASOFINO":
-                return R.drawable.pasofino;
+                return R.drawable.defaultfur;
             case "PERCHERON":
-                return R.drawable.percheron;
+                return R.drawable.defaultfur;
             case "PONIFELL":
-                return R.drawable.ponifell;
+                return R.drawable.defaultfur;
             case "PONIPOLO":
-                return R.drawable.ponipolo;
+                return R.drawable.defaultfur;
             case "PURASANGREINGLES":
-                return R.drawable.purasangreingles;
+                return R.drawable.defaultfur;
             case "SHIRE":
-                return R.drawable.shire;
+                return R.drawable.defaultfur;
             case "SORAIA":
-                return R.drawable.soraia;
+                return R.drawable.defaultfur;
             default:
                 return R.drawable.defaultfur;
         }
