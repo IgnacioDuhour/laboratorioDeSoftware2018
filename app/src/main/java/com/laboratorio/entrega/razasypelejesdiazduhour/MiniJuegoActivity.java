@@ -22,6 +22,9 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        iniciarMiniJuego();
+        definirLayoutSegunConfiguracion();
+        cargarElementosEnLayout();
     }
 
     /**
@@ -125,44 +128,64 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      *          "items a interaccionar": texto o imagen que se encuentra en la parte inferior del minijuego
      */
     public void cargarItemsAInteraccionarDeLaJugadaActual() {
-        cargarItemGanador();
-        cargarItemsNoGanadores();
+        if (this.esUltimaJugada()) {
+            cargarItemGanadorUltimaJugada();
+            cargarItemsNoGanadoresUltimaJugada();
+        } else {
+            cargarItemGanador();
+            cargarItemGanadorUltimaJugada();
+        }
     }
 
     /*
-     * Propósito: Carga el item  ganador en la posición correspondiente.
-     * Precondición: Existe el item ganador
-      * Observación: "posición" es un número entre 1 y 4 como máximo que hace referencia a alguno de los items con los que se interaccionará
-    */
-    public void cargarItemGanador() {
-        //se encuentra el imageview
-        ImageView imagenGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicionItemGanadorDeJugadaActual()));
-        //se setea el source del imageview
-        imagenGanadora.setImageResource(ubicacionDeImagenDeCaballoPorNombre(this.miniJuego.nombreAReconocerDeLaJugadaActual()));
-        //se define el evento para el imageview
-        cargarEventoOnClickParaImagenGanadora(imagenGanadora);
-    }
-
-    /*
-     * Propósito: Carga las imágenes de los caballos NO ganadoras en su posición correspondiente.
-     * Por defecto, nivel de dificuld 2 (3 items no ganadores)
-     * Observación:
-     * "cargar": hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
-     * "posición":  los 3 items pueden tomar alguna de las posiciones 1, 2, 3 o 4
+        Propósito: describe verdadero si es la ultima jugada del minijuego, es decir es el desafío #5
+        Precondición: hay una jugada actual definida
      */
-    public void cargarImagenesNoGanadoras() {
+    protected boolean esUltimaJugada() {
+        return this.miniJuego.esUltimaJugada();
+    }
+
+    /*
+      Propósito: Carga el item  ganador en la posición correspondiente que corresponde con el último desafío.
+      Precondición: Hay una jugada actual definida
+     */
+    public abstract void cargarItemGanadorUltimaJugada();
+
+    public abstract void cargarItemsNoGanadoresUltimaJugada();
+
+    /*
+      Propósito: Carga el item  ganador en la posición correspondiente.
+      Precondición: Hay una jugada actual definida
+     */
+    public abstract void cargarItemGanador();
+    //se encuentra el imageview
+    //ImageView imagenGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicionItemGanadorDeJugadaActual()));
+    //se setea el source del imageview
+    //imagenGanadora.setImageResource(ubicacionDeImagenDeCaballoPorNombre(this.miniJuego.nombreAReconocerDeLaJugadaActual()));
+    //se define el evento para el imageview
+    //cargarEventoOnClickParaImagenGanadora(imagenGanadora);
+
+
+    /*
+     * Propósito: Carga los items  NO ganadores en sus posición correspondientes.
+     * Precondición: hay una jugada actual definida
+     */
+    public abstract void cargarItemsNoGanadores();
+        /*
         int[] posiciones = this.miniJuego.posicionesSinImagenGanadoraDeJugadaActual();
         String[] nombres = this.miniJuego.nombresDeTiposNoGanadoresDeJugadaActual();
         for (int i = 0; i < posiciones.length; i++) {
             cargarImagenesNoGanadoraPorPosicion(posiciones[i], nombres[i]);
         }
-    }
+        */
 
     /*
-       Propósito: Carga la imágen del caballo NO ganadora en la posición correspondiente, pudiendo ser alguna de las posiciones 1,2,3 ó 4.
-       Precondición: "posicion" es alguna de las posiciones 1, 2, 3 o 4.
-    */
-    public void cargarImagenesNoGanadoraPorPosicion(int posicion, String nombreImagen) {
+     * Propósito: Carga el item NO ganador en la posición correspondiente
+     * Precondición: hay una jugada actual definida
+     */
+    public abstract void cargarItemNoGanadorPorPosicion();
+    /*
+    public void cargarImagenesNoGanadoraPorPosicion(int posicion, String nombreImagen);
         //se encuentra el imageview
         ImageView imagenNoGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicion));
         //se setea el source del imageview
@@ -170,61 +193,51 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         //se define el evento para el imageview
         cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora);
     }
-
-
-    /*
-        Propósito: Carga el evento OnClick para la imágen ganadora
-        * se define "imagen ganadora" como aquella que coincide con el "nombre a reconoce" VER DE BUSCAR UN NOMBRE PARA IDENTIFICAR "NOMBRE A RECONOCER"
-     */
-    public void cargarEventoOnClickParaImagenGanadora(final ImageView imageView) {
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cargarMensajeDeJugaGanada();
-            }
-        });
-    }
-
-    /*
-      Propósito: Carga el evento OnClick para una imágen no ganadora
-      * se define imagen NO ganadora como aquella que no coincide con el "NOMBRE A RECONOCER"S
-   */
-    public void cargarEventoOnClickParaImagenNoGanadora(final ImageView imageView) {
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mensajeJugadaNoAcertada();
-            }
-        });
-    }
-
-    /*
-        Propósito: Emite el sonido de un caballo relinchando que representa una interacción NO acertada para la jugada actual.
     */
-    public void mensajeJugadaNoAcertada() {
+
+
+    /*
+        Propósito: Carga el evento OnClick para el item ganador
+        Precondición: Hay un item ganador cargado en la actividad correspondiente.
+     */
+    public void cargarEventoOnClickParaItemGanador (final ImageView imageView) {
+    //public void cargarEventoOnClickParaImagenGanadora(final ImageView imageView) {
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mensajeDeJugadaGanada();
+            }
+        });
+    }
+
+    /*
+      Propósito: Carga el evento OnClick para el item NO ganador
+      Precondición: Hay un item NO ganador cargado en la actividad correspondiente.
+   */
+    public void cargarEventoOnClickParaItemNoGanador(final ImageView imageView) {
+    //public void cargarEventoOnClickParaImagenNoGanadora(final ImageView imageView) {
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mensajeJugadaNoGanada();
+            }
+        });
+    }
+
+    /*
+        Propósito: Emite el sonido de resoplo de un caballo  que representa una interacción NO acertada para la jugada actual.
+        Precondición: hay una jugada cargada
+    */
+    public void mensajeJugadaNoGanada() {
         sonidoResoplidoCaballo.start();
     }
 
-
     /*
-        Propósito: Carga el mensaje de la jugada ganada.
+        Propósito: Emite el sonido de un caballo relinchando, que representa una interacción Acertada para la jugada actual.
+        Precondición: hay una jugada cargada
     */
-    public void cargarMensajeDeJugaGanada() {
+    public void mensajeDeJugadaGanada() {
         sonidoRelincheCaballo.start();
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Jugada Ganada").setCancelable(false);
-        builder.setPositiveButton("Siguiente jugada", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                cargarJugadaSiguiente();
-            }
-        });
-        builder.setNeutralButton("Volver a jugar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                reanudadJugadaActual();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
     }
 
 

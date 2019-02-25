@@ -6,6 +6,7 @@ public abstract class MiniJuego {
     protected Jugada jugadaActual; //Describe la jugada actual, sea de "Raza", "Pelaje" o "Cruza"
     protected int indiceJugadaActual; // describe la posición de la jugada actual en "secuenciaDeJugadas"
     protected int cantidadDeJugadasGanadas; //describe la cantidad de jugadas ganadas hasta el momento
+    protected int numeroDeJugadaActual;
     protected int CANT_MIN_JUGADAS_A_GANAR = 3; // Describe la cantidad minima de jugadas necesarias para ganar el minijuego
     protected int TOTAL_JUGADAS = 5; //Describe la cantidad de jugadas totales por minijuego
 
@@ -26,6 +27,7 @@ public abstract class MiniJuego {
         this.cantidadDeJugadasGanadas = 0;
         this.jugadasSecuencia = this.randomDeJugadas();
         this.jugadaActual = this.jugadasSecuencia[indiceJugadaActual];
+        this.numeroDeJugadaActual = 0;
     }
 
     /*
@@ -34,7 +36,8 @@ public abstract class MiniJuego {
      */
     public void irAProximaJugada()  {
         this.indiceJugadaActual++;
-        this.cantidadDeJugadasGanadas ++;
+        //this.cantidadDeJugadasGanadas ++; : Ojo, aumenta solo si acerto!
+        this.numeroDeJugadaActual ++;
         this.jugadaActual = jugadasSecuencia[indiceJugadaActual];
     }
 
@@ -53,9 +56,9 @@ public abstract class MiniJuego {
     public Jugada jugadaActual() { return jugadaActual; }
 
     /*
-        Propósito: Describe la cantidad de jugadas para una partida
+        Propósito: Describe la cantidad Total de jugadas para un desafío
      */
-    public int cantidadDeJugadas() { return TOTAL_JUGADAS; }
+    public int cantidadTotalDeJugadas() { return TOTAL_JUGADAS; }
 
     /*
         Propósito: Describe el tipo del juego pudiendo ser "Raza y Pelaje", "Raza y Pelaje juntas" o "Cruza"
@@ -67,6 +70,22 @@ public abstract class MiniJuego {
     */
     public boolean esJugadaGanada() {
         return this.cantidadDeJugadasGanadas >= CANT_MIN_JUGADAS_A_GANAR;
+    }
+
+    /*
+        Propósito: describe verdadero si es el ultimo desafío, es decir si es el desafío número 5.
+        Precondición: Ninguna
+     */
+    public boolean esUltimaJugada() {
+        return this.cantidadTotalDeJugadas() - this.numeroDeJugadaActual() >= 0;
+    }
+
+    /*
+        Propósito: Describe la cantidad de jugadas jugadas hasta el momento
+        Precondición: Ninguna
+     */
+    protected int numeroDeJugadaActual() {
+        return this.numeroDeJugadaActual;
     }
 
     /*

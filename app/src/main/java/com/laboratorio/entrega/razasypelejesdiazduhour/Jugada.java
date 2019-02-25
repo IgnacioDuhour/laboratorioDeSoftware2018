@@ -2,8 +2,9 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 
 import android.os.Build;
 import android.support.annotation.RequiresApi;
-import fj.data.List;
-import static fj.data.List.list;
+
+import java.util.ArrayList;
+import java.util.List;
 
 abstract class Jugada {
 
@@ -40,8 +41,7 @@ abstract class Jugada {
         Resultado: número entero entre 0 y la cantidad de items a interaccionar
     */
     public int posicionItemGanador() {
-        //this.itemsAInteraccionar().foldRight((i->  ),-1);
-        return 0;
+        return this.tiposAInteraccionar.indexOf(this.itemGanador());
     }
 
     /*
@@ -54,46 +54,50 @@ abstract class Jugada {
     /*
         Propósito: describe los items a interaccionar
      */
-    public List itemsAInteraccionar() {
+    public List<String> itemsAInteraccionar() {
         //return this.tiposAInteraccionar.map(item -> item.getNombre());
-        return null; //esto debe retornar una lista de strings, no lista de TipoCaballo.
+        List<String> itemsAInteraccionar = new ArrayList<String>();
+        for (TipoCaballo tipo: this.tiposAInteraccionar) {
+            itemsAInteraccionar.add(tipo.getNombre());
+        }
+        return itemsAInteraccionar;
     }
-//https://www.functionaljava.org/examples-java8.html
-
     /*
         Propósito: describe la cantidad de items con los que se interaccionará segun la configuración
      */
     public int cantidadDeItems() {
-        return this.tiposAInteraccionar.length();
+        return this.tiposAInteraccionar.size();
     }
 
     /*
         Propósito: Describe los items NO ganadores
         Resultado: una lista de Strings
      */
-    public List itemsNoGanadores() {
+    public List<String> itemsNoGanadores() {
         //Removes the value from the optional value if it does not match a given predicate.
-       return this.itemsAInteraccionar().filter(item -> ((String)item).compareTo(this.itemGanador())!=0 );
+       //return this.itemsAInteraccionar().filter(item -> ((String)item).compareTo(this.itemGanador())!=0 );
+        List<String> itemsNoGanadores = new ArrayList<String>();
+        for (TipoCaballo tipo: this.tiposAInteraccionar) {
+            if (tipo.getNombre().compareTo(this.itemGanador())!=0) {
+                itemsNoGanadores.add(tipo.getNombre());
+            }
+        }
+        return itemsNoGanadores;
     }
 
     /*
-        Propósito: Describe las posiciones de la jugada sin la posición de la jugada ganadora
+        Propósito: Describe las posiciones de los items a interaccionar sin la posición del item ganador
      */
-    public int[] posicionesSinTipoGanador() {
-
-        //TODO: es un filter por la posicion ganadora. Si cambio a List, usar algo de tipo filter!
-   /*     int[] posicionesSinTipoGanador  = new int[this.cantidadTipos()-1];
-        int posicionTipoGanador         = this.posicionTipoGanador();
+    public int[] posicionesSinItemGanador() {
         int j = 0;
-        for (int i=0; i<this.tiposAInteraccionar.length ;i++) {
-            if (posicionTipoGanador != i) {
-                posicionesSinTipoGanador[j] = i;
+        int[] posicionesSinItemGanador  = new int[this.cantidadDeItems()];
+        for (int i=0; i<this.tiposAInteraccionar.size() ;i++) {
+            if (this.posicionItemGanador() != i) {
+                posicionesSinItemGanador[j] = i;
                 j++;
             }
         }
-        return posicionesSinTipoGanador;
-        */
-        return null;
+        return posicionesSinItemGanador;
     }
 
     public abstract String tipoDeJugada();

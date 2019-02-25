@@ -32,13 +32,14 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".MiniJuegoActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".ListActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".GridActivity"
             android:screenOrientation="landscape" />
+        <activity android:name=".ImagenPalabraFacil"></activity>
     </application>
 
 </manifest>
