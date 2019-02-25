@@ -97,7 +97,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     }
 
     /*
-     * Propósito: Carga la jugada actual compuesta por el Item principal y los items con los que se interaccionará
+     * Propósito: Carga la jugada actual compuesta por el Item principal (ubicado en la parte superior) y los items con los que se interaccionará (ubicados en la parte inferior)
      * Precondición: Hay un minijuego inicializado y un layout definido
      */
     public void cargarJugadaActual() {
@@ -107,7 +107,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     }
 
     /*
-     * Propósito: define los elementos que corresponden con la jugada actual
+        Propósito: define los elementos que corresponden con la jugada actual
      */
     public void definirJugadaActual() {
         this.miniJuego.jugarJugadaActual();
@@ -115,17 +115,17 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
 
     /*
-     * Propósito: Carga el item a reconoer de la jugada actual.
-     * Obsevación: el item a reconocer se encuentra en la parte superior del minijuego
+        Propósito: Carga el item a reconoer de la jugada actual, ubicado en la parte superior
+        Obsevación: el item a reconocer se encuentra en la parte superior del minijuego
      */
-    public abstract void cargarItemAReconocerDeLaJugadaActual();
-
+    public void cargarItemAReconocerDeLaJugadaActual() {
+        this.interaccion.cargarItemAReconocer(this.dificultad, this);
+    }
 
     /*
-     * Propósito: Carga los items los que se interaccionará según la configuración
-     * Precondición: Hay una jugada actual definida
-     * Observación:
-     *          "items a interaccionar": texto o imagen que se encuentra en la parte inferior del minijuego
+        Propósito: Carga los items los que se interaccionará según la configuración
+        Precondición: Hay una jugada actual definida
+        Observación: "items a interaccionar": texto o imagen que se encuentra en la parte inferior del minijuego
      */
     public void cargarItemsAInteraccionarDeLaJugadaActual() {
         if (this.esUltimaJugada()) {
@@ -133,7 +133,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             cargarItemsNoGanadoresUltimaJugada();
         } else {
             cargarItemGanador();
-            cargarItemGanadorUltimaJugada();
+            cargarItemsNoGanadores();
         }
     }
 
@@ -146,31 +146,20 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     }
 
     /*
-      Propósito: Carga el item  ganador en la posición correspondiente que corresponde con el último desafío.
-      Precondición: Hay una jugada actual definida
-     */
-    public abstract void cargarItemGanadorUltimaJugada();
-
-    public abstract void cargarItemsNoGanadoresUltimaJugada();
-
-    /*
       Propósito: Carga el item  ganador en la posición correspondiente.
       Precondición: Hay una jugada actual definida
      */
-    public abstract void cargarItemGanador();
-    //se encuentra el imageview
-    //ImageView imagenGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicionItemGanadorDeJugadaActual()));
-    //se setea el source del imageview
-    //imagenGanadora.setImageResource(ubicacionDeImagenDeCaballoPorNombre(this.miniJuego.nombreAReconocerDeLaJugadaActual()));
-    //se define el evento para el imageview
-    //cargarEventoOnClickParaImagenGanadora(imagenGanadora);
-
+    public void cargarItemGanador() {
+        this.interaccion.cargarItemGanador(this.dificultad, this);
+    }
 
     /*
-     * Propósito: Carga los items  NO ganadores en sus posición correspondientes.
-     * Precondición: hay una jugada actual definida
+        Propósito: Carga los items  NO ganadores en sus posición correspondientes.
+        Precondición: hay una jugada actual definida.
      */
-    public abstract void cargarItemsNoGanadores();
+    public void cargarItemsNoGanadores() {
+        this.interaccion.cargarItemsNoGanadores(this.dificultad, this);
+    }
         /*
         int[] posiciones = this.miniJuego.posicionesSinImagenGanadoraDeJugadaActual();
         String[] nombres = this.miniJuego.nombresDeTiposNoGanadoresDeJugadaActual();
@@ -178,6 +167,14 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             cargarImagenesNoGanadoraPorPosicion(posiciones[i], nombres[i]);
         }
         */
+
+    /*
+        Propósito: Carga el item  ganador en la posición correspondiente que corresponde con el último desafío.
+        Precondición: Hay una jugada actual definida
+    */
+    public abstract void cargarItemGanadorUltimaJugada();
+
+    public abstract void cargarItemsNoGanadoresUltimaJugada();
 
     /*
      * Propósito: Carga el item NO ganador en la posición correspondiente

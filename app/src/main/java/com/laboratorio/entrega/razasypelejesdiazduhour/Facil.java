@@ -13,4 +13,41 @@ public class Facil extends Dificultad {
         return new JugadaDificultadFacil(jugadaTipo);
     }
 
+    /*
+        Propósito: carga la palabra a reconocer ubicada en la parte superior.
+     */
+    @Override
+    public void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity){
+
+    }
+
+    /*
+        Propósito: carga la imagen a reconocer ubicada en la parte superior.
+     */
+    @Override
+    public void cargarImagenAReconocer(MiniJuegoActivity miniJuegoActivity){
+
+    }
+
+    @Override
+    public void cargarImagenGanadora(MiniJuegoActivity miniJuegoActivity) {
+
+    }
+
+    @Override
+    public void cargarPalabraGanadora(MiniJuegoActivity miniJuegoActivity) {
+
+    }
+
+    @Override
+    public void cargarImagenesNoGanadoras(MiniJuegoActivity miniJuegoActivity) {
+
+    }
+
+    @Override
+    public void cargarPalabrasNoGanadoras(MiniJuegoActivity miniJuegoActivity) {
+
+    }
+
+
 }

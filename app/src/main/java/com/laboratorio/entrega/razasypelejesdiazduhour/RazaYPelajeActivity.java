@@ -5,19 +5,12 @@ import android.widget.TextView;
 
 public class RazaYPelajeActivity extends MiniJuegoActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        iniciarMinijuego();
-        definirLayoutSegunConfiguracion();
-        cargarElementosEnLayout();
-    }
-
     /*
         Propósito: Crea e iniciar el minijuego "Raza y Pelaje"
         Precondición: Ninguna
      */
-    public void iniciarMinijuego() {
+    @Override
+    public void iniciarMiniJuego() {
         this.miniJuego = new RazayPelajeMinijuego();
         this.miniJuego.iniciar();
     }
@@ -31,22 +24,45 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
             3. layout palabra_imagen_facil
             4. layout palabra_imagen_dificil
      */
+    @Override
     public void definirLayoutSegunConfiguracion() {
-    //TODO: setear R.cargarLayoutSegunConfiguracion segun la configuracion
         setContentView(R.layout.palabra_imagen_dificil);
     }
 
+    @Override
+    public void cargarItemGanadorUltimaJugada() {
+
+    }
+
+    @Override
+    public void cargarItemsNoGanadoresUltimaJugada() {
+
+    }
+
     /*
-        Propósito: Carga los elementos en el layout correspondiente
-        Precondición: Hay un minijuego de Raza y Pelaje creado e inciializado y hay un layout definido
-        Observación: hay 4 (cuatro) tipos de layouts:
-                        1. layout imagen_palabra_facil
-                        2. layout imagen_palabra_dificil
-                        3. layout palabra_imagen_facil
-                        4. layout palabra_imagen_dificil
+        Propósito: Carga el item  ganador en la posición correspondiente (item puede ser texto o imagen)
+        Precondición: Hay una jugada actual definida
      */
-    public void cargarElementosEnLayout() {
-        //TODO: completar
+    @Override
+    public void cargarItemGanador() {
+        this.interaccion.cargarItemGanador(this.dificultad, this);
+    }
+
+    //se encuentra el imageview
+    //ImageView imagenGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicionItemGanadorDeJugadaActual()));
+    //se setea el source del imageview
+    //imagenGanadora.setImageResource(ubicacionDeImagenDeCaballoPorNombre(this.miniJuego.nombreAReconocerDeLaJugadaActual()));
+    //se define el evento para el imageview
+    //cargarEventoOnClickParaImagenGanadora(imagenGanadora);
+
+    @Override
+    public void cargarItemsNoGanadores() {
+
+    }
+
+    @Override
+    public void cargarItemNoGanadorPorPosicion() {
+
     }
 
     /*
