@@ -9,22 +9,22 @@ public abstract class Dificultad {
     /*
         Propósito: carga la palabra a reconocer ubicada en la parte superior.
      */
-    public abstract void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity);
+    public abstract void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity, String nombrePalabra);
 
     /*
         Propósito: carga la imagen a reconocer ubicada en la parte superior.
      */
-    public abstract void cargarImagenAReconocer(MiniJuegoActivity miniJuegoActivity);
-
-    /*
-        Propósito: carga la imagen ganadora en la parte inferior del layout, donde se interaccionará para jugar
-    */
-    public abstract void cargarImagenGanadora(MiniJuegoActivity miniJuegoActivity);
+    public abstract void cargarImagenAReconocer(MiniJuegoActivity miniJuegoActivity, String nombreImagen);
 
     /*
         Propósito: carga la palabra ganadora en la parte inferior del layout, donde se interaccionará para jugar
     */
-    public abstract void cargarPalabraGanadora(MiniJuegoActivity miniJuegoActivity);
+    public abstract void cargarPalabraGanadora(MiniJuegoActivity miniJuegoActivity, String nombrePalabra);
+
+    /*
+        Propósito: carga la imagen ganadora en la parte inferior del layout, donde se interaccionará para jugar
+    */
+    public abstract void cargarImagenGanadora(MiniJuegoActivity miniJuegoActivity, String nombreImagen);
 
     /*
         Propósito: carga las imágenes NO ganadoras en la parte inferior del layout, donde se interaccionará para jugar

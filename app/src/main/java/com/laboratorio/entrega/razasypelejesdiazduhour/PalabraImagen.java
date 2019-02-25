@@ -15,16 +15,16 @@ public class PalabraImagen extends Interaccion {
         Propósito: carga la palabra a reconocer según la configuracion definida. El item a reconocer se ubica en la parte superior
     */
     @Override
-    public void cargarItemAReconocer(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity) {
-        dificultad.cargarPalabraAReconocer(miniJuegoActivity);
+    public void cargarItemAReconocer(Dificultad dificultad, String nombreItem, MiniJuegoActivity miniJuegoActivity) {
+        dificultad.cargarPalabraAReconocer(miniJuegoActivity, nombreItem);
     }
 
     /*
         Propósito: carga la imagen ganadora ubicada en la parte inferior segun la dificultad (facil o dificil) definida
      */
     @Override
-    public void cargarItemGanador(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity) {
-        dificultad.cargarImagenGanadora(miniJuegoActivity);
+    public void cargarItemGanador(Dificultad dificultad, String nombreItem, MiniJuegoActivity miniJuegoActivity) {
+        dificultad.cargarImagenGanadora(miniJuegoActivity, nombreItem);
     }
 
     /*

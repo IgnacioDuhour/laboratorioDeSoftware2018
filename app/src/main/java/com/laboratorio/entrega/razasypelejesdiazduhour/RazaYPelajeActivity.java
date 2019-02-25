@@ -39,15 +39,6 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
 
     }
 
-    /*
-        Propósito: Carga el item  ganador en la posición correspondiente (item puede ser texto o imagen)
-        Precondición: Hay una jugada actual definida
-     */
-    @Override
-    public void cargarItemGanador() {
-        this.interaccion.cargarItemGanador(this.dificultad, this);
-    }
-
     //se encuentra el imageview
     //ImageView imagenGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicionItemGanadorDeJugadaActual()));
     //se setea el source del imageview
@@ -55,15 +46,6 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
     //se define el evento para el imageview
     //cargarEventoOnClickParaImagenGanadora(imagenGanadora);
 
-    @Override
-    public void cargarItemsNoGanadores() {
-
-    }
-
-    @Override
-    public void cargarItemNoGanadorPorPosicion() {
-
-    }
 
     /*
      * Propósito: Carga el item principal de la jugada actual de una partida

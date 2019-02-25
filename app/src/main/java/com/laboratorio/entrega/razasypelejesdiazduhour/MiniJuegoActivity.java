@@ -177,11 +177,6 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     public abstract void cargarItemsNoGanadoresUltimaJugada();
 
     /*
-     * Propósito: Carga el item NO ganador en la posición correspondiente
-     * Precondición: hay una jugada actual definida
-     */
-    public abstract void cargarItemNoGanadorPorPosicion();
-    /*
     public void cargarImagenesNoGanadoraPorPosicion(int posicion, String nombreImagen);
         //se encuentra el imageview
         ImageView imagenNoGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicion));

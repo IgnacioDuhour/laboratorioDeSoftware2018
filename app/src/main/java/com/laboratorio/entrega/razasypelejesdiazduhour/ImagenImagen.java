@@ -15,16 +15,16 @@ public class ImagenImagen extends Interaccion {
         Propósito: carga la imagen a reconocer según la configuracion definida. El item a reconocer se ubica en la parte superior
     */
     @Override
-    public void cargarItemAReconocer(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity) {
-        dificultad.cargarImagenAReconocer(miniJuegoActivity);
+    public void cargarItemAReconocer(Dificultad dificultad, String nombreItem, MiniJuegoActivity miniJuegoActivity) {
+        dificultad.cargarImagenAReconocer(miniJuegoActivity, nombreItem);
     }
 
     /*
         Propósito: carga la imagen ganadora ubicada en la parte inferior segun la dificultad (facil o dificil) definida
     */
     @Override
-    public void cargarItemGanador(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity) {
-        dificultad.cargarImagenGanadora(miniJuegoActivity);
+    public void cargarItemGanador(Dificultad dificultad, String nombreItem, MiniJuegoActivity miniJuegoActivity) {
+        dificultad.cargarImagenGanadora(miniJuegoActivity, nombreItem);
     }
 
     /*
