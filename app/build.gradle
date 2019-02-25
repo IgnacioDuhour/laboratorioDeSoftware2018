@@ -32,4 +32,8 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.github.navasmdc:MaterialDesign:1.5@aar'
+    implementation "org.functionaljava:functionaljava:4.8"
+    implementation "org.functionaljava:functionaljava-java8:4.8"
+    implementation "org.functionaljava:functionaljava-quickcheck:4.8"
+    implementation "org.functionaljava:functionaljava-java-core:4.8"
 }

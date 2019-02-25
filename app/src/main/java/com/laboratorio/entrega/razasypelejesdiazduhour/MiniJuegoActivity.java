@@ -24,15 +24,6 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
-    /*
-     * Propósito: Inicia un nuevo minijuego y carga los elementos necesarios en la actividad correspondiente (RazayPelaje o Cruza)
-     * Observación: "cargar" hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
-     */
-    public void comenzarAJugar() {
-        iniciarMiniJuego();
-        cargarElementosEnActividad();
-    }
-
     /**
      * Propósito: define la configuración para el tipo de interacción y el tipo de dificultad
      * Precondición: Hay un minijuego inicializado
@@ -58,78 +49,92 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     }
 
     /*
-        Propósito: crea un nuevo miniJuego y lo inicia inicia (por defecto es "Razas y Pelajes")
+        Propósito: crea  e iniciar un miniJuego
      */
     public abstract void iniciarMiniJuego();
 
     /*
-     * Propósito: Carga la jugada actual y el sonido del caballo relinchando en la actividad correspondiente (RazayPelaje o Cruza)
-     * Observación: "cargar" hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
+        Propósito: Selecciona el layout segun configuración
+        Precondición: Hay un minijuego de "Raza y Pelaje" incializado
+        Observación: Existen 4 (cuatro) tipos de layouts:
+                        1. layout imagen_palabra_facil
+                        2. layout imagen_palabra_dificil
+                        3. layout palabra_imagen_facil
+                        4. layout palabra_imagen_dificil
      */
-    public void cargarElementosEnActividad() {
-        cargarNombreDelJuego();
+    public abstract void definirLayoutSegunConfiguracion();
+
+
+    /*
+     * Propósito: Carga el nombre del minijuego, la jugada actual y el feedback sonoro
+     * Observación: "cargar" hace referencia a la accion que muestra un recurso (imagen, texto, sonido) necesario en la pantalla
+     */
+    public void cargarElementosEnLayout() {
+        cargarNombreDelMiniJuego();
         cargarJugadaActual();
-        cargarSonidoCaballoRelinchando();
+        cargarFeedbackSonoroCaballo();
     }
 
     /*
-     * Propósito: carga el sonido del caballo relinchando que representa el mensaje de una interacción NO acertada
+     * Propósito: carga el nombre del juego ("Raza y Pelaje" , "Razas y Pelajes juntas", "Cruza)
+     * * Precondición: Hay un minijuego inicializado y un layout definido
+     */
+    public void cargarNombreDelMiniJuego() {
+        TextView nombreDelMiniJuego = (TextView) findViewById(R.id.nombreDelMiniJuego);
+        nombreDelMiniJuego.setText(this.miniJuego.tipoDeJuego());
+    }
+
+    /*
+     * Propósito: carga el sonido del caballo que representa el mensaje de una interacción con el minijuego
      * Precondición: Existe una judaga cargada
      */
-    public void cargarSonidoCaballoRelinchando() {
+    public void cargarFeedbackSonoroCaballo() {
         sonidoRelincheCaballo = MediaPlayer.create(this, R.raw.relincho);
         sonidoResoplidoCaballo = MediaPlayer.create(this, R.raw.resoplido);
     }
 
     /*
-     * Propósito: Carga la jugada actual compuesta por
-     * 1. Nombre de la Juagda (RazayPelaje o Cruza)
-     * 2. Item principal
-     * 3. cuatro (4) Items con los que interaccionará el jugador
-     * Observación:
-     * "item":  puede ser texto o imagen.
-     * "cargar": hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
-
+     * Propósito: Carga la jugada actual compuesta por el Item principal y los items con los que se interaccionará
+     * Precondición: Hay un minijuego inicializado y un layout definido
      */
     public void cargarJugadaActual() {
-        cargarItemPrincipalDeLaJugadaActual();
-        cargarImagenesAInteraccionarDeLaJugadaActual();
+        definirJugadaActual();
+        cargarItemAReconocerDeLaJugadaActual();
+        cargarItemsAInteraccionarDeLaJugadaActual();
     }
 
     /*
-     * Propósito: carga el nombre del juego ("Raza y Pelaje" , "Razas y Pelajes juntas", "Cruza)
-     * Observación: "cargar" hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
+     * Propósito: define los elementos que corresponden con la jugada actual
      */
-    public void cargarNombreDelJuego() {
-        TextView nombreDelJuego = (TextView) findViewById(R.id.nombreDelJuego);
-        nombreDelJuego.setText(this.miniJuego.tipoDeJuego());
+    public void definirJugadaActual() {
+        this.miniJuego.jugarJugadaActual();
     }
 
+
     /*
-     * Propósito: Carga el item principal de la jugada actual de una partida
+     * Propósito: Carga el item a reconoer de la jugada actual.
+     * Obsevación: el item a reconocer se encuentra en la parte superior del minijuego
+     */
+    public abstract void cargarItemAReconocerDeLaJugadaActual();
+
+
+    /*
+     * Propósito: Carga los items los que se interaccionará según la configuración
+     * Precondición: Hay una jugada actual definida
      * Observación:
-     * "item":  puede ser texto o imagen.
-     * "cargar": hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla.
+     *          "items a interaccionar": texto o imagen que se encuentra en la parte inferior del minijuego
      */
-    public abstract void cargarItemPrincipalDeLaJugadaActual();
-
-    /*
-     * Propósito: Carga las imágenes de los caballos con las que interaccionará el jugador. (por defecto, nivel de dificuld 2 (4 items))
-     * Observación: "cargar" hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
-     */
-    public void cargarImagenesAInteraccionarDeLaJugadaActual() {
-        cargarImagenGanadora();
-        cargarImagenesNoGanadoras();
+    public void cargarItemsAInteraccionarDeLaJugadaActual() {
+        cargarItemGanador();
+        cargarItemsNoGanadores();
     }
 
     /*
-     * Propósito: Carga la imágen del caballo ganador en la posición correspondiente.
-     * Precondición: Existe la imagen ganadora
-     * Observación:
-     * "cargar": hace referencia a la accion que muestra   el recurso (imagen, texto, sonido) necesario en la pantalla
-     * "posición": es un número aleatorio entre 1,2,3 ó 4, donde se ubicará el item ganador.
-     */
-    public void cargarImagenGanadora() {
+     * Propósito: Carga el item  ganador en la posición correspondiente.
+     * Precondición: Existe el item ganador
+      * Observación: "posición" es un número entre 1 y 4 como máximo que hace referencia a alguno de los items con los que se interaccionará
+    */
+    public void cargarItemGanador() {
         //se encuentra el imageview
         ImageView imagenGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicionItemGanadorDeJugadaActual()));
         //se setea el source del imageview
@@ -222,13 +227,6 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    /*
-        Propósito: Reanuda la jugada actual
-     */
-    public void reanudadJugadaActual() {
-        this.miniJuego.reanudarJugada();
-        cargarJugadaActual();
-    }
 
     /*
         Propósito: Carga la próxima jugada para la jugada actual
