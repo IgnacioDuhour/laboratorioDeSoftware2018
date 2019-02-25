@@ -51,7 +51,6 @@
     <string name="razaypelaje_title_textview" translatable="false">Juego de Razas y Pelajes</string>
 
     <string name="lorem" translatable="false">Lorem ipsum dolor sit amet consectetur adipiscing elit quis conubia non pulvinar eros aptent porttitor euismod senectus, molestie nec libero turpis sapien vitae imperdiet curae massa torquent ac et parturient ullamcorper cras.</string>
-
     <string name="alazan" translatable="false">Capa color anaranjado parejo y uniforme, que va del amarillento al colorado azafrán. Su piel es oscura. Las crines, cerdas y miembros son del mismo color o más claros, pero nunca oscuro, pero nunca negras. Pueden ser: Alazán – Alazán Claro – Alazán Rubio – Alazán Dorado – Alazán Tostado.</string>
     <string name="alazan_pintado" translatable="false">Capa color rojizo de distintos tonos que presenta matices yendo del claro al oscuro.  Es distinguida porque los pelos de diferentes colores se agrupan formando manchas o parches.</string>
     <string name="alazan_ruano" translatable="false">Capa color rojizo de distintos tonos que presenta matices yendo del claro al oscuro.  Se caracteriza por la crin y cola blancas.</string>

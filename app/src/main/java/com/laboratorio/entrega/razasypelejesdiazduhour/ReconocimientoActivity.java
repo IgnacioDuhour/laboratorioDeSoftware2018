@@ -56,6 +56,7 @@ public abstract class ReconocimientoActivity extends AppCompatActivity {
         }
     }
 
+
     protected int ubicacionDeAudioDeCaballoPorNombre(String nombre) {
         switch (nombre.toUpperCase()) {
             case "AMAPOLA": return R.raw.relincho;
@@ -90,6 +91,7 @@ public abstract class ReconocimientoActivity extends AppCompatActivity {
             default: return R.raw.relincho;
         }
     }
+
     protected int descripcionDeCaballoPorNombre(String nombre) {
         switch (nombre.toUpperCase()) {
             case "AMAPOLA": return R.string.amapola;

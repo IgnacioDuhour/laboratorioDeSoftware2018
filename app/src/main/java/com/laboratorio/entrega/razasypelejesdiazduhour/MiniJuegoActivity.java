@@ -302,39 +302,72 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     protected int ubicacionDeImagenDeCaballoPorNombre(String nombre) {
         switch (nombre.toUpperCase()) {
-            case "ALBO": return R.drawable.defaultfur;
-            case "ATIGRADO": return R.drawable.defaultfur;
-            case "BAYO": return R.drawable.defaultfur;
-            case "BRAGADO": return R.drawable.defaultfur;
-            case "COLORADO": return R.drawable.defaultfur;
-            case "MELADO": return R.drawable.defaultfur;
-            case "PANGARE": return R.drawable.defaultfur;
-            case "ZAINO": return R.drawable.defaultfur;
-            case "ANDALUS": return R.drawable.defaultfur;
-            case "APPALOSA": return R.drawable.defaultfur;
-            case "ARABE": return R.drawable.defaultfur;
-            case "AZTECA": return R.drawable.defaultfur;
-            case "CLYDESDALE": return R.drawable.defaultfur;
-            case "COMTIOS": return R.drawable.defaultfur;
-            case "CRIOLLO": return R.drawable.defaultfur;
-            case "CRIOLLOARGENTINO": return R.drawable.defaultfur;
-            case "CRIOLLOAMERICANO": return R.drawable.defaultfur;
-            case "CUARTODEMILA": return R.drawable.defaultfur;
-            case "FALABELLA": return R.drawable.defaultfur;
-            case "FRISON": return R.drawable.defaultfur;
-            case "HAFLINGER": return R.drawable.defaultfur;
-            case "HANNOVERIANO": return R.drawable.defaultfur;
-            case "LUSITANO": return R.drawable.defaultfur;
-            case "MUSTANG": return R.drawable.defaultfur;
-            case "PALOMINO": return R.drawable.defaultfur;
-            case "PASOFINO": return R.drawable.defaultfur;
-            case "PERCHERON": return R.drawable.defaultfur;
-            case "PONIFELL": return R.drawable.defaultfur;
-            case "PONIPOLO": return R.drawable.defaultfur;
-            case "PURASANGREINGLES": return R.drawable.defaultfur;
-            case "SHIRE": return R.drawable.defaultfur;
-            case "SORAIA": return R.drawable.defaultfur;
-            default: return R.drawable.defaultfur;
+            case "ALBO":
+                return R.drawable.defaultfur;
+            case "ATIGRADO":
+                return R.drawable.defaultfur;
+            case "BAYO":
+                return R.drawable.defaultfur;
+            case "BRAGADO":
+                return R.drawable.defaultfur;
+            case "COLORADO":
+                return R.drawable.defaultfur;
+            case "MELADO":
+                return R.drawable.defaultfur;
+            case "PANGARE":
+                return R.drawable.defaultfur;
+            case "ZAINO":
+                return R.drawable.defaultfur;
+            case "ANDALUS":
+                return R.drawable.defaultfur;
+            case "APPALOSA":
+                return R.drawable.defaultfur;
+            case "ARABE":
+                return R.drawable.defaultfur;
+            case "AZTECA":
+                return R.drawable.defaultfur;
+            case "CLYDESDALE":
+                return R.drawable.defaultfur;
+            case "COMTIOS":
+                return R.drawable.defaultfur;
+            case "CRIOLLO":
+                return R.drawable.defaultfur;
+            case "CRIOLLOARGENTINO":
+                return R.drawable.defaultfur;
+            case "CRIOLLOAMERICANO":
+                return R.drawable.defaultfur;
+            case "CUARTODEMILA":
+                return R.drawable.defaultfur;
+            case "FALABELLA":
+                return R.drawable.defaultfur;
+            case "FRISON":
+                return R.drawable.defaultfur;
+            case "HAFLINGER":
+                return R.drawable.defaultfur;
+            case "HANNOVERIANO":
+                return R.drawable.defaultfur;
+            case "LUSITANO":
+                return R.drawable.defaultfur;
+            case "MUSTANG":
+                return R.drawable.defaultfur;
+            case "PALOMINO":
+                return R.drawable.defaultfur;
+            case "PASOFINO":
+                return R.drawable.defaultfur;
+            case "PERCHERON":
+                return R.drawable.defaultfur;
+            case "PONIFELL":
+                return R.drawable.defaultfur;
+            case "PONIPOLO":
+                return R.drawable.defaultfur;
+            case "PURASANGREINGLES":
+                return R.drawable.defaultfur;
+            case "SHIRE":
+                return R.drawable.defaultfur;
+            case "SORAIA":
+                return R.drawable.defaultfur;
+            default:
+                return R.drawable.defaultfur;
         }
     }
 

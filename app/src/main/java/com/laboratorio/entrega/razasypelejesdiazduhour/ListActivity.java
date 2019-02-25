@@ -49,6 +49,7 @@ public class ListActivity extends ReconocimientoActivity {
         }
     }
 
+
     private void armarLista(LinearLayout lista, Enum e) {
         LinearLayout l = new LinearLayout(getApplicationContext());
         l.setOrientation(LinearLayout.HORIZONTAL);
@@ -132,4 +133,12 @@ public class ListActivity extends ReconocimientoActivity {
         tv2.setMaxHeight(94);
         return tv2;
     }
+
+    /*
+    private Enum aplicarFiltros() {
+        SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
+        boolean razasypelajes = preferences.getBoolean("razas", true);
+        boolean cruzas preferences.getBoolean("cruzas", false);
+    }
+    */
 }
