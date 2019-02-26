@@ -88,7 +88,7 @@
 
                 <TextView
                     android:gravity="center"
-                    android:id="@+id/minijuegoTextView0"
+                    android:id="@+id/palabraInteraccion0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -108,7 +108,7 @@
 
                 <TextView
                     android:gravity="center"
-                    android:id="@+id/minijuegoTextView1"
+                    android:id="@+id/palabraInteraccion1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -127,7 +127,7 @@
 
                 <TextView
                     android:gravity="center"
-                    android:id="@+id/minijuegoTextView2"
+                    android:id="@+id/palabraInteraccion2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -146,7 +146,7 @@
 
                 <TextView
                     android:gravity="center"
-                    android:id="@+id/minijuegoTextView3"
+                    android:id="@+id/palabraInteraccion3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"

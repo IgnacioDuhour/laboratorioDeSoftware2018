@@ -16,45 +16,42 @@ public class Dificil extends Dificultad {
     }
 
     /*
-        Propósito: carga la palabra a reconocer ubicada en la parte superior.
-     */
-    @Override
-    public void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity, String nombrePalabra){
-        TextView palabraAReconocerFacil = (TextView) miniJuegoActivity.findViewById(R.id.palabraAReconocerFacil);
-        palabraAReconocerFacil.setText(nombrePalabra);
-    }
-
-    /*
-        Propósito: carga la imagen a reconocer ubicada en la parte superior.
-     */
-    @Override
-    public void cargarImagenAReconocer(MiniJuegoActivity miniJuegoActivity, String nombreImagen) {
-        //se encuentra el imageview
-        ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(R.id.imagenAReconocerFacil);
-        //se setea el source del imageview
-        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorNombre(nombreImagen));
-    }
-
-    /*
-        Propósito: carga la imagen ganadora en la parte inferior del layout, donde se interaccionará para jugar
+        Propósito: describe el identificador de una ImageView en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
     */
     @Override
-    public void cargarImagenGanadora(MiniJuegoActivity miniJuegoActivity, String nombreImagen) {
-
+    protected int idImageViewSegunPosicion(int posicion) {
+        switch (posicion) {
+            case 0:
+                return R.id.imagenInteraccion0;
+            case 1:
+                return R.id.imagenInteraccion1;
+            case 2:
+                return R.id.imagenInteraccion2;
+            case 3:
+                return R.id.imagenInteraccion3;
+            default:
+                throw new IllegalArgumentException("Posicion de item inválida");
+        }
     }
 
+
+    /*
+        Propósito: describe el identificador de una Textview en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
+    */
     @Override
-    public void cargarPalabraGanadora(MiniJuegoActivity miniJuegoActivity, String nombreImagen) {
-
+    protected int idTextViewSegunPosicion(int posicion) {
+        switch (posicion) {
+            case 0:
+                return R.id.palabraInteraccion0;
+            case 1:
+                return R.id.palabraInteraccion1;
+            case 2:
+                return R.id.palabraInteraccion2;
+            case 3:
+                return R.id.palabraInteraccion3;
+            default:
+                throw new IllegalArgumentException("Posicion de item inválida");
+        }
     }
 
-    @Override
-    public void cargarImagenesNoGanadoras(MiniJuegoActivity miniJuegoActivity) {
-
-    }
-
-    @Override
-    public void cargarPalabrasNoGanadoras(MiniJuegoActivity miniJuegoActivity) {
-
-    }
 }

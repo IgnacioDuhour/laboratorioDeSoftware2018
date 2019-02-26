@@ -114,6 +114,13 @@ public abstract class MiniJuego {
     }
 
     /*
+        Propósito: describe el nombre del item ganador, que se encuentra en la parte inferior
+     */
+    public String itemGanadorDeLaJugadaActual() {
+        return this.jugadaActual.itemGanador();
+    }
+
+    /*
         Propósito: describe las posiciones de las imágenes no ganadoras de la jugada actual
         Observación: "posición" es un valor entre 1,2,3 o 4 que corresponder a un imageView específico
      */

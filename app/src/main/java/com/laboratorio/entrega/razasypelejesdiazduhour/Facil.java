@@ -16,36 +16,6 @@ public class Facil extends Dificultad {
         return new JugadaDificultadFacil(jugadaTipo);
     }
 
-    /*
-        Propósito: carga la palabra a reconocer ubicada en la parte superior.
-     */
-    @Override
-    public void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity, String nombrePalabra){
-        TextView palabraAReconocerFacil = (TextView) miniJuegoActivity.findViewById(R.id.palabraAReconocerFacil);
-        palabraAReconocerFacil.setText(nombrePalabra);
-    }
-
-    /*
-        Propósito: carga la imagen a reconocer ubicada en la parte superior.
-     */
-    @Override
-    public void cargarImagenAReconocer(MiniJuegoActivity miniJuegoActivity, String nombreImagen){
-        //se encuentra el imageview
-        ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(R.id.imagenAReconocerFacil);
-        //se setea el source del imageview
-        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorNombre(nombreImagen));
-    }
-
-    @Override
-    public void cargarImagenGanadora(MiniJuegoActivity miniJuegoActivity, String nombreImagen) {
-
-    }
-
-    @Override
-    public void cargarPalabraGanadora(MiniJuegoActivity miniJuegoActivity, String nombrePalabra) {
-
-    }
-
     @Override
     public void cargarImagenesNoGanadoras(MiniJuegoActivity miniJuegoActivity) {
 
@@ -55,6 +25,37 @@ public class Facil extends Dificultad {
     public void cargarPalabrasNoGanadoras(MiniJuegoActivity miniJuegoActivity) {
 
     }
+
+    /*
+        Propósito: describe el identificador de una ImageView en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
+    */
+    @Override
+    protected int idImageViewSegunPosicion(int posicion) {
+        switch (posicion) {
+            case 0:
+                return R.id.imagenInteraccion0;
+            case 1:
+                return R.id.imagenInteraccion1;
+            default:
+                throw new IllegalArgumentException("Posicion de item inválida");
+        }
+    }
+
+    /*
+        Propósito: describe el identificador de una Textview en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
+     */
+    @Override
+    protected int idTextViewSegunPosicion(int posicion) {
+        switch (posicion) {
+            case 0:
+                return R.id.palabraInteraccion0;
+            case 1:
+                return R.id.palabraInteraccion1;
+            default:
+                throw new IllegalArgumentException("Posicion de item inválida");
+        }
+    }
+
 
 
 }

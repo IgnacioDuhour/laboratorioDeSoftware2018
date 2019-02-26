@@ -15,7 +15,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
 
     protected MiniJuego miniJuego;
-    protected MediaPlayer sonidoRelincheCaballo, sonidoResoplidoCaballo;
+        protected MediaPlayer sonidoRelincheCaballo, sonidoResoplidoCaballo;
     protected Dificultad dificultad; //la dificultad puede ser Facil o Dificil. El primero corresponde a la subclase DificultadFacil y el segundo corresponde a la subclase DificultadDificil
     protected Interaccion interaccion; //la interacción puede ser Imagen-Palabra, PalabraImagen o Imagen-Imagen y cada una corresponde con una subclase.
 
@@ -119,7 +119,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         Obsevación: el item a reconocer se encuentra en la parte superior del minijuego
      */
     public void cargarItemAReconocerDeLaJugadaActual() {
-        this.interaccion.cargarItemAReconocer(this.dificultad, this);
+        this.interaccion.cargarItemAReconocer(this.dificultad, this, this.miniJuego.itemGanadorDeLaJugadaActual());
     }
 
     /*
@@ -150,7 +150,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
       Precondición: Hay una jugada actual definida
      */
     public void cargarItemGanador() {
-        this.interaccion.cargarItemGanador(this.dificultad, this);
+        this.interaccion.cargarItemGanador(this.dificultad, this, this.miniJuego.itemGanadorDeLaJugadaActual(), this.miniJuego.posicionItemGanadorDeJugadaActual());
     }
 
     /*
@@ -158,69 +158,30 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         Precondición: hay una jugada actual definida.
      */
     public void cargarItemsNoGanadores() {
-        this.interaccion.cargarItemsNoGanadores(this.dificultad, this);
+        this.interaccion.cargarItemsNoGanadores(this.dificultad, this, this.miniJuego.itemsNoGanadoresDeLaJugadaActual(), this.miniJuego.posicionesItemsNoGanadoresDeLaJugadaActual());
     }
-        /*
-        int[] posiciones = this.miniJuego.posicionesSinImagenGanadoraDeJugadaActual();
-        String[] nombres = this.miniJuego.nombresDeTiposNoGanadoresDeJugadaActual();
-        for (int i = 0; i < posiciones.length; i++) {
-            cargarImagenesNoGanadoraPorPosicion(posiciones[i], nombres[i]);
-        }
-        */
 
     /*
         Propósito: Carga el item  ganador en la posición correspondiente que corresponde con el último desafío.
         Precondición: Hay una jugada actual definida
     */
-    public abstract void cargarItemGanadorUltimaJugada();
-
-    public abstract void cargarItemsNoGanadoresUltimaJugada();
+    public void cargarItemGanadorUltimaJugada() {
+        this.interaccion.cargarItemGanadorUltimaJugada(this.dificultad, this, this.miniJuego.itemGanadorDeLaJugadaActual(), this.miniJuego.posicionItemGanadorDeJugadaActual());
+    }
 
     /*
-    public void cargarImagenesNoGanadoraPorPosicion(int posicion, String nombreImagen);
-        //se encuentra el imageview
-        ImageView imagenNoGanadora = (ImageView) findViewById(idImageViewParaPosicionDeJugada(posicion));
-        //se setea el source del imageview
-        imagenNoGanadora.setImageResource(ubicacionDeImagenDeCaballoPorNombre(nombreImagen));
-        //se define el evento para el imageview
-        cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora);
-    }
+        Propósito: Carga los items NO ganadores que corresponde con el último desafío.
+        Precondición: Hay una jugada actual definida
     */
-
-
-    /*
-        Propósito: Carga el evento OnClick para el item ganador
-        Precondición: Hay un item ganador cargado en la actividad correspondiente.
-     */
-    public void cargarEventoOnClickParaItemGanador (final ImageView imageView) {
-    //public void cargarEventoOnClickParaImagenGanadora(final ImageView imageView) {
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mensajeDeJugadaGanada();
-            }
-        });
-    }
-
-    /*
-      Propósito: Carga el evento OnClick para el item NO ganador
-      Precondición: Hay un item NO ganador cargado en la actividad correspondiente.
-   */
-    public void cargarEventoOnClickParaItemNoGanador(final ImageView imageView) {
-    //public void cargarEventoOnClickParaImagenNoGanadora(final ImageView imageView) {
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mensajeJugadaNoGanada();
-            }
-        });
+    public void cargarItemsNoGanadoresUltimaJugada() {
+        this.interaccion.cargarItemsNoGanadoresUltimaJugada(this.dificultad, this, this.miniJuego.itemsNoGanadoresDeLaJugadaActual(), this.miniJuego.posicionesItemsNoGanadoresDeLaJugadaActual());
     }
 
     /*
         Propósito: Emite el sonido de resoplo de un caballo  que representa una interacción NO acertada para la jugada actual.
         Precondición: hay una jugada cargada
     */
-    public void mensajeJugadaNoGanada() {
+    public void feedbackJugadaNoGanada() {
         sonidoResoplidoCaballo.start();
     }
 
@@ -228,7 +189,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         Propósito: Emite el sonido de un caballo relinchando, que representa una interacción Acertada para la jugada actual.
         Precondición: hay una jugada cargada
     */
-    public void mensajeDeJugadaGanada() {
+    public void feedbackDeJugadaGanada() {
         sonidoRelincheCaballo.start();
     }
 
