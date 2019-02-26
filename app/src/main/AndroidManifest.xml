@@ -19,9 +19,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ReconocimientoActivity"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".SettingsActivity"
             android:screenOrientation="landscape" />
         <activity
@@ -30,9 +27,6 @@
         <activity
             android:name=".CruzaActivity"
             android:screenOrientation="landscape" />
-        <activity
-            android:name=".MiniJuegoActivity"
-            android:screenOrientation="landscape"></activity>
         <activity
             android:name=".ListActivity"
             android:screenOrientation="landscape" />
