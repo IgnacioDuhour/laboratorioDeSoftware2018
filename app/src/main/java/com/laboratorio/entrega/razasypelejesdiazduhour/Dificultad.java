@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public abstract class Dificultad {
+public abstract class Dificultad extends SettingsActivity{ //o extends de AppCompatActivity, ver!!
 
     public abstract int obtenerLayout(Interaccion interaccion);
 
@@ -28,13 +28,14 @@ public abstract class Dificultad {
         //se setea el source del imageview
         imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorNombre(nombreImagen));
     }
+
     /*
         Propósito: carga la palabra ganadora en la parte inferior del layout, donde se interaccionará para jugar
     */
     public void cargarPalabraGanadora(MiniJuegoActivity miniJuegoActivity, String nombrePalabraGanadora, int posicionPalabraGanadora) {
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(posicionPalabraGanadora));
         palabraAReconocer.setText(nombrePalabraGanadora);
-        this.cargarEventoOnClickParaPalabraGanadora(miniJuegoActivity, palabraAReconocer);
+        miniJuegoActivity.cargarEventoOnClickParaPalabraGanadora(palabraAReconocer);
     }
 
     /*
@@ -43,8 +44,9 @@ public abstract class Dificultad {
     public void cargarImagenGanadora(MiniJuegoActivity miniJuegoActivity, String nombreImagenGanadora, int posicionImagenGanadora) {
         ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(posicionImagenGanadora));
         imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorNombre(nombreImagenGanadora));
-        this.cargarEventoOnClickParaImagenGanadora(miniJuegoActivity, imagenGanadora);
+        miniJuegoActivity.cargarEventoOnClickParaImagenGanadora(imagenGanadora);
     }
+
     /*
         Propósito: carga las imágenes NO ganadoras en la parte inferior del layout, donde se interaccionará para jugar
     */
@@ -53,7 +55,7 @@ public abstract class Dificultad {
         for (int i=0; i<cantImagenes;i++) {
             ImageView imagenNoGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(posicionImagenesNoGanadoras[i]));
             imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorNombre(nombresImagenesNoGanadoras[i]));
-            this.cargarEventoOnClickParaImagenNoGanadora(miniJuegoActivity, imagenNoGanadora);
+            miniJuegoActivity.cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora);
         }
     }
 
@@ -65,19 +67,9 @@ public abstract class Dificultad {
         for (int i=0; i<cantPalabras;i++) {
             TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(posicionPalabrasNoGanadoras[i]));
             palabraNoGanadora.setText(nombresPalabrasNoGanadoras[i]);
-            this.cargarEventoOnClickParaPalabraNoGanadora(miniJuegoActivity, palabraNoGanadora);
+            miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadora(palabraNoGanadora);
         }
     }
-
-    /*
-        Propósito: describe el identificador de una ImageView en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
-     */
-    protected abstract int idImageViewSegunPosicion(int posicion);
-
-    /*
-        Propósito: describe el identificador de una Textview en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
-     */
-    protected abstract int idTextViewSegunPosicion(int posicion);
 
     /*
         Propósito: carga la imagen ganadora de la última jugada
@@ -86,14 +78,21 @@ public abstract class Dificultad {
     public void cargarImagenGanadoraUltimaJugada(MiniJuegoActivity miniJuegoActivity, String imagenGanadorUltimaJugada, int posicionImagenGanadorDeJugadaActual) {
         ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(posicionImagenGanadorDeJugadaActual));
         imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorNombre(imagenGanadorUltimaJugada));
-        this.cargarEventoOnClickParaImagenGanadoraUltimaJugada(miniJuegoActivity, imagenGanadora);
+        miniJuegoActivity.cargarEventoOnClickParaImagenGanadoraUltimaJugada(imagenGanadora);
     }
 
     /*
         Propósito: carga las imagenes NO ganadoras de la última jugada
         Precondición: Es la última jugada
     */
-    public abstract void cargarImagenesNoGanadoraUltimaJugada(MiniJuegoActivity miniJuegoActivity, String[] itemsNoGanadoresUltimaJugada, int[] posicionItemsNoGanadoresUltimaJugada);
+    public void cargarImagenesNoGanadoraUltimaJugada(MiniJuegoActivity miniJuegoActivity, String[] imagenesNoGanadoresUltimaJugada, int[] posicionesImagenessNoGanadoresUltimaJugada) {
+        int cantImagenes = imagenesNoGanadoresUltimaJugada.length;
+        for (int i=0; i<cantImagenes;i++) {
+            ImageView imagenNoGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(posicionesImagenessNoGanadoresUltimaJugada[i]));
+            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorNombre(imagenesNoGanadoresUltimaJugada[i]));
+            miniJuegoActivity.cargarEventoOnClickParaImagenNoGanadoraUltimaJugada(imagenNoGanadora);
+        }
+    }
 
     /*
         Propósito: carga la palabra ganadora de la última jugada
@@ -102,14 +101,26 @@ public abstract class Dificultad {
     public void cargarPalabraGanadoraUltimaJugada(MiniJuegoActivity miniJuegoActivity, String palabraGanadorUltimaJugada, int posicionPalabraGanadorDeJugadaActual) {
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(posicionPalabraGanadorDeJugadaActual));
         palabraAReconocer.setText(palabraGanadorUltimaJugada);
-        this.cargarEventoOnClickParaPalabraGanadoraUltimaJugada(miniJuegoActivity, palabraAReconocer);
+        miniJuegoActivity.cargarEventoOnClickParaPalabraGanadoraUltimaJugada(palabraAReconocer);
     }
 
     /*
         Propósito: carga las palabras NO ganadoras de la última jugada
         Precondición: Es la última jugada
     */
-    public abstract void cargarPalabrasNoGanadorasUltimaJugada(MiniJuegoActivity miniJuegoActivity, String[] itemsNoGanadoresUltimaJugada, int[] posicionItemsNoGanadoresUltimaJugada);
+    public void cargarPalabrasNoGanadorasUltimaJugada(MiniJuegoActivity miniJuegoActivity, String[] itemsNoGanadoresUltimaJugada, int[] posicionItemsNoGanadoresUltimaJugada) {
+
+    }
+
+    /*
+       Propósito: describe el identificador de una ImageView en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
+    */
+    protected abstract int idImageViewSegunPosicion(int posicion);
+
+    /*
+        Propósito: describe el identificador de una Textview en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
+     */
+    protected abstract int idTextViewSegunPosicion(int posicion);
 
 
 }

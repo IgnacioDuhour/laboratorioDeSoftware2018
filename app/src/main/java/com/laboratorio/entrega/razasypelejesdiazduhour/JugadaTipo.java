@@ -4,6 +4,13 @@ public abstract class JugadaTipo extends Jugada {
 
 
     /*
+        Constructor de clase que recibe el tipo a reconocer
+     */
+    public JugadaTipo(TipoCaballo tipoCaballo) {
+        this.tipoAReconocer = tipoCaballo;
+    }
+
+    /*
         Propósito: describe "n" tipos aleatoreos de caballos, incluyendo "tipoAReconocer"
      */
     public abstract TipoCaballo[] nTiposAleatoreosConElTipo(TipoCaballo tipoAReconocer, int n);

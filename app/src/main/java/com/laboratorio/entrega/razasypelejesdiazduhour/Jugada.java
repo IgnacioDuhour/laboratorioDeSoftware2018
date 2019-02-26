@@ -11,7 +11,7 @@ abstract class Jugada {
     protected TipoCaballo tipoAReconocer; //describe el tipo a reconocer ("Raza", "Pelaje" o "Cruza"), que se ubica en la parte superior del juego
     protected TipoCaballo tipoGanador; //describe el tipo ganador, que se ubica en la parte inferior del juego, con la que interaccionará el jugador
     protected TipoCaballo tipoSeleccionado; //describe el tipo seleccionado de los a interaccionar
-    protected List<TipoCaballo> tiposAInteraccionar; // describe los tipos con los que interaccionará el jugador. Uno de los tipos es la jugada ganadora
+    protected TipoCaballo[] tiposAInteraccionar; // describe los tipos con los que interaccionará el jugador. Uno de los tipos es la jugada ganadora
 
     //protected int posicionItemGanador; //describe la posicion del item ganador
 
@@ -41,7 +41,14 @@ abstract class Jugada {
         Resultado: número entero entre 0 y la cantidad de items a interaccionar
     */
     public int posicionItemGanador() {
-        return this.tiposAInteraccionar.indexOf(this.itemGanador());
+        int posicion = -1;
+        String[] items = this.itemsAInteraccionar();
+        for (int i=0; i<cantidadDeItems(); i++) {
+            if (items[i].compareTo(itemGanador())==0) {
+                posicion = i; break;
+            }
+        }
+        return posicion;
     }
 
     /*
@@ -52,34 +59,33 @@ abstract class Jugada {
     }
 
     /*
-        Propósito: describe los items a interaccionar
+        Propósito: describe los nombres de los items a interaccionar
      */
-    public List<String> itemsAInteraccionar() {
+    public String[] itemsAInteraccionar() {
         //return this.tiposAInteraccionar.map(item -> item.getNombre());
-        List<String> itemsAInteraccionar = new ArrayList<String>();
-        for (TipoCaballo tipo: this.tiposAInteraccionar) {
-            itemsAInteraccionar.add(tipo.getNombre());
-        }
+        String[] itemsAInteraccionar = new String[cantidadDeItems()];
+        for (int i=0; i<cantidadDeItems(); i++) itemsAInteraccionar[i] = tiposAInteraccionar[i].getNombre();
         return itemsAInteraccionar;
     }
     /*
         Propósito: describe la cantidad de items con los que se interaccionará segun la configuración
      */
     public int cantidadDeItems() {
-        return this.tiposAInteraccionar.size();
+        return this.tiposAInteraccionar.length;
     }
 
     /*
         Propósito: Describe los items NO ganadores
         Resultado: una lista de Strings
      */
-    public List<String> itemsNoGanadores() {
-        //Removes the value from the optional value if it does not match a given predicate.
+    public String[] itemsNoGanadores() {
        //return this.itemsAInteraccionar().filter(item -> ((String)item).compareTo(this.itemGanador())!=0 );
-        List<String> itemsNoGanadores = new ArrayList<String>();
+        String[] itemsNoGanadores = new String[cantidadDeItems()];
+        int i = 0;
         for (TipoCaballo tipo: this.tiposAInteraccionar) {
             if (tipo.getNombre().compareTo(this.itemGanador())!=0) {
-                itemsNoGanadores.add(tipo.getNombre());
+                itemsNoGanadores[i] = tipo.getNombre();
+                i++;
             }
         }
         return itemsNoGanadores;
@@ -88,10 +94,10 @@ abstract class Jugada {
     /*
         Propósito: Describe las posiciones de los items a interaccionar sin la posición del item ganador
      */
-    public int[] posicionesSinItemGanador() {
+    public int[] posicionesItemsNoGanadores() {
         int j = 0;
         int[] posicionesSinItemGanador  = new int[this.cantidadDeItems()];
-        for (int i=0; i<this.tiposAInteraccionar.size() ;i++) {
+        for (int i=0; i<this.tiposAInteraccionar.length; i++) {
             if (this.posicionItemGanador() != i) {
                 posicionesSinItemGanador[j] = i;
                 j++;

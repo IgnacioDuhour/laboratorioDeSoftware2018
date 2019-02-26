@@ -15,7 +15,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
 
     protected MiniJuego miniJuego;
-        protected MediaPlayer sonidoRelincheCaballo, sonidoResoplidoCaballo;
+    protected MediaPlayer sonidoRelincheCaballo, sonidoResoplidoCaballo;
     protected Dificultad dificultad; //la dificultad puede ser Facil o Dificil. El primero corresponde a la subclase DificultadFacil y el segundo corresponde a la subclase DificultadDificil
     protected Interaccion interaccion; //la interacción puede ser Imagen-Palabra, PalabraImagen o Imagen-Imagen y cada una corresponde con una subclase.
 
@@ -33,12 +33,11 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public void setearConfiguracion() {
         SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
-
-        // obtener dificultad de las preferencias y setear la dificultad para el minijuego
+        //    definirDificultadSegunConfiguracion();
         boolean esDificultadFacil = preferences.getString("dificulad", "Facil") == "Facil";
         this.dificultad = esDificultadFacil ? new Facil() : new Dificil();
 
-        // obtener interaccion
+        //    definirInteraccionSegunConfiguracion();
         boolean esImagenPalabra = preferences.getBoolean("imagen-palabra", true);
         boolean esPalabraImagen = preferences.getBoolean("palabra-imagen", false);
         boolean esImagenImagen = preferences.getBoolean("imagen-imagen", false);
@@ -46,7 +45,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             this.interaccion = new ImagenPalabra();
         } else if (esPalabraImagen) {
             this.interaccion = new PalabraImagen();
-        } else if (esImagenImagen) {
+        } else {
             this.interaccion = new ImagenImagen();
         }
     }
@@ -65,7 +64,9 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
                         3. layout palabra_imagen_facil
                         4. layout palabra_imagen_dificil
      */
-    public abstract void definirLayoutSegunConfiguracion();
+    public void definirLayoutSegunConfiguracion() {
+        this.dificultad.obtenerLayout(this.interaccion);
+    }
 
 
     /*
@@ -201,13 +202,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    /*
-        Propósito: Reanuda el Juego, comenzando por defecto por el juego de "Razas y Pelajes"
-    */
-    public void reanudarJuego() {
-        Intent i = new Intent(MiniJuegoActivity.this, this.getClass());
-        startActivity(i);
-    }
+
 
     /*
      * Propósito: describe el número que representa la ubicación de una imagen a partir del nombre de la imagen
@@ -308,28 +303,10 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     }
 
     /*
-        Propósito: genera un feedback para la última jugada No ganada, dandole las opciones de
-                    * Ir a Inicio
-                    * Reanudar minijuego
-        Precondición: Es la última jugada
-     */
-    public void feedbackUltimaJugadaNoGanada() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("MiniJuego no ganado").setCancelable(false);
-        builder.setPositiveButton("Ir al inicio", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                irAPantallaPrincipal();
-            }
-        });
-        builder.setNeutralButton("Reanudar juego", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                reanudarJuego();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
-        this.miniJuego.reIniciar();
-    }
+        Propósito: Reinicia el MiniJuego
+        Precondición: Ninguna
+    */
+    public abstract void reIniciarMiniJuego();
 
 
     /*
@@ -344,32 +321,61 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         Propósito: Emite el sonido de un caballo relinchando, que representa una interacción Acertada para la jugada actual.
         Precondición: hay una jugada cargada
     */
-    public void feedbackSonoroDeJugadaGanada() {
+    public void feedbackSonoroJugadaGanada() {
         sonidoRelincheCaballo.start();
+    }
+
+    /*
+        Propósito: genera un feedback visual para el minijuego ganado (papel picado o copa)
+        Precondición: hay un minijuego ganado
+     */
+    public abstract void feedbackVisualMiniJuegoGanado();
+
+    /*
+       Propósito: genera un feedback cuando se finalizó el minijuego y no se ha ganado, dandole las opciones de
+                   * Ir a Inicio
+                   * Reanudar minijuego
+       Precondición: Hay un minijuego no ganado
+    */
+    public void feedbackVisualMiniJuegoNoGanado() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("MiniJuego no ganado").setCancelable(false);
+        builder.setPositiveButton("Ir al inicio", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                irAPantallaPrincipal();
+            }
+        });
+        builder.setNeutralButton("Reanudar juego", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                reIniciarMiniJuego();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     /*
         Propósito: genera un feedback para la última jugada ganada
         Precondición: Es la última jugada
      */
-    public void feedbacVisualkUltimaJugada(){
+    public void feedbackVisualkUltimaJugada(){
         if (esMiniJuegoGanado()) {
             feedbackVisualMiniJuegoGanado();
         } else {
-            feedbackVisualMiniJuegoPerdido();
+            feedbackVisualMiniJuegoNoGanado();
         }
     }
 
 
     /*
     Propósito: Carga el evento OnClick para la imagen ganadora
-    Precondición: Hay una imagen ganadora cargada en el layout correspondiente
+    Precondición: Hay una imagen ganadora cargada en el layout correspondiente y no es la última jugada
 */
-    public void cargarEventoOnClickParaImagenGanadora (MiniJuegoActivity miniJuegoActivity, final ImageView imageView) {
+    public void cargarEventoOnClickParaImagenGanadora (final ImageView imageView) {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feedbackSonoroDeJugadaGanada();
+                feedbackSonoroJugadaGanada();
                 cargarJugadaSiguiente();
             }
         });
@@ -377,13 +383,13 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
     /*
         Propósito: Carga el evento OnClick para la palabra ganadora
-        Precondición: Hay una palabra ganadora cargada en el layout correspondiente
+        Precondición: Hay una palabra ganadora cargada en el layout correspondiente y no es la última jugada
     */
-    public void cargarEventoOnClickParaPalabraGanadora (MiniJuegoActivity miniJuegoActivity, final TextView textView) {
+    public void cargarEventoOnClickParaPalabraGanadora (final TextView textView) {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feedbackSonoroDeJugadaGanada();
+                feedbackSonoroJugadaGanada();
                 cargarJugadaSiguiente();
             }
         });
@@ -391,9 +397,9 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
     /*
        Propósito: Carga el evento OnClick para la imagen no ganadora
-       Precondición: Hay una imagen No ganadora cargada en el layout correspondiente
+       Precondición: Hay una imagen No ganadora cargada en el layout correspondiente y no es la última jugada
    */
-    public void cargarEventoOnClickParaImagenNoGanadora (MiniJuegoActivity miniJuegoActivity, final ImageView imageView) {
+    public void cargarEventoOnClickParaImagenNoGanadora (final ImageView imageView) {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -405,9 +411,9 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
     /*
         Propósito: Carga el evento OnClick para la palabra No ganadora
-        Precondición: Hay una palabra No ganadora cargada en el layout correspondiente
+        Precondición: Hay una palabra No ganadora cargada en el layout correspondiente y no es la última jugada
     */
-    public void cargarEventoOnClickParaPalabraNoGanadora (MiniJuegoActivity miniJuegoActivity, final TextView textView) {
+    public void cargarEventoOnClickParaPalabraNoGanadora (final TextView textView) {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -420,11 +426,12 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
        Propósito: Carga el evento OnClick para la imagen no ganadora
        Precondición: Hay una imagen No ganadora cargada en el layout correspondiente
    */
-    public void cargarEventoOnClickParaImagenGanadoraUltimaJugada (MiniJuegoActivity miniJuegoActivity, final ImageView imageView) {
+    public void cargarEventoOnClickParaImagenGanadoraUltimaJugada (final ImageView imageView) {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feedbacVisualkUltimaJugada();
+                feedbackSonoroJugadaGanada();
+                feedbackVisualkUltimaJugada();
             }
         });
     }
@@ -437,8 +444,46 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feedbackUltimaJugadaNoGanada();
+                feedbackSonoroJugadaGanada();
+                feedbackVisualkUltimaJugada();
             }
         });
+    }
+
+    /*
+       Propósito: Carga el evento OnClick para la imagen no ganadora
+       Precondición: Hay una imagen No ganadora cargada en el layout correspondiente
+    */
+    public void cargarEventoOnClickParaImagenNoGanadoraUltimaJugada (final ImageView imageView) {
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                feedbackSonoroJugadaNoGanada();
+                feedbackVisualkUltimaJugada();
+            }
+        });
+    }
+
+    /*
+        Propósito: Carga el evento OnClick para la palabra No ganadora
+        Precondición: Hay una palabra No ganadora cargada en el layout correspondiente
+    */
+    public void cargarEventoOnClickParaPalabraNoGanadoraUltimaJugada (final TextView textView) {
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                feedbackSonoroJugadaNoGanada();
+                feedbackVisualkUltimaJugada();
+            }
+        });
+    }
+
+
+    /*
+        Propósito: describe verdadero cuando se ha ganado al menos 3 jugadas o desafíos
+        Precondición: Todas las jugadas fueron jugadas
+     */
+    public boolean esMiniJuegoGanado() {
+        return this.miniJuego.esMiniJuegoGanado();
     }
 }

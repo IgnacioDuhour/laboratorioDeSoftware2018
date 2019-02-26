@@ -66,9 +66,9 @@ public abstract class MiniJuego {
     public abstract String tipoDeJuego();
 
     /*
-    Propósito: describe verdadero cuando se ganó la jugada
+        Propósito: describe verdadero cuando se ganó el minijuego, es decir cuando se ganaron una cantidad mínima de jugadas requeridas
     */
-    public boolean esJugadaGanada() {
+    public boolean esMiniJuegoGanado() {
         return this.cantidadDeJugadasGanadas >= CANT_MIN_JUGADAS_A_GANAR;
     }
 
@@ -89,17 +89,6 @@ public abstract class MiniJuego {
     }
 
     /*
-        Propósito: Retorna los nombre de la jugada actual
-     */
-    public String[] nombresDeLaJugadaActual() { return this.jugadaActual.nombresDeLosTipos(); }
-
-
-    /*
-        Propósito: Retorna el nombre a reconocer de la jugada actual
-    */
-    public String nombreAReconocerDeLaJugadaActual() { return this.jugadaActual.nombreDelTipoAReconocer(); }
-
-    /*
         Propósito: Describe el tipo de jugada de la jugada actual, pudiendo ser Raza o Pelaje
      */
     public String tipoDeLaJugadaActual() {
@@ -110,7 +99,7 @@ public abstract class MiniJuego {
         Propósito: describe la posición del item ganador (texto o imagen) de la jugada actual.
      */
     public int posicionItemGanadorDeJugadaActual() {
-        return this.jugadaActual.posicionTipoGanador();
+        return this.jugadaActual.posicionItemGanador();
     }
 
     /*
@@ -129,28 +118,11 @@ public abstract class MiniJuego {
     }
 
     /*
-        Propósito: describe las posiciones de las imágenes no ganadoras de la jugada actual
-        Observación: "posición" es un valor entre 1,2,3 o 4 que corresponder a un imageView específico
-     */
-    public int[] posicionesSinImagenGanadoraDeJugadaActual() {
-        return this.jugadaActual.posicionesSinTipoGanador();
-    }
-
-    /*
-        Propósito: describe los nombres de los caballos de la jugada actual
-        Precondición: Hay una jugada actual asignada
-     */
-    public Map jugarJugadaActual() {
-        return this.jugadaActual.jugar();
-    }
-
-    /*
-        Propósito: Genera una secuencia aleatórea de jugadas para una partida
+        Propósito: Genera una secuencia aleatórea de jugadas para una partida a partir del parámetro "jugadas"
     */
-    public Jugada[]randomDeJugadas() {
-        Jugada[] jugadasAleatoreas = jugadasTotales;
+    public Jugada[]jugadasRandom(Jugada[] jugadas) {
         for (int i=0; i<TOTAL_JUGADAS;i++) {
-            this.jugadasSecuencia[i] = jugadasAleatoreas[i];
+            this.jugadasSecuencia[i] = jugadas[i];
         }
         for (int i=1; i<TOTAL_JUGADAS;i++) {
             swapJugadas(i, Aleatorio.entreMinyMax(0,i-1));
