@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Called when the user taps the "Jugar" button
      */
-    public void jugarMinijuego(View view) {
+    public void miniJuego(View view) {
         Intent i = new Intent(MainActivity.this, RazaYPelajeActivity.class);
         startActivity(i);
     }

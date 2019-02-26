@@ -1,6 +1,8 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
-public abstract class Interaccion {
+import android.support.v7.app.AppCompatActivity;
+
+public abstract class Interaccion extends AppCompatActivity {
 
     public abstract int obtenerLayoutFacil();
 

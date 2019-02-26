@@ -75,7 +75,7 @@ public abstract class ReconocimientoActivity extends AppCompatActivity {
             case "HUAYRA": return R.raw.relincho;
             case "JUANA": return R.raw.cuarto_de_milla_bayo;
             case "MANCHA": return R.raw.relincho;
-            case "MORA": return R.raw.petizo_argentino_mora;
+            //case "MORA": return R.raw.petizo_argentino_mora;
             case "MUÑECO": return R.raw.mestizo_overo_rosado;
             case "NALA": return R.raw.mestizo_mora;
             case "NALITO": return R.raw.relincho;

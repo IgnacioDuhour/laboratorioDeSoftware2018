@@ -6,6 +6,12 @@ import android.widget.TextView;
 
 public class RazaYPelajeActivity extends MiniJuegoActivity {
 
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     /*
         Propósito: Crea e iniciar el minijuego "Raza y Pelaje"
         Precondición: Ninguna

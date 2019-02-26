@@ -81,48 +81,6 @@
             android:gravity="bottom|center"
             android:orientation="horizontal"
             android:weightSum="3">
-            <!--
-            <Button
-                android:id="@+id/button"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:onClick="playRecognitionMode"
-                android:padding="5dp"
-                android:text="@string/app_reconocimiento"
-                android:textColor="@color/white" />
-
-            <Button
-                android:id="@+id/button2"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:onClick="jugarMinijuego"
-                android:padding="5dp"
-                android:text="@string/app_minijuego"
-                android:textColor="@color/white" />
-
-            <Button
-                android:id="@+id/button4"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:onClick="jugarMinijuegoCruzas"
-                android:text="@string/app_minijuego_cruzas"
-                android:textColor="@color/white" />
-            -->
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="240dp"
@@ -147,7 +105,7 @@
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/background_transparent"
                     android:contentDescription="@string/app_minijuego"
-                    android:onClick="jugarMinijuego"
+                    android:onClick="miniJuego"
                     materialdesign:srcCompat="@drawable/jugar_regular" />
 
                 <ImageButton

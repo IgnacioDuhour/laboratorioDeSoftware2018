@@ -20,9 +20,11 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     protected Dificultad dificultad; //la dificultad puede ser Facil o Dificil. El primero corresponde a la subclase DificultadFacil y el segundo corresponde a la subclase DificultadDificil
     protected Interaccion interaccion; //la interacción puede ser Imagen-Palabra, PalabraImagen o Imagen-Imagen y cada una corresponde con una subclase.
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setearConfiguracion();
         iniciarMiniJuego();
         definirLayoutSegunConfiguracion();
         cargarElementosEnLayout();
@@ -30,7 +32,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
     /**
      * Propósito: define la configuración para el tipo de interacción y el tipo de dificultad
-     * Precondición: Hay un minijuego inicializado
+     * Precondición: Ninguna
      */
     public void setearConfiguracion() {
         SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
@@ -53,6 +55,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
     /*
         Propósito: crea  e iniciar un miniJuego
+        Precondicion: Hay una interaccion y dificultad definidas
      */
     public abstract void iniciarMiniJuego();
 
@@ -66,7 +69,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
                         4. layout palabra_imagen_dificil
      */
     public void definirLayoutSegunConfiguracion() {
-        this.dificultad.obtenerLayout(this.interaccion);
+        setContentView(this.dificultad.obtenerLayout(this.interaccion));
     }
 
 

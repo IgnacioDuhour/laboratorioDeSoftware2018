@@ -1,11 +1,12 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
 import android.media.MediaPlayer;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public abstract class Dificultad extends SettingsActivity{ //o extends de AppCompatActivity, ver!!
+public abstract class Dificultad extends AppCompatActivity { //o extends de AppCompatActivity, ver!!
 
     public abstract int obtenerLayout(Interaccion interaccion);
 
