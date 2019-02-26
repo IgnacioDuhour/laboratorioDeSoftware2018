@@ -92,6 +92,8 @@ public abstract class ReconocimientoActivity extends AppCompatActivity {
         }
     }
 
+
+    //ubicacionDeDescripcionDeCaballoPorNombre
     protected int descripcionDeCaballoPorNombre(String nombre) {
         switch (nombre.toUpperCase()) {
             case "AMAPOLA": return R.string.amapola;
