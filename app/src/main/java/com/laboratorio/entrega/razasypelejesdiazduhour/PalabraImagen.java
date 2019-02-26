@@ -35,4 +35,22 @@ public class PalabraImagen extends Interaccion {
         dificultad.cargarImagenesNoGanadoras(miniJuegoActivity, itemsNoGanadores, posicionItemsNoGanadores);
     }
 
+    /*
+        Propósito: carga la imagen ganadora de la última jugada
+        Precondición: Es la última jugada
+     */
+    @Override
+    public void cargarItemGanadorUltimaJugada(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, String itemGanadorUltimaJugada, int posicionItemGanadorDeJugadaActual) {
+        dificultad.cargarImagenGanadoraUltimaJugada(miniJuegoActivity, itemGanadorUltimaJugada, posicionItemGanadorDeJugadaActual);
+    }
+
+    /*
+        Propósito: carga las imagenes NO ganadoras de la última jugada
+        Precondición: Es la última jugada
+     */
+    @Override
+    public void cargarItemsNoGanadoresUltimaJugada(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, String[] itemsNoGanadoresUltimaJugada, int[] posicionItemsNoGanadoresUltimaJugada) {
+        dificultad.cargarImagenesNoGanadoraUltimaJugada(miniJuegoActivity, itemsNoGanadoresUltimaJugada, posicionItemsNoGanadoresUltimaJugada);
+    }
+
 }

@@ -120,19 +120,20 @@ public abstract class MiniJuego {
         return this.jugadaActual.itemGanador();
     }
 
+    public String[] itemsNoGanadoresDeLaJugadaActual() {
+        return this.jugadaActual.itemsNoGanadores();
+    }
+
+    public int[] posicionesItemsNoGanadoresDeLaJugadaActual() {
+        return this.jugadaActual.posicionesItemsNoGanadores();
+    }
+
     /*
         Propósito: describe las posiciones de las imágenes no ganadoras de la jugada actual
         Observación: "posición" es un valor entre 1,2,3 o 4 que corresponder a un imageView específico
      */
     public int[] posicionesSinImagenGanadoraDeJugadaActual() {
         return this.jugadaActual.posicionesSinTipoGanador();
-    }
-
-    /*
-        Propósito: Describe los nombres de los tipos NO ganadores de la jugada actual
-     */
-    public String[] nombresDeTiposNoGanadoresDeJugadaActual() {
-        return this.jugadaActual.nombresDeLosTiposNoGanadores();
     }
 
     /*

@@ -21,4 +21,17 @@ public abstract class Interaccion {
      */
     public abstract void cargarItemsNoGanadores(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, String[] itemsNoGanadores, int[] posicionItemsNoGanadores);
 
+
+    /*
+        Propósito: carga el item Ganador de la última jugada
+        Precondición: Es la última jugada
+     */
+    public abstract void cargarItemGanadorUltimaJugada(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, String itemGanadorUltimaJugada, int posicionItemGanadorDeJugadaActual);
+
+    /*
+        Propósito: carga los itemns no ganadores de la última jugada
+        Precondición: Es la última jugada
+     */
+    public abstract void cargarItemsNoGanadoresUltimaJugada(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, String[] itemsNoGanadoresUltimaJugada, int[] posicionItemsNoGanadoresUltimaJugada   );
+
 }

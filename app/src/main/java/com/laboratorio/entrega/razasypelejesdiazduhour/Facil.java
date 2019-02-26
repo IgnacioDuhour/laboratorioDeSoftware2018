@@ -16,16 +16,6 @@ public class Facil extends Dificultad {
         return new JugadaDificultadFacil(jugadaTipo);
     }
 
-    @Override
-    public void cargarImagenesNoGanadoras(MiniJuegoActivity miniJuegoActivity) {
-
-    }
-
-    @Override
-    public void cargarPalabrasNoGanadoras(MiniJuegoActivity miniJuegoActivity) {
-
-    }
-
     /*
         Propósito: describe el identificador de una ImageView en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
     */
