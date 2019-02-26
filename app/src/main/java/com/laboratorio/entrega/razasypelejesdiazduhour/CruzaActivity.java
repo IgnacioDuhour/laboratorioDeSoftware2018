@@ -12,6 +12,12 @@ public class CruzaActivity extends MiniJuegoActivity {
         //this.miniJuego = new CruzaMiniJuego(this.dificultad);
         //this.miniJuego.iniciar();
     }
+
+    @Override
+    public int ubicacionDeImagenDeCaballo(String nombre) {
+        return 0;
+    }
+
     @Override
     public void reIniciarMiniJuego() {
         //TODO: completar

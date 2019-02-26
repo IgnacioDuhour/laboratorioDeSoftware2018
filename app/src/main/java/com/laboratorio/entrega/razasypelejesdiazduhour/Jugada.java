@@ -80,12 +80,13 @@ abstract class Jugada {
      */
     public String[] itemsNoGanadores() {
        //return this.itemsAInteraccionar().filter(item -> ((String)item).compareTo(this.itemGanador())!=0 );
-        String[] itemsNoGanadores = new String[cantidadDeItems()];
-        int i = 0;
-        for (TipoCaballo tipo: this.tiposAInteraccionar) {
-            if (tipo.getNombre().compareTo(this.itemGanador())!=0) {
-                itemsNoGanadores[i] = tipo.getNombre();
-                i++;
+        String[] itemsNoGanadores = new String[cantidadDeItems()-1];
+        String[] items = this.itemsAInteraccionar();
+        int j = 0;
+        for (int i=0; i<cantidadDeItems();i++) {
+            if (items[i].compareTo(itemGanador())!=0) {
+                itemsNoGanadores[j] = items[i];
+                j++;
             }
         }
         return itemsNoGanadores;

@@ -5,7 +5,7 @@ import java.util.Random;
 public enum Raza {
     CUARTO_DE_MILLA,
     CRIOLLO,
-    PETIZO_ARGENTINO,
+    PETISO_ARGENTINO,
     MESTIZO_CRUZA_ARABE,
     MESTIZO,
     SILLA_ARGENTINO,

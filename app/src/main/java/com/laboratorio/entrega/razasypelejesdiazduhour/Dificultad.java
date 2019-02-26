@@ -27,7 +27,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
         //se encuentra el imageview
         ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(R.id.imagenAReconocerFacil);
         //se setea el source del imageview
-        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorNombre(nombreImagen));
+        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballo(nombreImagen));
     }
 
     /*
@@ -44,7 +44,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
      */
     public void cargarImagenGanadora(MiniJuegoActivity miniJuegoActivity, String nombreImagenGanadora, int posicionImagenGanadora) {
         ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(posicionImagenGanadora));
-        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorNombre(nombreImagenGanadora));
+        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballo(nombreImagenGanadora));
         miniJuegoActivity.cargarEventoOnClickParaImagenGanadora(imagenGanadora);
     }
 
@@ -55,7 +55,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
         int cantImagenes = nombresImagenesNoGanadoras.length;
         for (int i=0; i<cantImagenes;i++) {
             ImageView imagenNoGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(posicionImagenesNoGanadoras[i]));
-            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorNombre(nombresImagenesNoGanadoras[i]));
+            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballo(nombresImagenesNoGanadoras[i]));
             miniJuegoActivity.cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora);
         }
     }
@@ -78,7 +78,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
     */
     public void cargarImagenGanadoraUltimaJugada(MiniJuegoActivity miniJuegoActivity, String imagenGanadorUltimaJugada, int posicionImagenGanadorDeJugadaActual) {
         ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(posicionImagenGanadorDeJugadaActual));
-        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorNombre(imagenGanadorUltimaJugada));
+        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballo(imagenGanadorUltimaJugada));
         miniJuegoActivity.cargarEventoOnClickParaImagenGanadoraUltimaJugada(imagenGanadora);
     }
 
@@ -90,7 +90,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
         int cantImagenes = imagenesNoGanadoresUltimaJugada.length;
         for (int i=0; i<cantImagenes;i++) {
             ImageView imagenNoGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(posicionesImagenessNoGanadoresUltimaJugada[i]));
-            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorNombre(imagenesNoGanadoresUltimaJugada[i]));
+            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballo(imagenesNoGanadoresUltimaJugada[i]));
             miniJuegoActivity.cargarEventoOnClickParaImagenNoGanadoraUltimaJugada(imagenNoGanadora);
         }
     }

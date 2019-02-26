@@ -9,7 +9,7 @@ public class JugadaDificultadFacil extends JugadaDificultad {
     */
     public JugadaDificultadFacil(JugadaTipo jugadaTipo) {
         this.tipoAReconocer = jugadaTipo.tipoAReconocer;
-        this.tipoGanador = jugadaTipo.tipoGanador;
+        this.tipoGanador = jugadaTipo.tipoAReconocer;
         this.tiposAInteraccionar = jugadaTipo.nTiposAleatoreosConElTipo(jugadaTipo.tipoAReconocer, CANT_ELEMENTOS);
     }
 

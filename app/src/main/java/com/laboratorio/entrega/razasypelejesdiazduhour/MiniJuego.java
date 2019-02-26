@@ -82,7 +82,7 @@ public abstract class MiniJuego {
         Precondición: Ninguna
      */
     public boolean esUltimaJugada() {
-        return this.cantidadTotalDeJugadas() - this.numeroDeJugadaActual() >= 0;
+        return this.cantidadTotalDeJugadas() - this.numeroDeJugadaActual() == 0;
     }
 
     /*

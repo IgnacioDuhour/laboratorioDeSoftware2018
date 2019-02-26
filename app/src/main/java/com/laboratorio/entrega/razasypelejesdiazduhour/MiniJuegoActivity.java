@@ -16,7 +16,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
 
     protected MiniJuego miniJuego;
-    protected MediaPlayer sonidoRelincheCaballo, sonidoResoplidoCaballo = MediaPlayer.create(this, R.raw.resoplido);
+    protected MediaPlayer sonidoRelincheCaballo, sonidoResoplidoCaballo;
     protected Dificultad dificultad; //la dificultad puede ser Facil o Dificil. El primero corresponde a la subclase DificultadFacil y el segundo corresponde a la subclase DificultadDificil
     protected Interaccion interaccion; //la interacción puede ser Imagen-Palabra, PalabraImagen o Imagen-Imagen y cada una corresponde con una subclase.
 
@@ -25,8 +25,8 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setearConfiguracion();
-        iniciarMiniJuego();
         definirLayoutSegunConfiguracion();
+        iniciarMiniJuego();
         cargarElementosEnLayout();
     }
 
@@ -61,7 +61,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
 
     /*
         Propósito: Selecciona el layout segun configuración
-        Precondición: Hay un minijuego de "Raza y Pelaje" incializado
+        Precondición: Hay una dificultad e interacción definida
         Observación: Existen 4 (cuatro) tipos de layouts:
                         1. layout imagen_palabra_facil
                         2. layout imagen_palabra_dificil
@@ -98,6 +98,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public void cargarFeedbackSonoroCaballo() {
         sonidoRelincheCaballo = MediaPlayer.create(this, R.raw.relincho);
+        sonidoResoplidoCaballo = MediaPlayer.create(this, R.raw.resoplido);
     }
 
     /*
@@ -178,6 +179,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public void cargarJugadaSiguiente() {
         this.miniJuego.irAProximaJugada();
+        this.cargarJugadaActual();
     }
 
     /*
@@ -202,91 +204,8 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      * Propósito: describe el número que representa la ubicación de una imagen a partir del nombre de la imagen
      * Parámetro: "nombre" representa el nombre de una imágen ubicada en "res/drawable"
      */
-    protected int ubicacionDeImagenDeCaballoPorNombre(String nombre) {
-        switch (nombre.toUpperCase()) {
-            case "ALBO":
-                return R.drawable.defaultfur;
-            case "ATIGRADO":
-                return R.drawable.defaultfur;
-            case "BAYO":
-                return R.drawable.defaultfur;
-            case "BRAGADO":
-                return R.drawable.defaultfur;
-            case "COLORADO":
-                return R.drawable.defaultfur;
-            case "MELADO":
-                return R.drawable.defaultfur;
-            case "PANGARE":
-                return R.drawable.defaultfur;
-            case "ZAINO":
-                return R.drawable.defaultfur;
-            case "ANDALUS":
-                return R.drawable.defaultfur;
-            case "APPALOSA":
-                return R.drawable.defaultfur;
-            case "ARABE":
-                return R.drawable.defaultfur;
-            case "AZTECA":
-                return R.drawable.defaultfur;
-            case "CLYDESDALE":
-                return R.drawable.defaultfur;
-            case "COMTIOS":
-                return R.drawable.defaultfur;
-            case "CRIOLLO":
-                return R.drawable.defaultfur;
-            case "CRIOLLOARGENTINO":
-                return R.drawable.defaultfur;
-            case "CRIOLLOAMERICANO":
-                return R.drawable.defaultfur;
-            case "CUARTODEMILA":
-                return R.drawable.defaultfur;
-            case "FALABELLA":
-                return R.drawable.defaultfur;
-            case "FRISON":
-                return R.drawable.defaultfur;
-            case "HAFLINGER":
-                return R.drawable.defaultfur;
-            case "HANNOVERIANO":
-                return R.drawable.defaultfur;
-            case "LUSITANO":
-                return R.drawable.defaultfur;
-            case "MUSTANG":
-                return R.drawable.defaultfur;
-            case "PALOMINO":
-                return R.drawable.defaultfur;
-            case "PASOFINO":
-                return R.drawable.defaultfur;
-            case "PERCHERON":
-                return R.drawable.defaultfur;
-            case "PONIFELL":
-                return R.drawable.defaultfur;
-            case "PONIPOLO":
-                return R.drawable.defaultfur;
-            case "PURASANGREINGLES":
-                return R.drawable.defaultfur;
-            case "SHIRE":
-                return R.drawable.defaultfur;
-            case "SORAIA":
-                return R.drawable.defaultfur;
-            default:
-                return R.drawable.defaultfur;
-        }
-    }
+    public abstract int ubicacionDeImagenDeCaballo(String nombre);
 
-    protected int idImageViewParaPosicionDeJugada(int posicion) {
-        switch (posicion) {
-            case 0:
-                return R.id.minijuegoImageView0;
-            case 1:
-                return R.id.minijuegoImageView1;
-            case 2:
-                return R.id.minijuegoImageView2;
-            case 3:
-                return R.id.minijuegoImageView3;
-            default:
-                throw new IllegalArgumentException("Posicion de jugada inválida");
-        }
-    }
 
     /*
         Propósito: Evento del boton volver que regresa a la pantalla de Principal (MainActivity)

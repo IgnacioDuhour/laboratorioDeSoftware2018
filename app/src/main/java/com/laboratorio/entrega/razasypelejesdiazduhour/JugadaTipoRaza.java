@@ -4,7 +4,7 @@ public class JugadaTipoRaza extends JugadaTipo {
 
     public JugadaTipoRaza(TipoCaballo tipoCaballo) {
         super(tipoCaballo);
-    }
+     }
 
     /*
             Propósito: describe "n" tipos aleatoreos de caballos, incluyendo "tipoAReconocer"
