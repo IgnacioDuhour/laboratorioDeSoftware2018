@@ -15,6 +15,6 @@ public class JugadaDificultadFacil extends JugadaDificultad {
 
     @Override
     public String tipoDeJugada() {
-        return null;
+        return "Jugada dificultad facil"; //creo qiue no se usa, ver como se puede eliminar o algo asi
     }
 }

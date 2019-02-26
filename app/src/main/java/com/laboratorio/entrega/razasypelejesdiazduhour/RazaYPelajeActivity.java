@@ -12,7 +12,7 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
      */
     @Override
     public void iniciarMiniJuego() {
-        this.miniJuego = new RazayPelajeMinijuego();
+        this.miniJuego = new RazayPelajeMinijuego(this.dificultad);
         this.miniJuego.iniciar();
     }
 

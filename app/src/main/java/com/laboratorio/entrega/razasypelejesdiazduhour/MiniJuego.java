@@ -25,10 +25,15 @@ public abstract class MiniJuego {
     public void iniciar() {
         this.indiceJugadaActual = 0;
         this.cantidadDeJugadasGanadas = 0;
-        this.jugadasSecuencia = this.randomDeJugadas();
+        this.jugadasSecuencia = this.generarSecuenciaDeJugadasAleatoreas();
         this.jugadaActual = this.jugadasSecuencia[indiceJugadaActual];
         this.numeroDeJugadaActual = 0;
     }
+
+    /*
+        Propósito: Genera una secuencia aleatorea de jugadas
+     */
+    public abstract Jugada[] generarSecuenciaDeJugadasAleatoreas();
 
     /*
         Propósito: Se ubica en la jugada siguiente
@@ -118,27 +123,29 @@ public abstract class MiniJuego {
     }
 
     /*
-        Propósito: Genera una secuencia aleatórea de jugadas para una partida a partir del parámetro "jugadas"
+        Propósito: Describe las jugadas desordenadas a partir de las jugadas pasadas por parámetro
     */
-    public Jugada[]jugadasRandom(Jugada[] jugadas) {
+    public Jugada[] jugadasRandom(Jugada[] jugadas) {
+        Jugada[] jugadasRandom = new Jugada[jugadas.length];
         for (int i=0; i<TOTAL_JUGADAS;i++) {
-            this.jugadasSecuencia[i] = jugadas[i];
+            jugadasRandom[i] = jugadas[i];
         }
         for (int i=1; i<TOTAL_JUGADAS;i++) {
-            swapJugadas(i, Aleatorio.entreMinyMax(0,i-1));
+            jugadasRandom = swapJugadas(i, Aleatorio.entreMinyMax(0,i-1), jugadasRandom);
         }
-        return jugadasAleatoreas;
+        return jugadasRandom;
     }
 
 
     /*
         Propósito: Intercambia dos jugadas de la secuencia de jugadas
      */
-    protected void swapJugadas(int i, int j) {
+    protected Jugada[] swapJugadas(int i, int j, Jugada[] jugadas) {
         Jugada aux;
-        aux = this.jugadasSecuencia[i];
-        this.jugadasSecuencia[i] = this.jugadasSecuencia[j];
-        this.jugadasSecuencia[j] = aux;
+        aux = jugadas[i];
+        jugadas[i] = jugadas[j];
+        jugadas[j] = aux;
+        return jugadas;
     }
 
 

@@ -2,6 +2,9 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 
 public class RazayPelajeMinijuego extends MiniJuego {
 
+    /*
+        Cosntructor de clase
+     */
     public RazayPelajeMinijuego(Dificultad dificultad) {
         super(dificultad);
     }
@@ -11,6 +14,10 @@ public class RazayPelajeMinijuego extends MiniJuego {
         return "Raza y Pelaje";
     }
 
+    /*
+        Propósito: describe las jugadas aleatoreas, definidas por 3 de Razas y 2 de Pelajes ubicadas aleatoreamente
+     */
+    @Override
     public Jugada[] generarSecuenciaDeJugadasAleatoreas() {
         Jugada [] jugadas = new Jugada[TOTAL_JUGADAS];
         TipoCaballo[] razasAleatoreas = TipoCaballo.nTiposAleatoreos(TipoRaza.todosLosTiposDeRazas(),3);

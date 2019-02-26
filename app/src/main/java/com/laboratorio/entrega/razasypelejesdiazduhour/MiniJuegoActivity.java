@@ -11,11 +11,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 public abstract class MiniJuegoActivity extends AppCompatActivity {
 
 
     protected MiniJuego miniJuego;
-    protected MediaPlayer sonidoRelincheCaballo, sonidoResoplidoCaballo;
+    protected MediaPlayer sonidoRelincheCaballo, sonidoResoplidoCaballo = MediaPlayer.create(this, R.raw.resoplido);
     protected Dificultad dificultad; //la dificultad puede ser Facil o Dificil. El primero corresponde a la subclase DificultadFacil y el segundo corresponde a la subclase DificultadDificil
     protected Interaccion interaccion; //la interacción puede ser Imagen-Palabra, PalabraImagen o Imagen-Imagen y cada una corresponde con una subclase.
 
@@ -94,7 +95,6 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public void cargarFeedbackSonoroCaballo() {
         sonidoRelincheCaballo = MediaPlayer.create(this, R.raw.relincho);
-        sonidoResoplidoCaballo = MediaPlayer.create(this, R.raw.resoplido);
     }
 
     /*
@@ -102,18 +102,9 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      * Precondición: Hay un minijuego inicializado y un layout definido
      */
     public void cargarJugadaActual() {
-        definirJugadaActual();
         cargarItemAReconocerDeLaJugadaActual();
         cargarItemsAInteraccionarDeLaJugadaActual();
     }
-
-    /*
-        Propósito: define los elementos que corresponden con la jugada actual
-     */
-    public void definirJugadaActual() {
-        this.miniJuego.jugarJugadaActual();
-    }
-
 
     /*
         Propósito: Carga el item a reconoer de la jugada actual, ubicado en la parte superior
@@ -313,9 +304,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         Propósito: Emite el sonido de resoplo de un caballo  que representa una interacción NO acertada para la jugada actual.
         Precondición: hay una jugada cargada
     */
-    public void feedbackSonoroJugadaNoGanada() {
-        sonidoResoplidoCaballo.start();
-    }
+    public void feedbackSonoroJugadaNoGanada() { sonidoResoplidoCaballo.start(); }
 
     /*
         Propósito: Emite el sonido de un caballo relinchando, que representa una interacción Acertada para la jugada actual.
