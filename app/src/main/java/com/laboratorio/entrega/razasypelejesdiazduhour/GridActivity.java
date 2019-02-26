@@ -100,13 +100,20 @@ public class GridActivity extends ReconocimientoActivity {
     }
 
     private ImageButton createImageButton(Enum p) {
+        SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
+        String femenino = preferences.getString("audio", "Femenina");
         ImageButton iB = new ImageButton(getApplicationContext());
         iB.setImageResource(R.drawable.audio_regular);
         iB.setBackgroundColor(Color.TRANSPARENT);
         iB.setMaxWidth(150);
         iB.setMaxHeight(150);
         iB.setOnClickListener((View v) -> {
-            int audio = ubicacionDeAudioDeCaballoPorNombre(p.name());
+            int audio;
+            if (femenino.equals("Femenina")) {
+                audio = ubicacionDeAudioDeCaballoPorNombreFemenino(p.name());
+            } else {
+                audio = ubicacionDeAudioDeCaballoPorNombreMasculino(p.name());
+            }
             MediaPlayer mediaPlayer = MediaPlayer.create(GridActivity.this, audio);
             mediaPlayer.start();
         });
