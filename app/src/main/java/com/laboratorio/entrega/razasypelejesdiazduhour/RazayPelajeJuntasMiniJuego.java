@@ -12,8 +12,8 @@ public class RazayPelajeJuntasMiniJuego extends MiniJuego {
     }
 
     /*
-    Propósito: describe las jugadas aleatoreas, definidas por 3 de Razas y 2 de Pelajes ubicadas aleatoreamente
- */
+        Propósito: describe las jugadas aleatoreas, definidas por 3 de Razas y 2 de Pelajes ubicadas aleatoreamente
+    */
     @Override
     public Jugada[] generarSecuenciaDeJugadasAleatoreas() {
         Jugada [] jugadas = new Jugada[TOTAL_JUGADAS];

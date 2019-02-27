@@ -13,8 +13,4 @@ public class JugadaDificultadDificil extends JugadaDificultad {
         this.tiposAInteraccionar = jugadaTipo.nTiposAleatoreosConElTipo(jugadaTipo.tipoAReconocer, CANT_ELEMENTOS);
     }
 
-    @Override
-    public String tipoDeJugada() {
-        return "jugada dificultad dificil"; //creo que esto no se usa, ver como se puede eliminar
-    }
 }

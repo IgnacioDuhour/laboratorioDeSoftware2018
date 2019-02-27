@@ -27,7 +27,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
         //se encuentra el imageview
         ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(R.id.imagenAReconocer);
         //se setea el source del imageview
-        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballo(nombreImagen));
+        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballo(definirNombreParaCruza(nombreImagen, miniJuegoActivity)));
     }
 
     /*
@@ -136,6 +136,17 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
         return primerCaracter + aux.substring(1);
         */
         return texto.replace("_", " ").toUpperCase();
+    }
+
+    /*
+    Propósito: describe el tipo a reconocer según el tipo de jugada (RyP, RyPJuntas o Cruza)
+    Observación: en el caso de ser Cruza, le concatena el sufijo "_PADRES" al nombre
+ */
+    private String definirNombreParaCruza(String nombre, MiniJuegoActivity miniJuegoActivity) {
+        if (miniJuegoActivity.miniJuego.tipoDeJuego().compareTo("Cruza")==0) {
+            return nombre+"_padres";
+        }
+        else return nombre;
     }
 
 }

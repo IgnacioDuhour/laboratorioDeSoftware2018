@@ -19,4 +19,8 @@ public abstract class JugadaTipo extends Jugada {
         Propósito: describe el tipo de jugada, pudiendo ser Raza o Pelaje o Cruza
      */
     public abstract String tipoDeJugada();
+
+    public void setTipoAReconocer(String itemAReconocer) {
+        this.tipoAReconocer.setNombre(itemAReconocer);
+    }
 }

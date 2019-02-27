@@ -31,6 +31,15 @@ public class RazayPelajeJuntasActivity extends MiniJuegoActivity {
         startActivity(i);
     }
 
+    /*
+        Propósito: carga el siguiente minijuego siendo este Cruza
+    */
+    @Override
+    public void cargarSiguienteMiniJuego() {
+        Intent i = new Intent(RazayPelajeJuntasActivity.this, CruzaActivity.class);
+        startActivity(i);
+    }
+
     @Override
     public void feedbackVisualMiniJuegoGanado() {
         //mostrar papel picado

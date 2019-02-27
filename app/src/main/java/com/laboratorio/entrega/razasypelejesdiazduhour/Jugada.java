@@ -106,6 +106,4 @@ abstract class Jugada {
         }
         return posicionesSinItemGanador;
     }
-
-    public abstract String tipoDeJugada();
 }

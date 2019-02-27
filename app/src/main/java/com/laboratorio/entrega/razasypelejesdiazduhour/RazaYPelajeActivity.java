@@ -23,6 +23,16 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
         this.miniJuego.iniciar();
     }
 
+
+    /*
+        Propósito: carga el siguiente minijuego siendo este RazayPelajeJuntas
+    */
+    @Override
+    public void cargarSiguienteMiniJuego() {
+        Intent i = new Intent(RazaYPelajeActivity.this, RazayPelajeJuntasActivity.class);
+        startActivity(i);
+    }
+
     /*
         Propósito: Reinicia el MiniJuego Razas y Pelajes
         Precondición: Ninguna

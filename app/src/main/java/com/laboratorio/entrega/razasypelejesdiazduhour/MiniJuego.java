@@ -94,13 +94,6 @@ public abstract class MiniJuego {
     }
 
     /*
-        Propósito: Describe el tipo de jugada de la jugada actual, pudiendo ser Raza o Pelaje
-     */
-    public String tipoDeLaJugadaActual() {
-        return this.jugadaActual.tipoDeJugada();
-    }
-
-    /*
         Propósito: describe la posición del item ganador (texto o imagen) de la jugada actual.
      */
     public int posicionItemGanadorDeJugadaActual() {

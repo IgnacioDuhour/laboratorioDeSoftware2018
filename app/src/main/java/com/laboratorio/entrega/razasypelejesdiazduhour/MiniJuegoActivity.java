@@ -191,12 +191,9 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     }
 
     /*
-        Propósito: carga el siguiente minijuego (por defecto, el siguiente es "Cruza")
+        Propósito: carga el siguiente minijuego
      */
-    public void cargarSiguienteMiniJuego() {
-        Intent i = new Intent(MiniJuegoActivity.this, CruzaActivity.class);
-        startActivity(i);
-    }
+    public abstract  void cargarSiguienteMiniJuego();
 
     /*
         Propósito: Evento del boton volver que regresa a la pantalla de Principal (MainActivity)
@@ -262,7 +259,9 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public void feedbackVisualUltimaJugada(){
         if (esMiniJuegoGanado()) {
-            feedbackVisualMiniJuegoGanado();
+            //TODO: completar con el feedback correspondiente
+            //feedbackVisualMiniJuegoGanado();
+            cargarSiguienteMiniJuego();
         } else {
             feedbackVisualMiniJuegoNoGanado();
         }
@@ -509,6 +508,30 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
                 return R.drawable.tupac_mestizo_zaino_oscuro;
             case "MESTIZO_FIN_TORDILLO":
                 return R.drawable.zorzal_mestizo_tordillo;
+            case "BELLA":
+                return R.drawable.bella;
+            case "BELLA_PADRES":
+                return R.drawable.bella_padres;
+            case "HUAYRA":
+                return R.drawable.huayra;
+            case "HUAYRA_PADRES":
+                return R.drawable.huayra_padres;
+            case "MANCHA":
+                return R.drawable.mancha;
+            case "MANCHA_PADRES":
+                return R.drawable.mancha_padres;
+            case "NALITO":
+                return R.drawable.nalito;
+            case "NALITO_PADRES":
+                return R.drawable.nalito_padres;
+            case "ORITA":
+                return R.drawable.orita;
+            case "ORITA_PADRES":
+                return R.drawable.orita_padres;
+            case "PIRATA":
+                return R.drawable.pirata;
+            case "PIRATA_PADRES":
+                return R.drawable.pirata_padres;
             default:
                 return R.drawable.defaultfur;
         }

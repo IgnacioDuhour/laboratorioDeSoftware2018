@@ -1,5 +1,7 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
+import android.content.Intent;
+
 public class CruzaActivity extends MiniJuegoActivity {
 
 
@@ -9,8 +11,8 @@ public class CruzaActivity extends MiniJuegoActivity {
      */
     @Override
     public void iniciarMiniJuego() {
-        //this.miniJuego = new CruzaMiniJuego(this.dificultad);
-        //this.miniJuego.iniciar();
+        this.miniJuego = new CruzaMiniJuego(this.dificultad);
+        this.miniJuego.iniciar();
     }
 
     @Override
@@ -21,5 +23,14 @@ public class CruzaActivity extends MiniJuegoActivity {
     @Override
     public void feedbackVisualMiniJuegoGanado() {
         //TODO: completar
+    }
+
+    /*
+        Propósito: como no hay siguiente minijuego, regresa a Inicio
+    */
+    @Override
+    public void cargarSiguienteMiniJuego() {
+        Intent i = new Intent(CruzaActivity.this, MainActivity.class);
+        startActivity(i);
     }
 }

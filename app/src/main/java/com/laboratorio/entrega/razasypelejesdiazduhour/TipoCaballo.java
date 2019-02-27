@@ -10,10 +10,14 @@ class TipoCaballo {
         return this.nombre;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     /*
         Propósito: Describe "n" tipos aleatoreos a partir de "tipos"
      */
-    public static TipoCaballo[] nTiposAleatoreos(TipoCaballo[] tipos, int n) {
+    public static TipoCaballo[]  nTiposAleatoreos(TipoCaballo[] tipos, int n) {
         TipoCaballo[] nTipos = new TipoCaballo[n];
         TipoCaballo[] todosLostiposAleatoreos = tiposAleatoreos(tipos);
         for (int i = 0; i < n; i++) {
