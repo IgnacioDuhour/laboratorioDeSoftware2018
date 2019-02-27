@@ -1,11 +1,14 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MiniJuegoGanado extends AppCompatActivity {
@@ -37,11 +40,16 @@ public class MiniJuegoGanado extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mini_juego_ganado);
-        videoConfeti = MediaPlayer.create(this, R.raw.relincho);
-        videoConfeti.start();
+    }
 
+    public void reiniciarUltimoJuego(View view) {
+        Intent i = new Intent(MiniJuegoGanado.this, RazaYPelajeActivity.class);
+        startActivity(i);
+    }
 
-
+    public void miniJuego(View view) {
+        Intent i = new Intent(MiniJuegoGanado.this, RazayPelajeJuntasActivity.class);
+        startActivity(i);
     }
 
 }

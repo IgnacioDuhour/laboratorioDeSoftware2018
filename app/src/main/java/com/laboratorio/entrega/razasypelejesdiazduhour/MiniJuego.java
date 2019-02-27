@@ -123,18 +123,17 @@ public abstract class MiniJuego {
     }
 
     /*
+        Propósito: Incrementa en 1 la jugada ganada
+        Prencondición: La jugada actual es una jugada ganada
+     */
+    public void incrementarJugadaGanada() {
+        this.cantidadDeJugadasGanadas++;
+    }
+
+    /*
         Propósito: Describe las jugadas desordenadas a partir de las jugadas pasadas por parámetro
     */
     public Jugada[] jugadasRandom(Jugada[] jugadas) {
-        /*Jugada[] jugadasRandom = new Jugada[jugadas.length];
-        for (int i=0; i<TOTAL_JUGADAS;i++) {
-            jugadasRandom[i] = jugadas[i];
-        }
-        for (int i=1; i<TOTAL_JUGADAS;i++) {
-            jugadasRandom = swapJugadas(i, Aleatorio.entreMinyMax(0,i-1), jugadasRandom);
-        }
-        return jugadasRandom;
-        */
         for (int i=1; i<TOTAL_JUGADAS;i++) {
             jugadas= swapJugadas(i, Aleatorio.entreMinyMax(0,i-1), jugadas);
         }

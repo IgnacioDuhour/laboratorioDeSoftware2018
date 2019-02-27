@@ -268,6 +268,14 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         }
     }
 
+    /*
+        Propósito: incrementa en uno la jugada actual
+        Precondición: Hay un acierto en la jugada actual, es decir, se ganó la jugada actual
+     */
+    public void incrementarJugadaGanada(){
+        this.miniJuego.incrementarJugadaGanada();
+    }
+
 
     /*
     Propósito: Carga el evento OnClick para la imagen ganadora
@@ -278,6 +286,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaGanada();
+                incrementarJugadaGanada();
                 cargarJugadaSiguiente();
             }
         });
@@ -292,6 +301,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaGanada();
+                incrementarJugadaGanada();
                 cargarJugadaSiguiente();
             }
         });
@@ -334,6 +344,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaGanada();
+                incrementarJugadaGanada();
                 feedbackVisualUltimaJugada();
             }
         });
@@ -348,6 +359,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaGanada();
+                incrementarJugadaGanada();
                 feedbackVisualUltimaJugada();
             }
         });
@@ -380,7 +392,6 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             }
         });
     }
-
 
     /*
         Propósito: describe verdadero cuando se ha ganado al menos 3 jugadas o desafíos
