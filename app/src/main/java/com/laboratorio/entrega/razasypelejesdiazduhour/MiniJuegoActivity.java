@@ -37,7 +37,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     public void setearConfiguracion() {
         SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
         //    definirDificultadSegunConfiguracion();
-        boolean esDificultadFacil = preferences.getString("dificulad", "Facil") == "Facil";
+        boolean esDificultadFacil = preferences.getString("dificultad", "Facil").compareTo("Facil") == 0;
         this.dificultad = esDificultadFacil ? new Facil() : new Dificil();
 
         //    definirInteraccionSegunConfiguracion();
