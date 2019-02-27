@@ -67,6 +67,8 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="25sp"
                 android:textStyle="bold" />
+            <!--
+
             <ImageButton
                 android:id="@+id/palabraButton1"
                 android:layout_width="wrap_content"
@@ -74,6 +76,9 @@
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:src="@drawable/audio_regular" />
+
+            -->
+
         </LinearLayout>
         <!-- row 2 end-->
 

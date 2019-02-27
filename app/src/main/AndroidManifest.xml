@@ -28,6 +28,9 @@
             android:name=".RazaYPelajeActivity"
             android:screenOrientation="landscape" />
         <activity
+            android:name=".RazayPelajeJuntasActivity"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".CruzaActivity"
             android:screenOrientation="landscape" />
         <activity

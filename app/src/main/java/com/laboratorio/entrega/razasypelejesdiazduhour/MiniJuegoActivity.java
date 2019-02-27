@@ -406,6 +406,8 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      * Propósito: describe el número que representa la ubicación de una imagen  a partir de un nombre
      * Parámetro: "nombre" representa el nombre de una imágen ubicada en "res/drawable"
      */
+
+
     public int ubicacionDeImagenDeCaballo(String nombre) {
         switch (nombre.toUpperCase()) {
             //Razas
@@ -462,6 +464,51 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
                 return R.drawable.angola_sangrepuracarrera_zaino_colorado;
             case "ZAINO_OSCURO":
                 return R.drawable.tupac_mestizo_zaino_oscuro;
+             //raza y pelaje
+            case "PETISO_ARGENTINO_FIN_ROSILLO":
+                return R.drawable.amapola_petiso_argentino_rosillo;
+            case "MESTIZO_CRUZA_ARABE_FIN_ALAZAN_TOSTADO":
+                return R.drawable.ambar_mestizo_cruza_arabe_alazan_tostado;
+            case "SANGRE_PURA_CARRERA_FIN_ZAIN_COLORADO":
+                return R.drawable.angola_sangrepuracarrera_zaino_colorado;
+            case "MESTIZO_OVERO_FIN_ZAINO":
+                return R.drawable.antu_mestizo_overo_zaino;
+            case "MESTIZO_FIN_ALAZAN_RUANO":
+                return R.drawable.bionda_mestizo_alazan_ruano;
+            case "MESTIZO_FIN_BLANCO":
+                return R.drawable.blanco_mestizo_blanco;
+            case "MESTIZO_QH_CON_CRIOLLO_FIN_OVERO_AZULEJO":
+                return R.drawable.bonita_mestizo_qh_con_criollo_overo_azulejo;
+            case "MESTIZO_FIN_ALAZAN":
+                return R.drawable.cacique_mestizo_alazan;
+            case "MESTIZO_FIN_TOBIANO":
+                return R.drawable.candelaria_mestizo_tobiano;
+            case "MESTIZO_FIN_TORDILLO_CANELA":
+                return R.drawable.ciro_mestizo_tordillo_canela;
+            case "MESTIZO_FIN_ZAINO":
+                return R.drawable.pochito_mestizo_zaino;
+            case "CRIOLLO_FIN_PICASO":
+                return R.drawable.hualfin_criollo_picaso;
+            case "CURATO_DE_MILLA_FIN_BAYO":
+                return R.drawable.juana_cuarto_de_milla_bayo;
+            case "PETISO_ARGENTINO_FIN_TORDILLO_MORO":
+                return R.drawable.mora_petiso_argentino_tordillo_moro;
+            case "MESTIZO_FIN_OVERO_ROSADO":
+                return R.drawable.muneco_mestizo_overo_rosado;
+            case "MESTIZO_FIN_MORO":
+                return R.drawable.nala_mestizo_moro;
+            case "PETISO_ARGENTINO_FIN_ZAINO":
+                return R.drawable.pamperito_petiso_argentino_zaino;
+            case "MESTIZO_FIN_ALAZAN_PINTADO":
+                return R.drawable.pintada_mestizo_alazan_pintado;
+            case "SILLA_ARGENTINO_FIN_ALAZAN":
+                return R.drawable.primavera_silla_argentino_alazan;
+            case "CRIOLLO_FIN_BAYO_GATEADO":
+                return R.drawable.tigre_criollo_bayo_gateado;
+            case "MESTIZO_FIN_ZAINO_OSCURO":
+                return R.drawable.tupac_mestizo_zaino_oscuro;
+            case "MESTIZO_FIN_TORDILLO":
+                return R.drawable.zorzal_mestizo_tordillo;
             default:
                 return R.drawable.defaultfur;
         }
