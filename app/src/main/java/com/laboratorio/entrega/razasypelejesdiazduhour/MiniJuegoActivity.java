@@ -329,6 +329,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaNoGanada();
+                cargarJugadaSiguiente();
             }
         });
     }
