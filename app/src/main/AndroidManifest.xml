@@ -13,9 +13,6 @@
         <activity android:name=".MiniJuegoCruzaGanadoActivity" />
         <activity android:name=".MiniJuegoRazayPelajeGanadoActivity" />
         <activity
-            android:name=".MiniJuegoGanado"
-            android:label="@string/title_activity_mini_juego_ganado" />
-        <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape">
             <intent-filter>

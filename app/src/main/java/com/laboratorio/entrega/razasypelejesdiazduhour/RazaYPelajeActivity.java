@@ -48,13 +48,7 @@ public class RazaYPelajeActivity extends MiniJuegoActivity {
     */
     @Override
     public void feedbackVisualMiniJuegoGanado() {
-        //mostrar papel picado
-        /*
-        pasos:
-        1. nueva acitvity: MiniJuegoGanado
-        2. 2 componentes: Gif y boton "ir a inicio" y boton "ir a siguiente minijuego"
-         */
-        Intent i = new Intent(RazaYPelajeActivity.this, MiniJuegoGanado.class);
+        Intent i = new Intent(RazaYPelajeActivity.this, MiniJuegoRazayPelajeGanadoActivity.class);
         startActivity(i);
     }
 }

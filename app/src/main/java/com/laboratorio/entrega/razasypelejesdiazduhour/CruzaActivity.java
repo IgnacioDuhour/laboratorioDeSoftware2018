@@ -22,7 +22,8 @@ public class CruzaActivity extends MiniJuegoActivity {
 
     @Override
     public void feedbackVisualMiniJuegoGanado() {
-        //TODO: completar
+        Intent i = new Intent(CruzaActivity.this, MiniJuegoCruzaGanadoActivity.class);
+        startActivity(i);
     }
 
     /*

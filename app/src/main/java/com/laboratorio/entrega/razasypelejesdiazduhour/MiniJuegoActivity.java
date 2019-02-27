@@ -263,9 +263,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public void feedbackVisualUltimaJugada(){
         if (esMiniJuegoGanado()) {
-            //TODO: completar con el feedback correspondiente
-            //feedbackVisualMiniJuegoGanado();
-            cargarSiguienteMiniJuego();
+            feedbackVisualMiniJuegoGanado();
         } else {
             feedbackVisualMiniJuegoNoGanado();
         }
