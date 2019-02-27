@@ -1,10 +1,17 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
+import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.view.View;
+import android.widget.ImageButton;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.content.Context.MODE_PRIVATE;
 
 abstract class Jugada {
 
@@ -137,9 +144,48 @@ abstract class Jugada {
         }
     }
 
-
+    /**
+     * Devuelve el identificador del boton de audio según una posicion dada
+     * @param posicion posicion del boton
+     * @return identificador del boton
+     */
+    protected int idImageButtonSegunPosicion(int posicion) {
+        switch (posicion) {
+            case 0:
+                return R.id.palabraButton0;
+            case 1:
+                return R.id.palabraButton1;
+            case 2:
+                return R.id.palabraButton2;
+            case 3:
+                return R.id.palabraButton3;
+            default:
+                throw new IllegalArgumentException("Posicion de item inválida");
+        }
+    }
     public void setTipoAReconocer(String itemAReconocer) {
         this.tipoAReconocer.setNombre(itemAReconocer);
+    }
+
+    /**
+     * Genera un listener para onClick en el boton de la palabra del minijuego
+     * @param button boton al cual se le seteara el listener
+     * @param nombrePalabra palabra para buscar el sonido a reproducir
+     */
+    @NonNull
+    public void setearOnClick(MiniJuegoActivity miniJuegoActivity, ImageButton button, String nombrePalabra){
+        SharedPreferences preferences = miniJuegoActivity.getSharedPreferences("preferences", MODE_PRIVATE);
+        String femenino = preferences.getString("audio", "Femenina");
+        button.setOnClickListener((View v) -> {
+            int audio;
+            if (femenino.equals("Femenina")) {
+                audio = miniJuegoActivity.ubicacionDeAudioDeCaballoPorNombreFemenino(nombrePalabra);
+            } else {
+                audio = miniJuegoActivity.ubicacionDeAudioDeCaballoPorNombreMasculino(nombrePalabra);
+            }
+            MediaPlayer mediaPlayer = MediaPlayer.create(miniJuegoActivity, audio);
+            mediaPlayer.start();
+        });
     }
 
     protected abstract String sanitizarTexto(String texto);

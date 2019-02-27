@@ -1,5 +1,6 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +34,8 @@ public class JugadaRaza extends Jugada {
     public void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity){
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(R.id.palabraAReconocer);
         palabraAReconocer.setText(sanitizarTexto(this.itemAReconocer()));
+        ImageButton button = (ImageButton) miniJuegoActivity.findViewById(R.id.palabraButton1);
+        setearOnClick(miniJuegoActivity, button, this.itemAReconocer());
     }
 
     /*
@@ -50,6 +53,8 @@ public class JugadaRaza extends Jugada {
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionItemGanador()));
         palabraAReconocer.setText(sanitizarTexto(this.itemAReconocer()));
         miniJuegoActivity.cargarEventoOnClickParaPalabraGanadora(palabraAReconocer);
+        ImageButton button = (ImageButton) miniJuegoActivity.findViewById(this.idImageButtonSegunPosicion(this.posicionItemGanador()));
+        setearOnClick(miniJuegoActivity, button, this.itemAReconocer());
     }
 
     /*
@@ -80,6 +85,8 @@ public class JugadaRaza extends Jugada {
             TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
             palabraNoGanadora.setText(sanitizarTexto(this.itemsNoGanadores()[i]));
             miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadora(palabraNoGanadora);
+            ImageButton button = (ImageButton) miniJuegoActivity.findViewById(this.idImageButtonSegunPosicion(this.posicionesItemsNoGanadores()[i]));
+            setearOnClick(miniJuegoActivity, button, this.itemsNoGanadores()[i]);
         }
     }
 
@@ -113,6 +120,8 @@ public class JugadaRaza extends Jugada {
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionItemGanador()));
         palabraAReconocer.setText(sanitizarTexto(this.itemGanador()));
         miniJuegoActivity.cargarEventoOnClickParaPalabraGanadoraUltimaJugada(palabraAReconocer);
+        ImageButton button = (ImageButton) miniJuegoActivity.findViewById(this.idImageButtonSegunPosicion(this.posicionItemGanador()));
+        setearOnClick(miniJuegoActivity, button, this.itemGanador());
     }
 
     /*
@@ -124,6 +133,8 @@ public class JugadaRaza extends Jugada {
             TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
             palabraNoGanadora.setText(sanitizarTexto(this.itemsNoGanadores()[i]));
             miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadoraUltimaJugada(palabraNoGanadora);
+            ImageButton button = (ImageButton) miniJuegoActivity.findViewById(this.idImageButtonSegunPosicion(this.posicionesItemsNoGanadores()[i]));
+            setearOnClick(miniJuegoActivity, button, this.itemsNoGanadores()[i]);
         }
     }
 

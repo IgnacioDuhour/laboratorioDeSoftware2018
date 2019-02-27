@@ -1,5 +1,6 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,6 +32,8 @@ public class JugadaPelaje extends  Jugada {
     public void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity){
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(R.id.palabraAReconocer);
         palabraAReconocer.setText(sanitizarTexto(this.itemAReconocer()));
+        ImageButton button = (ImageButton) miniJuegoActivity.findViewById(R.id.palabraButton1);
+        setearOnClick(miniJuegoActivity, button, this.itemAReconocer());
     }
 
     /*

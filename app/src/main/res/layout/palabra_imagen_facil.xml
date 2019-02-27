@@ -36,13 +36,21 @@
 
             <TextView
                 android:id="@+id/nombreDelMiniJuego"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/loren_ipsum"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="30sp"
                 android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/palabraButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:src="@drawable/audio_regular" />
         </LinearLayout>
         <!-- row 1 end -->
         <!-- row 2 -->
