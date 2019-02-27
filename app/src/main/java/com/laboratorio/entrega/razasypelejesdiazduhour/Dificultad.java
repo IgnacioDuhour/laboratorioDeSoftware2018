@@ -17,7 +17,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
      */
     public void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity, String nombrePalabra){
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(R.id.palabraAReconocer);
-        palabraAReconocer.setText(sanitizarTexto(nombrePalabra));
+        palabraAReconocer.setText(sanitizarTexto(nombrePalabra, miniJuegoActivity));
     }
 
     /*
@@ -35,7 +35,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
     */
     public void cargarPalabraGanadora(MiniJuegoActivity miniJuegoActivity, String nombrePalabraGanadora, int posicionPalabraGanadora) {
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(posicionPalabraGanadora));
-        palabraAReconocer.setText(sanitizarTexto(nombrePalabraGanadora));
+        palabraAReconocer.setText(sanitizarTexto(nombrePalabraGanadora, miniJuegoActivity));
         miniJuegoActivity.cargarEventoOnClickParaPalabraGanadora(palabraAReconocer);
     }
 
@@ -67,7 +67,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
         int cantPalabras = nombresPalabrasNoGanadoras.length;
         for (int i=0; i<cantPalabras;i++) {
             TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(posicionPalabrasNoGanadoras[i]));
-            palabraNoGanadora.setText(sanitizarTexto(nombresPalabrasNoGanadoras[i]));
+            palabraNoGanadora.setText(sanitizarTexto(nombresPalabrasNoGanadoras[i], miniJuegoActivity));
             miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadora(palabraNoGanadora);
         }
     }
@@ -101,7 +101,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
     */
     public void cargarPalabraGanadoraUltimaJugada(MiniJuegoActivity miniJuegoActivity, String palabraGanadorUltimaJugada, int posicionPalabraGanadorDeJugadaActual) {
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(posicionPalabraGanadorDeJugadaActual));
-        palabraAReconocer.setText(sanitizarTexto(palabraGanadorUltimaJugada));
+        palabraAReconocer.setText(sanitizarTexto(palabraGanadorUltimaJugada, miniJuegoActivity));
         miniJuegoActivity.cargarEventoOnClickParaPalabraGanadoraUltimaJugada(palabraAReconocer);
     }
 
@@ -113,7 +113,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
         int cantPalabras = palabrasNoGanadorasUltimaJugada.length;
         for (int i=0; i<cantPalabras;i++) {
             TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(posicionPalabrasNoGanadorasUltimaJugada[i]));
-            palabraNoGanadora.setText(sanitizarTexto(palabrasNoGanadorasUltimaJugada[i]));
+            palabraNoGanadora.setText(sanitizarTexto(palabrasNoGanadorasUltimaJugada[i], miniJuegoActivity));
             miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadoraUltimaJugada(palabraNoGanadora);
         }
     }
@@ -128,14 +128,19 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
      */
     protected abstract int idTextViewSegunPosicion(int posicion);
 
-    private String sanitizarTexto(String texto) {
+    private String sanitizarTexto(String texto, MiniJuegoActivity miniJuegoActivity) {
         /*
         Elimina _ y lo reemplaza por blaco y pone en mayuscula el primer char
         String aux = texto.replace("_", " ");
         String primerCaracter = aux.substring(0,1).toUpperCase();
         return primerCaracter + aux.substring(1);
         */
-        return texto.replace("_", " ").toUpperCase();
+        String str = texto.replace("_", " ").toUpperCase();
+        if (miniJuegoActivity.tipoDeJuego().compareTo("Raza y Pelaje Juntas")==0) {
+            String[] aux = str.split("FIN");
+            return aux[0]+", "+ aux[1];
+        }
+        return str;
     }
 
     /*
@@ -143,7 +148,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
     Observación: en el caso de ser Cruza, le concatena el sufijo "_PADRES" al nombre
  */
     private String definirNombreParaCruza(String nombre, MiniJuegoActivity miniJuegoActivity) {
-        if (miniJuegoActivity.miniJuego.tipoDeJuego().compareTo("Cruza")==0) {
+        if (miniJuegoActivity.tipoDeJuego().compareTo("Cruza")==0) {
             return nombre+"_padres";
         }
         else return nombre;

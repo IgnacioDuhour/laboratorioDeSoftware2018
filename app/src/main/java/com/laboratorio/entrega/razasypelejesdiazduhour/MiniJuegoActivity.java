@@ -268,6 +268,13 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
     }
 
     /*
+        Propósito: describe el tipo de juego
+     */
+    public String tipoDeJuego() {
+        return this.miniJuego.tipoDeJuego();
+    }
+
+    /*
         Propósito: incrementa en uno la jugada actual
         Precondición: Hay un acierto en la jugada actual, es decir, se ganó la jugada actual
      */
