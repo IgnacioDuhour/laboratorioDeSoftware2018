@@ -1,8 +1,11 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +21,8 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
     public void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity, String nombrePalabra){
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(R.id.palabraAReconocer);
         palabraAReconocer.setText(sanitizarTexto(nombrePalabra, miniJuegoActivity));
+        ImageButton button = (ImageButton) miniJuegoActivity.findViewById(R.id.palabraButton1);
+        setearOnClick(miniJuegoActivity, button, nombrePalabra);
     }
 
     /*
@@ -153,5 +158,193 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
         }
         else return nombre;
     }
+    /**
+     * Genera un listener para onClick en el boton de la palabra del minijuego
+     * @param button boton al cual se le seteara el listener
+     * @param nombrePalabra palabra para buscar el sonido a reproducir
+     */
+    @NonNull
+    public void setearOnClick(MiniJuegoActivity miniJuegoActivity, ImageButton button, String nombrePalabra){
+        SharedPreferences preferences = miniJuegoActivity.getSharedPreferences("preferences", MODE_PRIVATE);
+        String femenino = preferences.getString("audio", "Femenina");
+        button.setOnClickListener((View v) -> {
+            int audio;
+            if (femenino.equals("Femenina")) {
+                audio = ubicacionDeAudioDeCaballoPorNombreFemenino(nombrePalabra);
+            } else {
+                audio = ubicacionDeAudioDeCaballoPorNombreMasculino(nombrePalabra);
+            }
+            MediaPlayer mediaPlayer = MediaPlayer.create(miniJuegoActivity, audio);
+            mediaPlayer.start();
+        });
+    }
 
+    @NonNull
+    private int ubicacionDeAudioDeCaballoPorNombreFemenino(String nombrePalabra) {
+        switch (nombrePalabra.toUpperCase()) {
+            //Razas
+            case "CUARTO_DE_MILLA":
+                return R.raw.cuarto_de_milla;
+            case "CRIOLLO":
+                return R.raw.criollo;
+            case "PETISO_ARGENTINO":
+                return R.raw.petiso_argentino;
+            case "MESTIZO_CRUZA_ARABE":
+                return R.raw.mestizo_cruza_arabe;
+            case "MESTIZO":
+                return R.raw.mestizo;
+            case "SILLA_ARGENTINO":
+                return R.raw.silla_argentino;
+            case "SANGRE_PURO_CARRERA":
+                return R.raw.sangre_pura_de_carrera;
+            //Pelajes
+            case "ALAZAN":
+                return R.raw.alazan;
+            case "ALAZAN_PINTADO":
+                return R.raw.alazan_pintado;
+            case "ALAZAN_RUANO":
+                return R.raw.alazan_ruano;
+            case "ALAZAN_TOSTADO":
+                return R.raw.alazan_tostado;
+            case "BAYO":
+                return R.raw.bayo;
+            case "BAYO_GATEADO":
+                return R.raw.bayo_gateado;
+            case "BLANCO":
+                return R.raw.blanco;
+            case "MORO":
+                return R.raw.mora;
+            case "OVERO_AZULAEJO":
+                return R.raw.overo_azulejo;
+            case "OVERO_ROSADO":
+                return R.raw.overo_rosado;
+            case "OVERO_ZAINO":
+                return R.raw.overo_zaino;
+            case "PICASO":
+                return R.raw.picazo;
+            case "TOBIANO":
+                return R.raw.tobiano;
+            case "TORDILLO":
+                return R.raw.tordillo;
+            case "TORDILLO_CANELA":
+                return R.raw.tordillo_canela;
+            case "TORDILLO_MORO":
+                return R.raw.tordillo;
+            case "ZAINO":
+                return R.raw.zaino;
+            case "ZAINO_COLORADO":
+                return R.raw.zaino_colorado;
+            case "ZAINO_OSCURO":
+                return R.raw.zaino_oscuro;
+            //raza y pelaje
+            case "PETISO_ARGENTINO_FIN_ROSILLO":
+                return R.raw.petiso_argentino_rosillo;
+            case "MESTIZO_CRUZA_ARABE_FIN_ALAZAN_TOSTADO":
+                return R.raw.mestizo_cruza_arabe_alazan_tostado;
+            case "SANGRE_PURA_CARRERA_FIN_ZAINO_COLORADO":
+                return R.raw.sangre_pura_de_carrera_zaina_colorada;
+            case "MESTIZO_OVERO_FIN_ZAINO":
+                return R.raw.mestizo_overo_zaino;
+            case "MESTIZO_FIN_ALAZAN_RUANO":
+                return R.raw.mestizo_alazan_ruano;
+            case "MESTIZO_FIN_BLANCO":
+                return R.raw.mestizo_blanco;
+            case "MESTIZO_QH_CON_CRIOLLO_FIN_OVERO_AZULEJO":
+                return R.raw.mestizo;
+            case "MESTIZO_FIN_ALAZAN":
+                return R.raw.mestizo_alazan;
+            case "MESTIZO_FIN_TOBIANO":
+                return R.raw.mestizo_tobiano;
+            case "MESTIZO_FIN_TORDILLO_CANELA":
+                return R.raw.mestizo_tordillo_canela;
+            case "MESTIZO_FIN_ZAINO":
+                return R.raw.mestizo_zaino;
+            case "CRIOLLO_FIN_PICASO":
+                return R.raw.criollo;
+            case "CUARTO_DE_MILLA_FIN_BAYO":
+                return R.raw.cuarto_de_milla_bayo;
+            case "PETISO_ARGENTINO_FIN_TORDILLO_MORO":
+                return R.raw.petiso_argentino;
+            case "MESTIZO_FIN_OVERO_ROSADO":
+                return R.raw.mestizo_overo_rosado;
+            case "MESTIZO_FIN_MORO":
+                return R.raw.mestizo_mora;
+            case "PETISO_ARGENTINO_FIN_ZAINO":
+                return R.raw.petiso_argentino_zaino;
+            case "MESTIZO_FIN_ALAZAN_PINTADO":
+                return R.raw.mestizo_alazan_pintado;
+            case "SILLA_ARGENTINO_FIN_ALAZAN":
+                return R.raw.silla_argentino_alazan;
+            case "CRIOLLO_FIN_BAYO_GATEADO":
+                return R.raw.criollo_gateado;
+            case "MESTIZO_FIN_ZAINO_OSCURO":
+                return R.raw.mestizo_zaino_oscuro;
+            case "MESTIZO_FIN_TORDILLO":
+                return R.raw.mestizo_tordillo;
+            default:
+                return R.drawable.defaultfur;
+        }
+    }
+
+    @NonNull
+    private int ubicacionDeAudioDeCaballoPorNombreMasculino(String nombrePalabra) {
+        switch (nombrePalabra.toUpperCase()) {
+            //Razas
+            case "CUARTO_DE_MILLA":
+                return R.raw.raza_cuarto_de_milla;
+            case "CRIOLLO":
+                return R.raw.raza_criollo;
+            case "PETISO_ARGENTINO":
+                return R.raw.raza_petiso_argentino;
+            case "MESTIZO_CRUZA_ARABE":
+                return R.raw.raza_mestizo_cruza_arabe;
+            case "MESTIZO":
+                return R.raw.raza_mestizo;
+            case "SILLA_ARGENTINO":
+                return R.raw.raza_silla_argentino;
+            case "SANGRE_PURO_CARRERA":
+                return R.raw.raza_sangre_pura_de_carrera;
+            //Pelajes
+            case "ALAZAN":
+                return R.raw.pelaje_alazan;
+            case "ALAZAN_PINTADO":
+                return R.raw.pelaje_alazan_pintado;
+            case "ALAZAN_RUANO":
+                return R.raw.pelaje_alazan_ruano;
+            case "ALAZAN_TOSTADO":
+                return R.raw.pelaje_alazan_tostado;
+            case "BAYO":
+                return R.raw.pelaje_bayo;
+            case "BAYO_GATEADO":
+                return R.raw.pelaje_bayo;
+            case "BLANCO":
+                return R.raw.pelaje_blanco;
+            case "MORO":
+                return R.raw.pelaje_moro;
+            case "OVERO_AZULEJO":
+                return R.raw.pelaje_overo_azulejo;
+            case "OVERO_ROSADO":
+                return R.raw.pelaje_overo_rosado;
+            case "OVERO_ZAINO":
+                return R.raw.pelaje_overo_zaino;
+            case "PICASO":
+                return R.raw.pelaje_picazo;
+            case "TOBIANO":
+                return R.raw.pelaje_tobiano;
+            case "TORDILLO":
+                return R.raw.pelaje_tordillo;
+            case "TORDILLO_CANELA":
+                return R.raw.pelaje_tordillo_canela;
+            case "TORDILLO_MORO":
+                return R.raw.pelaje_tordillo;
+            case "ZAINO":
+                return R.raw.pelaje_zaino;
+            case "ZAINO_COLORADO":
+                return R.raw.pelaje_zaino_colorado;
+            case "ZAINO_OSCURO":
+                return R.raw.pelaje_zaino_oscuro;
+            default:
+                return R.raw.relincho;
+        }
+    }
 }

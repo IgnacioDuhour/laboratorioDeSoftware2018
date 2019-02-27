@@ -58,24 +58,21 @@
             <TextView
                 android:id="@+id/palabraAReconocer"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Lorem Ipsum"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="25dp"
                 android:textStyle="bold" />
-            <!--
 
             <ImageButton
                 android:id="@+id/palabraButton1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:src="@drawable/audio_regular" />
-
-            -->
 
         </LinearLayout>
         <!-- row 2 end-->
