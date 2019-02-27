@@ -95,6 +95,14 @@
                     android:textSize="22sp"
                     android:text="@string/loren_ipsum" />
 
+                <ImageButton
+                    android:id="@+id/palabraButton0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/audio_regular" />
+
             </LinearLayout>
             <!-- col 1 end -->
 
@@ -114,6 +122,13 @@
                     android:layout_margin="5dp"
                     android:textSize="22sp"
                     android:text="@string/loren_ipsum" />
+                <ImageButton
+                    android:id="@+id/palabraButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/audio_regular" />
             </LinearLayout>
             <!-- col 2 end -->
 
@@ -133,6 +148,14 @@
                     android:layout_margin="5dp"
                     android:textSize="22sp"
                     android:text="@string/loren_ipsum" />
+
+                <ImageButton
+                    android:id="@+id/palabraButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/audio_regular" />
             </LinearLayout>
             <!-- col 3 end -->
 
@@ -152,6 +175,14 @@
                     android:layout_margin="5dp"
                     android:textSize="22sp"
                     android:text="@string/loren_ipsum" />
+
+                <ImageButton
+                    android:id="@+id/palabraButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/audio_regular" />
             </LinearLayout>
             <!-- col 4 end -->
 
