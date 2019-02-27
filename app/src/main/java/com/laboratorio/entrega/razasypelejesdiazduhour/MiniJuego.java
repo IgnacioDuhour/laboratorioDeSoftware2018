@@ -27,7 +27,7 @@ public abstract class MiniJuego {
         this.cantidadDeJugadasGanadas = 0;
         this.jugadasSecuencia = this.generarSecuenciaDeJugadasAleatoreas();
         this.jugadaActual = this.jugadasSecuencia[indiceJugadaActual];
-        this.numeroDeJugadaActual = 0;
+        this.numeroDeJugadaActual = 1;
     }
 
     /*
@@ -82,7 +82,7 @@ public abstract class MiniJuego {
         Precondición: Ninguna
      */
     public boolean esUltimaJugada() {
-        return this.cantidadTotalDeJugadas() - this.numeroDeJugadaActual() == 0;
+        return this.cantidadTotalDeJugadas() == this.numeroDeJugadaActual();
     }
 
     /*

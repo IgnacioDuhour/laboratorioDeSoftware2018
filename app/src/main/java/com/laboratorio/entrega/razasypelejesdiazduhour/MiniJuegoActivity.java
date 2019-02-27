@@ -260,7 +260,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         Propósito: genera un feedback para la última jugada ganada
         Precondición: Es la última jugada
      */
-    public void feedbackVisualkUltimaJugada(){
+    public void feedbackVisualUltimaJugada(){
         if (esMiniJuegoGanado()) {
             feedbackVisualMiniJuegoGanado();
         } else {
@@ -334,7 +334,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaGanada();
-                feedbackVisualkUltimaJugada();
+                feedbackVisualUltimaJugada();
             }
         });
     }
@@ -348,7 +348,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaGanada();
-                feedbackVisualkUltimaJugada();
+                feedbackVisualUltimaJugada();
             }
         });
     }
@@ -362,7 +362,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaNoGanada();
-                feedbackVisualkUltimaJugada();
+                feedbackVisualUltimaJugada();
             }
         });
     }
@@ -376,7 +376,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaNoGanada();
-                feedbackVisualkUltimaJugada();
+                feedbackVisualUltimaJugada();
             }
         });
     }

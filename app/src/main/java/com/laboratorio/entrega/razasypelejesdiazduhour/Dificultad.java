@@ -109,8 +109,13 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
         Propósito: carga las palabras NO ganadoras de la última jugada
         Precondición: Es la última jugada
     */
-    public void cargarPalabrasNoGanadorasUltimaJugada(MiniJuegoActivity miniJuegoActivity, String[] itemsNoGanadoresUltimaJugada, int[] posicionItemsNoGanadoresUltimaJugada) {
-
+    public void cargarPalabrasNoGanadorasUltimaJugada(MiniJuegoActivity miniJuegoActivity, String[] palabrasNoGanadorasUltimaJugada, int[] posicionPalabrasNoGanadorasUltimaJugada) {
+        int cantPalabras = palabrasNoGanadorasUltimaJugada.length;
+        for (int i=0; i<cantPalabras;i++) {
+            TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(posicionPalabrasNoGanadorasUltimaJugada[i]));
+            palabraNoGanadora.setText(sanitizarTexto(palabrasNoGanadorasUltimaJugada[i]));
+            miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadoraUltimaJugada(palabraNoGanadora);
+        }
     }
 
     /*
