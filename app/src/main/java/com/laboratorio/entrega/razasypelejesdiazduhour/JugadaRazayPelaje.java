@@ -3,18 +3,21 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class JugadaPelaje extends  Jugada {
+public class JugadaRazayPelaje extends Jugada {
 
-
-    public JugadaPelaje(TipoPelaje tipoPelajeAReconocer, Dificultad dificultad)  {
-        this.tipoAReconocer = tipoPelajeAReconocer;
-        this.tipoGanador = tipoPelajeAReconocer;
-        this.tiposAInteraccionar = TipoPelaje.tiposAleatoreasConElTipo(TipoPelaje.todosLosTiposDePelajes(), tipoPelajeAReconocer, dificultad.cantidadDeElementos());
+    public JugadaRazayPelaje(TipoRazayPelaje tipoRazayPelajeAReconocer, Dificultad dificultad)  {
+        this.tipoAReconocer = tipoRazayPelajeAReconocer;
+        this.tipoGanador = tipoRazayPelajeAReconocer;
+        this.tiposAInteraccionar = TipoRazayPelaje.tiposAleatoreasConElTipo(TipoRazayPelaje.todosLosTiposDeRazasyPelajes(), tipoRazayPelajeAReconocer, dificultad.cantidadDeElementos());
     }
+    
 
+    /*
+        Propósito: describe "n" tipos aleatoreos de caballos, incluyendo "tipoAReconocer"
+    */
     @Override
     public TipoCaballo[] nTiposAleatoreosConElTipo(TipoCaballo tipoAReconocer, int n) {
-        return TipoPelaje.tiposAleatoreasConElTipo(TipoPelaje.todosLosTiposDePelajes(), tipoAReconocer, n);
+        return TipoRazayPelaje.tiposAleatoreasConElTipo(TipoRazayPelaje.todosLosTiposDeRazasyPelajes(), tipoAReconocer, n);
     }
 
     /*
@@ -22,7 +25,7 @@ public class JugadaPelaje extends  Jugada {
      */
     @Override
     public String tipoDeJugada() {
-        return "Pelaje";
+        return "Raza y Pelaje";
     }
 
     /*
@@ -38,7 +41,7 @@ public class JugadaPelaje extends  Jugada {
      */
     public void cargarImagenAReconocer(MiniJuegoActivity miniJuegoActivity){
         ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(R.id.imagenAReconocer);
-        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorPelaje(this.itemAReconocer()));
+        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorRazayPelaje(this.itemAReconocer()));
     }
 
     /*
@@ -55,7 +58,7 @@ public class JugadaPelaje extends  Jugada {
      */
     public void cargarImagenGanadora (MiniJuegoActivity miniJuegoActivity) {
         ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(this.posicionItemGanador()));
-        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorPelaje(this.itemGanador()));
+        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorRazayPelaje(this.itemGanador()));
         miniJuegoActivity.cargarEventoOnClickParaImagenGanadora(imagenGanadora);
     }
 
@@ -63,10 +66,9 @@ public class JugadaPelaje extends  Jugada {
         Propósito: carga las imágenes NO ganadoras en la parte inferior del layout, donde se interaccionará para jugar
     */
     public void cargarImagenesNoGanadoras (MiniJuegoActivity miniJuegoActivity) {
-        int cantImagenes = this.cantidadDeItems();
-        for (int i=0; i<cantImagenes;i++) {
+        for (int i=0; i<this.cantidadDeItems()-1;i++) {
             ImageView imagenNoGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
-            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorPelaje(this.itemsAInteraccionar()[i]));
+            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorRazayPelaje(this.itemsAInteraccionar()[i]));
             miniJuegoActivity.cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora);
         }
     }
@@ -75,8 +77,7 @@ public class JugadaPelaje extends  Jugada {
         Propósito: carga las palabras NO ganadoras en la parte inferior del layout, donde se interaccionará para jugar
     */
     public void cargarPalabrasNoGanadoras(MiniJuegoActivity miniJuegoActivity) {
-        int cantPalabras = this.cantidadDeItems();
-        for (int i=0; i<cantPalabras;i++) {
+        for (int i=0; i<this.cantidadDeItems()-1;i++) {
             TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
             palabraNoGanadora.setText(sanitizarTexto(this.itemsNoGanadores()[i]));
             miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadora(palabraNoGanadora);
@@ -89,7 +90,7 @@ public class JugadaPelaje extends  Jugada {
     */
     public void cargarImagenGanadoraUltimaJugada (MiniJuegoActivity miniJuegoActivity) {
         ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(this.posicionItemGanador()));
-        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorPelaje(this.itemGanador()));
+        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorRazayPelaje(this.itemGanador()));
         miniJuegoActivity.cargarEventoOnClickParaImagenGanadoraUltimaJugada(imagenGanadora);
     }
 
@@ -98,10 +99,9 @@ public class JugadaPelaje extends  Jugada {
         Precondición: Es la última jugada
     */
     public void cargarImagenesNoGanadorasUltimaJugada (MiniJuegoActivity miniJuegoActivity) {
-        int cantImagenes = this.cantidadDeItems();
-        for (int i=0; i<cantImagenes;i++) {
+        for (int i=0; i<this.cantidadDeItems()-1;i++) {
             ImageView imagenNoGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
-            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorPelaje(this.itemsNoGanadores()[i]));
+            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorRazayPelaje(this.itemsNoGanadores()[i]));
             miniJuegoActivity.cargarEventoOnClickParaImagenNoGanadoraUltimaJugada(imagenNoGanadora);
         }
     }
@@ -121,8 +121,7 @@ public class JugadaPelaje extends  Jugada {
         Precondición: Es la última jugada
     */
     public void cargarPalabrasNoGanadorasUltimaJugada (MiniJuegoActivity miniJuegoActivity) {
-        int cantPalabras = this.cantidadDeItems();
-        for (int i=0; i<cantPalabras;i++) {
+        for (int i=0; i<this.cantidadDeItems()-1;i++) {
             TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
             palabraNoGanadora.setText(sanitizarTexto(this.itemsNoGanadores()[i]));
             miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadoraUltimaJugada(palabraNoGanadora);
@@ -130,8 +129,9 @@ public class JugadaPelaje extends  Jugada {
     }
 
     protected String sanitizarTexto(String texto) {
-        return texto.replace("_", " ").toUpperCase();
+        String[] str = texto.replace("_", " ").toUpperCase().split("FIN");
+        return str[0]+", "+str[1];
     }
 
-
 }
+

@@ -10,24 +10,7 @@ abstract class Jugada {
 
     protected TipoCaballo tipoAReconocer; //describe el tipo a reconocer ("Raza", "Pelaje" o "Cruza"), que se ubica en la parte superior del juego
     protected TipoCaballo tipoGanador; //describe el tipo ganador, que se ubica en la parte inferior del juego, con la que interaccionará el jugador
-    protected TipoCaballo tipoSeleccionado; //describe el tipo seleccionado de los a interaccionar
     protected TipoCaballo[] tiposAInteraccionar; // describe los tipos con los que interaccionará el jugador. Uno de los tipos es la jugada ganadora
-
-    //protected int posicionItemGanador; //describe la posicion del item ganador
-
-    /*
-        Propósito: Describe verdadero cuando es una jugada ganadora, es decir, el item a reconocer coincide con el item seleccionador
-     */
-    public boolean esJugadaGanada(){
-        return this.itemAReconocer().compareTo(this.itemSeleccionado())==0;
-    }
-
-    /*
-        Propósito: describe el item seleccionado luego de jugar
-     */
-    public String itemSeleccionado() {
-        return this.tipoSeleccionado.getNombre();
-    }
 
     /*
         Propósito: describe el item a reconocer

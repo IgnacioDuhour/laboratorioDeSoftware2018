@@ -20,14 +20,23 @@ public class RazayPelajeMinijuego extends MiniJuego {
     @Override
     public Jugada[] generarSecuenciaDeJugadasAleatoreas() {
         Jugada [] jugadas = new Jugada[TOTAL_JUGADAS];
-        TipoCaballo[] razasAleatoreas = TipoCaballo.nTiposAleatoreos(TipoRaza.todosLosTiposDeRazas(),3);
-        TipoCaballo[] pelajesAleatoreos = TipoCaballo.nTiposAleatoreos(TipoPelaje.todosLosTiposDePelajes(),2);
-        jugadas[0] = this.dificultad.nuevaJugada(new JugadaTipoRaza((razasAleatoreas[0])));
-        jugadas[1] = this.dificultad.nuevaJugada(new JugadaTipoRaza(razasAleatoreas[1]));
-        jugadas[2] = this.dificultad.nuevaJugada(new JugadaTipoRaza(razasAleatoreas[2]));
-        jugadas[3] = this.dificultad.nuevaJugada(new JugadaTipoPelaje(pelajesAleatoreos[0]));
-        jugadas[4] = this.dificultad.nuevaJugada(new JugadaTipoPelaje(pelajesAleatoreos[1]));
+        TipoCaballo[] razasAleatoreas = TipoCaballo.nTiposAleatoreos(TipoRaza.todosLosTiposDeRazas(),this.cantidadDeJugadasDeRaza());
+        TipoCaballo[] pelajesAleatoreos = TipoCaballo.nTiposAleatoreos(TipoPelaje.todosLosTiposDePelajes(), this.cantidadDeJugadasDePelaje());
+        for (int i=0; i<this.cantidadDeJugadasDeRaza();i++) {
+            jugadas[i] = new JugadaRaza((TipoRaza) razasAleatoreas[i], this.dificultad);
+        }
+        for (int i=0; i<this.cantidadDeJugadasDePelaje();i++) {
+            jugadas[i+this.cantidadDeJugadasDeRaza()] = new JugadaPelaje((TipoPelaje) pelajesAleatoreos[i], this.dificultad);
+        }
         return this.jugadasRandom(jugadas);
+    }
+
+    private int cantidadDeJugadasDeRaza() {
+        return 3;
+    }
+
+    private int cantidadDeJugadasDePelaje() {
+        return 2;
     }
 
 }

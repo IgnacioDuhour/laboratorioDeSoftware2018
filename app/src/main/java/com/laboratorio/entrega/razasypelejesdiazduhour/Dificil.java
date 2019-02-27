@@ -1,24 +1,13 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
-import android.widget.ImageView;
-import android.widget.TextView;
-
 public class Dificil extends Dificultad {
     @Override
     public int obtenerLayout(Interaccion interaccion) {
         return interaccion.obtenerLayoutDificil();
     }
 
-    public int cantidadElementos() { return 4; }
-
-    public Jugada nuevaJugada(JugadaTipo jugadaTipo) {
-        return new JugadaDificultadDificil(jugadaTipo);
-    }
-
     @Override
-    public int cantidadDeElementos() {
-        return 4;
-    }
+    public int cantidadDeElementos() { return 4; }
 
     /*
         Propósito: describe el identificador de una ImageView en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar

@@ -18,12 +18,9 @@ public class CruzaMiniJuego extends MiniJuego {
     public Jugada[] generarSecuenciaDeJugadasAleatoreas() {
         Jugada [] jugadas = new Jugada[TOTAL_JUGADAS];
         TipoCaballo[] cruzasAleatoreas = TipoCruza.nTiposAleatoreos(TipoCruza.todosLosTiposDeCruza(),TOTAL_JUGADAS);
-        jugadas[0] = new Jugadaruza(cruzasAleatoreas[0], this.dificultad);
-        jugadas[0] = this.dificultad.nuevaJugada(new JugadaCruza(cruzasAleatoreas[0]));
-        jugadas[1] = this.dificultad.nuevaJugada(new JugadaCruza(cruzasAleatoreas[1]));
-        jugadas[2] = this.dificultad.nuevaJugada(new JugadaCruza(cruzasAleatoreas[2]));
-        jugadas[3] = this.dificultad.nuevaJugada(new JugadaCruza(cruzasAleatoreas[3]));
-        jugadas[4] = this.dificultad.nuevaJugada(new JugadaCruza(cruzasAleatoreas[4]));
+        for (int i=0; i<this.cantidadTotalDeJugadas();i++) {
+            jugadas[i] = new JugadaCruza((TipoCruza) cruzasAleatoreas[i], this.dificultad);
+        }
         return this.jugadasRandom(jugadas);
     }
 }

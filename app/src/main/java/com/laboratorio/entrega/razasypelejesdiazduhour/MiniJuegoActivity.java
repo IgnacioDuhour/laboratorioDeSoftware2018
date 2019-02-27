@@ -110,8 +110,8 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         cargarItemsAInteraccionarDeLaJugadaActual();
     }
 
-    public JugadaTipo jugadaActual() {
-        return (JugadaTipo) this.miniJuego.jugadaActual();
+    public Jugada jugadaActual() {
+        return this.miniJuego.jugadaActual();
     }
     /*
         Propósito: Carga el item a reconoer de la jugada actual, ubicado en la parte superior

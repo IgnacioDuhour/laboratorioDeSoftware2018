@@ -15,24 +15,24 @@ public class ImagenPalabra extends Interaccion {
         Propósito: carga la imagen a reconocer según la configuracion definida. El item a reconocer se ubica en la parte superior
      */
     @Override
-    public void cargarItemAReconocer(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, JugadaTipo jugadaTipo) {
-        dificultad.cargarImagenAReconocer(miniJuegoActivity, jugadaTipo);
+    public void cargarItemAReconocer(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, Jugada jugada) {
+        dificultad.cargarImagenAReconocer(miniJuegoActivity, jugada);
     }
 
     /*
         Propósito: carga la palabra ganadora ubicada en la parte inferior segun la dificultad definida
      */
     @Override
-    public void cargarItemGanador(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, JugadaTipo jugadaTipo) {
-        dificultad.cargarPalabraGanadora(miniJuegoActivity, jugadaTipo);
+    public void cargarItemGanador(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, Jugada jugada) {
+        dificultad.cargarPalabraGanadora(miniJuegoActivity, jugada);
     }
 
     /*
         Propósito: carga las palabras No ganadoras ubicadas en la parte inferior segun la dificultad definida
      */
     @Override
-    public void cargarItemsNoGanadores(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, JugadaTipo jugadaTipo) {
-        dificultad.cargarPalabrasNoGanadoras(miniJuegoActivity, jugadaTipo);
+    public void cargarItemsNoGanadores(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, Jugada jugada) {
+        dificultad.cargarPalabrasNoGanadoras(miniJuegoActivity, jugada);
     }
 
     /*
@@ -40,8 +40,8 @@ public class ImagenPalabra extends Interaccion {
         Precondición: Es la última jugada
      */
     @Override
-    public void cargarItemGanadorUltimaJugada(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, JugadaTipo jugadaTipo) {
-        dificultad.cargarPalabraGanadoraUltimaJugada(miniJuegoActivity, jugadaTipo);
+    public void cargarItemGanadorUltimaJugada(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, Jugada jugada) {
+        dificultad.cargarPalabraGanadoraUltimaJugada(miniJuegoActivity, jugada);
     }
 
     /*
@@ -49,7 +49,7 @@ public class ImagenPalabra extends Interaccion {
         Precondición: Es la última jugada
      */
     @Override
-    public void cargarItemsNoGanadoresUltimaJugada(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, JugadaTipo jugadaTipo) {
-        dificultad.cargarPalabrasNoGanadorasUltimaJugada(miniJuegoActivity, jugadaTipo);
+    public void cargarItemsNoGanadoresUltimaJugada(Dificultad dificultad, MiniJuegoActivity miniJuegoActivity, Jugada jugada) {
+        dificultad.cargarPalabrasNoGanadorasUltimaJugada(miniJuegoActivity, jugada);
     }
 }

@@ -65,8 +65,7 @@ public class JugadaRaza extends Jugada {
         Propósito: carga las imágenes NO ganadoras en la parte inferior del layout, donde se interaccionará para jugar
     */
     public void cargarImagenesNoGanadoras (MiniJuegoActivity miniJuegoActivity) {
-        int cantImagenes = this.cantidadDeItems();
-        for (int i=0; i<cantImagenes;i++) {
+        for (int i=0; i<this.cantidadDeItems()-1;i++) {
             ImageView imagenNoGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
             imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorRaza(this.itemsAInteraccionar()[i]));
             miniJuegoActivity.cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora);
@@ -77,8 +76,7 @@ public class JugadaRaza extends Jugada {
         Propósito: carga las palabras NO ganadoras en la parte inferior del layout, donde se interaccionará para jugar
     */
     public void cargarPalabrasNoGanadoras(MiniJuegoActivity miniJuegoActivity) {
-        int cantPalabras = this.cantidadDeItems();
-        for (int i=0; i<cantPalabras;i++) {
+        for (int i=0; i<this.cantidadDeItems()-1;i++) {
             TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
             palabraNoGanadora.setText(sanitizarTexto(this.itemsNoGanadores()[i]));
             miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadora(palabraNoGanadora);
@@ -100,8 +98,7 @@ public class JugadaRaza extends Jugada {
         Precondición: Es la última jugada
     */
     public void cargarImagenesNoGanadorasUltimaJugada (MiniJuegoActivity miniJuegoActivity) {
-        int cantImagenes = this.cantidadDeItems();
-        for (int i=0; i<cantImagenes;i++) {
+        for (int i=0; i<this.cantidadDeItems()-1;i++) {
             ImageView imagenNoGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
             imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorRaza(this.itemsNoGanadores()[i]));
             miniJuegoActivity.cargarEventoOnClickParaImagenNoGanadoraUltimaJugada(imagenNoGanadora);
@@ -123,8 +120,7 @@ public class JugadaRaza extends Jugada {
         Precondición: Es la última jugada
     */
     public void cargarPalabrasNoGanadorasUltimaJugada (MiniJuegoActivity miniJuegoActivity) {
-        int cantPalabras = this.cantidadDeItems();
-        for (int i=0; i<cantPalabras;i++) {
+        for (int i=0; i<this.cantidadDeItems()-1;i++) {
             TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
             palabraNoGanadora.setText(sanitizarTexto(this.itemsNoGanadores()[i]));
             miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadoraUltimaJugada(palabraNoGanadora);
