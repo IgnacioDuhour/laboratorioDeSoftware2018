@@ -26,19 +26,28 @@ class TipoCaballo {
         Propósito: Describe una secuencia aleatórea de TiposCaballo a partir del parámetro "tipos"
     */
     public static TipoCaballo[] tiposAleatoreos(TipoCaballo[] tipos) {
-        TipoCaballo[] tiposAleatoreos = tipos;
-        for (int i = 0; i < tipos.length; i++) {
-            tiposAleatoreos[i] = tipos[i];
+        if (tipos.length == 2) {
+            int a = Aleatorio.entreMinyMax(0,1);
+            TipoCaballo aux;
+            if (a==0) {
+                aux = tipos[0];
+                tipos[0] = tipos[1];
+                tipos[1] = aux;
+                return  tipos;
+            } else {
+                return tipos;
+            }
+        } else {
+            int j;
+            TipoCaballo aux;
+            for (int i = 1; i < tipos.length; i++) {
+                j = Aleatorio.entreMinyMax(0, i - 1);
+                aux = tipos[i];
+                tipos[i] = tipos[j];
+                tipos[j] = aux;
+            }
+            return tipos;
         }
-        int j;
-        TipoCaballo aux;
-        for (int i = 1; i < tiposAleatoreos.length; i++) {
-            j = Aleatorio.entreMinyMax(0, i - 1);
-            aux = tiposAleatoreos[i];
-            tiposAleatoreos[i] = tiposAleatoreos[j];
-            tiposAleatoreos[j] = aux;
-        }
-        return tiposAleatoreos;
     }
 
 

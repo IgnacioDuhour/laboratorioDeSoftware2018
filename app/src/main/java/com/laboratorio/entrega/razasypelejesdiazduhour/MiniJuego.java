@@ -126,7 +126,7 @@ public abstract class MiniJuego {
         Propósito: Describe las jugadas desordenadas a partir de las jugadas pasadas por parámetro
     */
     public Jugada[] jugadasRandom(Jugada[] jugadas) {
-        Jugada[] jugadasRandom = new Jugada[jugadas.length];
+        /*Jugada[] jugadasRandom = new Jugada[jugadas.length];
         for (int i=0; i<TOTAL_JUGADAS;i++) {
             jugadasRandom[i] = jugadas[i];
         }
@@ -134,6 +134,11 @@ public abstract class MiniJuego {
             jugadasRandom = swapJugadas(i, Aleatorio.entreMinyMax(0,i-1), jugadasRandom);
         }
         return jugadasRandom;
+        */
+        for (int i=1; i<TOTAL_JUGADAS;i++) {
+            jugadas= swapJugadas(i, Aleatorio.entreMinyMax(0,i-1), jugadas);
+        }
+        return jugadas;
     }
 
 
