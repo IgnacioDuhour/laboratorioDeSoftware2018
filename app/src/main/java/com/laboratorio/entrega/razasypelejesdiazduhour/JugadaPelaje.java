@@ -51,6 +51,8 @@ public class JugadaPelaje extends  Jugada {
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionItemGanador()));
         palabraAReconocer.setText(sanitizarTexto(this.itemAReconocer()));
         miniJuegoActivity.cargarEventoOnClickParaPalabraGanadora(palabraAReconocer);
+        ImageButton button = (ImageButton) miniJuegoActivity.findViewById(this.idImageButtonSegunPosicion(this.posicionItemGanador()));
+        setearOnClick(miniJuegoActivity, button, this.itemAReconocer());
     }
 
     /*
@@ -82,6 +84,8 @@ public class JugadaPelaje extends  Jugada {
             TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
             palabraNoGanadora.setText(sanitizarTexto(this.itemsNoGanadores()[i]));
             miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadora(palabraNoGanadora);
+            ImageButton button = (ImageButton) miniJuegoActivity.findViewById(this.idImageButtonSegunPosicion(this.posicionesItemsNoGanadores()[i]));
+            setearOnClick(miniJuegoActivity, button, this.itemsNoGanadores()[i]);
         }
     }
 
@@ -115,6 +119,8 @@ public class JugadaPelaje extends  Jugada {
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionItemGanador()));
         palabraAReconocer.setText(sanitizarTexto(this.itemGanador()));
         miniJuegoActivity.cargarEventoOnClickParaPalabraGanadoraUltimaJugada(palabraAReconocer);
+        ImageButton button = (ImageButton) miniJuegoActivity.findViewById(this.idImageButtonSegunPosicion(this.posicionItemGanador()));
+        setearOnClick(miniJuegoActivity, button, this.itemGanador());
     }
 
     /*
@@ -126,6 +132,8 @@ public class JugadaPelaje extends  Jugada {
             TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
             palabraNoGanadora.setText(sanitizarTexto(this.itemsNoGanadores()[i]));
             miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadoraUltimaJugada(palabraNoGanadora);
+            ImageButton button = (ImageButton) miniJuegoActivity.findViewById(this.idImageButtonSegunPosicion(this.posicionesItemsNoGanadores()[i]));
+            setearOnClick(miniJuegoActivity, button, this.itemsNoGanadores()[i]);
         }
     }
 
