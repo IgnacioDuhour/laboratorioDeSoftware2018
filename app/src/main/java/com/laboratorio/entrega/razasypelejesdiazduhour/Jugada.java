@@ -106,4 +106,78 @@ abstract class Jugada {
         }
         return posicionesSinItemGanador;
     }
+
+
+    /*
+        Propósito: describe "n" tipos aleatoreos de caballos, incluyendo "tipoAReconocer"
+     */
+    public abstract TipoCaballo[] nTiposAleatoreosConElTipo(TipoCaballo tipoAReconocer, int n);
+
+    /*
+        Propósito: describe el tipo de jugada, pudiendo ser Raza o Pelaje o Cruza
+     */
+    public abstract String tipoDeJugada();
+
+    /*
+    Propósito: describe el identificador de una ImageView en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
+*/
+    protected int idImageViewSegunPosicion(int posicion) {
+        switch (posicion) {
+            case 0:
+                return R.id.imagenInteraccion0;
+            case 1:
+                return R.id.imagenInteraccion1;
+            case 2:
+                return R.id.imagenInteraccion2;
+            case 3:
+                return R.id.imagenInteraccion3;
+            default:
+                throw new IllegalArgumentException("Posicion de item inválida");
+        }
+    }
+
+    /*
+        Propósito: describe el identificador de una Textview en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
+     */
+    protected int idTextViewSegunPosicion(int posicion) {
+        switch (posicion) {
+            case 0:
+                return R.id.palabraInteraccion0;
+            case 1:
+                return R.id.palabraInteraccion1;
+            case 2:
+                return R.id.palabraInteraccion2;
+            case 3:
+                return R.id.palabraInteraccion3;
+            default:
+                throw new IllegalArgumentException("Posicion de item inválida");
+        }
+    }
+
+
+    public void setTipoAReconocer(String itemAReconocer) {
+        this.tipoAReconocer.setNombre(itemAReconocer);
+    }
+
+    protected abstract String sanitizarTexto(String texto);
+
+    public abstract void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity);
+
+    public abstract void cargarImagenAReconocer(MiniJuegoActivity miniJuegoActivity);
+
+    public abstract void cargarPalabraGanadora(MiniJuegoActivity miniJuegoActivity);
+
+    public abstract void cargarImagenGanadora(MiniJuegoActivity miniJuegoActivity);
+
+    public abstract void cargarImagenesNoGanadoras(MiniJuegoActivity miniJuegoActivity);
+
+    public abstract void cargarPalabrasNoGanadoras(MiniJuegoActivity miniJuegoActivity);
+
+    public abstract void cargarImagenGanadoraUltimaJugada(MiniJuegoActivity miniJuegoActivity);
+
+    public abstract void cargarImagenesNoGanadorasUltimaJugada(MiniJuegoActivity miniJuegoActivity);
+
+    public abstract void cargarPalabraGanadoraUltimaJugada(MiniJuegoActivity miniJuegoActivity);
+
+    public abstract void cargarPalabrasNoGanadorasUltimaJugada(MiniJuegoActivity miniJuegoActivity);
 }

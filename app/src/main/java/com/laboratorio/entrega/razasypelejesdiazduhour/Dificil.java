@@ -15,10 +15,14 @@ public class Dificil extends Dificultad {
         return new JugadaDificultadDificil(jugadaTipo);
     }
 
+    @Override
+    public int cantidadDeElementos() {
+        return 4;
+    }
+
     /*
         Propósito: describe el identificador de una ImageView en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
     */
-    @Override
     protected int idImageViewSegunPosicion(int posicion) {
         switch (posicion) {
             case 0:
@@ -38,7 +42,6 @@ public class Dificil extends Dificultad {
     /*
         Propósito: describe el identificador de una Textview en el layout según una posicion, que representa la ubicación dentro de los elementos a interaccionar
     */
-    @Override
     protected int idTextViewSegunPosicion(int posicion) {
         switch (posicion) {
             case 0:

@@ -110,12 +110,15 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         cargarItemsAInteraccionarDeLaJugadaActual();
     }
 
+    public JugadaTipo jugadaActual() {
+        return (JugadaTipo) this.miniJuego.jugadaActual();
+    }
     /*
         Propósito: Carga el item a reconoer de la jugada actual, ubicado en la parte superior
         Obsevación: el item a reconocer se encuentra en la parte superior del minijuego
      */
     public void cargarItemAReconocerDeLaJugadaActual() {
-        this.interaccion.cargarItemAReconocer(this.dificultad, this, this.miniJuego.itemGanadorDeLaJugadaActual());
+        this.interaccion.cargarItemAReconocer(this.dificultad, this, this.jugadaActual());
     }
 
     /*
@@ -146,7 +149,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
       Precondición: Hay una jugada actual definida
      */
     public void cargarItemGanador() {
-        this.interaccion.cargarItemGanador(this.dificultad, this, this.miniJuego.itemGanadorDeLaJugadaActual(), this.miniJuego.posicionItemGanadorDeJugadaActual());
+        this.interaccion.cargarItemGanador(this.dificultad, this, this.jugadaActual());
     }
 
     /*
@@ -154,7 +157,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         Precondición: hay una jugada actual definida.
      */
     public void cargarItemsNoGanadores() {
-        this.interaccion.cargarItemsNoGanadores(this.dificultad, this, this.miniJuego.itemsNoGanadoresDeLaJugadaActual(), this.miniJuego.posicionesItemsNoGanadoresDeLaJugadaActual());
+        this.interaccion.cargarItemsNoGanadores(this.dificultad, this, this.jugadaActual());
     }
 
     /*
@@ -162,7 +165,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         Precondición: Hay una jugada actual definida
     */
     public void cargarItemGanadorUltimaJugada() {
-        this.interaccion.cargarItemGanadorUltimaJugada(this.dificultad, this, this.miniJuego.itemGanadorDeLaJugadaActual(), this.miniJuego.posicionItemGanadorDeJugadaActual());
+        this.interaccion.cargarItemGanadorUltimaJugada(this.dificultad, this, this.jugadaActual());
     }
 
     /*
@@ -170,7 +173,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         Precondición: Hay una jugada actual definida
     */
     public void cargarItemsNoGanadoresUltimaJugada() {
-        this.interaccion.cargarItemsNoGanadoresUltimaJugada(this.dificultad, this, this.miniJuego.itemsNoGanadoresDeLaJugadaActual(), this.miniJuego.posicionesItemsNoGanadoresDeLaJugadaActual());
+        this.interaccion.cargarItemsNoGanadoresUltimaJugada(this.dificultad, this, this.jugadaActual());
     }
 
     /*
@@ -412,26 +415,8 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      * Propósito: describe el número que representa la ubicación de una imagen  a partir de un nombre
      * Parámetro: "nombre" representa el nombre de una imágen ubicada en "res/drawable"
      */
-
-
-    public int ubicacionDeImagenDeCaballo(String nombre) {
-        switch (nombre.toUpperCase()) {
-            //Razas
-            case "CUARTO_DE_MILLA":
-                return R.drawable.juana_cuarto_de_milla_bayo;
-            case "CRIOLLO":
-                return segundaSeleccionRandomCriollo();
-            case "PETISO_ARGENTINO":
-                return segundaSeleccionRandomPetisoArgentino();
-            case "MESTIZO_CRUZA_ARABE":
-                return R.drawable.ambar_mestizo_cruza_arabe_alazan_tostado;
-            case "MESTIZO":
-                return segundaSeleccionRandomMestizo();
-            case "SILLA_ARGENTINO":
-                return R.drawable.primavera_silla_argentino_alazan;
-            case "SANGRE_PURO_CARRERA":
-                return R.drawable.angola_sangrepuracarrera_zaino_colorado;
-            //Pelajes
+    public int ubicacionDeImagenDeCaballoPorPelaje(String nombrePelaje) {
+        switch (nombrePelaje.toUpperCase()) {
             case "ALAZAN":
                 return segundaSeleccionRandomAlazan();
             case "ALAZAN_PINTADO":
@@ -470,7 +455,34 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
                 return R.drawable.angola_sangrepuracarrera_zaino_colorado;
             case "ZAINO_OSCURO":
                 return R.drawable.tupac_mestizo_zaino_oscuro;
-             //raza y pelaje
+            default:
+                return R.drawable.defaultfur;
+        }
+    }
+
+    public int ubicacionDeImagenDeCaballoPorRaza(String nombreRaza) {
+        switch (nombreRaza.toUpperCase()) {
+            case "CUARTO_DE_MILLA":
+                return R.drawable.juana_cuarto_de_milla_bayo;
+            case "CRIOLLO":
+                return segundaSeleccionRandomCriollo();
+            case "PETISO_ARGENTINO":
+                return segundaSeleccionRandomPetisoArgentino();
+            case "MESTIZO_CRUZA_ARABE":
+                return R.drawable.ambar_mestizo_cruza_arabe_alazan_tostado;
+            case "MESTIZO":
+                return segundaSeleccionRandomMestizo();
+            case "SILLA_ARGENTINO":
+                return R.drawable.primavera_silla_argentino_alazan;
+            case "SANGRE_PURO_CARRERA":
+                return R.drawable.angola_sangrepuracarrera_zaino_colorado;
+             default:
+                 return R.drawable.defaultfur;
+        }
+    }
+
+    public int ubicacionDeImagenDeCaballoPorRazayPelaje(String nombre) {
+        switch (nombre.toUpperCase()) {
             case "PETISO_ARGENTINO_FIN_ROSILLO":
                 return R.drawable.amapola_petiso_argentino_rosillo;
             case "MESTIZO_CRUZA_ARABE_FIN_ALAZAN_TOSTADO":
@@ -515,6 +527,13 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
                 return R.drawable.tupac_mestizo_zaino_oscuro;
             case "MESTIZO_FIN_TORDILLO":
                 return R.drawable.zorzal_mestizo_tordillo;
+            default:
+                return R.drawable.defaultfur;
+        }
+    }
+
+    public int ubicacionDeImagenDeCaballoPorCruza(String nombreCruza) {
+        switch (nombreCruza.toUpperCase()) {
             case "BELLA":
                 return R.drawable.bella;
             case "BELLA_PADRES":
@@ -603,4 +622,5 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             default: return R.drawable.defaultfur;
         }
     }
+
 }
