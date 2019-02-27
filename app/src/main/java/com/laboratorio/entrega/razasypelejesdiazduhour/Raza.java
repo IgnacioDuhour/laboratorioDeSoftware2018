@@ -9,7 +9,7 @@ public enum Raza {
     MESTIZO_CRUZA_ARABE,
     MESTIZO,
     SILLA_ARGENTINO,
-    SANGREPUROCARRERA;
+    SANGRE_PURO_CARRERA;
 
     public static int cantidadDeRazas() {
         return Raza.values().length;

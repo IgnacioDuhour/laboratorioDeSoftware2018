@@ -14,11 +14,6 @@ public class CruzaActivity extends MiniJuegoActivity {
     }
 
     @Override
-    public int ubicacionDeImagenDeCaballo(String nombre) {
-        return 0;
-    }
-
-    @Override
     public void reIniciarMiniJuego() {
         //TODO: completar
     }

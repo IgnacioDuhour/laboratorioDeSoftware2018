@@ -198,15 +198,6 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-
-
-    /*
-     * Propósito: describe el número que representa la ubicación de una imagen a partir del nombre de la imagen
-     * Parámetro: "nombre" representa el nombre de una imágen ubicada en "res/drawable"
-     */
-    public abstract int ubicacionDeImagenDeCaballo(String nombre);
-
-
     /*
         Propósito: Evento del boton volver que regresa a la pantalla de Principal (MainActivity)
     */
@@ -397,5 +388,131 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
      */
     public boolean esMiniJuegoGanado() {
         return this.miniJuego.esMiniJuegoGanado();
+    }
+
+
+    /*
+     * Propósito: describe el número que representa la ubicación de una imagen  a partir de un nombre
+     * Parámetro: "nombre" representa el nombre de una imágen ubicada en "res/drawable"
+     */
+    public int ubicacionDeImagenDeCaballo(String nombre) {
+        switch (nombre.toUpperCase()) {
+            //Razas
+            case "CUARTO_DE_MILLA":
+                return R.drawable.juana_cuarto_de_milla_bayo;
+            case "CRIOLLO":
+                return segundaSeleccionRandomCriollo();
+            case "PETISO_ARGENTINO":
+                return segundaSeleccionRandomPetisoArgentino();
+            case "MESTIZO_CRUZA_ARABE":
+                return R.drawable.ambar_mestizo_cruza_arabe_alazan_tostado;
+            case "MESTIZO":
+                return segundaSeleccionRandomMestizo();
+            case "SILLA_ARGENTINO":
+                return R.drawable.primavera_silla_argentino_alazan;
+            case "SANGRE_PURO_CARRERA":
+                return R.drawable.angola_sangrepuracarrera_zaino_colorado;
+            //Pelajes
+            case "ALAZAN":
+                return segundaSeleccionRandomAlazan();
+            case "ALAZAN_PINTADO":
+                return R.drawable.pintada_mestizo_alazan_pintado;
+            case "ALAZAN_RUANO":
+                return R.drawable.bionda_mestizo_alazan_ruano;
+            case "ALAZAN_TOSTADO":
+                return R.drawable.ambar_mestizo_cruza_arabe_alazan_tostado;
+            case "BAYO":
+                return R.drawable.juana_cuarto_de_milla_bayo;
+            case "BAYO_GATEADO":
+                return R.drawable.tigre_criollo_bayo_gateado;
+            case "BLANCO":
+                return R.drawable.blanco_mestizo_blanco;
+            case "MORO":
+                return R.drawable.nala_mestizo_moro;
+            case "OVERO_AZULAEJO":
+                return R.drawable.bonita_mestizo_qh_con_criollo_overo_azulejo;
+            case "OVERO_ROSADO":
+                return R.drawable.muneco_mestizo_overo_rosado;
+            case "OVERO_ZAINO":
+                return R.drawable.antu_mestizo_overo_zaino;
+            case "PICASO":
+                return R.drawable.hualfin_criollo_picaso;
+            case "TOBIANO":
+                return R.drawable.candelaria_mestizo_tobiano;
+            case "TORDILLO":
+                return R.drawable.zorzal_mestizo_tordillo;
+            case "TORDILLO_CANELA":
+                return R.drawable.ciro_mestizo_tordillo_canela;
+            case "TORDILLO_MORO":
+                return R.drawable.mora_petiso_argentino_tordillo_moro;
+            case "ZAINO":
+                return segundaSeleccionRandomZaino();
+            case "ZAINO_COLORADO":
+                return R.drawable.angola_sangrepuracarrera_zaino_colorado;
+            case "ZAINO_OSCURO":
+                return R.drawable.tupac_mestizo_zaino_oscuro;
+            default:
+                return R.drawable.defaultfur;
+        }
+    }
+
+    private int segundaSeleccionRandomCriollo() {
+        int randomCriollo = Aleatorio.entreMinyMax(1, Criollo.values().length);
+        switch (randomCriollo) {
+            case 1: return R.drawable.hualfin_criollo_picaso;
+            case 2: return R.drawable.tigre_criollo_bayo_gateado;
+            default: return R.drawable.defaultfur;
+        }
+    }
+
+    private int segundaSeleccionRandomPetisoArgentino() {
+        int randomPetisoArgentino = Aleatorio.entreMinyMax(1, PetisoArgentino.values().length);
+        switch (randomPetisoArgentino) {
+            case 1: return R.drawable.mora_petiso_argentino_tordillo_moro;
+            case 2: return R.drawable.pamperito_petiso_argentino_zaino;
+            case 3: return R.drawable.amapola_petiso_argentino_rosillo;
+            default: return R.drawable.defaultfur;
+        }
+    }
+
+    private int segundaSeleccionRandomMestizo() {
+        int randomMestizo = Aleatorio.entreMinyMax(1, Mestizo.values().length);
+        switch (randomMestizo) {
+            case 1: return R.drawable.ambar_mestizo_cruza_arabe_alazan_tostado;
+            case 2: return R.drawable.antu_mestizo_overo_zaino;
+            case 3: return R.drawable.bionda_mestizo_alazan_ruano;
+            case 4: return R.drawable.blanco_mestizo_blanco;
+            case 5: return R.drawable.bonita_mestizo_qh_con_criollo_overo_azulejo;
+            case 6: return R.drawable.cacique_mestizo_alazan;
+            case 7: return R.drawable.candelaria_mestizo_tobiano;
+            case 8: return R.drawable.ciro_mestizo_tordillo_canela;
+            case 9: return R.drawable.felipe_mestizo_zaino;
+            case 10: return R.drawable.muneco_mestizo_overo_rosado;
+            case 11: return R.drawable.nala_mestizo_moro;
+            case 12: return R.drawable.pintada_mestizo_alazan_pintado;
+            case 13: return R.drawable.pochito_mestizo_zaino;
+            case 14: return R.drawable.tupac_mestizo_zaino_oscuro;
+            case 15: return R.drawable.zorzal_mestizo_tordillo;
+            default: return R.drawable.defaultfur;
+        }
+    }
+
+    private int segundaSeleccionRandomAlazan() {
+        int randomAlazan = Aleatorio.entreMinyMax(1, Alazan.values().length);
+        switch (randomAlazan) {
+            case 1: return R.drawable.primavera_silla_argentino_alazan;
+            case 2: return R.drawable.cacique_mestizo_alazan;
+            default: return R.drawable.defaultfur;
+        }
+    }
+
+    private int segundaSeleccionRandomZaino() {
+        int randomZaino = Aleatorio.entreMinyMax(1, Zaino.values().length);
+        switch (randomZaino) {
+            case 1: return R.drawable.felipe_mestizo_zaino;
+            case 2: return R.drawable.pamperito_petiso_argentino_zaino;
+            case 3: return R.drawable.pochito_mestizo_zaino;
+            default: return R.drawable.defaultfur;
+        }
     }
 }

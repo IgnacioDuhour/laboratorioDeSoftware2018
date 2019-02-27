@@ -89,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:textSize="35sp"
+                    android:textSize="22sp"
                     android:text="@string/loren_ipsum" />
             </LinearLayout>
             <!-- col 1 end -->
@@ -106,7 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:textSize="35sp"
+                    android:textSize="22sp"
                     android:text="@string/loren_ipsum" />
             </LinearLayout>
             <!-- col 2 end -->

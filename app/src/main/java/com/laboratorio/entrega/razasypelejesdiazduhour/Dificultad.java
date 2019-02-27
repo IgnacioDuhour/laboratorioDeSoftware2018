@@ -17,7 +17,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
      */
     public void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity, String nombrePalabra){
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(R.id.palabraAReconocer);
-        palabraAReconocer.setText(nombrePalabra);
+        palabraAReconocer.setText(sanitizarTexto(nombrePalabra));
     }
 
     /*
@@ -35,7 +35,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
     */
     public void cargarPalabraGanadora(MiniJuegoActivity miniJuegoActivity, String nombrePalabraGanadora, int posicionPalabraGanadora) {
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(posicionPalabraGanadora));
-        palabraAReconocer.setText(nombrePalabraGanadora);
+        palabraAReconocer.setText(sanitizarTexto(nombrePalabraGanadora));
         miniJuegoActivity.cargarEventoOnClickParaPalabraGanadora(palabraAReconocer);
     }
 
@@ -67,7 +67,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
         int cantPalabras = nombresPalabrasNoGanadoras.length;
         for (int i=0; i<cantPalabras;i++) {
             TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(posicionPalabrasNoGanadoras[i]));
-            palabraNoGanadora.setText(nombresPalabrasNoGanadoras[i]);
+            palabraNoGanadora.setText(sanitizarTexto(nombresPalabrasNoGanadoras[i]));
             miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadora(palabraNoGanadora);
         }
     }
@@ -101,7 +101,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
     */
     public void cargarPalabraGanadoraUltimaJugada(MiniJuegoActivity miniJuegoActivity, String palabraGanadorUltimaJugada, int posicionPalabraGanadorDeJugadaActual) {
         TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(posicionPalabraGanadorDeJugadaActual));
-        palabraAReconocer.setText(palabraGanadorUltimaJugada);
+        palabraAReconocer.setText(sanitizarTexto(palabraGanadorUltimaJugada));
         miniJuegoActivity.cargarEventoOnClickParaPalabraGanadoraUltimaJugada(palabraAReconocer);
     }
 
@@ -123,5 +123,14 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
      */
     protected abstract int idTextViewSegunPosicion(int posicion);
 
+    private String sanitizarTexto(String texto) {
+        /*
+        Elimina _ y lo reemplaza por blaco y pone en mayuscula el primer char
+        String aux = texto.replace("_", " ");
+        String primerCaracter = aux.substring(0,1).toUpperCase();
+        return primerCaracter + aux.substring(1);
+        */
+        return texto.replace("_", " ").toUpperCase();
+    }
 
 }
