@@ -3,17 +3,12 @@ package com.laboratorio.entrega.razasypelejesdiazduhour;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
+import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.VideoView;
 
-public class MiniJuegoGanado extends AppCompatActivity {
+public class MiniJuegoRazayPelajeJuntasGanadoActivity extends AppCompatActivity {
 
     private VideoView videoConfetiBg;
     MediaPlayer mediaPlayer;
@@ -22,13 +17,13 @@ public class MiniJuegoGanado extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mini_juego_ganado);
+        setContentView(R.layout.activity_mini_juego_razay_pelaje_juntas_ganado);
         cargarVideoConfeti();
 
     }
 
     public void irAInicio(View view) {
-        Intent i = new Intent(MiniJuegoGanado.this, SettingsActivity.class);
+        Intent i = new Intent(MiniJuegoRazayPelajeJuntasGanadoActivity.this, MainActivity.class);
         startActivity(i);
     }
 
@@ -37,5 +32,10 @@ public class MiniJuegoGanado extends AppCompatActivity {
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.confeti);
         videoConfetiBg.setVideoURI(uri);
         videoConfetiBg.start();
+    }
+
+    public void irAProximoJuego(View view) {
+        Intent i = new Intent(MiniJuegoRazayPelajeJuntasGanadoActivity.this, CruzaActivity.class);
+        startActivity(i);
     }
 }

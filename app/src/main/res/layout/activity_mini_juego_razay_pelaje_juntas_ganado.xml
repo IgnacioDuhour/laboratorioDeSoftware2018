@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MiniJuegoGanado"
-    tools:showIn="@layout/activity_mini_juego_ganado">
+    tools:context=".MiniJuegoRazayPelajeJuntasGanadoActivity"
+    tools:showIn="@layout/activity_mini_juego_razay_pelaje_juntas_ganado">
 
     <VideoView
         android:id="@+id/confetiBg"
@@ -55,7 +55,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Juego de Raza y Pelaje Ganado"
+                android:text="Juego de Raza y Pelaje Juntas Ganado"
                 android:textAllCaps="true"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="30sp"
@@ -67,6 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Jugar próximo juego"
+            android:onClick="irAProximoJuego"
             android:textAllCaps="true"
             tools:layout_editor_absoluteX="71dp"
             tools:layout_editor_absoluteY="304dp" />
