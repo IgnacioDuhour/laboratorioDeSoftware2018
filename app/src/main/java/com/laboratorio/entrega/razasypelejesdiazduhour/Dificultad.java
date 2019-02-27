@@ -16,8 +16,8 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
         Propósito: carga la palabra a reconocer ubicada en la parte superior.
      */
     public void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity, String nombrePalabra){
-        TextView palabraAReconocerFacil = (TextView) miniJuegoActivity.findViewById(R.id.palabraAReconocerFacil);
-        palabraAReconocerFacil.setText(nombrePalabra);
+        TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(R.id.palabraAReconocer);
+        palabraAReconocer.setText(nombrePalabra);
     }
 
     /*
@@ -25,7 +25,7 @@ public abstract class Dificultad extends AppCompatActivity { //o extends de AppC
      */
     public void cargarImagenAReconocer(MiniJuegoActivity miniJuegoActivity, String nombreImagen){
         //se encuentra el imageview
-        ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(R.id.imagenAReconocerFacil);
+        ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(R.id.imagenAReconocer);
         //se setea el source del imageview
         imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballo(nombreImagen));
     }
