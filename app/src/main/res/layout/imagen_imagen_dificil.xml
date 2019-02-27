@@ -91,7 +91,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/cruzaImageView0"
+                    android:id="@+id/imagenInteraccion0"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_margin="5dp"
@@ -110,7 +110,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/cruzaImageView1"
+                    android:id="@+id/imagenInteraccion1"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_margin="5dp"
@@ -128,7 +128,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/cruzaImageView2"
+                    android:id="@+id/imagenInteraccion2"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_margin="5dp"
@@ -146,7 +146,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/cruzaImageView3"
+                    android:id="@+id/imagenInteraccion3"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_margin="5dp"

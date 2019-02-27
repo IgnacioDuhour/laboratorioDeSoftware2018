@@ -41,7 +41,7 @@ class JugadaCruza extends Jugada {
      */
     public void cargarImagenAReconocer(MiniJuegoActivity miniJuegoActivity){
         ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(R.id.imagenAReconocer);
-        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorCruza(this.itemAReconocer()+"_padre"));
+        imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorCruza(this.itemAReconocer()+"_padres"));
     }
 
     /*
@@ -57,6 +57,7 @@ class JugadaCruza extends Jugada {
         Propósito: carga la imagen ganadora en la parte inferior del layout, donde se interaccionará para jugar
      */
     public void cargarImagenGanadora (MiniJuegoActivity miniJuegoActivity) {
+        int aux = this.posicionItemGanador();
         ImageView imagenGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(this.posicionItemGanador()));
         imagenGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorCruza(this.itemGanador()));
         miniJuegoActivity.cargarEventoOnClickParaImagenGanadora(imagenGanadora);
