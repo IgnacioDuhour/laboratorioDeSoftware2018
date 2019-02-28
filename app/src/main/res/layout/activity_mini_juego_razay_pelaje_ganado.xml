@@ -62,13 +62,15 @@ tools:showIn="@layout/activity_mini_juego_razay_pelaje_ganado">
             android:textStyle="bold" />
     </LinearLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jugar próximo juego"
+        android:background="@android:color/transparent"
         android:onClick="irAProximoJuego"
+        android:text="Jugar próximo juego"
         android:textAllCaps="true"
+        app:srcCompat="@drawable/jugar_regular"
         tools:layout_editor_absoluteX="71dp"
         tools:layout_editor_absoluteY="304dp" />
 

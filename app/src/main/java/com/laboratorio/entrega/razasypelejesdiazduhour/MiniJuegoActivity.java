@@ -432,7 +432,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
                 return R.drawable.blanco_mestizo_blanco;
             case "MORO":
                 return R.drawable.nala_mestizo_moro;
-            case "OVERO_AZULAEJO":
+            case "OVERO_AZULEJO":
                 return R.drawable.bonita_mestizo_qh_con_criollo_overo_azulejo;
             case "OVERO_ROSADO":
                 return R.drawable.muneco_mestizo_overo_rosado;
@@ -657,7 +657,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
                 return R.raw.blanco;
             case "MORO":
                 return R.raw.mora;
-            case "OVERO_AZULAEJO":
+            case "OVERO_AZULEJO":
                 return R.raw.overo_azulejo;
             case "OVERO_ROSADO":
                 return R.raw.overo_rosado;

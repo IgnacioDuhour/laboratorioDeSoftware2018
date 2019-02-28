@@ -10,7 +10,7 @@ import android.widget.VideoView;
 
 public class MiniJuegoCruzaGanadoActivity extends AppCompatActivity {
 
-    private VideoView videoConfetiBg;
+    private VideoView videoTrofeoBg;
     MediaPlayer mediaPlayer;
 
 
@@ -28,10 +28,10 @@ public class MiniJuegoCruzaGanadoActivity extends AppCompatActivity {
     }
 
     private void cargarVideoConfeti(){
-        videoConfetiBg = (VideoView) findViewById(R.id.confetiBg);
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.confeti);
-        videoConfetiBg.setVideoURI(uri);
-        videoConfetiBg.start();
+        videoTrofeoBg = (VideoView) findViewById(R.id.trofeoBg);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.trofeo);
+        videoTrofeoBg .setVideoURI(uri);
+        videoTrofeoBg .start();
     }
 
 }

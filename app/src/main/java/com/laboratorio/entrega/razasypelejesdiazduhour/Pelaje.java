@@ -9,7 +9,7 @@ public enum Pelaje {
     BAYO_GATEADO,
     BLANCO,
     MORO,
-    OVERO_AZULAEJO,
+    OVERO_AZULEJO,
     OVERO_ROSADO,
     OVERO_ZAINO,
     PICASO,

@@ -27,7 +27,7 @@ public class RazayPelajeJuntasActivity extends MiniJuegoActivity {
     */
     @Override
     public void reIniciarMiniJuego() {
-        Intent i = new Intent(RazayPelajeJuntasActivity.this, RazaYPelajeActivity.class);
+        Intent i = new Intent(RazayPelajeJuntasActivity.this, RazayPelajeJuntasActivity.class);
         startActivity(i);
     }
 

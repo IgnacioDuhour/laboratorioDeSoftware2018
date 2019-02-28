@@ -17,7 +17,8 @@ public class CruzaActivity extends MiniJuegoActivity {
 
     @Override
     public void reIniciarMiniJuego() {
-        //TODO: completar
+        Intent i = new Intent(CruzaActivity.this, CruzaActivity.class);
+        startActivity(i);
     }
 
     @Override
@@ -33,5 +34,14 @@ public class CruzaActivity extends MiniJuegoActivity {
     public void cargarSiguienteMiniJuego() {
         Intent i = new Intent(CruzaActivity.this, MainActivity.class);
         startActivity(i);
+    }
+
+    /*
+        Propósito: Selecciona el layout segun configuración
+        Precondición: Hay una dificultad e interacción definida
+     */
+    public void definirLayoutSegunConfiguracion() {
+        this.interaccion = new ImagenImagen();
+        setContentView(this.dificultad.obtenerLayout(this.interaccion));
     }
 }

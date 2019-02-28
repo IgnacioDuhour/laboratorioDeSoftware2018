@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_mini_juego_cruza_ganado">
 
     <VideoView
-        android:id="@+id/confetiBg"
+        android:id="@+id/trofeoBg"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,7 +57,7 @@
                 android:layout_gravity="center"
                 android:text="Juego de Cruzas Ganado"
                 android:textAllCaps="true"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#FFF"
                 android:textSize="30sp"
                 android:textStyle="bold" />
         </LinearLayout>

@@ -89,10 +89,10 @@
                     android:id="@+id/palabraInteraccion0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="25dp"
                     android:gravity="center"
                     android:text="@string/loren_ipsum"
-                    android:textSize="22sp" />
+                    android:textSize="35sp" />
 
                 <ImageButton
                     android:id="@+id/palabraButton0"
@@ -116,10 +116,10 @@
                     android:id="@+id/palabraInteraccion1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="25dp"
                     android:gravity="center"
                     android:text="@string/loren_ipsum"
-                    android:textSize="22sp" />
+                    android:textSize="35sp" />
 
                 <ImageButton
                     android:id="@+id/palabraButton1"

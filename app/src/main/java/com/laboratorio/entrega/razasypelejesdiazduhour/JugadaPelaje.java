@@ -68,10 +68,9 @@ public class JugadaPelaje extends  Jugada {
         Propósito: carga las imágenes NO ganadoras en la parte inferior del layout, donde se interaccionará para jugar
     */
     public void cargarImagenesNoGanadoras (MiniJuegoActivity miniJuegoActivity) {
-        int cantImagenes = this.cantidadDeItems();
-        for (int i=0; i<cantImagenes;i++) {
+        for (int i=0; i<this.cantidadDeItems()-1;i++) {
             ImageView imagenNoGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
-            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorPelaje(this.itemsAInteraccionar()[i]));
+            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorPelaje(this.itemsNoGanadores()[i]));
             miniJuegoActivity.cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora);
         }
     }

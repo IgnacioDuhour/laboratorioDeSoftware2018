@@ -72,7 +72,7 @@ class JugadaCruza extends Jugada {
     public void cargarImagenesNoGanadoras (MiniJuegoActivity miniJuegoActivity) {
         for (int i=0; i<this.cantidadDeItems()-1;i++) {
             ImageView imagenNoGanadora = (ImageView) miniJuegoActivity.findViewById(this.idImageViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
-            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorCruza(this.itemsAInteraccionar()[i]));
+            imagenNoGanadora.setImageResource(miniJuegoActivity.ubicacionDeImagenDeCaballoPorCruza(this.itemsNoGanadores()[i]));
             miniJuegoActivity.cargarEventoOnClickParaImagenNoGanadora(imagenNoGanadora);
         }
     }
