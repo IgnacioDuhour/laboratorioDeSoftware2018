@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         ImageButton aboutButton = act.findViewById(R.id.imageButton2);
         aboutButton.setOnClickListener((View v) -> {
                     AlertDialog.Builder about = new AlertDialog.Builder(act);
-                    about.setMessage(R.string.about_message)
-                            .setCancelable(false)
+                    about.setView(R.layout.about_dialog);
+                    about.setCancelable(false)
                             .setPositiveButton(R.string.about_dialog_btn, (DialogInterface dialog, int which) ->
                                     dialog.dismiss()
                             );

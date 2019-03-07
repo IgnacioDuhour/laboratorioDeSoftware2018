@@ -12,14 +12,14 @@
     <string name="settings_button" translatable="false">Configuración</string>
     <!-- Dialogo Acerca de -->
     <string name="about_title" translatable="false">ACERCA DE CEDICA RAZAS Y PELAJES</string>
-    <string name="about_dialog_btn" translatable="false">Ok</string>
-    <string name="about_message" translatable="false">El Centro de Equitación para Personas con Discapacidad y Carenciadas -CEDICA- es una Asociación Civil sin Fines de Lucro fundada en 1994 en la ciudad de La Plata, Provincia de Buenos Aires. Trabaja con la finalidad de igualar oportunidades en pos de la Inclusión Social, procurando la reinserción familiar, el logro de la escolaridad, la integración laboral y la mejora integral de la calidad de vida. La actividad se denomina Terapias y Actividades Asistidas con Caballos (TACAs).
+    <string name="about_dialog_btn" translatable="false">Cerrar</string>
+    <string name="about_message_center" translatable="false">El Centro de Equitación para Personas con Discapacidad y Carenciadas -CEDICA- es una Asociación Civil sin Fines de Lucro fundada en 1994 en la ciudad de La Plata, Provincia de Buenos Aires. Trabaja con la finalidad de igualar oportunidades en pos de la Inclusión Social, procurando la reinserción familiar, el logro de la escolaridad, la integración laboral y la mejora integral de la calidad de vida. La actividad se denomina Terapias y Actividades Asistidas con Caballos (TACAs).
         CEDICA junto al Laboratorio de Investigación en Nuevas Tecnologías Informáticas -LINTI- de la Facultad de Informática de la Universidad Nacional de La Plata, como proyecto final  2018 de la cátedra de Laboratorio de Software, efectuaron en equipo la presente aplicación, que consiste en identificar las distintas razas, pelajes y cruzas de los caballos de CEDICA para favorecer los procesos terapéuticos y de enseñanza y aprendizaje de las alumnas y alumnos que concurren al centro.
-        La finalidad es que los jinetes y amazonas puedan reconocer las razas, pelajes y cruzas de los diferentes caballos que se encuentran en la Institución, mediante la instancia de juego, para luego poder aplicar dicho conocimiento de manera vivencial.
-        La aplicación está compuesta por:
-        1.- MODO RECONOCIMIENTO: donde el objetivo es que las amazonas y jinetes puedan distinguir su caballo y el de sus compañeras y compañeros. Compuesto por una galería de imágenes y audios que brindan mayor información respecto a las razas, pelajes y cruzas de las opciones presentes.
-        2.- MODO JUEGO: compuesto por una serie de minijuegos que consisten en avanzar de nivel, según los aciertos obtenidos, hacia una mayor complejidad. El jugador ganará al sortear los diferentes niveles pudiendo adentrarse a una nueva aventura.
-        Maira Diaz, Ignacio Duhour.</string>
+        La finalidad es que los jinetes y amazonas puedan reconocer las razas, pelajes y cruzas de los diferentes caballos que se encuentran en la Institución, mediante la instancia de juego, para luego poder aplicar dicho conocimiento de manera vivencial.</string>
+    <string name="about_message_app" translatable="false">La aplicación está compuesta por:</string>
+    <string name="about_message_app_1" translatable="false">1.- MODO RECONOCIMIENTO: donde el objetivo es que las amazonas y jinetes puedan distinguir su caballo y el de sus compañeras y compañeros. Compuesto por una galería de imágenes y audios que brindan mayor información respecto a las razas, pelajes y cruzas de las opciones presentes.</string>
+    <string name="about_message_app_2" translatable="false">2.- MODO JUEGO: compuesto por una serie de minijuegos que consisten en avanzar de nivel, según los aciertos obtenidos, hacia una mayor complejidad. El jugador ganará al sortear los diferentes niveles pudiendo adentrarse a una nueva aventura.</string>
+    <string name="about_group" translatable="false">Maira Diaz, Ignacio Duhour.</string>
     <!-- Settings -->
     <string name="rec_mode_title" translatable="false">Modo Reconocimiento:</string>
     <string name="play_mode_title" translatable="false">Minijuego:</string>
@@ -165,22 +165,22 @@
     RAZA: PETISO ARGENTINO. Raza de Caballos que nació de la cruza de petisos importados con caballos de otras razas, principalmente autóctonas. De cabeza mediana, orejas pequeñas, cuerpo armonioso y profundo; de acción ágil y suelta, temperamento activo y brioso.En la actualidad, se usa para actividades hípicas con niños y niñas.
     PELAJE: TOBIANO. Capa caracterizada por manchas de bordes definidos blancas –grandes o pequeñas- que, generalmente, se inician sobre la parte dorsal.
     Pueden ser: Tobiano Colorado – Tobiano Negro.</string>
-    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_login" translatable="false">Sign in</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
+    <string name="prompt_email" translatable="false">Email</string>
+    <string name="prompt_password" translatable="false">Password (optional)</string>
+    <string name="action_sign_in" translatable="false">Sign in or register</string>
+    <string name="action_sign_in_short" translatable="false">Sign in</string>
+    <string name="error_invalid_email" translatable="false">This email address is invalid</string>
+    <string name="error_invalid_password" translatable="false">This password is too short</string>
+    <string name="error_incorrect_password" translatable="false">This password is incorrect</string>
+    <string name="error_field_required" translatable="false">This field is required</string>
+    <string name="permission_rationale" translatable="false">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_mini_juego_ganado">MiniJuegoGanado</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_activity_mini_juego_ganado2">MiniJuegoGanado2</string>
+    <string name="title_activity_mini_juego_ganado" translatable="false">MiniJuegoGanado</string>
+    <string name="title_home" translatable="false">Home</string>
+    <string name="title_dashboard" translatable="false">Dashboard</string>
+    <string name="title_notifications" translatable="false">Notifications</string>
+    <string name="title_activity_mini_juego_ganado2" translatable="false">MiniJuegoGanado2</string>
 </resources>

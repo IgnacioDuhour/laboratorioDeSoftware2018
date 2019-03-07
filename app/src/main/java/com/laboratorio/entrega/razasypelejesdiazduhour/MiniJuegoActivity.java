@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -293,8 +294,11 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                imageView.setBackgroundResource(R.drawable.border_green);
                 feedbackSonoroJugadaGanada();
+                //imageView.setBackgroundResource(R.drawable.background_transparent);
                 incrementarJugadaGanada();
+                SystemClock.sleep(3000);
                 cargarJugadaSiguiente();
             }
         });
@@ -323,7 +327,10 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                imageView.setBackgroundResource(R.drawable.border_red);
                 feedbackSonoroJugadaNoGanada();
+                //imageView.setBackgroundResource(R.drawable.background_transparent);
+                SystemClock.sleep(3000);
                 cargarJugadaSiguiente();
             }
         });
