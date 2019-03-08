@@ -33,10 +33,7 @@ class JugadaCruza extends Jugada {
         Propósito: carga la palabra a reconocer ubicada en la parte superior.
      */
     public void cargarPalabraAReconocer(MiniJuegoActivity miniJuegoActivity){
-        TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(R.id.palabraAReconocer);
-        palabraAReconocer.setText(sanitizarTexto(this.itemAReconocer()));
-        ImageButton button = (ImageButton) miniJuegoActivity.findViewById(R.id.palabraButton1);
-        setearOnClick(miniJuegoActivity, button, this.itemAReconocer());
+        //no tiene contenido
     }
 
     /*
@@ -51,10 +48,7 @@ class JugadaCruza extends Jugada {
         Propósito: carga la palabra ganadora en la parte inferior del layout, donde se interaccionará para jugar
     */
     public void cargarPalabraGanadora(MiniJuegoActivity miniJuegoActivity) {
-        TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionItemGanador()));
-        palabraAReconocer.setText(sanitizarTexto(this.itemAReconocer()));
-        palabraAReconocer.setBackgroundResource(R.drawable.border_green);
-        miniJuegoActivity.cargarEventoOnClickParaPalabraGanadora(palabraAReconocer);
+        //no tiene contenido
     }
 
     /*
@@ -84,12 +78,7 @@ class JugadaCruza extends Jugada {
         Propósito: carga las palabras NO ganadoras en la parte inferior del layout, donde se interaccionará para jugar
     */
     public void cargarPalabrasNoGanadoras(MiniJuegoActivity miniJuegoActivity) {
-        for (int i=0; i<this.cantidadDeItems()-1;i++) {
-            TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
-            palabraNoGanadora.setText(sanitizarTexto(this.itemsNoGanadores()[i]));
-            palabraNoGanadora.setBackgroundResource(R.drawable.border_red);
-            miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadora(palabraNoGanadora);
-        }
+        //no tiene contenido
     }
 
     /*
@@ -121,10 +110,7 @@ class JugadaCruza extends Jugada {
         Precondición: Es la última jugada
     */
     public void cargarPalabraGanadoraUltimaJugada (MiniJuegoActivity miniJuegoActivity){
-        TextView palabraAReconocer = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionItemGanador()));
-        palabraAReconocer.setText(sanitizarTexto(this.itemGanador()));
-        palabraAReconocer.setBackgroundResource(R.drawable.border_green);
-        miniJuegoActivity.cargarEventoOnClickParaPalabraGanadoraUltimaJugada(palabraAReconocer);
+        //no tiene contenido
     }
 
     /*
@@ -132,12 +118,7 @@ class JugadaCruza extends Jugada {
         Precondición: Es la última jugada
     */
     public void cargarPalabrasNoGanadorasUltimaJugada (MiniJuegoActivity miniJuegoActivity) {
-        for (int i=0; i<this.cantidadDeItems()-1;i++) {
-            TextView palabraNoGanadora = (TextView) miniJuegoActivity.findViewById(this.idTextViewSegunPosicion(this.posicionesItemsNoGanadores()[i]));
-            palabraNoGanadora.setText(sanitizarTexto(this.itemsNoGanadores()[i]));
-            palabraNoGanadora.setBackgroundResource(R.drawable.border_red);
-            miniJuegoActivity.cargarEventoOnClickParaPalabraNoGanadoraUltimaJugada(palabraNoGanadora);
-        }
+       //no tiene contenido
     }
 
     protected String sanitizarTexto(String texto) {

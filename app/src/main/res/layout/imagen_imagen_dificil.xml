@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_margin="20dp"
             android:orientation="horizontal">
 
             <ImageButton
@@ -92,8 +92,9 @@
 
                 <ImageView
                     android:id="@+id/imagenInteraccion0"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_width="370dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:contentDescription="@string/minigame_first_image"
                     app:srcCompat="@drawable/defaultfur" />
@@ -111,8 +112,9 @@
 
                 <ImageView
                     android:id="@+id/imagenInteraccion1"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_width="370dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:contentDescription="@string/minigame_second_image"
                     app:srcCompat="@drawable/defaultfur" />
@@ -129,8 +131,9 @@
 
                 <ImageView
                     android:id="@+id/imagenInteraccion2"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_width="370dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:contentDescription="@string/minigame_third_image"
                     app:srcCompat="@drawable/defaultfur" />
@@ -147,8 +150,9 @@
 
                 <ImageView
                     android:id="@+id/imagenInteraccion3"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_width="370dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:contentDescription="@string/minigame_fourth_image"
                     app:srcCompat="@drawable/defaultfur" />

@@ -312,6 +312,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 feedbackSonoroJugadaGanada();
                 incrementarJugadaGanada();
+                SystemClock.sleep(3000);
                 cargarJugadaSiguiente();
             }
         });
@@ -341,6 +342,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaNoGanada();
+                SystemClock.sleep(3000);
                 cargarJugadaSiguiente();
             }
         });
@@ -355,6 +357,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaGanada();
+                SystemClock.sleep(2000);
                 incrementarJugadaGanada();
                 feedbackVisualUltimaJugada();
             }
@@ -370,6 +373,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaGanada();
+                SystemClock.sleep(2000);
                 incrementarJugadaGanada();
                 feedbackVisualUltimaJugada();
             }
@@ -385,6 +389,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaNoGanada();
+                SystemClock.sleep(2000);
                 feedbackVisualUltimaJugada();
             }
         });
@@ -399,6 +404,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feedbackSonoroJugadaNoGanada();
+                SystemClock.sleep(2000);
                 feedbackVisualUltimaJugada();
             }
         });

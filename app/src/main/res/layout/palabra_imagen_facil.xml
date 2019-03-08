@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_amarillo"
@@ -31,7 +32,8 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginBottom="15dp"
             android:orientation="horizontal">
 
             <TextView
@@ -51,7 +53,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="100dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
             android:layout_marginBottom="30dp"
@@ -62,8 +64,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:text="Lorem Ipsum"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
+                android:text="@string/loren_ipsum"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="35sp"
@@ -83,9 +85,9 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:baselineAligned="false"
             android:orientation="horizontal"
-            android:weightSum="2"
-            android:baselineAligned="false">
+            android:weightSum="2">
             <!-- col 1 -->
             <LinearLayout
                 android:layout_width="0dp"
@@ -96,10 +98,11 @@
 
                 <ImageView
                     android:id="@+id/imagenInteraccion0"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_width="344dp"
+                    android:layout_height="280dp"
+                    android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    android:layout_weight="1"
+                    android:adjustViewBounds="false"
                     android:contentDescription="@string/minigame_first_image"
                     app:srcCompat="@drawable/defaultfur" />
             </LinearLayout>
@@ -114,10 +117,10 @@
 
                 <ImageView
                     android:id="@+id/imagenInteraccion1"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_width="344dp"
+                    android:layout_height="280dp"
+                    android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    android:layout_weight="1"
                     android:contentDescription="@string/minigame_second_image"
                     app:srcCompat="@drawable/defaultfur" />
             </LinearLayout>

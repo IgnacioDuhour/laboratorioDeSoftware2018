@@ -17,7 +17,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_margin="30dp"
+            android:layout_margin="20dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -49,18 +49,14 @@
 
         </LinearLayout>
         <!-- row 1 end -->
-
-        <!-- row 2 -->
-        <!-- row 2 end-->
-
         <!-- row 3 -->
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="40dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="20dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -78,9 +74,9 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:baselineAligned="false"
             android:orientation="horizontal"
-            android:weightSum="2"
-            android:baselineAligned="false">
+            android:weightSum="2">
 
             <!-- col 1 -->
             <LinearLayout
@@ -92,8 +88,9 @@
 
                 <ImageView
                     android:id="@+id/imagenInteraccion0"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_width="344dp"
+                    android:layout_height="280dp"
+                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:contentDescription="@string/minigame_first_image"
                     app:srcCompat="@drawable/defaultfur" />
@@ -111,8 +108,9 @@
 
                 <ImageView
                     android:id="@+id/imagenInteraccion1"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_width="370dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:contentDescription="@string/minigame_second_image"
                     app:srcCompat="@drawable/defaultfur" />
