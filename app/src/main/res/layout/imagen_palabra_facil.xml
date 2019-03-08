@@ -25,7 +25,7 @@
                 android:background="@drawable/background_transparent"
                 android:contentDescription="@string/home_btn"
                 android:onClick="volverAPantallaPrincipal"
-                app:srcCompat="@drawable/home_regular" />
+                app:srcCompat="@drawable/home_button" />
 
         </LinearLayout>
 
@@ -100,7 +100,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/audio_regular" />
+                    android:contentDescription="@string/audio_btn"
+                    android:src="@drawable/audio_button" />
 
             </LinearLayout>
             <!-- col 1 end -->
@@ -127,7 +128,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/audio_regular" />
+                    android:contentDescription="@string/audio_btn"
+                    android:src="@drawable/audio_button" />
 
             </LinearLayout>
             <!-- col 2 end -->

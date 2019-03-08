@@ -39,7 +39,7 @@ tools:showIn="@layout/activity_mini_juego_razay_pelaje_ganado">
             android:background="@drawable/background_transparent"
             android:contentDescription="@string/home_btn"
             android:onClick="irAInicio"
-            app:srcCompat="@drawable/home_regular" />
+            app:srcCompat="@drawable/home_button" />
 
     </LinearLayout>
 

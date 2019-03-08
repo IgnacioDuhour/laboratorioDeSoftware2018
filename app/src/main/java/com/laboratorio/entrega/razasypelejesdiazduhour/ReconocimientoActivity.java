@@ -1,6 +1,5 @@
 package com.laboratorio.entrega.razasypelejesdiazduhour;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,8 +16,7 @@ public abstract class ReconocimientoActivity extends AppCompatActivity {
         Propósito: Evento del boton volver que regresa a la pantalla de Principal (MainActivity)
     */
     public void volver(View view) {
-        Intent i = new Intent(ReconocimientoActivity.this, MainActivity.class);
-        startActivity(i);
+        finish();
     }
 
     protected int ubicacionDeImagenDeCaballoPorNombre(String nombre) {

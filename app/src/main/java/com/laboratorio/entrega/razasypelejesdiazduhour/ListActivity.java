@@ -112,7 +112,7 @@ public class ListActivity extends ReconocimientoActivity {
         SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
         String femenino = preferences.getString("audio", "Femenina");
         ImageButton iB = new ImageButton(getApplicationContext());
-        iB.setImageResource(R.drawable.audio_regular);
+        iB.setImageResource(R.drawable.audio_button);
         iB.setBackgroundColor(Color.TRANSPARENT);
         iB.setMaxWidth(101);
         iB.setMaxHeight(79);

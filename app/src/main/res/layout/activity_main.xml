@@ -35,7 +35,7 @@
                 android:layout_height="89dp"
                 android:background="@drawable/background_transparent"
                 android:contentDescription="@string/about_button"
-                app:srcCompat="@drawable/info_regular" />
+                app:srcCompat="@drawable/about_button" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -52,7 +52,7 @@
                 android:background="@drawable/background_transparent"
                 android:contentDescription="@string/settings_button"
                 android:onClick="settings"
-                app:srcCompat="@drawable/config_regular" />
+                app:srcCompat="@drawable/settings_button" />
         </LinearLayout>
 
         <LinearLayout
@@ -81,6 +81,7 @@
             android:gravity="bottom|center"
             android:orientation="horizontal"
             android:weightSum="3">
+
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="240dp"
@@ -106,7 +107,7 @@
                     android:background="@drawable/background_transparent"
                     android:contentDescription="@string/app_minijuego"
                     android:onClick="miniJuego"
-                    materialdesign:srcCompat="@drawable/jugar_regular" />
+                    app:srcCompat="@drawable/jugar_button" />
 
                 <ImageButton
                     android:id="@+id/imageButton4"
@@ -117,7 +118,7 @@
                     android:background="@drawable/background_transparent"
                     android:contentDescription="@string/app_reconocimiento"
                     android:onClick="playRecognitionMode"
-                    materialdesign:srcCompat="@drawable/reconocimiento_regular" />
+                    materialdesign:srcCompat="@drawable/rec_button" />
             </LinearLayout>
 
             <ImageView

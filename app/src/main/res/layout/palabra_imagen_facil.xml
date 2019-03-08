@@ -25,7 +25,7 @@
                 android:background="@drawable/background_transparent"
                 android:contentDescription="@string/home_btn"
                 android:onClick="volverAPantallaPrincipal"
-                app:srcCompat="@drawable/home_regular" />
+                app:srcCompat="@drawable/home_button" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,7 +75,8 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
-                android:src="@drawable/audio_regular" />
+                android:contentDescription="@string/audio_btn"
+                android:src="@drawable/audio_button" />
         </LinearLayout>
         <!-- row 2 end-->
         <!-- row 3 -->
@@ -83,7 +84,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="2"
+            android:baselineAligned="false">
             <!-- col 1 -->
             <LinearLayout
                 android:layout_width="0dp"

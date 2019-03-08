@@ -294,9 +294,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imageView.setBackgroundResource(R.drawable.border_green);
                 feedbackSonoroJugadaGanada();
-                //imageView.setBackgroundResource(R.drawable.background_transparent);
                 incrementarJugadaGanada();
                 SystemClock.sleep(3000);
                 cargarJugadaSiguiente();
@@ -327,9 +325,7 @@ public abstract class MiniJuegoActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imageView.setBackgroundResource(R.drawable.border_red);
                 feedbackSonoroJugadaNoGanada();
-                //imageView.setBackgroundResource(R.drawable.background_transparent);
                 SystemClock.sleep(3000);
                 cargarJugadaSiguiente();
             }
